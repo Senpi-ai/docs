@@ -1,0 +1,155 @@
+import InstallDependencies from "../../../../partial/_install_dependencies.mdx";
+import PreRequisites from "../../../../partial/_pre_requisites.mdx";
+import DeveloperSupport from "../../../../partial/_developer_support.mdx";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Get All Fan Tokens Owned By Users
+
+In this tutorial, you will learn how to get all the fan tokens owned by users by calling Moxie Protocol Subgraph API.
+
+<PreRequisites />
+
+<InstallDependencies />
+
+## Step 2: Construct The GraphQL Query
+
+Then, you can get all the fan tokens owned by users by calling the subgraph API with the following query:
+
+<Tabs>
+<TabItem value="query" label="Query">
+
+```graphql
+query MyQuery($userAddress: ID, $fanTokenAddress: String) {
+  users(where: { id: $userAddress }) {
+    portfolio(where: { subject: $fanTokenAddress }) {
+      balance
+      protocolTokenSpent
+      subject {
+        name
+        symbol
+      }
+    }
+  }
+}
+```
+
+</TabItem>
+<TabItem value="variable" label="Variable">
+
+```json
+{
+  "userAddress": "0x20e04003c2edfbca86300f6b2e6736142718dae3",
+  "fanTokenAddress": "0xf07fbe409a57c4cf896ed24c5a438058a7abe39c"
+}
+```
+
+</TabItem>
+<TabItem value="response" label="Response">
+
+```json
+{
+  "data": {
+    "users": [
+      {
+        "portfolio": [
+          {
+            "balance": "772821289221015894850",
+            "protocolTokenSpent": "500000000000000000000",
+            "subject": {
+              "name": "fid-3761",
+              "symbol": "fid-3761"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+## Step 3: Add The API Query To Your Code
+
+With this GraphQL query, you can add it to your source code and call the API with the `graphql-request` library:
+
+<Tabs>
+<TabItem value="grapqhl_ts" label="graphql-request (TS)">
+
+```tsx
+import { gql, GraphQLClient } from "graphql-request";
+
+const query = gql`
+  query MyQuery($userAddress: ID, $fanTokenAddress: String) {
+    users(where: { id: $userAddress }) {
+      portfolio(where: { subject: $fanTokenAddress }) {
+        balance
+        protocolTokenSpent
+        subject {
+          name
+          symbol
+        }
+      }
+    }
+  }
+`;
+
+const graphQLClient = new GraphQLClient(
+  "https://api.studio.thegraph.com/proxy/27864/protocol/v3.1.9"
+);
+
+try {
+  const data = await graphQLClient.request(query, {
+    userAddress: "0x20e04003c2edfbca86300f6b2e6736142718dae3",
+    fanTokenAddress: "0xf07fbe409a57c4cf896ed24c5a438058a7abe39c",
+  });
+  console.log(data);
+} catch (e) {
+  throw new Error(e);
+}
+```
+
+</TabItem>
+<TabItem value="graphql_js" label="graphql-request (JS)">
+
+```jsx
+const { gql, GraphQLClient } = require("graphql-request");
+
+const query = gql`
+  query MyQuery($userAddress: ID, $fanTokenAddress: String) {
+    users(where: { id: $userAddress }) {
+      portfolio(where: { subject: $fanTokenAddress }) {
+        balance
+        protocolTokenSpent
+        subject {
+          name
+          symbol
+        }
+      }
+    }
+  }
+`;
+
+const graphQLClient = new GraphQLClient(
+  "https://api.studio.thegraph.com/proxy/27864/protocol/v3.1.9"
+);
+
+try {
+  const data = await graphQLClient.request(query, {
+    userAddress: "0x20e04003c2edfbca86300f6b2e6736142718dae3",
+    fanTokenAddress: "0xf07fbe409a57c4cf896ed24c5a438058a7abe39c",
+  });
+  console.log(data);
+} catch (e) {
+  throw new Error(e);
+}
+```
+
+</TabItem>
+</Tabs>
+
+<DeveloperSupport />
+
+## Next Steps

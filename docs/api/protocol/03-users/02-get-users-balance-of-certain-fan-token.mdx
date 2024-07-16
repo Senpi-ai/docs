@@ -1,11 +1,12 @@
 import InstallDependencies from "../../../../partial/_install_dependencies.mdx";
 import PreRequisites from "../../../../partial/_pre_requisites.mdx";
+import DeveloperSupport from "../../../../partial/_developer_support.mdx";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-# Get User's Buy Orders
+# Get Users's Balance Of Certain Fan Token
 
-In this tutorial, you will learn how to get the user's buy orders on the Moxie protocol by calling Moxie Protocol Subgraph API.
+In this tutorial, you will learn how to get the user's balance of a certain fan token on the Moxie protocol by calling the Moxie Protocol Subgraph API.
 
 <PreRequisites />
 
@@ -90,7 +91,7 @@ query MyQuery($userAddress: ID) {
 With this GraphQL query, you can add it to your source code:
 
 <Tabs>
-<TabItem value="grapqhl_ts" label="graphql (TS)">
+<TabItem value="grapqhl_ts" label="graphql-request (TS)">
 
 ```tsx
 import { gql, GraphQLClient } from "graphql-request";
@@ -125,8 +126,7 @@ const graphQLClient = new GraphQLClient(
 );
 
 try {
-  const fid = 2;
-  const data: FcChannelParticipantsQuery = await graphQLClient.request(query, {
+  const data = await graphQLClient.request(query, {
     userAddress: "0x20e04003c2edfbca86300f6b2e6736142718dae3",
   });
   console.log(data);
@@ -136,7 +136,7 @@ try {
 ```
 
 </TabItem>
-<TabItem value="graphql_js" label="graphql (JS)">
+<TabItem value="graphql_js" label="graphql-request (JS)">
 
 ```jsx
 
@@ -145,8 +145,6 @@ try {
 </TabItem>
 </Tabs>
 
-## Developer Support
-
-If you have any questions or need help regarding any features from Farcaster Channel Mods, please join our ....
+<DeveloperSupport />
 
 ## Next Steps

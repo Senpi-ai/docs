@@ -1,5 +1,5 @@
 ---
-description: Learn how to use the Moxie Protocol Subgraph API to get all the sell transactions on the Moxie bonding curves.
+description: Learn how to use the Moxie Protocol Subgraph API to get all the Moxie transfers from the vault contract received by a certain user on the Moxie protocol.
 ---
 
 import InstallDependencies from "../../../../partial/_install_dependencies.mdx";
@@ -8,9 +8,9 @@ import DeveloperSupport from "../../../../partial/_developer_support.mdx";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-# Get All Sell Transactions On The Bonding Curves
+# Get Transfers From Vault Received By Certain User
 
-In this tutorial, you will learn how to get all the sell transactions on the Moxie bonding curves by calling the Moxie Protocol Subgraph API.
+In this tutorial, you will learn how to get all the Moxie transfers from the vault contract received by a certain user on the Moxie protocol by calling the Moxie Protocol Subgraph API.
 
 <PreRequisites />
 
@@ -18,20 +18,19 @@ In this tutorial, you will learn how to get all the sell transactions on the Mox
 
 ## Step 2: Construct The GraphQL Query
 
-Then, you can get all the purchase transactions on the Moxie bonding curves within a certain time range by calling the subgraph API with the following query:
+Then, you can get all the Moxie transfers from the vault contract received by a certain user on the Moxie protocol by calling the subgraph API with the following query:
 
 <Tabs>
 <TabItem value="query" label="Query">
 
 ```graphql
-query MyQuery {
-  moxieBondingCurveSubjectShareSoldTxes {
-    beneficiary
-    buyAmount
-    buyToken
+query MyQuery($receiver: Bytes) {
+  vaultTransferTxes(where: { to: $receiver }) {
+    amount
+    to
     subject
-    sellAmount
-    sellToken
+    token
+    totalReserve
     txHash
     blockInfo {
       blockNumber
@@ -47,8 +46,7 @@ query MyQuery {
 
 ```json
 {
-  "startTime": "1721040000",
-  "endTime": "1721050000"
+  "receiver": "0x0f0ecb17575c232077075ef9d78fc9afad808b4d"
 }
 ```
 
@@ -58,14 +56,13 @@ query MyQuery {
 ```json
 {
   "data": {
-    "moxieBondingCurveSubjectShareSoldTxes": [
+    "vaultTransferTxes": [
       {
-        "beneficiary": "0x20e04003c2edfbca86300f6b2e6736142718dae3",
-        "buyAmount": "444962989703525653824",
-        "buyToken": "0xf80945fc1436b0ae8b86c8835f09870deeaf03d5",
-        "subject": "0x67fb7ef3c65ba4b938fefadb883b5730734aafa8",
-        "sellAmount": "270000000000000000000",
-        "sellToken": "0xf07fbe409a57c4cf896ed24c5a438058a7abe39c",
+        "amount": "444962989703525653824",
+        "to": "0x0f0ecb17575c232077075ef9d78fc9afad808b4d",
+        "subject": "0xf07fbe409a57c4cf896ed24c5a438058a7abe39c",
+        "token": "0xf80945fc1436b0ae8b86c8835f09870deeaf03d5",
+        "totalReserve": "1062954420051751294643",
         "txHash": "0x25e098a6410bac83ed50d995c730bd4100004342b7ade456b1463a9a0390ce91",
         "blockInfo": {
           "blockNumber": "12639987",
@@ -92,14 +89,13 @@ With this GraphQL query, you can add it to your source code:
 import { gql, GraphQLClient } from "graphql-request";
 
 const query = gql`
-  query MyQuery {
-    moxieBondingCurveSubjectShareSoldTxes {
-      beneficiary
-      buyAmount
-      buyToken
+  query MyQuery($receiver: Bytes) {
+    vaultTransferTxes(where: { to: $receiver }) {
+      amount
+      to
       subject
-      sellAmount
-      sellToken
+      token
+      totalReserve
       txHash
       blockInfo {
         blockNumber
@@ -116,8 +112,7 @@ const graphQLClient = new GraphQLClient(
 
 try {
   const data = await graphQLClient.request(query, {
-    startTime: "1721040000",
-    endTime: "1721050000",
+    receiver: "0x0f0ecb17575c232077075ef9d78fc9afad808b4d",
   });
   console.log(data);
 } catch (e) {
@@ -132,14 +127,13 @@ try {
 const { gql, GraphQLClient } = require("graphql-request");
 
 const query = gql`
-  query MyQuery {
-    moxieBondingCurveSubjectShareSoldTxes {
-      beneficiary
-      buyAmount
-      buyToken
+  query MyQuery($receiver: Bytes) {
+    vaultTransferTxes(where: { to: $receiver }) {
+      amount
+      to
       subject
-      sellAmount
-      sellToken
+      token
+      totalReserve
       txHash
       blockInfo {
         blockNumber
@@ -156,8 +150,7 @@ const graphQLClient = new GraphQLClient(
 
 try {
   const data = await graphQLClient.request(query, {
-    startTime: "1721040000",
-    endTime: "1721050000",
+    receiver: "0x0f0ecb17575c232077075ef9d78fc9afad808b4d",
   });
   console.log(data);
 } catch (e) {

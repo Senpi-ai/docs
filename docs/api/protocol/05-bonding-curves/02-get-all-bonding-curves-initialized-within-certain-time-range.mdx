@@ -1,5 +1,5 @@
 ---
-description: Learn how to use the Moxie Protocol Subgraph API to get all the protocol fee transfers on the Moxie protocol within a certain time range.
+description: Learn how to use the Moxie Protocol Subgraph API to get all the bonding curves initialized on the Moxie protocol within a certain time range.
 ---
 
 import InstallDependencies from "../../../../partial/_install_dependencies.mdx";
@@ -8,39 +8,38 @@ import DeveloperSupport from "../../../../partial/_developer_support.mdx";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-# Get All Protocol Fee Transfers Within Certain Time Range
+# Get All Bonding Curves Initialized Within Certain Time Range
 
-In this tutorial, you will learn how to get all the protocol fee transfers on the Moxie protocol within a certain time range by calling the Moxie Protocol Subgraph API.
-
-<InstallDependencies />
+In this tutorial, you will learn how to get all the bonding curves initialized on the Moxie protocol within a certain time range by calling the Moxie Protocol Subgraph API.
 
 <PreRequisites />
 
+<InstallDependencies />
+
 ## Step 2: Construct The GraphQL Query
 
-Then, you can get all the protocol fee transfers on the Moxie protocol by calling the subgraph API with the following query:
+Then, you can get all the bonding curves initialized by calling the subgraph API with the following query:
 
 <Tabs>
 <TabItem value="query" label="Query">
 
 ```graphql
 query MyQuery($startTime: BigInt, $endTime: BigInt) {
-  protocolFeeTransfers(
+  moxieBondingCurveBondingCurveInitializedTxes(
     where: {
       blockInfo_: { timestamp_gte: $startTime, timestamp_lte: $endTime }
     }
   ) {
-    amount
-    beneficiary {
-      beneficiary
-      totalFees
-    }
+    initialSupply
+    reserve
+    reserveRatio
+    subject
+    subjectToken
     txHash
-    order {
-      orderType
-    }
-    subject {
-      address: id
+    blockInfo {
+      blockNumber
+      hash
+      timestamp
     }
   }
 }
@@ -62,19 +61,18 @@ query MyQuery($startTime: BigInt, $endTime: BigInt) {
 ```json
 {
   "data": {
-    "protocolFeeTransfers": [
+    "moxieBondingCurveBondingCurveInitializedTxes": [
       {
-        "amount": "26561940000000000000000",
-        "beneficiary": {
-          "beneficiary": "0x648e7e89a70ef654b5754e9eb91bf931a477e3cd",
-          "totalFees": "263686938800000000000000"
-        },
-        "txHash": "0x0065d3f3246d5e61781a1a5424c6686d247532167ce7214beffef38732dc9ed8",
-        "order": {
-          "orderType": "BUY"
-        },
-        "subject": {
-          "address": "0x19c12518e708f9c7b7513578f8c5a4797f6c8df7"
+        "initialSupply": "1000001999996000007999",
+        "reserve": "500002000000000000000000",
+        "reserveRatio": "660000",
+        "subject": "0x3e0ea0e39dc5af19d5fd53b2628899b53ce3497b",
+        "subjectToken": "0x19c12518e708f9c7b7513578f8c5a4797f6c8df7",
+        "txHash": "0x089634cb0eb1fd87094b6c0e3c7976b8fe0db7dec7e32db82c13a59148456f70",
+        "blockInfo": {
+          "blockNumber": "12431714",
+          "hash": "0x188703625a362e24b1a20a634aad331dbb42b737647604967416ba1be4f7f3a8",
+          "timestamp": "1720631716"
         }
       }
     ]
@@ -97,22 +95,21 @@ import { gql, GraphQLClient } from "graphql-request";
 
 const query = gql`
   query MyQuery($startTime: BigInt, $endTime: BigInt) {
-    protocolFeeTransfers(
+    moxieBondingCurveBondingCurveInitializedTxes(
       where: {
         blockInfo_: { timestamp_gte: $startTime, timestamp_lte: $endTime }
       }
     ) {
-      amount
-      beneficiary {
-        beneficiary
-        totalFees
-      }
+      initialSupply
+      reserve
+      reserveRatio
+      subject
+      subjectToken
       txHash
-      order {
-        orderType
-      }
-      subject {
-        address: id
+      blockInfo {
+        blockNumber
+        hash
+        timestamp
       }
     }
   }
@@ -141,22 +138,21 @@ const { gql, GraphQLClient } = require("graphql-request");
 
 const query = gql`
   query MyQuery($startTime: BigInt, $endTime: BigInt) {
-    protocolFeeTransfers(
+    moxieBondingCurveBondingCurveInitializedTxes(
       where: {
         blockInfo_: { timestamp_gte: $startTime, timestamp_lte: $endTime }
       }
     ) {
-      amount
-      beneficiary {
-        beneficiary
-        totalFees
-      }
+      initialSupply
+      reserve
+      reserveRatio
+      subject
+      subjectToken
       txHash
-      order {
-        orderType
-      }
-      subject {
-        address: id
+      blockInfo {
+        blockNumber
+        hash
+        timestamp
       }
     }
   }

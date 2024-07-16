@@ -23,6 +23,7 @@ const config: Config = {
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
+  onBrokenAnchors: "warn",
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -67,12 +68,12 @@ const config: Config = {
         src: "img/logo.avif",
       },
       items: [
-        {
-          type: "docSidebar",
-          sidebarId: "conceptsSidebar",
-          position: "left",
-          label: "Concepts",
-        },
+        // {
+        //   type: "docSidebar",
+        //   sidebarId: "conceptsSidebar",
+        //   position: "left",
+        //   label: "Concepts",
+        // },
         {
           type: "dropdown",
           position: "left",
@@ -100,24 +101,24 @@ const config: Config = {
             },
           ],
         },
-        {
-          type: "dropdown",
-          position: "left",
-          label: "Contracts",
-          items: [
-            {
-              type: "doc",
-              label: "Protocol Contracts",
-              docId: "contract/protocol/index",
-            },
-            {
-              type: "doc",
-              label: "Token Distribution Contracts",
-              docId: "contract/token-distribution/index",
-            },
-          ],
-        },
-        { to: "/blog", label: "Blog", position: "left" },
+        // {
+        //   type: "dropdown",
+        //   position: "left",
+        //   label: "Contracts",
+        //   items: [
+        //     {
+        //       type: "doc",
+        //       label: "Protocol Contracts",
+        //       docId: "contract/protocol/index",
+        //     },
+        //     {
+        //       type: "doc",
+        //       label: "Token Distribution Contracts",
+        //       docId: "contract/token-distribution/index",
+        //     },
+        //   ],
+        // },
+        // { to: "/blog", label: "Blog", position: "left" },
         {
           href: "https://github.com/facebook/docusaurus",
           position: "right",

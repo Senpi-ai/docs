@@ -1,3 +1,7 @@
+---
+description: Learn how to use the Moxie Protocol Subgraph API to get the user's sell orders.
+---
+
 import InstallDependencies from "../../../../partial/_install_dependencies.mdx";
 import PreRequisites from "../../../../partial/_pre_requisites.mdx";
 import DeveloperSupport from "../../../../partial/_developer_support.mdx";
@@ -11,6 +15,8 @@ In this tutorial, you will learn how to get the user's sell orders on the Moxie 
 <PreRequisites />
 
 <InstallDependencies />
+
+## Step 2: Construct The GraphQL Query
 
 Then, you can get the user's sell orders by calling the subgraph API with the following query:
 
@@ -45,7 +51,7 @@ query MyQuery($userAddress: ID) {
 </TabItem>
 <TabItem value="variable" label="Variable">
 
-```jsx
+```json
 {
   "userAddress": "0x20e04003c2edfbca86300f6b2e6736142718dae3"
 }
@@ -54,7 +60,7 @@ query MyQuery($userAddress: ID) {
 </TabItem>
 <TabItem value="response" label="Response">
 
-```jsx
+```json
 {
   "data": {
     "users": [
@@ -87,6 +93,8 @@ query MyQuery($userAddress: ID) {
 
 </TabItem>
 </Tabs>
+
+## Step 3: Add The API Query To Your Code
 
 With this GraphQL query, you can add it to your source code:
 

@@ -1,5 +1,5 @@
 ---
-description: Learn how to use the Moxie Protocol Subgraph API to get all fan tokens owned by users.
+description: Learn how to use the Moxie Protocol Subgraph API to get all the holders of a certain fan token.
 ---
 
 import InstallDependencies from "../../../../partial/_install_dependencies.mdx";
@@ -8,9 +8,9 @@ import DeveloperSupport from "../../../../partial/_developer_support.mdx";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-# Get All Fan Tokens Owned By Users
+# Get Holders Of Certain Fan Token
 
-In this tutorial, you will learn how to get all the fan tokens owned by users by calling the Moxie Protocol Subgraph API.
+In this tutorial, you will learn how to get all the holders of a certain fan token by calling the Moxie Protocol Subgraph API.
 
 <PreRequisites />
 
@@ -18,21 +18,16 @@ In this tutorial, you will learn how to get all the fan tokens owned by users by
 
 ## Step 2: Construct The GraphQL Query
 
-Then, you can get all the fan tokens owned by users by calling the subgraph API with the following query:
+Then, you can get all the holders of a certain fan token by calling the subgraph API with the following query:
 
 <Tabs>
 <TabItem value="query" label="Query">
 
 ```graphql
-query MyQuery($userAddress: ID) {
-  users(where: { id: $userAddress }) {
-    portfolio {
-      balance
-      protocolTokenSpent
-      subject {
-        name
-        symbol
-      }
+query MyQuery($fanTokenAddress: ID) {
+  subjects(where: { id: $fanTokenAddress }) {
+    holders {
+      id
     }
   }
 }
@@ -43,8 +38,7 @@ query MyQuery($userAddress: ID) {
 
 ```json
 {
-  "userAddress": "0x20e04003c2edfbca86300f6b2e6736142718dae3",
-  "fanTokenAddress": "0xf07fbe409a57c4cf896ed24c5a438058a7abe39c"
+  "fanTokenAddress": "0x035eb3b4230b980723c71d3c09d6561824f1610b"
 }
 ```
 
@@ -54,16 +48,17 @@ query MyQuery($userAddress: ID) {
 ```json
 {
   "data": {
-    "users": [
+    "subjects": [
       {
-        "portfolio": [
+        "holders": [
           {
-            "balance": "772821289221015894850",
-            "protocolTokenSpent": "500000000000000000000",
-            "subject": {
-              "name": "fid-3761",
-              "symbol": "fid-3761"
-            }
+            "id": "0x28e8a1817af21d39d6820fd930fde618e03d4d8d"
+          },
+          {
+            "id": "0x3199219bda5dbc9ee45bb3dfad180be56a7ebfd0"
+          },
+          {
+            "id": "0xe665cebf6111b6bcd8b84538d31f4048666b489a"
           }
         ]
       }
@@ -77,7 +72,7 @@ query MyQuery($userAddress: ID) {
 
 ## Step 3: Add The API Query To Your Code
 
-With this GraphQL query, you can add it to your source code and call the API with the `graphql-request` library:
+With this GraphQL query, you can add it to your source code:
 
 <Tabs>
 <TabItem value="grapqhl_ts" label="graphql-request (TS)">
@@ -86,15 +81,10 @@ With this GraphQL query, you can add it to your source code and call the API wit
 import { gql, GraphQLClient } from "graphql-request";
 
 const query = gql`
-  query MyQuery($userAddress: ID) {
-    users(where: { id: $userAddress }) {
-      portfolio {
-        balance
-        protocolTokenSpent
-        subject {
-          name
-          symbol
-        }
+  query MyQuery($fanTokenAddress: ID) {
+    subjects(where: { id: $fanTokenAddress }) {
+      holders {
+        id
       }
     }
   }
@@ -106,7 +96,7 @@ const graphQLClient = new GraphQLClient(
 
 try {
   const data = await graphQLClient.request(query, {
-    userAddress: "0x20e04003c2edfbca86300f6b2e6736142718dae3",
+    fanTokenAddress: "0x035eb3b4230b980723c71d3c09d6561824f1610b",
   });
   console.log(data);
 } catch (e) {
@@ -121,15 +111,10 @@ try {
 const { gql, GraphQLClient } = require("graphql-request");
 
 const query = gql`
-  query MyQuery($userAddress: ID) {
-    users(where: { id: $userAddress }) {
-      portfolio {
-        balance
-        protocolTokenSpent
-        subject {
-          name
-          symbol
-        }
+  query MyQuery($fanTokenAddress: ID) {
+    subjects(where: { id: $fanTokenAddress }) {
+      holders {
+        id
       }
     }
   }
@@ -141,7 +126,7 @@ const graphQLClient = new GraphQLClient(
 
 try {
   const data = await graphQLClient.request(query, {
-    userAddress: "0x20e04003c2edfbca86300f6b2e6736142718dae3",
+    fanTokenAddress: "0x035eb3b4230b980723c71d3c09d6561824f1610b",
   });
   console.log(data);
 } catch (e) {
@@ -153,5 +138,3 @@ try {
 </Tabs>
 
 <DeveloperSupport />
-
-## Next Steps

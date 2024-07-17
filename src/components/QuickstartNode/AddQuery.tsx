@@ -4,7 +4,6 @@ import CodeBlock from "@theme/CodeBlock";
 
 const AddQuery = (props) => {
   const { query, subgraphLink, apiName } = props ?? {};
-  console.log(query);
   return (
     <>
       <p>

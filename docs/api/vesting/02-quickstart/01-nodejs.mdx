@@ -1,0 +1,69 @@
+---
+description: Learn how to integrate the Moxie Vesting Subgraph into your Node.js project in less than 5 minutes.
+---
+
+import Header from "../../../../src/components/QuickstartNode/Header";
+import SetupProject from "../../../../src/components/QuickstartNode/SetupProject";
+import Prerequisites from "../../../../src/components/QuickstartNode/Prerequisites";
+import AddQuery from "../../../../src/components/QuickstartNode/AddQuery";
+import ExecuteCode from "../../../../src/components/QuickstartNode/ExecuteCode";
+import DeveloperSupport from "../../../../partial/_developer_support.mdx";
+
+# Node.js
+
+<Header
+  apiName="Moxie Vesting Subgraph"
+  dataSource="the Moxie protocol vesting contract"
+  dataFetch="token managers"
+/>
+
+## Pre-requisites
+
+<Prerequisites />
+
+## Step 1: Setup Node.js project
+
+<SetupProject />
+
+## Step 2: Add Query Call To The Code
+
+<AddQuery
+  query={
+    /* GraphQL*/ `query MyQuery {
+    tokenManagers {
+      id
+      masterCopy
+      moxiePassToken
+      tokenDestinations
+      tokenLockCount
+      tokens
+    }
+  }`
+  }
+  subgraphLink="https://api.studio.thegraph.com/query/82737/vesting/v4.2"
+  apiName="Moxie Protocol Subgraph"
+/>
+
+## Step 3: Execute The Code
+
+<ExecuteCode
+  result={`{
+  data: {
+    tokenManagers: [
+      {
+        id: "0xe8b58db33fce7d7d729462bd4908327d067bddfa",
+        masterCopy: "0x454834d526ba7110b42a8fa141f3c3f66af689ec",
+        moxiePassToken: "0x9ca26ebed5921e1297df490ad28eafb95fa63ac9",
+        tokenDestinations: [
+          "0x28e8a1817af21d39d6820fd930fde618e03d4d8d",
+          "0x0f0ecb17575c232077075ef9d78fc9afad808b4d",
+        ],
+        tokenLockCount: "5513",
+        tokens: "586435586999999999999990000"
+      }
+    ]
+  }
+}`}
+/>
+
+<DeveloperSupport message="integrating the vesting subgraph to your project" />

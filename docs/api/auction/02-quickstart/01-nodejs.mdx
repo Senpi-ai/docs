@@ -1,0 +1,60 @@
+---
+description: Learn how to integrate the Moxie Auction Subgraph into your Node.js project in less than 5 minutes.
+---
+
+import Header from "../../../../src/components/QuickstartNode/Header";
+import SetupProject from "../../../../src/components/QuickstartNode/SetupProject";
+import Prerequisites from "../../../../src/components/QuickstartNode/Prerequisites";
+import AddQuery from "../../../../src/components/QuickstartNode/AddQuery";
+import ExecuteCode from "../../../../src/components/QuickstartNode/ExecuteCode";
+import DeveloperSupport from "../../../../partial/_developer_support.mdx";
+
+# Node.js
+
+<Header
+  apiName="Moxie Auction Subgraph"
+  dataSource="the Moxie protocol auction contract"
+  dataFetch="Moxie protocol auction summary"
+/>
+
+## Pre-requisites
+
+<Prerequisites />
+
+## Step 1: Setup Node.js project
+
+<SetupProject />
+
+## Step 2: Add Query Call To The Code
+
+<AddQuery
+  query={
+    /* GraphQL*/ `query MyQuery {
+    summaries {
+      totalAuctions
+      totalBiddingValue
+      totalOrders
+    }
+  }`
+  }
+  subgraphLink="https://api.studio.thegraph.com/proxy/82737/auction/v.4.0.6"
+  apiName="Moxie Auction Subgraph"
+/>
+
+## Step 3: Execute The Code
+
+<ExecuteCode
+  result={`{
+  "data": {
+    "summaries": [
+      {
+        "totalAuctions": "41",
+        "totalBiddingValue": "543157600000000000000000",
+        "totalOrders": "65"
+      }
+    ]
+  }
+}`}
+/>
+
+<DeveloperSupport message="integrating the auction subgraph to your project" />

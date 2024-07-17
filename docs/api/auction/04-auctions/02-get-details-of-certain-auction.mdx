@@ -1,0 +1,196 @@
+---
+description: Learn how to use the Moxie Auction Subgraph API to get details of a certain auction.
+---
+
+import InstallDependencies from "../../../../partial/_install_dependencies.mdx";
+import PreRequisites from "../../../../partial/_pre_requisites.mdx";
+import DeveloperSupport from "../../../../partial/_developer_support.mdx";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Get Details Of Certain Auction
+
+In this tutorial, you will learn how to get details of a certain auction by calling the Moxie Auction Subgraph API.
+
+<PreRequisites />
+
+<InstallDependencies />
+
+## Step 2: Construct The GraphQL Query
+
+Then, you can get details of a certain auction by calling the subgraph API with the following query:
+
+<Tabs>
+<TabItem value="query" label="Query">
+
+```graphql
+query MyQuery($auctionId: BigInt!) {
+  auctionDetails(where: { auctionId: $auctionId }) {
+    auctionId
+    allowListManager
+    allowListSigner
+    auctionEndDate
+    currentBiddingAmount
+    currentClearingOrderBuyAmount
+    currentClearingOrderSellAmount
+    currentClearingPrice
+    currentVolume
+    interestScore
+    isAtomicClosureAllowed
+    isCleared
+    isPrivateAuction
+    minFundingThreshold
+    minimumBiddingAmountPerOrder
+    orderCancellationEndDate
+    startingTimeStamp
+    totalOrders
+    txHash
+    uniqueBidders
+  }
+}
+```
+
+</TabItem>
+<TabItem value="variable" label="Variable">
+
+```json
+{
+  "auctionId": "1"
+}
+```
+
+</TabItem>
+<TabItem value="response" label="Response">
+
+```json
+{
+  "data": {
+    "auctionDetails": [
+      {
+        "auctionId": "1",
+        "allowListManager": "0x7e6dd7ee0cd8a395b8ed5b21d8c40535cc1d4640",
+        "allowListSigner": "0x",
+        "auctionEndDate": "1720257100",
+        "currentBiddingAmount": "111000000000000000000",
+        "currentClearingOrderBuyAmount": "1000000000000000000000",
+        "currentClearingOrderSellAmount": "1000000000000000000000",
+        "currentClearingPrice": "1",
+        "currentVolume": "111000000000000000000",
+        "interestScore": "111",
+        "isAtomicClosureAllowed": false,
+        "isCleared": false,
+        "isPrivateAuction": true,
+        "minFundingThreshold": "0",
+        "minimumBiddingAmountPerOrder": "100000000000000000000",
+        "orderCancellationEndDate": "1720257099",
+        "startingTimeStamp": "1720255300",
+        "totalOrders": "1",
+        "txHash": "0x031e467c48cfdfac9fffeee6edfd10135c27748ad304ef14c9062ce4381031f5",
+        "uniqueBidders": "1"
+      }
+    ]
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+## Step 3: Add The API Query To Your Code
+
+With this GraphQL query, you can add it to your source code and call the API with the `graphql-request` library:
+
+<Tabs>
+<TabItem value="grapqhl_ts" label="graphql-request (TS)">
+
+```tsx
+import { gql, GraphQLClient } from "graphql-request";
+
+const query = gql`
+  query MyQuery($auctionId: BigInt!) {
+    auctionDetails(where: { auctionId: $auctionId }) {
+      auctionId
+      allowListManager
+      allowListSigner
+      auctionEndDate
+      currentBiddingAmount
+      currentClearingOrderBuyAmount
+      currentClearingOrderSellAmount
+      currentClearingPrice
+      currentVolume
+      interestScore
+      isAtomicClosureAllowed
+      isCleared
+      isPrivateAuction
+      minFundingThreshold
+      minimumBiddingAmountPerOrder
+      orderCancellationEndDate
+      startingTimeStamp
+      totalOrders
+      txHash
+      uniqueBidders
+    }
+  }
+`;
+
+const graphQLClient = new GraphQLClient(
+  "https://api.studio.thegraph.com/proxy/27864/auction/v3.4.3"
+);
+
+try {
+  const data = await graphQLClient.request(query);
+  console.log(data);
+} catch (e) {
+  throw new Error(e);
+}
+```
+
+</TabItem>
+<TabItem value="graphql_js" label="graphql-request (JS)">
+
+```jsx
+const { gql, GraphQLClient } = require("graphql-request");
+
+const query = gql`
+  query MyQuery($auctionId: BigInt!) {
+    auctionDetails(where: { auctionId: $auctionId }) {
+      auctionId
+      allowListManager
+      allowListSigner
+      auctionEndDate
+      currentBiddingAmount
+      currentClearingOrderBuyAmount
+      currentClearingOrderSellAmount
+      currentClearingPrice
+      currentVolume
+      interestScore
+      isAtomicClosureAllowed
+      isCleared
+      isPrivateAuction
+      minFundingThreshold
+      minimumBiddingAmountPerOrder
+      orderCancellationEndDate
+      startingTimeStamp
+      totalOrders
+      txHash
+      uniqueBidders
+    }
+  }
+`;
+
+const graphQLClient = new GraphQLClient(
+  "https://api.studio.thegraph.com/proxy/27864/auction/v3.4.3"
+);
+
+try {
+  const data = await graphQLClient.request(query);
+  console.log(data);
+} catch (e) {
+  throw new Error(e);
+}
+```
+
+</TabItem>
+</Tabs>
+
+<DeveloperSupport />

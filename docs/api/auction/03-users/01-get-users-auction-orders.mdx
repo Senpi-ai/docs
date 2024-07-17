@@ -1,5 +1,5 @@
 ---
-description: Learn how to use the Moxie Protocol Subgraph API to get all fan tokens owned by users.
+description: Learn how to use the Moxie Auction Subgraph API to get user's auction orders.
 ---
 
 import InstallDependencies from "../../../../partial/_install_dependencies.mdx";
@@ -8,9 +8,9 @@ import DeveloperSupport from "../../../../partial/_developer_support.mdx";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-# Get All Fan Tokens Owned By Users
+# Get User's Auction Orders
 
-In this tutorial, you will learn how to get all the fan tokens owned by users by calling the Moxie Protocol Subgraph API.
+In this tutorial, you will learn how to get the user's auction orders by calling the Moxie Auction Subgraph API.
 
 <PreRequisites />
 
@@ -18,21 +18,21 @@ In this tutorial, you will learn how to get all the fan tokens owned by users by
 
 ## Step 2: Construct The GraphQL Query
 
-Then, you can get all the fan tokens owned by users by calling the subgraph API with the following query:
+Then, you can get the user's auction orders by calling the subgraph API with the following query:
 
 <Tabs>
 <TabItem value="query" label="Query">
 
 ```graphql
-query MyQuery($userAddress: ID) {
-  users(where: { id: $userAddress }) {
-    portfolio {
-      balance
-      protocolTokenSpent
-      subject {
-        name
-        symbol
-      }
+query MyQuery($userAddress: Bytes!) {
+  users(where: { address: $userAddress }) {
+    orders {
+      buyAmount
+      sellAmount
+      price
+      status
+      timestamp
+      txHash
     }
   }
 }
@@ -43,8 +43,7 @@ query MyQuery($userAddress: ID) {
 
 ```json
 {
-  "userAddress": "0x20e04003c2edfbca86300f6b2e6736142718dae3",
-  "fanTokenAddress": "0xf07fbe409a57c4cf896ed24c5a438058a7abe39c"
+  "userAddress": "0x1a45675bd474c8e3056a7dbd19e738d7849c0d26"
 }
 ```
 
@@ -56,14 +55,14 @@ query MyQuery($userAddress: ID) {
   "data": {
     "users": [
       {
-        "portfolio": [
+        "orders": [
           {
-            "balance": "772821289221015894850",
-            "protocolTokenSpent": "500000000000000000000",
-            "subject": {
-              "name": "fid-3761",
-              "symbol": "fid-3761"
-            }
+            "buyAmount": "50000000000000000000",
+            "sellAmount": "100000000000000000000",
+            "price": "2",
+            "status": "Cancelled",
+            "timestamp": "1721122810",
+            "txHash": "0x0681eec905142e218f3feb45280f05164d3cfdc132ca59cc3bed05944ff60d9e"
           }
         ]
       }
@@ -86,27 +85,27 @@ With this GraphQL query, you can add it to your source code and call the API wit
 import { gql, GraphQLClient } from "graphql-request";
 
 const query = gql`
-  query MyQuery($userAddress: ID) {
-    users(where: { id: $userAddress }) {
-      portfolio {
-        balance
-        protocolTokenSpent
-        subject {
-          name
-          symbol
-        }
+  query MyQuery($userAddress: Bytes!) {
+    users(where: { address: $userAddress }) {
+      orders {
+        buyAmount
+        sellAmount
+        price
+        status
+        timestamp
+        txHash
       }
     }
   }
 `;
 
 const graphQLClient = new GraphQLClient(
-  "https://api.studio.thegraph.com/proxy/27864/protocol/v3.1.9"
+  "https://api.studio.thegraph.com/proxy/27864/auction/v3.4.3"
 );
 
 try {
   const data = await graphQLClient.request(query, {
-    userAddress: "0x20e04003c2edfbca86300f6b2e6736142718dae3",
+    userAddress: "0x1a45675bd474c8e3056a7dbd19e738d7849c0d26",
   });
   console.log(data);
 } catch (e) {
@@ -121,27 +120,27 @@ try {
 const { gql, GraphQLClient } = require("graphql-request");
 
 const query = gql`
-  query MyQuery($userAddress: ID) {
-    users(where: { id: $userAddress }) {
-      portfolio {
-        balance
-        protocolTokenSpent
-        subject {
-          name
-          symbol
-        }
+  query MyQuery($userAddress: Bytes!) {
+    users(where: { address: $userAddress }) {
+      orders {
+        buyAmount
+        sellAmount
+        price
+        status
+        timestamp
+        txHash
       }
     }
   }
 `;
 
 const graphQLClient = new GraphQLClient(
-  "https://api.studio.thegraph.com/proxy/27864/protocol/v3.1.9"
+  "https://api.studio.thegraph.com/proxy/27864/auction/v3.4.3"
 );
 
 try {
   const data = await graphQLClient.request(query, {
-    userAddress: "0x20e04003c2edfbca86300f6b2e6736142718dae3",
+    userAddress: "0x1a45675bd474c8e3056a7dbd19e738d7849c0d26",
   });
   console.log(data);
 } catch (e) {

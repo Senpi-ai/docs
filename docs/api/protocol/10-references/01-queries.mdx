@@ -260,55 +260,143 @@
 
 #### Arguments
 
+| Name            | Type                                                             | Default Value | Description       |
+| :-------------- | :--------------------------------------------------------------- | :------------ | :---------------- |
+| `block`         | [`Block_height`](./02-objects.mdx#block_height)                  |               | The block         |
+| `id`            | `ID!`                                                            |               | The id            |
+| `subgraphError` | [`_SubgraphErrorPolicy_!`](./04-enums.mdx#_subgrapherrorpolicy_) | `deny`        | The subgraphError |
+
 #### Response
+
+[`Portfolio`](./02-objects.mdx#portfolio)
 
 ## portfolios
 
 #### Arguments
 
+| Name             | Type                                                             | Default Value | Description        |
+| :--------------- | :--------------------------------------------------------------- | :------------ | :----------------- |
+| `block`          | [`Block_height`](./02-objects.mdx#block_height)                  |               | The block          |
+| `first`          | `Int`                                                            | 100           | The first          |
+| `orderBy`        | [`Portfolio_orderBy`](./04-enums.mdx#portfolio_orderby)          |               | The orderBy        |
+| `orderDirection` | [`OrderDirection`](./04-enums.mdx#orderdirection)                |               | The orderDirection |
+| `skip`           | `Int`                                                            | 0             | The skip           |
+| `subgraphError`  | [`_SubgraphErrorPolicy_!`](./04-enums.mdx#_subgrapherrorpolicy_) | `deny`        | The subgraphError  |
+| `where`          | [`Portfolio_filter`](./02-objects.mdx#portfolio_filter)          |               | The where          |
+
 #### Response
 
-## protocolBeneficiary
+[`[Portfolio!]!`](./02-objects.mdx#portfolio)
+
+## protocolFeeBeneficiary
 
 #### Arguments
 
+| Name            | Type                                                             | Default Value | Description                                |
+| :-------------- | :--------------------------------------------------------------- | :------------ | :----------------------------------------- |
+| `block`         | [`Block_height`](./02-objects.mdx#block_height)                  |               | The block when the beneficiary is updated. |
+| `id`            | `ID!`                                                            |               | The Protocol Beneficiary Id                |
+| `subgraphError` | [`_SubgraphErrorPolicy_!`](./04-enums.mdx#_subgrapherrorpolicy_) | `deny`        | The subgraphError                          |
+
 #### Response
 
-## protocolBeneficiaries
+[`ProtocolFeeBeneficiary`](./02-objects.mdx#protocolfeebeneficiary)
+
+## protocolFeeBeneficiaries
 
 #### Arguments
 
+| Name             | Type                                                                              | Default Value | Description                                                                        |
+| :--------------- | :-------------------------------------------------------------------------------- | :------------ | :--------------------------------------------------------------------------------- |
+| `block`          | [`Block_height`](./02-objects.mdx#block_height)                                   |               | The block details when the beneficiary is updated.                                 |
+| `first`          | `Int`                                                                             | 100           | Get the first X number of result                                                   |
+| `orderBy`        | [`ProtocolFeeBeneficiary_orderBy`](./04-enums.mdx#protocolfeebeneficiary_orderby) |               | Variable to order the result by                                                    |
+| `orderDirection` | [`OrderDirection`](./04-enums.mdx#orderdirection)                                 |               | The order direction, either ascending or descending                                |
+| `skip`           | `Int`                                                                             | 0             | Skip X number of result                                                            |
+| `subgraphError`  | [`_SubgraphErrorPolicy_!`](./04-enums.mdx#_subgrapherrorpolicy_)                  | `deny`        | The Subgraph Error policy, whether to return `data` or not when an error occurs.   |
+| `where`          | [`ProtocolBeneficiary_filter`](./02-objects.mdx#protocolfeebeneficiary_filter)    |               | The various filters to fetch specific data from Protocol Beneficiary transactions. |
+
 #### Response
+
+[`[ProtocolFeeBeneficiary!]!`](./02-objects.mdx#protocolfeebeneficiary)
 
 ## protocolFeeTransfer
 
 #### Arguments
 
+| Name            | Type                                                             | Default Value | Description                          |
+| :-------------- | :--------------------------------------------------------------- | :------------ | :----------------------------------- |
+| `block`         | [`Block_height`](./02-objects.mdx#block_height)                  |               | The block when the fees are updated. |
+| `id`            | `ID!`                                                            |               | The Protocol Fee Transfer Id         |
+| `subgraphError` | [`_SubgraphErrorPolicy_!`](./04-enums.mdx#_subgrapherrorpolicy_) | `deny`        | The subgraphError                    |
+
 #### Response
+
+[`ProtocolFeeTransfer`](./02-objects.mdx#protocolfeetransfer)
 
 ## protocolFeeTransfers
 
 #### Arguments
 
+| Name             | Type                                                                        | Default Value | Description                                                                         |
+| :--------------- | :-------------------------------------------------------------------------- | :------------ | :---------------------------------------------------------------------------------- |
+| `block`          | [`Block_height`](./02-objects.mdx#block_height)                             |               | The block details when the fees are updated.                                        |
+| `first`          | `Int`                                                                       | 100           | Get the first X number of result                                                    |
+| `orderBy`        | [`ProtocolFeeTransfer_orderBy`](./04-enums.mdx#protocolfeetransfer_orderby) |               | Variable to order the result by                                                     |
+| `orderDirection` | [`OrderDirection`](./04-enums.mdx#orderdirection)                           |               | The order direction, either ascending or descending                                 |
+| `skip`           | `Int`                                                                       | 0             | Skip X number of result                                                             |
+| `subgraphError`  | [`_SubgraphErrorPolicy_!`](./04-enums.mdx#_subgrapherrorpolicy_)            | `deny`        | The Subgraph Error policy, whether to return `data` or not when an error occurs.    |
+| `where`          | [`ProtocolFeeTransfer_filter`](./02-objects.mdx#protocolfeetransfer_filter) |               | The various filters to fetch specific data from Protocol Fee Transfer transactions. |
+
 #### Response
+
+[`[ProtocolFeeTransfer!]!`](./02-objects.mdx#protocolfeetransfer)
 
 ## subject
 
 #### Arguments
 
+| Name            | Type                                                             | Default Value | Description       |
+| :-------------- | :--------------------------------------------------------------- | :------------ | :---------------- |
+| `block`         | [`Block_height`](./02-objects.mdx#block_height)                  |               | The block         |
+| `id`            | `ID!`                                                            |               | The id            |
+| `subgraphError` | [`_SubgraphErrorPolicy_!`](./04-enums.mdx#_subgrapherrorpolicy_) | `deny`        | The subgraphError |
+
 #### Response
+
+[`Subject`](./02-objects.mdx#subject)
 
 ## subjects
 
 #### Arguments
 
+| Name             | Type                                                             | Default Value | Description        |
+| :--------------- | :--------------------------------------------------------------- | :------------ | :----------------- |
+| `block`          | [`Block_height`](./02-objects.mdx#block_height)                  |               | The block          |
+| `first`          | `Int`                                                            | 100           | The first          |
+| `orderBy`        | [`Subject_orderBy`](./04-enums.mdx#subject_orderby)              |               | The orderBy        |
+| `orderDirection` | [`OrderDirection`](./04-enums.mdx#orderdirection)                |               | The orderDirection |
+| `skip`           | `Int`                                                            | 0             | The skip           |
+| `subgraphError`  | [`_SubgraphErrorPolicy_!`](./04-enums.mdx#_subgrapherrorpolicy_) | `deny`        | The subgraphError  |
+| `where`          | [`Subject_filter`](./02-objects.mdx#subject_filter)              |               | The where          |
+
 #### Response
+
+[`[Subject!]!`](./02-objects.mdx#subject)
 
 ## subjectDailySnapshot
 
 #### Arguments
 
+| Name            | Type                                                             | Default Value | Description       |
+| :-------------- | :--------------------------------------------------------------- | :------------ | :---------------- |
+| `block`         | [`Block_height`](./02-objects.mdx#block_height)                  |               | The block         |
+| `id`            | `ID!`                                                            |               | The id            |
+| `subgraphError` | [`_SubgraphErrorPolicy_!`](./04-enums.mdx#_subgrapherrorpolicy_) | `deny`        | The subgraphError |
+
 #### Response
+
+[`SubjectDailySnapshot`](./02-objects.mdx#subjectdailysnapshot)
 
 ## subjectDailySnapshots
 

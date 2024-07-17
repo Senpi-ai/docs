@@ -1,0 +1,156 @@
+---
+description: Learn how to use the Moxie Auction Subgraph API to get all the claimed orders on a certain auction.
+---
+
+import InstallDependencies from "../../../../partial/_install_dependencies.mdx";
+import PreRequisites from "../../../../partial/_pre_requisites.mdx";
+import DeveloperSupport from "../../../../partial/_developer_support.mdx";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Get All Claimed Orders On Certain Auction
+
+In this tutorial, you will learn how to get all the claimed orders on a certain auction by calling the Moxie Auction Subgraph API.
+
+<PreRequisites />
+
+<InstallDependencies />
+
+## Step 2: Construct The GraphQL Query
+
+Then, you can get all the claimed orders on a certain auction by calling the subgraph API with the following query:
+
+<Tabs>
+<TabItem value="query" label="Query">
+
+```graphql
+query MyQuery($auctionId: BigInt!) {
+  claimedFromOrders(where: { auctionId: $auctionId }) {
+    auctionId
+    buyAmount
+    sellAmount
+    userId
+    blockInfo {
+      blockNumber
+      hash
+      timestamp
+    }
+  }
+}
+```
+
+</TabItem>
+<TabItem value="variable" label="Variable">
+
+```json
+{
+  "auctionId": "4"
+}
+```
+
+</TabItem>
+<TabItem value="response" label="Response">
+
+```json
+{
+  "data": {
+    "claimedFromOrders": [
+      {
+        "auctionId": "4",
+        "buyAmount": "1000000000000000000",
+        "sellAmount": "4000000000000000000",
+        "userId": "2",
+        "blockInfo": {
+          "blockNumber": "12248895",
+          "hash": "0xea5d691f986b488c8babc5cde53eac517f9ce5102c5437ee9f1310ff71b24f58",
+          "timestamp": "1720266078"
+        }
+      }
+    ]
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+## Step 3: Add The API Query To Your Code
+
+With this GraphQL query, you can add it to your source code and call the API with the `graphql-request` library:
+
+<Tabs>
+<TabItem value="grapqhl_ts" label="graphql-request (TS)">
+
+```tsx
+import { gql, GraphQLClient } from "graphql-request";
+
+const query = gql`
+  query MyQuery($auctionId: BigInt!) {
+    claimedFromOrders(where: { auctionId: $auctionId }) {
+      auctionId
+      buyAmount
+      sellAmount
+      userId
+      blockInfo {
+        blockNumber
+        hash
+        timestamp
+      }
+    }
+  }
+`;
+
+const graphQLClient = new GraphQLClient(
+  "https://api.studio.thegraph.com/proxy/27864/auction/v3.4.3"
+);
+
+try {
+  const data = await graphQLClient.request(query, {
+    auctionId: "4",
+  });
+  console.log(data);
+} catch (e) {
+  throw new Error(e);
+}
+```
+
+</TabItem>
+<TabItem value="graphql_js" label="graphql-request (JS)">
+
+```jsx
+const { gql, GraphQLClient } = require("graphql-request");
+
+const query = gql`
+  query MyQuery($auctionId: BigInt!) {
+    claimedFromOrders(where: { auctionId: $auctionId }) {
+      auctionId
+      buyAmount
+      sellAmount
+      userId
+      blockInfo {
+        blockNumber
+        hash
+        timestamp
+      }
+    }
+  }
+`;
+
+const graphQLClient = new GraphQLClient(
+  "https://api.studio.thegraph.com/proxy/27864/auction/v3.4.3"
+);
+
+try {
+  const data = await graphQLClient.request(query, {
+    auctionId: "4",
+  });
+  console.log(data);
+} catch (e) {
+  throw new Error(e);
+}
+```
+
+</TabItem>
+</Tabs>
+
+<DeveloperSupport />

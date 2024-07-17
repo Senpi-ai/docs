@@ -1,0 +1,135 @@
+---
+description: Learn how to use the Moxie Auction Subgraph API to get all the users registered for auctions.
+---
+
+import InstallDependencies from "../../../../partial/_install_dependencies.mdx";
+import PreRequisites from "../../../../partial/_pre_requisites.mdx";
+import DeveloperSupport from "../../../../partial/_developer_support.mdx";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Get All Users Registered For Auctions
+
+In this tutorial, you will learn how to get all the users registered for auctions by calling the Moxie Auction Subgraph API.
+
+<PreRequisites />
+
+<InstallDependencies />
+
+## Step 2: Construct The GraphQL Query
+
+Then, you can get all the users registered for auctions by calling the subgraph API with the following query:
+
+<Tabs>
+<TabItem value="query" label="Query">
+
+```graphql
+query MyQuery {
+  userRegistrations {
+    user
+    userId
+    blockInfo {
+      blockNumber
+      hash
+      timestamp
+    }
+  }
+}
+```
+
+</TabItem>
+<TabItem value="response" label="Response">
+
+```json
+{
+  "data": {
+    "userRegistrations": [
+      {
+        "user": "0x3199219bda5dbc9ee45bb3dfad180be56a7ebfd0",
+        "userId": "1",
+        "blockInfo": {
+          "blockNumber": "12243506",
+          "hash": "0x9f0a36dfd210c53d43c6490378711d171f7199e288ca6294c947b8c7e91922aa",
+          "timestamp": "1720255300"
+        }
+      }
+    ]
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+## Step 3: Add The API Query To Your Code
+
+With this GraphQL query, you can add it to your source code and call the API with the `graphql-request` library:
+
+<Tabs>
+<TabItem value="grapqhl_ts" label="graphql-request (TS)">
+
+```tsx
+import { gql, GraphQLClient } from "graphql-request";
+
+const query = gql`
+  query MyQuery {
+    userRegistrations {
+      user
+      userId
+      blockInfo {
+        blockNumber
+        hash
+        timestamp
+      }
+    }
+  }
+`;
+
+const graphQLClient = new GraphQLClient(
+  "https://api.studio.thegraph.com/proxy/27864/auction/v3.4.3"
+);
+
+try {
+  const data = await graphQLClient.request(query);
+  console.log(data);
+} catch (e) {
+  throw new Error(e);
+}
+```
+
+</TabItem>
+<TabItem value="graphql_js" label="graphql-request (JS)">
+
+```jsx
+const { gql, GraphQLClient } = require("graphql-request");
+
+const query = gql`
+  query MyQuery {
+    userRegistrations {
+      user
+      userId
+      blockInfo {
+        blockNumber
+        hash
+        timestamp
+      }
+    }
+  }
+`;
+
+const graphQLClient = new GraphQLClient(
+  "https://api.studio.thegraph.com/proxy/27864/auction/v3.4.3"
+);
+
+try {
+  const data = await graphQLClient.request(query);
+  console.log(data);
+} catch (e) {
+  throw new Error(e);
+}
+```
+
+</TabItem>
+</Tabs>
+
+<DeveloperSupport />

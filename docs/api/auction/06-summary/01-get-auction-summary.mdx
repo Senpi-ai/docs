@@ -1,0 +1,126 @@
+---
+description: Learn how to use the Moxie Auction Subgraph API to get the Moxie protocol's auction summary.
+---
+
+import InstallDependencies from "../../../../partial/_install_dependencies.mdx";
+import PreRequisites from "../../../../partial/_pre_requisites.mdx";
+import DeveloperSupport from "../../../../partial/_developer_support.mdx";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Get Auction Summary
+
+In this tutorial, you will learn how to get the Moxie protocol's auction summary data, which includes:
+
+- total auctions
+- total bidding value
+- total orders
+- etc.
+
+by calling the Moxie Auction Subgraph API.
+
+<PreRequisites />
+
+<InstallDependencies />
+
+## Step 2: Construct The GraphQL Query
+
+Then, you can get the Moxie protocol's auction summary by calling the subgraph API with the following query:
+
+<Tabs>
+<TabItem value="query" label="Query">
+
+```graphql
+query MyQuery {
+  summaries {
+    totalAuctions
+    totalBiddingValue
+    totalOrders
+  }
+}
+```
+
+</TabItem>
+<TabItem value="response" label="Response">
+
+```json
+{
+  "data": {
+    "summaries": [
+      {
+        "totalAuctions": "41",
+        "totalBiddingValue": "543157600000000000000000",
+        "totalOrders": "65"
+      }
+    ]
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+## Step 3: Add The API Query To Your Code
+
+With this GraphQL query, you can add it to your source code:
+
+<Tabs>
+<TabItem value="grapqhl_ts" label="graphql-request (TS)">
+
+```tsx
+import { gql, GraphQLClient } from "graphql-request";
+
+const query = gql`
+  query MyQuery {
+    summaries {
+      totalAuctions
+      totalBiddingValue
+      totalOrders
+    }
+  }
+`;
+
+const graphQLClient = new GraphQLClient(
+  "https://api.studio.thegraph.com/proxy/27864/protocol/v3.1.9"
+);
+
+try {
+  const data = await graphQLClient.request(query);
+  console.log(data);
+} catch (e) {
+  throw new Error(e);
+}
+```
+
+</TabItem>
+<TabItem value="graphql_js" label="graphql-request (JS)">
+
+```jsx
+const { gql, GraphQLClient } = require("graphql-request");
+
+const query = gql`
+  query MyQuery {
+    summaries {
+      totalAuctions
+      totalBiddingValue
+      totalOrders
+    }
+  }
+`;
+
+const graphQLClient = new GraphQLClient(
+  "https://api.studio.thegraph.com/proxy/27864/protocol/v3.1.9"
+);
+
+try {
+  const data = await graphQLClient.request(query);
+  console.log(data);
+} catch (e) {
+  throw new Error(e);
+}
+```
+
+</TabItem>
+</Tabs>
+
+<DeveloperSupport />

@@ -1,0 +1,80 @@
+---
+description: Learn how to use the Moxie Vesting Subgraph API to get the vesting contract's token manager detail on the Moxie protocol.
+---
+
+import Prerequisites from "../../../../src/components/Tutorials/Prerequisites.tsx";
+import DeveloperSupport from "../../../../partial/_developer_support.mdx";
+import Header from "../../../../src/components/Tutorials/Header.tsx";
+import AddQuery from "../../../../src/components/Tutorials/AddQuery.tsx";
+import ExecuteCode from "../../../../src/components/Tutorials/ExecuteCode.tsx";
+import { SUBGRAPH_URL } from "../../../../constant.ts";
+
+# Get Token Manager Details
+
+<Header
+  useCase="get the vesting contract's token manager detail"
+  apiName="Moxie Vesting Subgraph"
+/>
+
+# Pre-requisites
+
+<Prerequisites apiName="Moxie Vesting Subgraph" />
+
+## Step 1: Add The API Query To Your Code
+
+<AddQuery
+  useCase="get the vesting contract's token manager detail"
+  subgraphLink={SUBGRAPH_URL.vesting}
+  query={`query MyQuery {
+  tokenManagers {
+    id
+    masterCopy
+    moxiePassToken
+    tokenDestinations
+    tokenLockCount
+    tokens
+  }
+}`}
+  response={`{
+  data: {
+    tokenManagers: [
+      {
+        id: "0xe8b58db33fce7d7d729462bd4908327d067bddfa",
+        masterCopy: "0x454834d526ba7110b42a8fa141f3c3f66af689ec",
+        moxiePassToken: "0x9ca26ebed5921e1297df490ad28eafb95fa63ac9",
+        tokenDestinations: [
+          "0x28e8a1817af21d39d6820fd930fde618e03d4d8d",
+          "0x0f0ecb17575c232077075ef9d78fc9afad808b4d",
+        ],
+        tokenLockCount: "5513",
+        tokens: "586435586999999999999990000"
+      }
+    ]
+  }
+}`}
+/>
+
+## Step 2: Execute Your Code
+
+<ExecuteCode
+  response={`{
+  data: {
+    tokenManagers: [
+      {
+        id: "0xe8b58db33fce7d7d729462bd4908327d067bddfa",
+        masterCopy: "0x454834d526ba7110b42a8fa141f3c3f66af689ec",
+        moxiePassToken: "0x9ca26ebed5921e1297df490ad28eafb95fa63ac9",
+        tokenDestinations: [
+          "0x28e8a1817af21d39d6820fd930fde618e03d4d8d",
+          "0x0f0ecb17575c232077075ef9d78fc9afad808b4d",
+        ],
+        tokenLockCount: "5513",
+        tokens: "586435586999999999999990000"
+      }
+    ]
+  }
+}`}
+  dataFetched="the token manager details"
+/>
+
+<DeveloperSupport />

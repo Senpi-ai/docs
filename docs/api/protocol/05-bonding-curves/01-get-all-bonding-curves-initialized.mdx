@@ -2,29 +2,30 @@
 description: Learn how to use the Moxie Protocol Subgraph API to get all the bonding curves initialized on the Moxie protocol.
 ---
 
-import InstallDependencies from "../../../../partial/_install_dependencies.mdx";
-import PreRequisites from "../../../../partial/_pre_requisites.mdx";
+import Prerequisites from "../../../../src/components/Tutorials/Prerequisites.tsx";
 import DeveloperSupport from "../../../../partial/_developer_support.mdx";
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
+import Header from "../../../../src/components/Tutorials/Header.tsx";
+import AddQuery from "../../../../src/components/Tutorials/AddQuery.tsx";
+import ExecuteCode from "../../../../src/components/Tutorials/ExecuteCode.tsx";
+import { SUBGRAPH_URL } from "../../../../constant.ts";
 
 # Get All Bonding Curves Initialized
 
-In this tutorial, you will learn how to get all the bonding curves initialized on the Moxie protocol by calling the Moxie Protocol Subgraph API.
+<Header
+  useCase="get all the bonding curves initialized on the Moxie protocol"
+  apiName="Moxie Protocol Subgraph"
+/>
 
-<PreRequisites />
+# Pre-requisites
 
-<InstallDependencies />
+<Prerequisites apiName="Moxie Protocol Subgraph" />
 
-## Step 2: Construct The GraphQL Query
+## Step 1: Add The API Query To Your Code
 
-Then, you can get all the bonding curves initialized by calling the subgraph API with the following query:
-
-<Tabs>
-<TabItem value="query" label="Query">
-
-```graphql
-query MyQuery {
+<AddQuery
+  useCase="get all the bonding curves initialized on the Moxie protocol"
+  subgraphLink={SUBGRAPH_URL.protocol}
+  query={`query MyQuery {
   moxieBondingCurveBondingCurveInitializedTxes {
     initialSupply
     reserve
@@ -38,14 +39,8 @@ query MyQuery {
       timestamp
     }
   }
-}
-```
-
-</TabItem>
-<TabItem value="response" label="Response">
-
-```json
-{
+}`}
+  response={`{
   "data": {
     "moxieBondingCurveBondingCurveInitializedTxes": [
       {
@@ -63,89 +58,32 @@ query MyQuery {
       }
     ]
   }
-}
-```
+}`}
+/>
 
-</TabItem>
-</Tabs>
+## Step 2: Execute Your Code
 
-## Step 3: Add The API Query To Your Code
-
-With this GraphQL query, you can add it to your source code:
-
-<Tabs>
-<TabItem value="grapqhl_ts" label="graphql-request (TS)">
-
-```tsx
-import { gql, GraphQLClient } from "graphql-request";
-
-const query = gql`
-  query MyQuery {
-    moxieBondingCurveBondingCurveInitializedTxes {
-      initialSupply
-      reserve
-      reserveRatio
-      subject
-      subjectToken
-      txHash
-      blockInfo {
-        blockNumber
-        hash
-        timestamp
+<ExecuteCode
+  response={`{
+  "data": {
+    "moxieBondingCurveBondingCurveInitializedTxes": [
+      {
+        "initialSupply": "1000998003992015968063",
+        "reserve": "1003000000000000000000",
+        "reserveRatio": "660000",
+        "subject": "0x67fb7ef3c65ba4b938fefadb883b5730734aafa8",
+        "subjectToken": "0xf07fbe409a57c4cf896ed24c5a438058a7abe39c",
+        "txHash": "0x027718ba1de18ee5f8d4399c356f7d3ce28535ea2df6c27979972c3dfb63fbff",
+        "blockInfo": {
+          "blockNumber": "12513857",
+          "hash": "0xd09d261c515a20b49d208c0df5b7e9cf4c425082ccd2ded1933463352a67a2e9",
+          "timestamp": "1720796002"
+        }
       }
-    }
+    ]
   }
-`;
-
-const graphQLClient = new GraphQLClient(
-  "https://api.studio.thegraph.com/proxy/27864/protocol/v3.1.9"
-);
-
-try {
-  const data = await graphQLClient.request(query);
-  console.log(data);
-} catch (e) {
-  throw new Error(e);
-}
-```
-
-</TabItem>
-<TabItem value="graphql_js" label="graphql-request (JS)">
-
-```jsx
-const { gql, GraphQLClient } = require("graphql-request");
-
-const query = gql`
-  query MyQuery {
-    moxieBondingCurveBondingCurveInitializedTxes {
-      initialSupply
-      reserve
-      reserveRatio
-      subject
-      subjectToken
-      txHash
-      blockInfo {
-        blockNumber
-        hash
-        timestamp
-      }
-    }
-  }
-`;
-
-const graphQLClient = new GraphQLClient(
-  "https://api.studio.thegraph.com/proxy/27864/protocol/v3.1.9"
-);
-
-try {
-  const data = await graphQLClient.request(query);
-  console.log(data);
-} catch (e) {
-  throw new Error(e);
-}
-```
-
-</TabItem>
-</Tabs>
+}`}
+  dataFetched="all the bonding curves initialized on the Moxie protocol"
+/>
 
 <DeveloperSupport />

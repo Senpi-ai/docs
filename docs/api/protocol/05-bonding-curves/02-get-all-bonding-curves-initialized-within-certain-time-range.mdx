@@ -2,29 +2,30 @@
 description: Learn how to use the Moxie Protocol Subgraph API to get all the bonding curves initialized on the Moxie protocol within a certain time range.
 ---
 
-import InstallDependencies from "../../../../partial/_install_dependencies.mdx";
-import PreRequisites from "../../../../partial/_pre_requisites.mdx";
+import Prerequisites from "../../../../src/components/Tutorials/Prerequisites.tsx";
 import DeveloperSupport from "../../../../partial/_developer_support.mdx";
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
+import Header from "../../../../src/components/Tutorials/Header.tsx";
+import AddQuery from "../../../../src/components/Tutorials/AddQuery.tsx";
+import ExecuteCode from "../../../../src/components/Tutorials/ExecuteCode.tsx";
+import { SUBGRAPH_URL } from "../../../../constant.ts";
 
 # Get All Bonding Curves Initialized Within Certain Time Range
 
-In this tutorial, you will learn how to get all the bonding curves initialized on the Moxie protocol within a certain time range by calling the Moxie Protocol Subgraph API.
+<Header
+  useCase="get all the bonding curves initialized on the Moxie protocol within a certain time range"
+  apiName="Moxie Protocol Subgraph"
+/>
 
-<PreRequisites />
+# Pre-requisites
 
-<InstallDependencies />
+<Prerequisites apiName="Moxie Protocol Subgraph" />
 
-## Step 2: Construct The GraphQL Query
+## Step 1: Add The API Query To Your Code
 
-Then, you can get all the bonding curves initialized by calling the subgraph API with the following query:
-
-<Tabs>
-<TabItem value="query" label="Query">
-
-```graphql
-query MyQuery($startTime: BigInt, $endTime: BigInt) {
+<AddQuery
+  useCase="get all the bonding curves initialized on the Moxie protocol within a certain time range"
+  subgraphLink={SUBGRAPH_URL.protocol}
+  query={`query MyQuery($startTime: BigInt, $endTime: BigInt) {
   moxieBondingCurveBondingCurveInitializedTxes(
     where: {
       blockInfo_: { timestamp_gte: $startTime, timestamp_lte: $endTime }
@@ -42,24 +43,12 @@ query MyQuery($startTime: BigInt, $endTime: BigInt) {
       timestamp
     }
   }
-}
-```
-
-</TabItem>
-<TabItem value="variable" label="Variable">
-
-```json
-{
+}`}
+  variable={`{
   "startTime": "1720630000",
   "endTime": "1720640000"
-}
-```
-
-</TabItem>
-<TabItem value="response" label="Response">
-
-```json
-{
+}`}
+  response={`{
   "data": {
     "moxieBondingCurveBondingCurveInitializedTxes": [
       {
@@ -77,103 +66,32 @@ query MyQuery($startTime: BigInt, $endTime: BigInt) {
       }
     ]
   }
-}
-```
+}`}
+/>
 
-</TabItem>
-</Tabs>
+## Step 2: Execute Your Code
 
-## Step 3: Add The API Query To Your Code
-
-With this GraphQL query, you can add it to your source code:
-
-<Tabs>
-<TabItem value="grapqhl_ts" label="graphql-request (TS)">
-
-```tsx
-import { gql, GraphQLClient } from "graphql-request";
-
-const query = gql`
-  query MyQuery($startTime: BigInt, $endTime: BigInt) {
-    moxieBondingCurveBondingCurveInitializedTxes(
-      where: {
-        blockInfo_: { timestamp_gte: $startTime, timestamp_lte: $endTime }
+<ExecuteCode
+  response={`{
+  "data": {
+    "moxieBondingCurveBondingCurveInitializedTxes": [
+      {
+        "initialSupply": "1000001999996000007999",
+        "reserve": "500002000000000000000000",
+        "reserveRatio": "660000",
+        "subject": "0x3e0ea0e39dc5af19d5fd53b2628899b53ce3497b",
+        "subjectToken": "0x19c12518e708f9c7b7513578f8c5a4797f6c8df7",
+        "txHash": "0x089634cb0eb1fd87094b6c0e3c7976b8fe0db7dec7e32db82c13a59148456f70",
+        "blockInfo": {
+          "blockNumber": "12431714",
+          "hash": "0x188703625a362e24b1a20a634aad331dbb42b737647604967416ba1be4f7f3a8",
+          "timestamp": "1720631716"
+        }
       }
-    ) {
-      initialSupply
-      reserve
-      reserveRatio
-      subject
-      subjectToken
-      txHash
-      blockInfo {
-        blockNumber
-        hash
-        timestamp
-      }
-    }
+    ]
   }
-`;
-
-const graphQLClient = new GraphQLClient(
-  "https://api.studio.thegraph.com/proxy/27864/protocol/v3.1.9"
-);
-
-try {
-  const data = await graphQLClient.request(query, {
-    startTime: "1720630000",
-    endTime: "1720640000",
-  });
-  console.log(data);
-} catch (e) {
-  throw new Error(e);
-}
-```
-
-</TabItem>
-<TabItem value="graphql_js" label="graphql-request (JS)">
-
-```jsx
-const { gql, GraphQLClient } = require("graphql-request");
-
-const query = gql`
-  query MyQuery($startTime: BigInt, $endTime: BigInt) {
-    moxieBondingCurveBondingCurveInitializedTxes(
-      where: {
-        blockInfo_: { timestamp_gte: $startTime, timestamp_lte: $endTime }
-      }
-    ) {
-      initialSupply
-      reserve
-      reserveRatio
-      subject
-      subjectToken
-      txHash
-      blockInfo {
-        blockNumber
-        hash
-        timestamp
-      }
-    }
-  }
-`;
-
-const graphQLClient = new GraphQLClient(
-  "https://api.studio.thegraph.com/proxy/27864/protocol/v3.1.9"
-);
-
-try {
-  const data = await graphQLClient.request(query, {
-    startTime: "1720630000",
-    endTime: "1720640000",
-  });
-  console.log(data);
-} catch (e) {
-  throw new Error(e);
-}
-```
-
-</TabItem>
-</Tabs>
+}`}
+  dataFetched="all the bonding curves initialized on the Moxie protocol within a certain time range"
+/>
 
 <DeveloperSupport />

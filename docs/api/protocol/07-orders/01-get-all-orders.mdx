@@ -2,29 +2,30 @@
 description: Learn how to use the Moxie Protocol Subgraph API to get all buy and sell orders on the Moxie protocol.
 ---
 
-import InstallDependencies from "../../../../partial/_install_dependencies.mdx";
-import PreRequisites from "../../../../partial/_pre_requisites.mdx";
+import Prerequisites from "../../../../src/components/Tutorials/Prerequisites.tsx";
 import DeveloperSupport from "../../../../partial/_developer_support.mdx";
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
+import Header from "../../../../src/components/Tutorials/Header.tsx";
+import AddQuery from "../../../../src/components/Tutorials/AddQuery.tsx";
+import ExecuteCode from "../../../../src/components/Tutorials/ExecuteCode.tsx";
+import { SUBGRAPH_URL } from "../../../../constant.ts";
 
 # Get All Orders
 
-In this tutorial, you will learn how to get all buy and sell orders on the Moxie protocol by calling the Moxie Protocol Subgraph API.
+<Header
+  useCase="get all the buy and sell orders on the Moxie protocol"
+  apiName="Moxie Protocol Subgraph"
+/>
 
-<PreRequisites />
+# Pre-requisites
 
-<InstallDependencies />
+<Prerequisites apiName="Moxie Protocol Subgraph" />
 
-## Step 2: Construct The GraphQL Query
+## Step 1: Add The API Query To Your Code
 
-Then, you can get all the buy and sell orders on the Moxie protocol by calling the subgraph API with the following query:
-
-<Tabs>
-<TabItem value="query" label="Query">
-
-```graphql
-query MyQuery {
+<AddQuery
+  useCase="get all the buy and sell orders on the Moxie protocol"
+  subgraphLink={SUBGRAPH_URL.protocol}
+  query={`query MyQuery {
   orders {
     blockInfo {
       blockNumber
@@ -43,14 +44,8 @@ query MyQuery {
       address: id
     }
   }
-}
-```
-
-</TabItem>
-<TabItem value="response" label="Response">
-
-```json
-{
+}`}
+  response={`{
   "data": {
     "orders": [
       {
@@ -73,99 +68,37 @@ query MyQuery {
       }
     ]
   }
-}
-```
+}`}
+/>
 
-</TabItem>
-</Tabs>
+## Step 2: Execute Your Code
 
-## Step 3: Add The API Query To Your Code
-
-With this GraphQL query, you can add it to your source code:
-
-<Tabs>
-<TabItem value="grapqhl_ts" label="graphql-request (TS)">
-
-```tsx
-import { gql, GraphQLClient } from "graphql-request";
-
-const query = gql`
-  query MyQuery {
-    orders {
-      blockInfo {
-        blockNumber
-        hash
-        timestamp
+<ExecuteCode
+  response={`{
+  "data": {
+    "orders": [
+      {
+        "blockInfo": {
+          "blockNumber": "12434710",
+          "hash": "0xa9f03ff3c90fe0f4901dd6772d5557a8fd2869807fb47981df9af650194eaa81",
+          "timestamp": "1720637708"
+        },
+        "orderType": "BUY",
+        "price": "0.0007529569453993005727232272943919006",
+        "protocolToken": "0xf80945fc1436b0ae8b86c8835f09870deeaf03d5",
+        "protocolTokenAmount": "2656194000000000000000000",
+        "subjectAmount": "1999999720627949785464",
+        "subjectToken": {
+          "address": "0x19c12518e708f9c7b7513578f8c5a4797f6c8df7"
+        },
+        "user": {
+          "address": "0x9313ede439fc91852d4fd8f753c5569255286790"
+        }
       }
-      orderType
-      price
-      protocolToken
-      protocolTokenAmount
-      subjectAmount
-      subjectToken {
-        address: id
-      }
-      user {
-        address: id
-      }
-    }
+    ]
   }
-`;
-
-const graphQLClient = new GraphQLClient(
-  "https://api.studio.thegraph.com/proxy/27864/protocol/v3.1.9"
-);
-
-try {
-  const data = await graphQLClient.request(query);
-  console.log(data);
-} catch (e) {
-  throw new Error(e);
-}
-```
-
-</TabItem>
-<TabItem value="graphql_js" label="graphql-request (JS)">
-
-```jsx
-const { gql, GraphQLClient } = require("graphql-request");
-
-const query = gql`
-  query MyQuery {
-    orders {
-      blockInfo {
-        blockNumber
-        hash
-        timestamp
-      }
-      orderType
-      price
-      protocolToken
-      protocolTokenAmount
-      subjectAmount
-      subjectToken {
-        address: id
-      }
-      user {
-        address: id
-      }
-    }
-  }
-`;
-
-const graphQLClient = new GraphQLClient(
-  "https://api.studio.thegraph.com/proxy/27864/protocol/v3.1.9"
-);
-
-try {
-  const data = await graphQLClient.request(query);
-  console.log(data);
-} catch (e) {
-  throw new Error(e);
-}
-```
-
-</TabItem>
-</Tabs>
+}`}
+  dataFetched="all the buy and sell orders on the Moxie protocol"
+/>
 
 <DeveloperSupport />

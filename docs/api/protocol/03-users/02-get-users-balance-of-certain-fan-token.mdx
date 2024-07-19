@@ -2,29 +2,30 @@
 description: Learn how to use the Moxie Protocol Subgraph API to get the user's balance of a certain fan token.
 ---
 
-import InstallDependencies from "../../../../partial/_install_dependencies.mdx";
-import PreRequisites from "../../../../partial/_pre_requisites.mdx";
+import Prerequisites from "../../../../src/components/Tutorials/Prerequisites.tsx";
 import DeveloperSupport from "../../../../partial/_developer_support.mdx";
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
+import Header from "../../../../src/components/Tutorials/Header.tsx";
+import AddQuery from "../../../../src/components/Tutorials/AddQuery.tsx";
+import ExecuteCode from "../../../../src/components/Tutorials/ExecuteCode.tsx";
+import { SUBGRAPH_URL } from "../../../../constant.ts";
 
 # Get Users's Balance Of Certain Fan Token
 
-In this tutorial, you will learn how to get the user's balance of a certain fan token on the Moxie protocol by calling the Moxie Protocol Subgraph API.
+<Header
+  useCase="get user's balance of a certain fan token"
+  apiName="Moxie Protocol Subgraph"
+/>
 
-<PreRequisites />
+# Pre-requisites
 
-<InstallDependencies />
+<Prerequisites apiName="Moxie Protocol Subgraph" />
 
-## Step 2: Construct The GraphQL Query
+## Step 1: Add The API Query To Your Code
 
-Then, you can get the user's buy orders by calling the subgraph API with the following query:
-
-<Tabs>
-<TabItem value="query" label="Query">
-
-```graphql
-query MyQuery($userAddress: ID, $fanTokenAddress: String) {
+<AddQuery
+  useCase="get user's balance of a certain fan token"
+  subgraphLink={SUBGRAPH_URL.protocol}
+  query={`query MyQuery($userAddress: ID, $fanTokenAddress: String) {
   users(where: { id: $userAddress }) {
     portfolio(where: { subject: $fanTokenAddress }) {
       balance
@@ -35,24 +36,13 @@ query MyQuery($userAddress: ID, $fanTokenAddress: String) {
       }
     }
   }
-}
-```
-
-</TabItem>
-<TabItem value="variable" label="Variable">
-
-```json
-{
+}`}
+  variable={`{
   "userAddress": "0x20e04003c2edfbca86300f6b2e6736142718dae3",
+  // provide the fan token address here to get user's balance
   "fanTokenAddress": "0xf07fbe409a57c4cf896ed24c5a438058a7abe39c"
-}
-```
-
-</TabItem>
-<TabItem value="response" label="Response">
-
-```json
-{
+}`}
+  response={`{
   "data": {
     "users": [
       {
@@ -69,89 +59,31 @@ query MyQuery($userAddress: ID, $fanTokenAddress: String) {
       }
     ]
   }
-}
-```
+}`}
+/>
 
-</TabItem>
-</Tabs>
+## Step 2: Execute Your Code
 
-## Step 3: Add The API Query To Your Code
-
-With this GraphQL query, you can add it to your source code:
-
-<Tabs>
-<TabItem value="grapqhl_ts" label="graphql-request (TS)">
-
-```tsx
-import { gql, GraphQLClient } from "graphql-request";
-
-const query = gql`
-  query MyQuery($userAddress: ID, $fanTokenAddress: String) {
-    users(where: { id: $userAddress }) {
-      portfolio(where: { subject: $fanTokenAddress }) {
-        balance
-        protocolTokenSpent
-        subject {
-          name
-          symbol
-        }
+<ExecuteCode
+  response={`{
+  "data": {
+    "users": [
+      {
+        "portfolio": [
+          {
+            "balance": "772821289221015894850",
+            "protocolTokenSpent": "500000000000000000000",
+            "subject": {
+              "name": "fid-3761",
+              "symbol": "fid-3761"
+            }
+          }
+        ]
       }
-    }
+    ]
   }
-`;
-
-const graphQLClient = new GraphQLClient(
-  "https://api.studio.thegraph.com/proxy/27864/protocol/v3.1.9"
-);
-
-try {
-  const data = await graphQLClient.request(query, {
-    userAddress: "0x20e04003c2edfbca86300f6b2e6736142718dae3",
-    fanTokenAddress: "0xf07fbe409a57c4cf896ed24c5a438058a7abe39c",
-  });
-  console.log(data);
-} catch (e) {
-  throw new Error(e);
-}
-```
-
-</TabItem>
-<TabItem value="graphql_js" label="graphql-request (JS)">
-
-```jsx
-const { gql, GraphQLClient } = require("graphql-request");
-
-const query = gql`
-  query MyQuery($userAddress: ID, $fanTokenAddress: String) {
-    users(where: { id: $userAddress }) {
-      portfolio(where: { subject: $fanTokenAddress }) {
-        balance
-        protocolTokenSpent
-        subject {
-          name
-          symbol
-        }
-      }
-    }
-  }
-`;
-
-const graphQLClient = new GraphQLClient(
-  "https://api.studio.thegraph.com/proxy/27864/protocol/v3.1.9"
-);
-
-try {
-  const data = await graphQLClient.request(query, {
-    userAddress: "0x20e04003c2edfbca86300f6b2e6736142718dae3",
-    fanTokenAddress: "0xf07fbe409a57c4cf896ed24c5a438058a7abe39c",
-  });
-  console.log(data);
-} catch (e) {
-  throw new Error(e);
-}
-```
-
-</TabItem>
-</Tabs>
+}`}
+  dataFetched="user's balance of a certain fan token"
+/>
 
 <DeveloperSupport />

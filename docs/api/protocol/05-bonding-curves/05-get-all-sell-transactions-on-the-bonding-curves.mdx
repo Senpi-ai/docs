@@ -2,29 +2,30 @@
 description: Learn how to use the Moxie Protocol Subgraph API to get all the sell transactions on the Moxie bonding curves.
 ---
 
-import InstallDependencies from "../../../../partial/_install_dependencies.mdx";
-import PreRequisites from "../../../../partial/_pre_requisites.mdx";
+import Prerequisites from "../../../../src/components/Tutorials/Prerequisites.tsx";
 import DeveloperSupport from "../../../../partial/_developer_support.mdx";
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
+import Header from "../../../../src/components/Tutorials/Header.tsx";
+import AddQuery from "../../../../src/components/Tutorials/AddQuery.tsx";
+import ExecuteCode from "../../../../src/components/Tutorials/ExecuteCode.tsx";
+import { SUBGRAPH_URL } from "../../../../constant.ts";
 
 # Get All Sell Transactions On The Bonding Curves
 
-In this tutorial, you will learn how to get all the sell transactions on the Moxie bonding curves by calling the Moxie Protocol Subgraph API.
+<Header
+  useCase="get all the sell transactions on the bonding curves"
+  apiName="Moxie Protocol Subgraph"
+/>
 
-<PreRequisites />
+# Pre-requisites
 
-<InstallDependencies />
+<Prerequisites apiName="Moxie Protocol Subgraph" />
 
-## Step 2: Construct The GraphQL Query
+## Step 1: Add The API Query To Your Code
 
-Then, you can get all the purchase transactions on the Moxie bonding curves within a certain time range by calling the subgraph API with the following query:
-
-<Tabs>
-<TabItem value="query" label="Query">
-
-```graphql
-query MyQuery {
+<AddQuery
+  useCase="get all the sell transactions on the bonding curves"
+  subgraphLink={SUBGRAPH_URL.protocol}
+  query={`query MyQuery {
   moxieBondingCurveSubjectShareSoldTxes {
     beneficiary
     buyAmount
@@ -39,24 +40,8 @@ query MyQuery {
       timestamp
     }
   }
-}
-```
-
-</TabItem>
-<TabItem value="variable" label="Variable">
-
-```json
-{
-  "startTime": "1721040000",
-  "endTime": "1721050000"
-}
-```
-
-</TabItem>
-<TabItem value="response" label="Response">
-
-```json
-{
+}`}
+  response={`{
   "data": {
     "moxieBondingCurveSubjectShareSoldTxes": [
       {
@@ -75,97 +60,33 @@ query MyQuery {
       }
     ]
   }
-}
-```
+}`}
+/>
 
-</TabItem>
-</Tabs>
+## Step 2: Execute Your Code
 
-## Step 3: Add The API Query To Your Code
-
-With this GraphQL query, you can add it to your source code:
-
-<Tabs>
-<TabItem value="grapqhl_ts" label="graphql-request (TS)">
-
-```tsx
-import { gql, GraphQLClient } from "graphql-request";
-
-const query = gql`
-  query MyQuery {
-    moxieBondingCurveSubjectShareSoldTxes {
-      beneficiary
-      buyAmount
-      buyToken
-      subject
-      sellAmount
-      sellToken
-      txHash
-      blockInfo {
-        blockNumber
-        hash
-        timestamp
+<ExecuteCode
+  response={`{
+  "data": {
+    "moxieBondingCurveSubjectShareSoldTxes": [
+      {
+        "beneficiary": "0x20e04003c2edfbca86300f6b2e6736142718dae3",
+        "buyAmount": "444962989703525653824",
+        "buyToken": "0xf80945fc1436b0ae8b86c8835f09870deeaf03d5",
+        "subject": "0x67fb7ef3c65ba4b938fefadb883b5730734aafa8",
+        "sellAmount": "270000000000000000000",
+        "sellToken": "0xf07fbe409a57c4cf896ed24c5a438058a7abe39c",
+        "txHash": "0x25e098a6410bac83ed50d995c730bd4100004342b7ade456b1463a9a0390ce91",
+        "blockInfo": {
+          "blockNumber": "12639987",
+          "hash": "0x5d7e500d8ed7a89191975e229163480760cc90a52b6fc8c53484ae031406eea9",
+          "timestamp": "1721048262"
+        }
       }
-    }
+    ]
   }
-`;
-
-const graphQLClient = new GraphQLClient(
-  "https://api.studio.thegraph.com/proxy/27864/protocol/v3.1.9"
-);
-
-try {
-  const data = await graphQLClient.request(query, {
-    startTime: "1721040000",
-    endTime: "1721050000",
-  });
-  console.log(data);
-} catch (e) {
-  throw new Error(e);
-}
-```
-
-</TabItem>
-<TabItem value="graphql_js" label="graphql-request (JS)">
-
-```jsx
-const { gql, GraphQLClient } = require("graphql-request");
-
-const query = gql`
-  query MyQuery {
-    moxieBondingCurveSubjectShareSoldTxes {
-      beneficiary
-      buyAmount
-      buyToken
-      subject
-      sellAmount
-      sellToken
-      txHash
-      blockInfo {
-        blockNumber
-        hash
-        timestamp
-      }
-    }
-  }
-`;
-
-const graphQLClient = new GraphQLClient(
-  "https://api.studio.thegraph.com/proxy/27864/protocol/v3.1.9"
-);
-
-try {
-  const data = await graphQLClient.request(query, {
-    startTime: "1721040000",
-    endTime: "1721050000",
-  });
-  console.log(data);
-} catch (e) {
-  throw new Error(e);
-}
-```
-
-</TabItem>
-</Tabs>
+}`}
+  dataFetched="all sell transactions on the Moxie bonding curves"
+/>
 
 <DeveloperSupport />

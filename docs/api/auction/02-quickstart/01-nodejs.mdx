@@ -8,6 +8,7 @@ import Prerequisites from "../../../../src/components/QuickstartNode/Prerequisit
 import AddQuery from "../../../../src/components/QuickstartNode/AddQuery";
 import ExecuteCode from "../../../../src/components/QuickstartNode/ExecuteCode";
 import DeveloperSupport from "../../../../partial/_developer_support.mdx";
+import { SUBGRAPH_URL } from "../../../../constant.ts";
 
 # Node.js
 
@@ -37,7 +38,7 @@ import DeveloperSupport from "../../../../partial/_developer_support.mdx";
     }
   }`
   }
-  subgraphLink="https://api.studio.thegraph.com/proxy/82737/auction/v.4.0.6"
+  subgraphLink={SUBGRAPH_URL.auction}
   apiName="Moxie Auction Subgraph"
 />
 

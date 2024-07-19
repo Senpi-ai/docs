@@ -1,1 +1,85 @@
+---
+description: Learn how to use the Moxie Vesting Subgraph API to get all the users with Moxie locked in the vesting contract.
+---
+
+import Prerequisites from "../../../../src/components/Tutorials/Prerequisites.tsx";
+import DeveloperSupport from "../../../../partial/_developer_support.mdx";
+import Header from "../../../../src/components/Tutorials/Header.tsx";
+import AddQuery from "../../../../src/components/Tutorials/AddQuery.tsx";
+import ExecuteCode from "../../../../src/components/Tutorials/ExecuteCode.tsx";
+import { SUBGRAPH_URL } from "../../../../constant.ts";
+
 # Get All Users With Moxie Locked
+
+<Header
+  useCase="get all the users with Moxie locked in the vesting contract"
+  apiName="Moxie Vesting Subgraph"
+/>
+
+# Pre-requisites
+
+<Prerequisites apiName="Moxie Vesting Subgraph" />
+
+## Step 1: Add The API Query To Your Code
+
+<AddQuery
+  useCase="get all the users with Moxie locked in the vesting contract"
+  subgraphLink={SUBGRAPH_URL.vesting}
+  query={`query MyQuery {
+  tokenLockWallets {
+    beneficiary
+    startTime
+    endTime
+    blockNumberCreated
+    tokensReleased
+    tokensRevoked
+    tokensWithdrawn
+    token
+    releaseStartTime
+  }
+}`}
+  response={`{
+  "data": {
+    "tokenLockWallets": [
+      {
+        // user's address with Moxie locked in the vesting contract
+        "beneficiary": "0xdb48314a86839b04c3434575cee9346f20d9070e",
+        "startTime": "1722211200",
+        "endTime": "1737763200",
+        "blockNumberCreated": "12741136",
+        "tokensReleased": "0",
+        "tokensRevoked": "0",
+        "tokensWithdrawn": "0",
+        "token": "0xf86136afb0fb72cdbd27d7aea9e283725d6815a1",
+        "releaseStartTime": "0"
+      }
+    ]
+  }
+}`}
+/>
+
+## Step 2: Execute Your Code
+
+<ExecuteCode
+  response={`{
+  "data": {
+    "tokenLockWallets": [
+      {
+         // user's address with Moxie locked in the vesting contract
+        "beneficiary": "0xdb48314a86839b04c3434575cee9346f20d9070e",
+        "startTime": "1722211200",
+        "endTime": "1737763200",
+        "blockNumberCreated": "12741136",
+        "tokensReleased": "0",
+        "tokensRevoked": "0",
+        "tokensWithdrawn": "0",
+        "token": "0xf86136afb0fb72cdbd27d7aea9e283725d6815a1",
+        "releaseStartTime": "0"
+      }
+    ]
+  }
+}`}
+  dataFetched="all the users with Moxie locked in the vesting contract"
+/>
+
+<DeveloperSupport />

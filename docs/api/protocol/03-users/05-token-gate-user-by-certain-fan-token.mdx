@@ -1,5 +1,5 @@
 ---
-description: Learn how to use the Moxie Protocol Subgraph API to get all fan tokens owned by a certain user.
+description: Learn how to use the Moxie Protocol Subgraph API to token gate a user by a certain fan token.
 ---
 
 import Prerequisites from "../../../../src/components/Tutorials/Prerequisites.tsx";
@@ -9,10 +9,10 @@ import AddQuery from "../../../../src/components/Tutorials/AddQuery.tsx";
 import ExecuteCode from "../../../../src/components/Tutorials/ExecuteCode.tsx";
 import { SUBGRAPH_URL } from "../../../../constant.ts";
 
-# Get All Fan Tokens Owned By Certain User
+# Token Gate User By Certain Fan Token
 
 <Header
-  useCase="get all the fan tokens owned by a certain user"
+  useCase="token gate a user by a certain fan token"
   apiName="Moxie Protocol Subgraph"
 />
 
@@ -23,11 +23,11 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
 ## Step 1: Add The API Query To Your Code
 
 <AddQuery
-  useCase="get all the fan tokens owned by a certain user"
+  useCase="token gate a user by a certain fan token"
   subgraphLink={SUBGRAPH_URL.protocol}
-  query={`query MyQuery($userAddress: ID) {
+  query={`query MyQuery($userAddress: ID, $fanTokenAddress: String) {
   users(where: { id: $userAddress }) {
-    portfolio {
+    portfolio(where: { subject: $fanTokenAddress }) {
       balance
       protocolTokenSpent
       subject {
@@ -38,7 +38,9 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
   }
 }`}
   variable={`{
-  "userAddress": "0x20e04003c2edfbca86300f6b2e6736142718dae3"
+  "userAddress": "0x20e04003c2edfbca86300f6b2e6736142718dae3",
+  // provide the fan token address here to check for token gating
+  "fanTokenAddress": "0xf07fbe409a57c4cf896ed24c5a438058a7abe39c"
 }`}
   response={`{
   "data": {
@@ -81,7 +83,7 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
     ]
   }
 }`}
-  dataFetched="all fan tokens owned by a certain user"
+  dataFetched="user's balance of a certain fan token and use it to token gate the user access"
 />
 
 <DeveloperSupport />

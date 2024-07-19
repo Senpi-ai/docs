@@ -1,5 +1,5 @@
 ---
-description: Learn how to use the Moxie Protocol Subgraph API to get the daily snapshots of a certain fan token.
+description: Learn how to use the Moxie Protocol Subgraph API to get the hourly snapshots of a certain fan token.
 ---
 
 import Prerequisites from "../../../../src/components/Tutorials/Prerequisites.tsx";
@@ -9,10 +9,10 @@ import AddQuery from "../../../../src/components/Tutorials/AddQuery.tsx";
 import ExecuteCode from "../../../../src/components/Tutorials/ExecuteCode.tsx";
 import { SUBGRAPH_URL } from "../../../../constant.ts";
 
-# Get Daily Snapshots Of Certain Fan Token
+# Get Hourly Snapshots Of Certain Fan Token
 
 <Header
-  useCase="get all the daily snapshots of certain fan token"
+  useCase="get the hourly snapshots of a certain fan token"
   apiName="Moxie Protocol Subgraph"
 />
 
@@ -23,16 +23,16 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
 ## Step 1: Add The API Query To Your Code
 
 <AddQuery
-  useCase="get all the daily snapshots of certain fan token"
+  useCase="get the hourly snapshots of a certain fan token"
   subgraphLink={SUBGRAPH_URL.protocol}
   query={`query MyQuery($fanTokenAddress: ID) {
   subjects(where: { id: $fanTokenAddress }) {
-    dailySnapshots {
-      dailyBeneficiaryFeeChange
-      dailyPriceChange
-      dailyProtcolFeeChange
-      dailyUniqueHoldersChange
-      dailyVolumeChange
+    hourlySnapshots {
+      hourlyBeneficiaryFeeChange
+      hourlyPriceChange
+      hourlyProtcolFeeChange
+      hourlyUniqueHoldersChange
+      hourlyVolumeChange
       endBeneficiaryFee
       endPrice
       endProtcolFee
@@ -56,17 +56,17 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
   "data": {
     "subjects": [
       {
-        "dailySnapshots": [
+        "hourlySnapshots": [
           {
-            "dailyBeneficiaryFeeChange": "0",
-            "dailyPriceChange": "0",
-            "dailyProtcolFeeChange": "0",
-            "dailyUniqueHoldersChange": "3",
-            "dailyVolumeChange": "0",
+            "hourlyBeneficiaryFeeChange": "0",
+            "hourlyPriceChange": "0",
+            "hourlyProtcolFeeChange": "0",
+            "hourlyUniqueHoldersChange": "3",
+            "hourlyVolumeChange": "0",
             "endBeneficiaryFee": "0",
             "endPrice": "0",
             "endProtcolFee": "0",
-            "endTimestamp": "1720310400",
+            "endTimestamp": "1720263600",
             "endUniqueHolders": "3",
             "endVolume": "0",
             "reserve": "0",
@@ -91,17 +91,17 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
   "data": {
     "subjects": [
       {
-        "dailySnapshots": [
+        "hourlySnapshots": [
           {
-            "dailyBeneficiaryFeeChange": "0",
-            "dailyPriceChange": "0",
-            "dailyProtcolFeeChange": "0",
-            "dailyUniqueHoldersChange": "3",
-            "dailyVolumeChange": "0",
+            "hourlyBeneficiaryFeeChange": "0",
+            "hourlyPriceChange": "0",
+            "hourlyProtcolFeeChange": "0",
+            "hourlyUniqueHoldersChange": "3",
+            "hourlyVolumeChange": "0",
             "endBeneficiaryFee": "0",
             "endPrice": "0",
             "endProtcolFee": "0",
-            "endTimestamp": "1720310400",
+            "endTimestamp": "1720263600",
             "endUniqueHolders": "3",
             "endVolume": "0",
             "reserve": "0",
@@ -117,7 +117,7 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
     ]
   }
 }`}
-  dataFetched="the daily snapshots of a certain fan token"
+  dataFetched="the hourly snapshots of a certain fan token"
 />
 
 <DeveloperSupport />

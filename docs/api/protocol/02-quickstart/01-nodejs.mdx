@@ -8,6 +8,7 @@ import Prerequisites from "../../../../src/components/QuickstartNode/Prerequisit
 import AddQuery from "../../../../src/components/QuickstartNode/AddQuery";
 import ExecuteCode from "../../../../src/components/QuickstartNode/ExecuteCode";
 import DeveloperSupport from "../../../../partial/_developer_support.mdx";
+import { SUBGRAPH_URL } from "../../../../constant.ts";
 
 # Node.js
 
@@ -44,7 +45,7 @@ import DeveloperSupport from "../../../../partial/_developer_support.mdx";
     }
   }`
   }
-  subgraphLink="https://api.studio.thegraph.com/query/27864/protocol/v5.1.6/graphql"
+  subgraphLink={SUBGRAPH_URL.protocol}
   apiName="Moxie Protocol Subgraph"
 />
 

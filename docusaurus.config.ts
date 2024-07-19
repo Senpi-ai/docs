@@ -104,23 +104,23 @@ const config: Config = {
             },
           ],
         },
-        {
-          type: "dropdown",
-          position: "left",
-          label: "Contracts",
-          items: [
-            {
-              type: "doc",
-              label: "Protocol Contracts",
-              docId: "contract/protocol/index",
-            },
-            {
-              type: "doc",
-              label: "Token Distribution Contracts",
-              docId: "contract/token-distribution/index",
-            },
-          ],
-        },
+        // {
+        //   type: "dropdown",
+        //   position: "left",
+        //   label: "Contracts",
+        //   items: [
+        //     {
+        //       type: "doc",
+        //       label: "Protocol Contracts",
+        //       docId: "contract/protocol/index",
+        //     },
+        //     {
+        //       type: "doc",
+        //       label: "Token Distribution Contracts",
+        //       docId: "contract/token-distribution/index",
+        //     },
+        //   ],
+        // },
         // { to: "/blog", label: "Blog", position: "left" },
         {
           href: "https://github.com/moxie-protocol/docs",

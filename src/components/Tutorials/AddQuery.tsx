@@ -3,7 +3,8 @@ import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
 const AddQuery = (props) => {
-  const { query, variable, response, subgraphLink, useCase } = props ?? {};
+  const { query, variable, response, subgraphLink, useCase, customLogic } =
+    props ?? {};
   return (
     <>
       <p>To {useCase}, you can use the following query:</p>
@@ -39,7 +40,7 @@ try {
   const data = await graphQLClient.request(query${
     variable ? ", variable" : ""
   });
-  console.log(data);
+  ${customLogic ?? "console.log(data);"}
 } catch (e) {
   throw new Error(e);
 }`}
@@ -61,7 +62,7 @@ try {
   const data = await graphQLClient.request(query${
     variable ? ", variable" : ""
   });
-  console.log(data);
+  ${customLogic ?? "console.log(data);"}
 } catch (e) {
   throw new Error(e);
 }`}

@@ -1,5 +1,5 @@
 ---
-description: Learn how to use the Moxie Protocol Subgraph API to token gate a user by a certain fan token.
+description: Learn how to use the Moxie Protocol Subgraph API to build token gate feature to limit access to a certain fan token.
 ---
 
 import Prerequisites from "../../../../src/components/Tutorials/Prerequisites.tsx";
@@ -12,7 +12,7 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
 # Token Gate User By Certain Fan Token
 
 <Header
-  useCase="token gate a user by a certain fan token"
+  useCase="build token gate feature to limit access to a certain fan token"
   apiName="Moxie Protocol Subgraph"
 />
 
@@ -23,24 +23,24 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
 ## Step 1: Add The API Query To Your Code
 
 <AddQuery
-  useCase="token gate a user by a certain fan token"
+  useCase="build token gate feature to limit access to a certain fan token"
   subgraphLink={SUBGRAPH_URL.protocol}
-  query={`query MyQuery($userAddress: ID, $fanTokenAddress: String) {
+  query={`query MyQuery($userAddress: ID, $fanTokenName: String) {
   users(where: { id: $userAddress }) {
-    portfolio(where: { subject: $fanTokenAddress }) {
+    portfolio(where: { subjectToken_: { name: $fanTokenName} }) {
       balance
-      protocolTokenSpent
-      subject {
-        name
-        symbol
-      }
     }
   }
 }`}
   variable={`{
   "userAddress": "0x20e04003c2edfbca86300f6b2e6736142718dae3",
-  // provide the fan token address here to check for token gating
-  "fanTokenAddress": "0xf07fbe409a57c4cf896ed24c5a438058a7abe39c"
+  /**
+   * There are 3 types of fan tokens, here's their naming format:
+   * - USER -> fid:<fid>
+   * - CHANNEL -> cid:<channel-id>
+   * - NETWORK (Only for Farcaster) -> id:farcaster
+   */
+  "fanTokenName": "fid:289309"
 }`}
   response={`{
   "data": {
@@ -48,42 +48,24 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
       {
         "portfolio": [
           {
-            "balance": "772821289221015894850",
-            "protocolTokenSpent": "500000000000000000000",
-            "subject": {
-              "name": "fid-3761",
-              "symbol": "fid-3761"
-            }
+            "balance": "501000000000000000000"
           }
         ]
       }
     ]
   }
 }`}
+  customLogic={`console.log(
+    // Check if the user has a balance greater than 0
+    Number.parseInt(data?.users?.[0]?.portfolio?.[0]?.balance) > 0
+  );`}
 />
 
 ## Step 2: Execute Your Code
 
 <ExecuteCode
-  response={`{
-  "data": {
-    "users": [
-      {
-        "portfolio": [
-          {
-            "balance": "772821289221015894850",
-            "protocolTokenSpent": "500000000000000000000",
-            "subject": {
-              "name": "fid-3761",
-              "symbol": "fid-3761"
-            }
-          }
-        ]
-      }
-    ]
-  }
-}`}
-  dataFetched="user's balance of a certain fan token and use it to token gate the user access"
+  response={`true // true if balance is greater than 0, otherwise false`}
+  dataFetched="user's balance of a certain fan token and use it to build token gate feature to limit access to a certain fan token"
 />
 
 <DeveloperSupport />

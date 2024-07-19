@@ -22,7 +22,7 @@
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
+[data-theme="dark"] {
   --ifm-color-primary: #8e55ff;
   --ifm-color-primary-dark: #8e55ff;
   --ifm-color-primary-darker: #485ed5;
@@ -85,4 +85,8 @@
 
 .sdks-dropdown h3 {
   @apply text-sm;
+}
+
+.hidden {
+  display: none !important;
 }

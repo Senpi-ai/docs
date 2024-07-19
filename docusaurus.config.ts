@@ -137,11 +137,11 @@ const config: Config = {
             },
             {
               label: "Auction APIs",
-              to: "/api/auction/index",
+              to: "/api/auction/overview",
             },
             {
               label: "Vesting APIs",
-              to: "/api/vesting/index",
+              to: "/api/vesting/overview",
             },
           ],
         },

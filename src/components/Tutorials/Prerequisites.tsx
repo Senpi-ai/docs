@@ -1,6 +1,7 @@
 import Details from "@theme/Details";
 import Install from "../Install";
 import { useLocation } from "@docusaurus/router";
+import Link from "@docusaurus/Link";
 
 const Prerequisites = (props) => {
   const { apiName } = props ?? {};
@@ -11,9 +12,9 @@ const Prerequisites = (props) => {
         <li>
           <p>
             Finished{" "}
-            <a href={`/api/${pathname?.split("/")?.[2]}/quickstart`}>
+            <Link to={`/api/${pathname?.split("/")?.[2]}/quickstart`}>
               Quickstart
-            </a>{" "}
+            </Link>{" "}
             to setup and integrate your project with {apiName}.
           </p>
           <p>
@@ -26,7 +27,10 @@ const Prerequisites = (props) => {
             <Install dependencies="graphql graphql-request" />
           </Details>
         </li>
-        <li>Read the Whitepaper</li>
+        <li>
+          Read the <Link to="https://build.moxie.xyz">Whitepaper</Link> to
+          understand various concepts from the Moxie protocol
+        </li>
       </ol>
     </>
   );

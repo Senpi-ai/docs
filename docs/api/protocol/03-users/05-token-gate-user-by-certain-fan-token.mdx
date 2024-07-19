@@ -1,5 +1,5 @@
 ---
-description: Learn how to use the Moxie Protocol Subgraph API to build token gate feature to limit access to a certain fan token.
+description: Learn how to use the Moxie Protocol Subgraph API to build token gate feature to limit access to a certain fan token holders.
 ---
 
 import Prerequisites from "../../../../src/components/Tutorials/Prerequisites.tsx";
@@ -12,7 +12,7 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
 # Token Gate User By Certain Fan Token
 
 <Header
-  useCase="build token gate feature to limit access to a certain fan token"
+  useCase="build token gate feature to limit access to a certain fan token holders"
   apiName="Moxie Protocol Subgraph"
 />
 
@@ -23,7 +23,7 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
 ## Step 1: Add The API Query To Your Code
 
 <AddQuery
-  useCase="build token gate feature to limit access to a certain fan token"
+  useCase="build token gate feature to limit access to a certain fan token holders"
   subgraphLink={SUBGRAPH_URL.protocol}
   query={`query MyQuery($userAddress: ID, $fanTokenName: String) {
   users(where: { id: $userAddress }) {
@@ -65,7 +65,7 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
 
 <ExecuteCode
   response={`true // true if balance is greater than 0, otherwise false`}
-  dataFetched="user's balance of a certain fan token and use it to build token gate feature to limit access to a certain fan token"
+  dataFetched="user's balance of a certain fan token and use it to build token gate feature to limit access to a certain fan token holders"
 />
 
 <DeveloperSupport />

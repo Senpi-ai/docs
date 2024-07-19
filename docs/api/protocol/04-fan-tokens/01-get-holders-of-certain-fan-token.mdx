@@ -26,28 +26,31 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
   useCase="all the holders of a certain fan token"
   subgraphLink={SUBGRAPH_URL.protocol}
   query={`query MyQuery($fanTokenAddress: ID) {
-  subjects(where: { id: $fanTokenAddress }) {
+  subjectTokens(where: { id: $fanTokenAddress }) {
     holders {
       id
     }
   }
 }`}
   variable={`{
-  "fanTokenAddress": "0x035eb3b4230b980723c71d3c09d6561824f1610b"
+  "fanTokenAddress": "0x0045214aa342f75ff65c0208002302b57ddb9c22"
 }`}
   response={`{
   "data": {
-    "subjects": [
+    "subjectTokens": [
       {
         "holders": [
           {
-            "id": "0x28e8a1817af21d39d6820fd930fde618e03d4d8d"
+            "id": "0x075b108fc0a6426f9dec9a5c18e87eb577d1346a"
           },
           {
-            "id": "0x3199219bda5dbc9ee45bb3dfad180be56a7ebfd0"
+            "id": "0x0b34eb0de7977b1d3e7facd449b92a0fe5772a40"
           },
           {
-            "id": "0xe665cebf6111b6bcd8b84538d31f4048666b489a"
+            "id": "0x6de3ce213f27faf4339383c8aec7e255a1eb2a24"
+          },
+          {
+            "id": "0x990591a096934fef9d0eb6e2b9669f20ee0e424b"
           }
         ]
       }
@@ -61,17 +64,20 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
 <ExecuteCode
   response={`{
   "data": {
-    "subjects": [
+    "subjectTokens": [
       {
         "holders": [
           {
-            "id": "0x28e8a1817af21d39d6820fd930fde618e03d4d8d"
+            "id": "0x075b108fc0a6426f9dec9a5c18e87eb577d1346a"
           },
           {
-            "id": "0x3199219bda5dbc9ee45bb3dfad180be56a7ebfd0"
+            "id": "0x0b34eb0de7977b1d3e7facd449b92a0fe5772a40"
           },
           {
-            "id": "0xe665cebf6111b6bcd8b84538d31f4048666b489a"
+            "id": "0x6de3ce213f27faf4339383c8aec7e255a1eb2a24"
+          },
+          {
+            "id": "0x990591a096934fef9d0eb6e2b9669f20ee0e424b"
           }
         ]
       }

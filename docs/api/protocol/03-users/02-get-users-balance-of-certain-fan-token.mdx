@@ -27,10 +27,10 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
   subgraphLink={SUBGRAPH_URL.protocol}
   query={`query MyQuery($userAddress: ID, $fanTokenAddress: String) {
   users(where: { id: $userAddress }) {
-    portfolio(where: { subject: $fanTokenAddress }) {
+    portfolio(where: { subjectToken: $fanTokenAddress }) {
       balance
       protocolTokenSpent
-      subject {
+      subjectToken {
         name
         symbol
       }
@@ -40,7 +40,7 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
   variable={`{
   "userAddress": "0x20e04003c2edfbca86300f6b2e6736142718dae3",
   // provide the fan token address here to get user's balance
-  "fanTokenAddress": "0xf07fbe409a57c4cf896ed24c5a438058a7abe39c"
+  "fanTokenAddress": "0x86580e2db3b5e56c373906d2dc39804acb79e23c"
 }`}
   response={`{
   "data": {
@@ -48,11 +48,11 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
       {
         "portfolio": [
           {
-            "balance": "772821289221015894850",
-            "protocolTokenSpent": "500000000000000000000",
-            "subject": {
-              "name": "fid-3761",
-              "symbol": "fid-3761"
+            "balance": "0",
+            "protocolTokenSpent": "501000000000000000000",
+            "subjectToken": {
+              "name": "fid:289309",
+              "symbol": "fid:289309"
             }
           }
         ]
@@ -71,11 +71,11 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
       {
         "portfolio": [
           {
-            "balance": "772821289221015894850",
-            "protocolTokenSpent": "500000000000000000000",
-            "subject": {
-              "name": "fid-3761",
-              "symbol": "fid-3761"
+            "balance": "0",
+            "protocolTokenSpent": "501000000000000000000",
+            "subjectToken": {
+              "name": "fid:289309",
+              "symbol": "fid:289309"
             }
           }
         ]

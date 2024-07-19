@@ -23,8 +23,8 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
   useCase="get the user's buy orders"
   subgraphLink={SUBGRAPH_URL.protocol}
   query={`query MyQuery($userAddress: ID) {
-  users(where: { id: $userAddress }) {
-    buyOrders {
+  users(where: {id: $userAddress}) {
+    orders(where: {orderType: BUY}) {
       price
       protocolToken
       protocolTokenAmount
@@ -45,29 +45,29 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
   }
 }`}
   variable={`{
-  "userAddress": "0x20e04003c2edfbca86300f6b2e6736142718dae3"
+  "userAddress": "0x04e6f111ebf6fd25576d480480962435dc3aa8d8"
 }`}
   response={`{
   "data": {
     "users": [
       {
-        "buyOrders": [
+        "orders": [
           {
-            "price": "0.5456425784420317897",
-            "protocolToken": "0xf80945fc1436b0ae8b86c8835f09870deeaf03d5",
-            "protocolTokenAmount": "500000000000000000000",
+            "price": "0.2304086884847426004769468719955685",
+            "protocolToken": "0xf86136afb0fb72cdbd27d7aea9e283725d6815a1",
+            "protocolTokenAmount": "3000000000000000",
             "protocolFeeTransfer": {
-              "txHash": "0x26edba6f0c967cd58780813f332dcaa83b4e5e119a08cb6b43f4fb0bd60b0abc",
-              "amount": "5000000000000000000"
+              "txHash": "0x37fa4243f84e41043c490dbed264e61dd4c9992709e0822a80ea2b2e0e809124",
+              "amount": "30000000000000"
             },
             "subjectToken": {
-              "name": "fid-3761",
-              "symbol": "fid-3761"
+              "name": "base",
+              "symbol": "cid:base"
             },
-            "subjectAmount": "272821289221015894850",
+            "subjectAmount": "13020342330530893",
             "subjectFeeTransfer": {
-              "txHash": "0x26edba6f0c967cd58780813f332dcaa83b4e5e119a08cb6b43f4fb0bd60b0abc",
-              "amount": "15000000000000000000"
+              "txHash": "0x37fa4243f84e41043c490dbed264e61dd4c9992709e0822a80ea2b2e0e809124",
+              "amount": "90000000000000"
             }
           }
         ]
@@ -84,23 +84,23 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
   "data": {
     "users": [
       {
-        "buyOrders": [
+        "orders": [
           {
-            "price": "0.5456425784420317897",
-            "protocolToken": "0xf80945fc1436b0ae8b86c8835f09870deeaf03d5",
-            "protocolTokenAmount": "500000000000000000000",
+            "price": "0.2304086884847426004769468719955685",
+            "protocolToken": "0xf86136afb0fb72cdbd27d7aea9e283725d6815a1",
+            "protocolTokenAmount": "3000000000000000",
             "protocolFeeTransfer": {
-              "txHash": "0x26edba6f0c967cd58780813f332dcaa83b4e5e119a08cb6b43f4fb0bd60b0abc",
-              "amount": "5000000000000000000"
+              "txHash": "0x37fa4243f84e41043c490dbed264e61dd4c9992709e0822a80ea2b2e0e809124",
+              "amount": "30000000000000"
             },
             "subjectToken": {
-              "name": "fid-3761",
-              "symbol": "fid-3761"
+              "name": "base",
+              "symbol": "cid:base"
             },
-            "subjectAmount": "272821289221015894850",
+            "subjectAmount": "13020342330530893",
             "subjectFeeTransfer": {
-              "txHash": "0x26edba6f0c967cd58780813f332dcaa83b4e5e119a08cb6b43f4fb0bd60b0abc",
-              "amount": "15000000000000000000"
+              "txHash": "0x37fa4243f84e41043c490dbed264e61dd4c9992709e0822a80ea2b2e0e809124",
+              "amount": "90000000000000"
             }
           }
         ]

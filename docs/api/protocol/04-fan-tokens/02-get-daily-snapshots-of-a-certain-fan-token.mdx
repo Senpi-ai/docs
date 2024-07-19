@@ -26,23 +26,23 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
   useCase="get all the daily snapshots of certain fan token"
   subgraphLink={SUBGRAPH_URL.protocol}
   query={`query MyQuery($fanTokenAddress: ID) {
-  subjects(where: { id: $fanTokenAddress }) {
+  subjectTokens(where: { id: $fanTokenAddress }) {
     dailySnapshots {
       dailyBeneficiaryFeeChange
       dailyPriceChange
-      dailyProtcolFeeChange
+      dailyProtocolFeeChange
       dailyUniqueHoldersChange
       dailyVolumeChange
       endBeneficiaryFee
       endPrice
-      endProtcolFee
+      endProtocolFee
       endTimestamp
       endUniqueHolders
       endVolume
       reserve
       startBeneficiaryFee
       startPrice
-      startProtcolFee
+      startProtocolFee
       startUniqueHolders
       startVolume
       totalSupply
@@ -50,32 +50,32 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
   }
 }`}
   variable={`{
-  "fanTokenAddress": "0x035eb3b4230b980723c71d3c09d6561824f1610b"
+  "fanTokenAddress": "0x0045214aa342f75ff65c0208002302b57ddb9c22"
 }`}
   response={`{
   "data": {
-    "subjects": [
+    "subjectTokens": [
       {
         "dailySnapshots": [
           {
-            "dailyBeneficiaryFeeChange": "0",
-            "dailyPriceChange": "0",
-            "dailyProtcolFeeChange": "0",
-            "dailyUniqueHoldersChange": "3",
-            "dailyVolumeChange": "0",
-            "endBeneficiaryFee": "0",
-            "endPrice": "0",
-            "endProtcolFee": "0",
-            "endTimestamp": "1720310400",
-            "endUniqueHolders": "3",
-            "endVolume": "0",
-            "reserve": "0",
+            "dailyBeneficiaryFeeChange": "6000000000000",
+            "dailyPriceChange": "0.01536057923231617336512979146637123",
+            "dailyProtocolFeeChange": "2000000000000",
+            "dailyUniqueHoldersChange": "4",
+            "dailyVolumeChange": "10092000000000000",
+            "endBeneficiaryFee": "6000000000000",
+            "endPrice": "0.01536057923231617336512979146637123",
+            "endProtocolFee": "2000000000000",
+            "endTimestamp": "1721260800",
+            "endUniqueHolders": "4",
+            "endVolume": "10092000000000000",
+            "reserve": "9892000000000000",
             "startBeneficiaryFee": "0",
             "startPrice": "0",
-            "startProtcolFee": "0",
+            "startProtocolFee": "0",
             "startUniqueHolders": "0",
             "startVolume": "0",
-            "totalSupply": "1000000000000000000000"
+            "totalSupply": "1013020342330530893"
           }
         ]
       }
@@ -89,28 +89,28 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
 <ExecuteCode
   response={`{
   "data": {
-    "subjects": [
+    "subjectTokens": [
       {
         "dailySnapshots": [
           {
-            "dailyBeneficiaryFeeChange": "0",
-            "dailyPriceChange": "0",
-            "dailyProtcolFeeChange": "0",
-            "dailyUniqueHoldersChange": "3",
-            "dailyVolumeChange": "0",
-            "endBeneficiaryFee": "0",
-            "endPrice": "0",
-            "endProtcolFee": "0",
-            "endTimestamp": "1720310400",
-            "endUniqueHolders": "3",
-            "endVolume": "0",
-            "reserve": "0",
+            "dailyBeneficiaryFeeChange": "6000000000000",
+            "dailyPriceChange": "0.01536057923231617336512979146637123",
+            "dailyProtocolFeeChange": "2000000000000",
+            "dailyUniqueHoldersChange": "4",
+            "dailyVolumeChange": "10092000000000000",
+            "endBeneficiaryFee": "6000000000000",
+            "endPrice": "0.01536057923231617336512979146637123",
+            "endProtocolFee": "2000000000000",
+            "endTimestamp": "1721260800",
+            "endUniqueHolders": "4",
+            "endVolume": "10092000000000000",
+            "reserve": "9892000000000000",
             "startBeneficiaryFee": "0",
             "startPrice": "0",
-            "startProtcolFee": "0",
+            "startProtocolFee": "0",
             "startUniqueHolders": "0",
             "startVolume": "0",
-            "totalSupply": "1000000000000000000000"
+            "totalSupply": "1013020342330530893"
           }
         ]
       }

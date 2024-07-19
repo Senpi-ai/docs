@@ -42,25 +42,25 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
   }`
   }
   subgraphLink={SUBGRAPH_URL.vesting}
-  apiName="Moxie Protocol Subgraph"
+  apiName="Moxie Vesting Subgraph"
 />
 
 ## Step 3: Execute The Code
 
 <ExecuteCode
   result={`{
-  data: {
-    tokenManagers: [
+  "data": {
+    "tokenLockManagers": [
       {
-        id: "0xe8b58db33fce7d7d729462bd4908327d067bddfa",
-        masterCopy: "0x454834d526ba7110b42a8fa141f3c3f66af689ec",
-        moxiePassToken: "0x9ca26ebed5921e1297df490ad28eafb95fa63ac9",
-        tokenDestinations: [
-          "0x28e8a1817af21d39d6820fd930fde618e03d4d8d",
-          "0x0f0ecb17575c232077075ef9d78fc9afad808b4d",
+        "id": "0x2adaa94531bdbe1f34d89615d601b1276237d784",
+        "masterCopy": "0x9dece12abf0506ff4311d5340a26bf218bca2a06",
+        "moxiePassToken": "0xfa4495dde898d14f1fa08884af6fb6734dc010bd",
+        "tokenDestinations": [
+          "0x6de3ce213f27faf4339383c8aec7e255a1eb2a24",
+          "0xae03ac8f00cd242f69f996bd06de5ab9363c20ac"
         ],
-        tokenLockCount: "5513",
-        tokens: "586435586999999999999990000"
+        "tokenLockCount": "38673",
+        "tokens": "0"
       }
     ]
   }

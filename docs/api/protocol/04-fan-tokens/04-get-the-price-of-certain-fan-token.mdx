@@ -26,18 +26,18 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
   useCase="get the price of a certain fan token"
   subgraphLink={SUBGRAPH_URL.protocol}
   query={`query MyQuery($fanTokenAddress: ID) {
-  subjects(where: { id: $fanTokenAddress }) {
-    currentPrice
+  subjectTokens(where: { id: $fanTokenAddress }) {
+    currentPriceinMoxie
   }
 }`}
   variable={`{
-  "fanTokenAddress": "0x035eb3b4230b980723c71d3c09d6561824f1610b"
+  "fanTokenAddress": "0x0045214aa342f75ff65c0208002302b57ddb9c22"
 }`}
   response={`{
   "data": {
-    "subjects": [
+    "subjectTokens": [
       {
-        "currentPrice": "0"
+        "currentPriceinMoxie": "0.01536057923231617336512979146637123"
       }
     ]
   }
@@ -49,9 +49,9 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
 <ExecuteCode
   response={`{
   "data": {
-    "subjects": [
+    "subjectTokens": [
       {
-        "currentPrice": "0"
+        "currentPriceinMoxie": "0.01536057923231617336512979146637123"
       }
     ]
   }

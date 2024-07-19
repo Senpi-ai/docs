@@ -26,23 +26,23 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
   useCase="get the hourly snapshots of a certain fan token"
   subgraphLink={SUBGRAPH_URL.protocol}
   query={`query MyQuery($fanTokenAddress: ID) {
-  subjects(where: { id: $fanTokenAddress }) {
+  subjectTokens(where: { id: $fanTokenAddress }) {
     hourlySnapshots {
       hourlyBeneficiaryFeeChange
       hourlyPriceChange
-      hourlyProtcolFeeChange
+      hourlyProtocolFeeChange
       hourlyUniqueHoldersChange
       hourlyVolumeChange
       endBeneficiaryFee
       endPrice
-      endProtcolFee
+      endProtocolFee
       endTimestamp
       endUniqueHolders
       endVolume
       reserve
       startBeneficiaryFee
       startPrice
-      startProtcolFee
+      startProtocolFee
       startUniqueHolders
       startVolume
       totalSupply
@@ -50,32 +50,32 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
   }
 }`}
   variable={`{
-  "fanTokenAddress": "0x035eb3b4230b980723c71d3c09d6561824f1610b"
+  "fanTokenAddress": "0x0045214aa342f75ff65c0208002302b57ddb9c22"
 }`}
   response={`{
   "data": {
-    "subjects": [
+    "subjectTokens": [
       {
         "hourlySnapshots": [
           {
             "hourlyBeneficiaryFeeChange": "0",
             "hourlyPriceChange": "0",
-            "hourlyProtcolFeeChange": "0",
+            "hourlyProtocolFeeChange": "0",
             "hourlyUniqueHoldersChange": "3",
             "hourlyVolumeChange": "0",
             "endBeneficiaryFee": "0",
             "endPrice": "0",
-            "endProtcolFee": "0",
-            "endTimestamp": "1720263600",
+            "endProtocolFee": "0",
+            "endTimestamp": "1721239200",
             "endUniqueHolders": "3",
             "endVolume": "0",
             "reserve": "0",
             "startBeneficiaryFee": "0",
             "startPrice": "0",
-            "startProtcolFee": "0",
+            "startProtocolFee": "0",
             "startUniqueHolders": "0",
             "startVolume": "0",
-            "totalSupply": "1000000000000000000000"
+            "totalSupply": "10000000000000000000"
           }
         ]
       }
@@ -89,28 +89,28 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
 <ExecuteCode
   response={`{
   "data": {
-    "subjects": [
+    "subjectTokens": [
       {
         "hourlySnapshots": [
           {
             "hourlyBeneficiaryFeeChange": "0",
             "hourlyPriceChange": "0",
-            "hourlyProtcolFeeChange": "0",
+            "hourlyProtocolFeeChange": "0",
             "hourlyUniqueHoldersChange": "3",
             "hourlyVolumeChange": "0",
             "endBeneficiaryFee": "0",
             "endPrice": "0",
-            "endProtcolFee": "0",
-            "endTimestamp": "1720263600",
+            "endProtocolFee": "0",
+            "endTimestamp": "1721239200",
             "endUniqueHolders": "3",
             "endVolume": "0",
             "reserve": "0",
             "startBeneficiaryFee": "0",
             "startPrice": "0",
-            "startProtcolFee": "0",
+            "startProtocolFee": "0",
             "startUniqueHolders": "0",
             "startVolume": "0",
-            "totalSupply": "1000000000000000000000"
+            "totalSupply": "10000000000000000000"
           }
         ]
       }

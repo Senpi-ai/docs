@@ -2,11 +2,12 @@
 description: Learn how to use the Moxie Protocol Subgraph API to get the Moxie protocol summary.
 ---
 
-import InstallDependencies from "../../../../partial/_install_dependencies.mdx";
-import PreRequisites from "../../../../partial/_pre_requisites.mdx";
+import Prerequisites from "../../../../src/components/Tutorials/Prerequisites.tsx";
 import DeveloperSupport from "../../../../partial/_developer_support.mdx";
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
+import Header from "../../../../src/components/Tutorials/Header.tsx";
+import AddQuery from "../../../../src/components/Tutorials/AddQuery.tsx";
+import ExecuteCode from "../../../../src/components/Tutorials/ExecuteCode.tsx";
+import { SUBGRAPH_URL } from "../../../../constant.ts";
 
 # Get Protocol Summary
 
@@ -19,19 +20,16 @@ In this tutorial, you will learn how to get the Moxie protocol summary data, whi
 
 by calling the Moxie Protocol Subgraph API.
 
-<PreRequisites />
+# Pre-requisites
 
-<InstallDependencies />
+<Prerequisites apiName="Moxie Protocol Subgraph" />
 
-## Step 2: Construct The GraphQL Query
+## Step 1: Add The API Query To Your Code
 
-Then, you can get the Moxie protocol summary by calling the subgraph API with the following query:
-
-<Tabs>
-<TabItem value="query" label="Query">
-
-```graphql
-query MyQuery {
+<AddQuery
+  useCase="get Moxie protocol summary"
+  subgraphLink={SUBGRAPH_URL.protocol}
+  query={`query MyQuery {
   summaries {
     activeProtocolFeeBeneficiary {
       beneficiary
@@ -44,14 +42,8 @@ query MyQuery {
     totalReserve
     totalTokensIssued
   }
-}
-```
-
-</TabItem>
-<TabItem value="response" label="Response">
-
-```json
-{
+}`}
+  response={`{
   "data": {
     "summaries": [
       {
@@ -68,87 +60,31 @@ query MyQuery {
       }
     ]
   }
-}
-```
+}`}
+/>
 
-</TabItem>
-</Tabs>
+## Step 2: Execute Your Code
 
-## Step 3: Add The API Query To Your Code
-
-With this GraphQL query, you can add it to your source code:
-
-<Tabs>
-<TabItem value="grapqhl_ts" label="graphql-request (TS)">
-
-```tsx
-import { gql, GraphQLClient } from "graphql-request";
-
-const query = gql`
-  query MyQuery {
-    summaries {
-      activeProtocolFeeBeneficiary {
-        beneficiary
-        totalFees
+<ExecuteCode
+  response={`{
+  "data": {
+    "summaries": [
+      {
+        "activeProtocolFeeBeneficiary": {
+          "beneficiary": "0x648e7e89a70ef654b5754e9eb91bf931a477e3cd",
+          "totalFees": "263686938800000000000000"
+        },
+        "protocolBuyFeePct": "10000000000000000",
+        "protocolSellFeePct": "20000000000000000",
+        "subjectBuyFeePct": "30000000000000000",
+        "subjectSellFeePct": "40000000000000000",
+        "totalReserve": "26696218719309458229047159",
+        "totalTokensIssued": "45494652862049690356553"
       }
-      protocolBuyFeePct
-      protocolSellFeePct
-      subjectBuyFeePct
-      subjectSellFeePct
-      totalReserve
-      totalTokensIssued
-    }
+    ]
   }
-`;
-
-const graphQLClient = new GraphQLClient(
-  "https://api.studio.thegraph.com/proxy/27864/protocol/v3.1.9"
-);
-
-try {
-  const data = await graphQLClient.request(query);
-  console.log(data);
-} catch (e) {
-  throw new Error(e);
-}
-```
-
-</TabItem>
-<TabItem value="graphql_js" label="graphql-request (JS)">
-
-```jsx
-const { gql, GraphQLClient } = require("graphql-request");
-
-const query = gql`
-  query MyQuery {
-    summaries {
-      activeProtocolFeeBeneficiary {
-        beneficiary
-        totalFees
-      }
-      protocolBuyFeePct
-      protocolSellFeePct
-      subjectBuyFeePct
-      subjectSellFeePct
-      totalReserve
-      totalTokensIssued
-    }
-  }
-`;
-
-const graphQLClient = new GraphQLClient(
-  "https://api.studio.thegraph.com/proxy/27864/protocol/v3.1.9"
-);
-
-try {
-  const data = await graphQLClient.request(query);
-  console.log(data);
-} catch (e) {
-  throw new Error(e);
-}
-```
-
-</TabItem>
-</Tabs>
+}`}
+  dataFetched="Moxie protocol summary"
+/>
 
 <DeveloperSupport />

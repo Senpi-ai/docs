@@ -2,29 +2,30 @@
 description: Learn how to use the Moxie Auction Subgraph API to get all the new sell orders on a certain auction.
 ---
 
-import InstallDependencies from "../../../../partial/_install_dependencies.mdx";
-import PreRequisites from "../../../../partial/_pre_requisites.mdx";
+import Prerequisites from "../../../../src/components/Tutorials/Prerequisites.tsx";
 import DeveloperSupport from "../../../../partial/_developer_support.mdx";
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
+import Header from "../../../../src/components/Tutorials/Header.tsx";
+import AddQuery from "../../../../src/components/Tutorials/AddQuery.tsx";
+import ExecuteCode from "../../../../src/components/Tutorials/ExecuteCode.tsx";
+import { SUBGRAPH_URL } from "../../../../constant.ts";
 
 # Get All New Sell Orders On Certain Auction
 
-In this tutorial, you will learn how to get all the new sell orders on a certain auction by calling the Moxie Auction Subgraph API.
+<Header
+  useCase="get all sell orders on certain auction"
+  apiName="Moxie Auction Subgraph"
+/>
 
-<PreRequisites />
+# Pre-requisites
 
-<InstallDependencies />
+<Prerequisites apiName="Moxie Auction Subgraph" />
 
-## Step 2: Construct The GraphQL Query
+## Step 1: Add The API Query To Your Code
 
-Then, you can get all the new sell orders on a certain auction by calling the subgraph API with the following query:
-
-<Tabs>
-<TabItem value="query" label="Query">
-
-```graphql
-query MyQuery($auctionId: BigInt!) {
+<AddQuery
+  useCase="get all sell orders on certain auction"
+  subgraphLink={SUBGRAPH_URL.auction}
+  query={`query MyQuery($auctionId: BigInt!) {
   newSellOrders(where: { auctionId: $auctionId }) {
     buyAmount
     id
@@ -36,23 +37,11 @@ query MyQuery($auctionId: BigInt!) {
       timestamp
     }
   }
-}
-```
-
-</TabItem>
-<TabItem value="variable" label="Variable">
-
-```json
-{
+}`}
+  variable={`{
   "auctionId": "1"
-}
-```
-
-</TabItem>
-<TabItem value="response" label="Response">
-
-```json
-{
+}`}
+  response={`{
   "data": {
     "orders": [
       {
@@ -72,89 +61,34 @@ query MyQuery($auctionId: BigInt!) {
       }
     ]
   }
-}
-```
+}`}
+/>
 
-</TabItem>
-</Tabs>
+## Step 2: Execute Your Code
 
-## Step 3: Add The API Query To Your Code
-
-With this GraphQL query, you can add it to your source code and call the API with the `graphql-request` library:
-
-<Tabs>
-<TabItem value="grapqhl_ts" label="graphql-request (TS)">
-
-```tsx
-import { gql, GraphQLClient } from "graphql-request";
-
-const query = gql`
-  query MyQuery($auctionId: BigInt!) {
-    newSellOrders(where: { auctionId: $auctionId }) {
-      buyAmount
-      id
-      sellAmount
-      userId
-      blockInfo {
-        blockNumber
-        hash
-        timestamp
+<ExecuteCode
+  response={`{
+  "data": {
+    "orders": [
+      {
+        "buyAmount": "1000000000000000000000",
+        "encodedOrderId": "0x00000000000000010000003635c9adc5dea000000000003635c9adc5dea00000",
+        "isExactOrder": true,
+        "price": "1",
+        "sellAmount": "1000000000000000000000",
+        "status": "Placed",
+        "timestamp": "1720255300",
+        "txHash": "0x031e467c48cfdfac9fffeee6edfd10135c27748ad304ef14c9062ce4381031f5",
+        "user": {
+          "address": "0x3199219bda5dbc9ee45bb3dfad180be56a7ebfd0"
+        },
+        "userWalletAddress": "0x3199219bda5dbc9ee45bb3dfad180be56a7ebfd0",
+        "volume": "1000"
       }
-    }
+    ]
   }
-`;
-
-const graphQLClient = new GraphQLClient(
-  "https://api.studio.thegraph.com/proxy/27864/auction/v3.4.3"
-);
-
-try {
-  const data = await graphQLClient.request(query, {
-    auctionId: "1",
-  });
-  console.log(data);
-} catch (e) {
-  throw new Error(e);
-}
-```
-
-</TabItem>
-<TabItem value="graphql_js" label="graphql-request (JS)">
-
-```jsx
-const { gql, GraphQLClient } = require("graphql-request");
-
-const query = gql`
-  query MyQuery($auctionId: BigInt!) {
-    newSellOrders(where: { auctionId: $auctionId }) {
-      buyAmount
-      id
-      sellAmount
-      userId
-      blockInfo {
-        blockNumber
-        hash
-        timestamp
-      }
-    }
-  }
-`;
-
-const graphQLClient = new GraphQLClient(
-  "https://api.studio.thegraph.com/proxy/27864/auction/v3.4.3"
-);
-
-try {
-  const data = await graphQLClient.request(query, {
-    auctionId: "1",
-  });
-  console.log(data);
-} catch (e) {
-  throw new Error(e);
-}
-```
-
-</TabItem>
-</Tabs>
+}`}
+  dataFetched="all new sell orders on a certain auction"
+/>
 
 <DeveloperSupport />

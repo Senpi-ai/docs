@@ -7,7 +7,7 @@ const sdksHTML = fs.readFileSync("./src/snippets/sdks.html", "utf-8");
 
 const config: Config = {
   title: "Moxie Developer Hubs",
-  tagline: "Dinosaurs are cool",
+  tagline: "Empowering the Farcaster Economy",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
@@ -42,10 +42,6 @@ const config: Config = {
         docs: {
           routeBasePath: "/",
           sidebarPath: "./sidebars.ts",
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          // editUrl:
-          // "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
         blog: {
           showReadingTime: true,
@@ -63,7 +59,7 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: "img/docusaurus-social-card.jpg",
+    image: "img/social-card.png",
     navbar: {
       logo: {
         alt: "Moxie Logo",
@@ -89,17 +85,17 @@ const config: Config = {
             {
               type: "doc",
               label: "Protocol Subgraphs",
-              docId: "api/protocol/index",
+              docId: "api/protocol/overview",
             },
             {
               type: "doc",
               label: "Auction Subgraphs",
-              docId: "api/auction/index",
+              docId: "api/auction/overview",
             },
             {
               type: "doc",
               label: "Vesting Subgraphs",
-              docId: "api/vesting/index",
+              docId: "api/vesting/overview",
             },
           ],
         },
@@ -122,7 +118,7 @@ const config: Config = {
         // },
         // { to: "/blog", label: "Blog", position: "left" },
         {
-          href: "https://github.com/facebook/docusaurus",
+          href: "https://github.com/moxie-protocol/docs",
           position: "right",
           className: "header-github-link",
           "aria-label": "GitHub repository",
@@ -133,44 +129,47 @@ const config: Config = {
       style: "dark",
       links: [
         {
-          title: "Docs",
+          title: "Subgraphs",
           items: [
             {
-              label: "Tutorial",
+              label: "Protocol APIs",
               to: "/",
             },
+            {
+              label: "Auction APIs",
+              to: "/api/auction/index",
+            },
+            {
+              label: "Vesting APIs",
+              to: "/api/vesting/index",
+            },
           ],
+        },
+        {
+          title: "Contracts",
         },
         {
           title: "Community",
           items: [
             {
-              label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/docusaurus",
-            },
-            {
-              label: "Discord",
-              href: "https://discordapp.com/invite/docusaurus",
-            },
-            {
-              label: "Twitter",
-              href: "https://twitter.com/docusaurus",
-            },
-          ],
-        },
-        {
-          title: "More",
-          items: [
-            {
-              label: "Blog",
-              to: "/blog",
+              label: "Warpcast",
+              href: "https://warpcast.com/moxie-protocol",
             },
             {
               label: "GitHub",
-              href: "https://github.com/facebook/docusaurus",
+              href: "https://github.com/moxie-protocol/docs",
             },
           ],
         },
+        // {
+        //   title: "More",
+        //   items: [
+        //     {
+        //       label: "Blog",
+        //       to: "/blog",
+        //     },
+        //   ],
+        // },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Moxie Protocol Foundation. Developer with 💜 by Airstack.`,
     },

@@ -7,20 +7,27 @@ const Prerequisites = (props) => {
   const { pathname } = useLocation();
   return (
     <>
-      <p>
-        Finished{" "}
-        <a href={`/api/${pathname?.split("/")?.[2]}/quickstart`}>Quickstart</a>{" "}
-        to setup and integrate your project with {apiName}.
-      </p>
-      <p>
-        If you have not, you can follow the <b>Quick Recap</b> below before
-        start following the tutorial.
-      </p>
-      <Details summary="⚡ Quick Recap">
-        For Node.js, install <code>graphql</code> and{" "}
-        <code>graphql-request</code>:
-        <Install dependencies="graphql graphql-request" />
-      </Details>
+      <ol>
+        <li>
+          <p>
+            Finished{" "}
+            <a href={`/api/${pathname?.split("/")?.[2]}/quickstart`}>
+              Quickstart
+            </a>{" "}
+            to setup and integrate your project with {apiName}.
+          </p>
+          <p>
+            If you have not, you can follow the <b>Quick Recap</b> below before
+            start following the tutorial.
+          </p>
+          <Details summary="⚡ Quick Recap">
+            For Node.js, install <code>graphql</code> and{" "}
+            <code>graphql-request</code>:
+            <Install dependencies="graphql graphql-request" />
+          </Details>
+        </li>
+        <li>Read the Whitepaper</li>
+      </ol>
     </>
   );
 };

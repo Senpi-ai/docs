@@ -1,5 +1,5 @@
 ---
-description: Learn how to use the Moxie Auction Subgraph API to get all the orders on a certain auction.
+description: Learn how to use the Moxie Auction Subgraph API to get all the new sell orders on a certain auction.
 ---
 
 import Prerequisites from "../../../../src/components/Tutorials/Prerequisites.tsx";
@@ -9,10 +9,10 @@ import AddQuery from "../../../../src/components/Tutorials/AddQuery.tsx";
 import ExecuteCode from "../../../../src/components/Tutorials/ExecuteCode.tsx";
 import { SUBGRAPH_URL } from "../../../../constant.ts";
 
-# Get All Orders On Certain Auction
+# Get All New Sell Bids On Certain Auction
 
 <Header
-  useCase="get all orders on a certain auction"
+  useCase="get all sell orders on certain auction"
   apiName="Moxie Auction Subgraph"
 />
 
@@ -23,23 +23,19 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
 ## Step 1: Add The API Query To Your Code
 
 <AddQuery
-  useCase="get all orders on a certain auction"
+  useCase="get all sell bids on certain auction"
   subgraphLink={SUBGRAPH_URL.auction}
-  query={`query MyQuery($auctionId: String!) {
-  orders(where: { auction: $auctionId }) {
+  query={`query MyQuery($auctionId: BigInt!) {
+  newSellOrders(where: { auctionId: $auctionId }) {
     buyAmount
-    encodedOrderId
-    isExactOrder
-    price
+    id
     sellAmount
-    status
-    timestamp
-    txHash
-    user {
-      address
+    userId
+    blockInfo {
+      blockNumber
+      hash
+      timestamp
     }
-    userWalletAddress
-    volume
   }
 }`}
   variable={`{
@@ -92,7 +88,7 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
     ]
   }
 }`}
-  dataFetched="all the orders on a certain auction"
+  dataFetched="all new sell bids on a certain auction"
 />
 
 <DeveloperSupport />

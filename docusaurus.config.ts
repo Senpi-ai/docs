@@ -66,6 +66,11 @@ const config: Config = {
         src: "img/logo.avif",
       },
       items: [
+        {
+          href: "https://build.moxie.xyz",
+          label: "Whitepaper",
+          position: "left",
+        },
         // {
         //   type: "docSidebar",
         //   sidebarId: "conceptsSidebar",

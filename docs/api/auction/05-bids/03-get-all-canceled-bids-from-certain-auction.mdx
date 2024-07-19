@@ -1,5 +1,5 @@
 ---
-description: Learn how to use the Moxie Auction Subgraph API to get all the claimed orders on a certain auction.
+description: Learn how to use the Moxie Auction Subgraph API to get all the canceled sell orders on a certain auction.
 ---
 
 import Prerequisites from "../../../../src/components/Tutorials/Prerequisites.tsx";
@@ -9,10 +9,10 @@ import AddQuery from "../../../../src/components/Tutorials/AddQuery.tsx";
 import ExecuteCode from "../../../../src/components/Tutorials/ExecuteCode.tsx";
 import { SUBGRAPH_URL } from "../../../../constant.ts";
 
-# Get All Claimed Orders On Certain Auction
+# Get All Cancelled Bids On Certain Auction
 
 <Header
-  useCase="get all claimed orders on a certain auction"
+  useCase="get all canceled bids from a certain auction"
   apiName="Moxie Auction Subgraph"
 />
 
@@ -23,11 +23,10 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
 ## Step 1: Add The API Query To Your Code
 
 <AddQuery
-  useCase="get all claimed orders on a certain auction"
+  useCase="get all canceled bids from a certain auction"
   subgraphLink={SUBGRAPH_URL.auction}
   query={`query MyQuery($auctionId: BigInt!) {
-  claimedFromOrders(where: { auctionId: $auctionId }) {
-    auctionId
+  cancellationSellOrders(where: { auctionId: $auctionId }) {
     buyAmount
     sellAmount
     userId
@@ -39,20 +38,19 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
   }
 }`}
   variable={`{
-  "auctionId": "4"
+  "auctionId": "37"
 }`}
   response={`{
   "data": {
-    "claimedFromOrders": [
+    "cancellationSellOrders": [
       {
-        "auctionId": "4",
-        "buyAmount": "1000000000000000000",
-        "sellAmount": "4000000000000000000",
-        "userId": "2",
+        "buyAmount": "11000000000000000000",
+        "sellAmount": "11000000000000000000",
+        "userId": "9",
         "blockInfo": {
-          "blockNumber": "12248895",
-          "hash": "0xea5d691f986b488c8babc5cde53eac517f9ce5102c5437ee9f1310ff71b24f58",
-          "timestamp": "1720266078"
+          "blockNumber": "12667487",
+          "hash": "0x2b422395d0786933c689a17df179f2657a6844a53dc9e8b2e523993cff785921",
+          "timestamp": "1721103262"
         }
       }
     ]
@@ -65,22 +63,21 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
 <ExecuteCode
   response={`{
   "data": {
-    "claimedFromOrders": [
+    "cancellationSellOrders": [
       {
-        "auctionId": "4",
-        "buyAmount": "1000000000000000000",
-        "sellAmount": "4000000000000000000",
-        "userId": "2",
+        "buyAmount": "11000000000000000000",
+        "sellAmount": "11000000000000000000",
+        "userId": "9",
         "blockInfo": {
-          "blockNumber": "12248895",
-          "hash": "0xea5d691f986b488c8babc5cde53eac517f9ce5102c5437ee9f1310ff71b24f58",
-          "timestamp": "1720266078"
+          "blockNumber": "12667487",
+          "hash": "0x2b422395d0786933c689a17df179f2657a6844a53dc9e8b2e523993cff785921",
+          "timestamp": "1721103262"
         }
       }
     ]
   }
 }`}
-  dataFetched="all claimed orders on a certain auction"
+  dataFetched="all canceled bids from a certain auction"
 />
 
 <DeveloperSupport />

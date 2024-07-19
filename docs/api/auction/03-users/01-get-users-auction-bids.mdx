@@ -1,5 +1,5 @@
 ---
-description: Learn how to use the Moxie Auction Subgraph API to get user's auction orders.
+description: Learn how to use the Moxie Auction Subgraph API to get user's auction bids.
 ---
 
 import Prerequisites from "../../../../src/components/Tutorials/Prerequisites.tsx";
@@ -9,9 +9,9 @@ import AddQuery from "../../../../src/components/Tutorials/AddQuery.tsx";
 import ExecuteCode from "../../../../src/components/Tutorials/ExecuteCode.tsx";
 import { SUBGRAPH_URL } from "../../../../constant.ts";
 
-# Get User's Auction Orders
+# Get User's Auction Bids
 
-<Header useCase="get user's auction orders" apiName="Moxie Auction Subgraph" />
+<Header useCase="get user's auction bids" apiName="Moxie Auction Subgraph" />
 
 # Pre-requisites
 
@@ -20,7 +20,7 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
 ## Step 1: Add The API Query To Your Code
 
 <AddQuery
-  useCase="get user's auction orders"
+  useCase="get user's auction bids"
   subgraphLink={SUBGRAPH_URL.auction}
   query={`query MyQuery($userAddress: Bytes!) {
   users(where: { address: $userAddress }) {
@@ -78,7 +78,7 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
     ]
   }
 }`}
-  dataFetched="user's auction orders"
+  dataFetched="user's auction bids"
 />
 
 <DeveloperSupport />

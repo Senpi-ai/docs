@@ -6,287 +6,11 @@ description: Learn all the functions, events, errors, and roles of the SubjectFa
 
 ## Functions
 
-# initialize
+### initiateSubjectOnboarding
 
-Initialize the contract.
-
-```js
-function initialize(
-    address _owner,
-    address _tokenManager,
-    address _moxieBondingCurve,
-    address _token,
-    address _easyAuction,
-    FeeInput memory _feeInput,
-    address _feeBeneficiary,
-    uint256 _auctionDuration,
-    uint256 _auctionOrderCancellationDuration
-) external initializer {}
-```
-
-#### Parameters
-
-| Name                                | Type    | Description                                              |
-| :---------------------------------- | :------ | :------------------------------------------------------- |
-| `_owner`                            | address | Owner of the contract.                                   |
-| `_tokenManager`                     | address | Address of token manager contract.                       |
-| `_moxieBondingCurve`                | address | Address of Bonding curve contract.                       |
-| `_token`                            | address | Address of moxie token.                                  |
-| `_easyAuction`                      | address | Address of Easy auction contract.                        |
-| `_feeInput`                         | struct  | Fee input struct.                                        |
-| `_feeBeneficiary`                   | address | Protocol fee beneficiary.                                |
-| `_auctionDuration`                  | uint256 | Duration of auction in unixtimestamp.                    |
-| `_auctionOrderCancellationDuration` | uint256 | Duration of auction order cancellation in unixtimestamp. |
-
-### \_feeIsValid
-
-check if fee is valid.
+Function to onboard & start auction of the initial supply of subject.
 
 ```js
-function _feeIsValid(uint256 _fee) internal pure returns (bool) {}
-```
-
-#### Parameters
-
-| Name   | Type    | Description                |
-| :----- | :------ | :------------------------- |
-| `_fee` | uint256 | Fee percentage in PCT_BASE |
-
-#### Return Values
-
-| Name      | Type | Description                                    |
-| :-------- | :--- | :--------------------------------------------- |
-| `isValid` | bool | Boolean indicating \_fee is less than PCT_BASE |
-
-### \_feeBeneficiaryIsValid
-
-Check if the fee beneficiary is valid.
-
-```js
-function _feeBeneficiaryIsValid(
-    address _beneficiary
-) internal pure returns (bool) {}
-```
-
-#### Parameters
-
-| Name           | Type    | Description                |
-| :------------- | :------ | :------------------------- |
-| `_beneficiary` | address | Address of fee beneficiary |
-
-#### Return Values
-
-| Name      | Type | Description                                                         |
-| :-------- | :--- | :------------------------------------------------------------------ |
-| `isValid` | bool | Boolean indicating if the beneficiary address is not a null address |
-
-### \_updateFeeBeneficiary
-
-update fee beneficiary
-
-```js
-function _updateFeeBeneficiary(address _beneficiary) internal {}
-```
-
-#### Parameters
-
-| Name           | Type    | Description                |
-| :------------- | :------ | :------------------------- |
-| `_beneficiary` | address | Address of fee beneficiary |
-
-### \_updateFees
-
-Update fee params
-
-```js
-function _updateFees(
-    uint256 _protocolFeePct,
-    uint256 _subjectFeePct
-) internal {}
-```
-
-#### Parameters
-
-| Name              | Type    | Description          |
-| :---------------- | :------ | :------------------- |
-| `_protocolFeePct` | uint256 | Protocol fee in PCT. |
-| `_subjectFeePct`  | uint256 | Subject fee in PCT.  |
-
-### \_updateAuctionTime
-
-Create an auction for a subject.
-
-```js
-function _createAuction(
-    address _subject,
-    address _subjectToken,
-    SubjectAuctionInput memory _auctionInput
-) internal returns (uint256 auctionId_, uint256 auctionEndDate_) {}
-```
-
-#### Parameters
-
-| Name            | Type    | Description                        |
-| :-------------- | :------ | :--------------------------------- |
-| `_subject`      | address | Address of subject.                |
-| `_subjectToken` | address | Address of subject token.          |
-| `_auctionInput` | struct  | Input params for auction creation. |
-
-#### Return Values
-
-| Name              | Type    | Description                        |
-| :---------------- | :------ | :--------------------------------- |
-| `auctionId_`      | uint256 | Auction Id.                        |
-| `auctionEndDate_` | uint256 | Auction end date in unixtimestamp. |
-
-### \_decodeOrder
-
-Decode the clearing order from the auction.
-
-```js
-function _decodeOrder(
-    bytes32 _orderData
-)
-    internal
-    pure
-    returns (uint64 userId, uint96 buyAmount, uint96 sellAmount)
-{}
-```
-
-#### Parameters
-
-| Name         | Type    | Description                       |
-| :----------- | :------ | :-------------------------------- |
-| `_orderData` | bytes32 | Order data from auction contract. |
-
-#### Return Values
-
-| Name         | Type   | Description                  |
-| :----------- | :----- | :--------------------------- |
-| `userId`     | uint64 | User Id in auction contract. |
-| `buyAmount`  | uint96 | Amount of Moxie token.       |
-| `sellAmount` | uint96 | Amount of Subject Token.     |
-
-### \_closeAuction
-
-Close auction & burn tokens which are not sold in auction.
-
-```js
-function _closeAuction(
-    uint256 _auctionId,
-    address _subject,
-    uint256 _initialSupply
-)
-    internal
-    returns (
-        uint256 soldSupply_,
-        uint256 amountRaised_,
-        bytes32 clearingOrder
-    )
-{}
-```
-
-#### Parameters
-
-| Name             | Type    | Description                      |
-| :--------------- | :------ | :------------------------------- |
-| `_auctionId`     | uint256 | Auction Id.                      |
-| `_subject`       | address | Address of subject.              |
-| `_initialSupply` | uint256 | Initial supply of subject token. |
-
-#### Return Values
-
-| Name            | Type    | Description                   |
-| :-------------- | :------ | :---------------------------- |
-| `soldSupply_`   | uint256 | Total supply sold in auction. |
-| `amountRaised_` | uint256 | Amount raised in auction.     |
-| `clearingOrder` | bytes32 | Clearing order from auction.  |
-
-### \_calculateFee
-
-Internal function to calculate fees.
-
-```js
-function _calculateFee(
-    uint256 _amount
-) internal view returns (uint256 protocolFee_, uint256 subjectFee_) {}
-```
-
-#### Parameters
-
-| Name      | Type    | Description                              |
-| :-------- | :------ | :--------------------------------------- |
-| `_amount` | uint256 | Amount against fee should be calculated. |
-
-#### Return Values
-
-| Name           | Type    | Description               |
-| :------------- | :------ | :------------------------ |
-| `protocolFee_` | uint256 | Protocol fee in PCT_BASE. |
-| `subjectFee_`  | uint256 | Subject fee in PCT_BASE.  |
-
-### \_calculateTokensMintAfterAuction
-
-Calculate tokens to mint for a given input amount based on the auction price.
-
-```js
-function _calculateTokensMintAfterAuction(
-    bytes32 _clearingOrder,
-    uint256 _amount
-) internal pure returns (uint256) {}
-```
-
-#### Parameters
-
-| Name             | Type    | Description                               |
-| :--------------- | :------ | :---------------------------------------- |
-| `_clearingOrder` | bytes32 | Clearing order from auction.              |
-| `_amount`        | uint256 | Amount of reserve tokens from onboarding. |
-
-#### Return Values
-
-| Name    | Type    | Description                                                                     |
-| :------ | :------ | :------------------------------------------------------------------------------ |
-| `mint_` | uint256 | Amount of subject/fan tokens to mint after auction based on the clearing price. |
-
-### \_initializeBondingCurve
-
-Initialize the Bonding curve, also mint bonding supply for onboarding reserve amount.
-
-```js
-function _initializeBondingCurve(
-    uint256 _auctionId,
-    address _subject,
-    uint256 _amountRaised,
-    uint256 _supply,
-    uint32 _reserveRatio,
-    bytes32 _clearningOrder,
-    uint256 _buyAmount
-) internal {}
-```
-
-#### Parameters
-
-| Name              | Type    | Description                             |
-| :---------------- | :------ | :-------------------------------------- |
-| `_auctionId`      | uint256 | Auction Id from easy auction contract.  |
-| `_subject`        | address | Address of subject.                     |
-| `_amountRaised`   | uint256 | Amount raised in auction.               |
-| `_supply`         | uint256 | Total supply sold in auction.           |
-| `_reserveRatio`   | uint32  | Reserve ratio for Bonding curve.        |
-| `_clearningOrder` | bytes32 | Clearing order from auction.            |
-| `_buyAmount`      | uint256 | Amount to mint shares to this contract. |
-
-### \_updateAuctionTime
-
-Function to onboard & start auction of initial supply of subject.
-
-```js
-/**
- * @dev
- * @param _subject Address of subject.
- * @param _auctionInput Input for auction creation.
- */
 function initiateSubjectOnboarding(
     address _subject,
     SubjectAuctionInput memory _auctionInput
@@ -306,7 +30,7 @@ function initiateSubjectOnboarding(
 | :---------- | :------ | :--------------------------------------------- |
 | `auctionId` | uint256 | Auction Id of the initialized subject auction. |
 
-### \_finalizeSubjectOnboarding
+### finalizeSubjectOnboarding
 
 Finalize subject onboarding.
 
@@ -332,7 +56,7 @@ function finalizeSubjectOnboarding(
 | `_buyAmount`    | uint256 | Amount of tokens contract will be used to buy shares of the subject token. |
 | `_reserveRatio` | uint32  | Reserve ratio of bonding curve.                                            |
 
-### \_updateAuctionTime
+### updateAuctionTime
 
 Update beneficiary to `\_beneficiary. It can be done by UPDATE_BENEFICIARY_ROLE.
 
@@ -348,7 +72,7 @@ function updateFeeBeneficiary(
 | :---------------- | :------ | :--------------------------------------------------------------- |
 | `_feeBeneficiary` | address | The address of the new beneficiary [to whom fees are to be sent] |
 
-### \_updateFees
+### updateFees
 
 Update fee only be called by role UPDATE_FEES_ROLE.
 
@@ -364,7 +88,7 @@ function updateFees(
 | :---------- | :----- | :---------- |
 | `_feeInput` | struct | Fee input.  |
 
-### \_updateAuctionTime
+### updateAuctionTime
 
 Update auction parameters.
 

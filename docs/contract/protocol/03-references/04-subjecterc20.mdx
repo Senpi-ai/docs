@@ -6,30 +6,6 @@ description: Learn all the functions, events, errors, and roles of the SubjectER
 
 ## Functions
 
-### initialize
-
-Initialize contract.
-
-```js
-function initialize(
-    address _owner,
-    string memory _name,
-    string memory _symbol,
-    uint256 _initialSupply,
-    address _moxiePassVerifier
-) public initializer {}
-```
-
-#### Parameters
-
-| Name                 | Type    | Description                                    |
-| :------------------- | :------ | :--------------------------------------------- |
-| `_owner`             | address | Owner of contract.                             |
-| `_name`              | string  | Name of erc20.                                 |
-| `_symbol`            | string  | Symbol of erc20.                               |
-| `_initialSupply`     | uint256 | Initial supply used to mint on initialization. |
-| `_moxiePassVerifier` | address | Address of moxie pass verifier.                |
-
 ### mint
 
 Mint tokens to address.
@@ -44,26 +20,6 @@ function mint(address _to, uint256 _amount) public onlyOwner {}
 | :-------- | :------ | :----------------------------- |
 | `_to`     | address | Address of beneficiary.        |
 | `_amount` | uint256 | Amount of tokens to be minted. |
-
-### \_update
-
-Transfers a value amount of tokens from `from` to `to`. Inherited from the `ERC20Upgradeable` contract.
-
-```js
-function _update(
-    address from,
-    address to,
-    uint256 value
-) internal virtual override {}
-```
-
-#### Parameters
-
-| Name    | Type    | Description           |
-| :------ | :------ | :-------------------- |
-| `from`  | address | sender address        |
-| `to`    | address | receiver address      |
-| `value` | uint256 | ETH value to transfer |
 
 ## Errors
 

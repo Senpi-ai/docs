@@ -24,14 +24,6 @@ function setErc721ContractAddress(
 | :----------------------- | :------ | :--------------------------------------------- |
 | `_erc721ContractAddress` | address | The address of the ERC-721 contract to be set. |
 
-### isMoxiePassHolder (internal)
-
-Checks if the caller is a Moxie Pass holder (internal function). If the caller does not hold the NFT, the function reverts with the error `NotaMoxiePassHolder`. If the erc721ContractAddress is not set, the function does not perform the check.
-
-```js
-function isMoxiePassHolder() internal view virtual {}
-```
-
 ### isMoxiePassHolder
 
 Checks if the caller is a Moxie Pass holder.

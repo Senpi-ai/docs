@@ -3,7 +3,7 @@ import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
 const AddQuery = (props) => {
-  const { query, subgraphLink, apiName } = props ?? {};
+  const { query, headers, subgraphLink, apiName } = props ?? {};
   return (
     <>
       <p>
@@ -14,17 +14,24 @@ const AddQuery = (props) => {
         <TabItem value="ts" label="TypeScript">
           <CodeBlock language="tsx" title="index.ts">
             {`import { gql, GraphQLClient } from "graphql-request";
+${
+  headers
+    ? `import { config } from "dotenv";
 
-const query = gql\`
-  ${query}
-\`;
+config();`
+    : ""
+}
 
 const graphQLClient = new GraphQLClient(
   "${subgraphLink}"
 );
 
+const query = gql\`
+  ${query}
+\`;\n
+${headers ? `const headers = ${headers}\n` : ""}
 try {
-  const data = await graphQLClient.request(query);
+  const data = await graphQLClient.request(query${headers ? ", headers" : ""});
   console.log(data);
 } catch (e) {
   throw new Error(e);
@@ -34,17 +41,24 @@ try {
         <TabItem value="js" label="JavaScript">
           <CodeBlock language="jsx" title="index.js">
             {`const { gql, GraphQLClient } = require("graphql-request");
+${
+  headers
+    ? `const { config } = require("dotenv");
 
-const query = gql\`
-  ${query}
-\`;
+config();`
+    : ""
+}
 
 const graphQLClient = new GraphQLClient(
   "${subgraphLink}"
 );
 
+const query = gql\`
+  ${query}
+\`;\n
+${headers ? `const headers = ${headers}\n` : ""}
 try {
-  const data = await graphQLClient.request(query);
+  const data = await graphQLClient.request(query${headers ? ", headers" : ""});
   console.log(data);
 } catch (e) {
   throw new Error(e);

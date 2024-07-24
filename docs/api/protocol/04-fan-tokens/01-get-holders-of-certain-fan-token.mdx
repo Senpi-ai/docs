@@ -7,7 +7,7 @@ import DeveloperSupport from "../../../../partial/_developer_support.mdx";
 import Header from "../../../../src/components/Tutorials/Header.tsx";
 import AddQuery from "../../../../src/components/Tutorials/AddQuery.tsx";
 import ExecuteCode from "../../../../src/components/Tutorials/ExecuteCode.tsx";
-import { SUBGRAPH_URL } from "../../../../constant.ts";
+import url from "../../../../constant/api_url.json";
 
 # Get Holders Of Certain Fan Token
 
@@ -24,18 +24,31 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
 
 <AddQuery
   useCase="all the holders of a certain fan token"
-  subgraphLink={SUBGRAPH_URL.protocol}
-  query={`query MyQuery($fanTokenAddress: ID) {
+  subgraphLink={url.protocol_subgraphs_legacy}
+  query={
+    `query MyQuery($fanTokenAddress: ID) {
   subjectTokens(where: { id: $fanTokenAddress }) {
     holders {
       id
     }
   }
-}`}
+}` ??
+    `query MyQuery($fanTokenAddress: ID) {
+  subjectTokens(where: {id: $fanTokenAddress}) {
+    portfolio {
+      balance
+      user {
+        id
+      }
+    }
+  }
+}`
+  }
   variable={`{
-  "fanTokenAddress": "0x0045214aa342f75ff65c0208002302b57ddb9c22"
+  "fanTokenAddress": "0x00e7d5fad22a375568d03b0688abbdfa4ec3b729"
 }`}
-  response={`{
+  response={
+    `{
   "data": {
     "subjectTokens": [
       {
@@ -56,13 +69,31 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
       }
     ]
   }
-}`}
+}` ??
+    `{
+  "data": {
+    "subjectTokens": [
+      {
+        "portfolio": [
+          {
+            "balance": "10000000000000000000",
+            "user": {
+              "id": "0x00d620def6ccb76c92dbfc87bc2bebab7637ec53"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}`
+  }
 />
 
 ## Step 2: Execute Your Code
 
 <ExecuteCode
-  response={`{
+  response={
+    `{
   "data": {
     "subjectTokens": [
       {
@@ -83,7 +114,24 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
       }
     ]
   }
-}`}
+}` ??
+    `{
+  "data": {
+    "subjectTokens": [
+      {
+        "portfolio": [
+          {
+            "balance": "10000000000000000000",
+            "user": {
+              "id": "0x00d620def6ccb76c92dbfc87bc2bebab7637ec53"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}`
+  }
   dataFetched="all the holders of a certain fan token"
 />
 

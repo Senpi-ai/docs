@@ -2,7 +2,7 @@ import CodeBlock from "@theme/CodeBlock";
 import Install from "../Install";
 
 const SetupProject = (props) => {
-  const { framework, apiName } = props ?? {};
+  const { additionalDependencies } = props ?? {};
   return (
     <>
       <p>
@@ -13,7 +13,9 @@ const SetupProject = (props) => {
         Then, install the <code>graphql</code> and <code>graphql-request</code>{" "}
         packages into your project:
       </p>
-      <Install dependencies="graphql graphql-request" />
+      <Install
+        dependencies={`graphql graphql-request ${additionalDependencies}`}
+      />
     </>
   );
 };

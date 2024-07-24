@@ -4,7 +4,7 @@ import { useLocation } from "@docusaurus/router";
 import Link from "@docusaurus/Link";
 
 const Prerequisites = (props) => {
-  const { apiName } = props ?? {};
+  const { apiName, additionalDependencies } = props ?? {};
   const { pathname } = useLocation();
   return (
     <>
@@ -24,7 +24,9 @@ const Prerequisites = (props) => {
           <Details summary="⚡ Quick Recap">
             For Node.js, install <code>graphql</code> and{" "}
             <code>graphql-request</code>:
-            <Install dependencies="graphql graphql-request" />
+            <Install
+              dependencies={`graphql graphql-request ${additionalDependencies}`}
+            />
           </Details>
         </li>
         <li>

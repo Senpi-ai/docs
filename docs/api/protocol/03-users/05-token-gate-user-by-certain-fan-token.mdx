@@ -7,7 +7,7 @@ import DeveloperSupport from "../../../../partial/_developer_support.mdx";
 import Header from "../../../../src/components/Tutorials/Header.tsx";
 import AddQuery from "../../../../src/components/Tutorials/AddQuery.tsx";
 import ExecuteCode from "../../../../src/components/Tutorials/ExecuteCode.tsx";
-import { SUBGRAPH_URL } from "../../../../constant.ts";
+import url from "../../../../constant/api_url.json";
 
 # Token Gate User By Certain Fan Token
 
@@ -24,37 +24,78 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
 
 <AddQuery
   useCase="build token gate feature to limit access to a certain fan token holders"
-  subgraphLink={SUBGRAPH_URL.protocol}
-  query={`query MyQuery($userAddress: ID, $fanTokenName: String) {
+  subgraphLink={url.protocol_subgraphs_legacy}
+  query={
+    `query MyQuery($userAddress: ID, $fanTokenAddress: String) {
   users(where: { id: $userAddress }) {
-    portfolio(where: { subjectToken_: { name: $fanTokenName} }) {
+    portfolio(where: { subject: $fanTokenAddress }) {
+      balance
+      protocolTokenSpent
+      subject {
+        name
+        symbol
+      }
+    }
+  }
+}` ??
+    `query MyQuery($userAddress: ID, $fanTokenSymbol: String) {
+  users(where: { id: $userAddress }) {
+    portfolio(where: { subjectToken_: { symbol: $fanTokenSymbol} }) {
       balance
     }
   }
-}`}
-  variable={`{
+}`
+  }
+  variable={
+    `{
   "userAddress": "0x20e04003c2edfbca86300f6b2e6736142718dae3",
+  // provide the fan token address here to check for token gating
+  "fanTokenAddress": "0xf07fbe409a57c4cf896ed24c5a438058a7abe39c"
+}` ??
+    `{
+  "userAddress": "0x00d620def6ccb76c92dbfc87bc2bebab7637ec53",
   /**
-   * There are 3 types of fan tokens, here's their naming format:
+   * There are 3 types of fan tokens, here's how the symbol is formatted:
    * - USER -> fid:<fid>
    * - CHANNEL -> cid:<channel-id>
    * - NETWORK (Only for Farcaster) -> id:farcaster
    */
-  "fanTokenName": "fid:289309"
-}`}
-  response={`{
+  "fanTokenSymbol": "cid:fitness"
+}`
+  }
+  response={
+    `{
   "data": {
     "users": [
       {
         "portfolio": [
           {
-            "balance": "501000000000000000000"
+            "balance": "772821289221015894850",
+            "protocolTokenSpent": "500000000000000000000",
+            "subject": {
+              "name": "fid-3761",
+              "symbol": "fid-3761"
+            }
           }
         ]
       }
     ]
   }
-}`}
+}` ??
+    `{
+  "data": {
+    "users": [
+      {
+        "portfolio": [
+          {
+            "balance": "10000000000000000000"
+          }
+        ]
+      }
+    ]
+  }
+}`
+  }
   customLogic={`console.log(
     // Check if the user has a balance greater than 0
     Number.parseInt(data?.users?.[0]?.portfolio?.[0]?.balance) > 0

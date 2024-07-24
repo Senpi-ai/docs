@@ -3,7 +3,6 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 import tailwindPlugin from "./plugins/tailwind-plugin.cjs";
 import fs from "node:fs";
-const sdksHTML = fs.readFileSync("./src/snippets/sdks.html", "utf-8");
 
 const config: Config = {
   title: "Moxie Developer Hubs",
@@ -11,7 +10,7 @@ const config: Config = {
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: "https://moxie-protocol.github.io",
+  url: "https://developer.moxie.xyz",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
@@ -45,10 +44,7 @@ const config: Config = {
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+          editUrl: "https://github.com/moxie-protocol/docs/edit/main/",
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -56,8 +52,12 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-
   themeConfig: {
+    algolia: {
+      appId: "0E7JT4EO4H",
+      apiKey: "27c2281916aa623aa3fca88e9d0c6696",
+      indexName: "developer-moxie",
+    },
     // Replace with your project's social card
     image: "img/social-card.png",
     navbar: {
@@ -82,26 +82,55 @@ const config: Config = {
           position: "left",
           label: "APIs",
           items: [
-            // {
-            //   type: "html",
-            //   value: sdksHTML,
-            //   className: "dyte-dropdown",
-            // },
+            {
+              type: "html",
+              value:
+                "<h4 style='margin-left: 0.5rem; margin-top: 0.5rem;'>SUBGRPAPHS</h4>",
+            },
             {
               type: "doc",
               label: "Protocol Subgraphs",
               docId: "api/protocol/overview",
+              description:
+                "Use the protocol subgraph to fetch fan tokens balances, holdings, buy/sell orders on the bonding curves, and more.",
             },
             {
               type: "doc",
               label: "Auction Subgraphs",
               docId: "api/auction/overview",
+              description:
+                "Use the auction subgraph to fetch fan token auctions data from the Moxie protocol's auction contract.",
             },
             {
               type: "doc",
               label: "Vesting Subgraphs",
               docId: "api/vesting/overview",
+              description:
+                "Use the vesting subgraph to fetch vesting data from the Moxie protocol's vesting contract.",
             },
+            {
+              type: "html",
+              value: "<hr style='margin: 0.5rem;' />",
+            },
+            {
+              type: "html",
+              value:
+                "<h4 style='margin-left: 0.5rem; margin-top: 1rem;'>OFFCHAIN APIS</h4>",
+            },
+            {
+              type: "doc",
+              label: "Airstack GraphQL API",
+              docId: "api/airstack-graphql/overview",
+              description:
+                "Use Airstack’s GraphQL API to fetch Moxie Fan Token auction schedules and related data.",
+            },
+            // {
+            //   type: "doc",
+            //   label: "REST API",
+            //   docId: "api/offchain-rest/overview",
+            //   description:
+            //     "Use the REST API to calculate clearing price order of an auction. You can host this API on your own backend.",
+            // },
           ],
         },
         // {
@@ -112,13 +141,13 @@ const config: Config = {
         //     {
         //       type: "doc",
         //       label: "Protocol Contracts",
-        //       docId: "contract/protocol/index",
+        //       docId: "contract/protocol/overview",
         //     },
-        //     {
-        //       type: "doc",
-        //       label: "Token Distribution Contracts",
-        //       docId: "contract/token-distribution/index",
-        //     },
+        //     // {
+        //     //   type: "doc",
+        //     //   label: "Token Distribution Contracts",
+        //     //   docId: "contract/token-distribution/overview",
+        //     // },
         //   ],
         // },
         // { to: "/blog", label: "Blog", position: "left" },
@@ -131,7 +160,6 @@ const config: Config = {
       ],
     },
     footer: {
-      style: "dark",
       links: [
         {
           title: "Subgraphs",
@@ -151,8 +179,31 @@ const config: Config = {
           ],
         },
         {
-          title: "Contracts",
+          title: "Offchain APIs",
+          items: [
+            {
+              label: "Airstack GraphQL APIs",
+              to: "/api/airstack-graphql/overview",
+            },
+            // {
+            //   label: "REST APIs",
+            //   to: "/api/offchain-rest/overview",
+            // },
+          ],
         },
+        // {
+        //   title: "Contracts",
+        //   items: [
+        //     {
+        //       label: "Protocol",
+        //       to: "/contracts/protocol/overview",
+        //     },
+        //     // {
+        //     //   label: "Token Distribution",
+        //     //   to: "/contracts/token-distribution/overview",
+        //     // },
+        //   ],
+        // },
         {
           title: "Community",
           items: [
@@ -166,25 +217,28 @@ const config: Config = {
             },
           ],
         },
-        // {
-        //   title: "More",
-        //   items: [
-        //     {
-        //       label: "Blog",
-        //       to: "/blog",
-        //     },
-        //   ],
-        // },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Moxie Protocol Foundation. Developer with 💜 by Airstack.`,
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ["json"],
+      additionalLanguages: ["json", "bash", "php", "solidity"],
     },
   } satisfies Preset.ThemeConfig,
-  plugins: [tailwindPlugin],
+  plugins: [
+    tailwindPlugin,
+    [
+      "docusaurus-graphql-plugin",
+      {
+        id: "airstack-graphql-api",
+        schema: "./schema/airstack_graphql_api.graphql",
+        // it's important that routeBasePath has a different
+        // value for each instance of the plugin
+        routeBasePath: "/docs/api/airstack-graphql/04-references",
+      },
+    ],
+  ],
 };
 
 export default config;

@@ -1,0 +1,92 @@
+---
+description: Learn how to use the Moxie Protocol Subgraph API to get all the Moxie transfers from the vault contract received by a certain user on the Moxie protocol.
+---
+
+import Prerequisites from "../../../../src/components/Tutorials/Prerequisites.tsx";
+import DeveloperSupport from "../../../../partial/_developer_support.mdx";
+import Header from "../../../../src/components/Tutorials/Header.tsx";
+import AddQuery from "../../../../src/components/Tutorials/AddQuery.tsx";
+import ExecuteCode from "../../../../src/components/Tutorials/ExecuteCode.tsx";
+import url from "../../../../constant/api_url.json";
+
+# Get Transfers From Vault Received By Certain User
+
+<Header
+  useCase="get all the Moxie transfers from the vault contract received by a certain user"
+  apiName="Moxie Protocol Subgraph"
+/>
+
+# Pre-requisites
+
+<Prerequisites apiName="Moxie Protocol Subgraph" />
+
+## Step 1: Add The API Query To Your Code
+
+<AddQuery
+  useCase="get all the Moxie transfers from the vault contract received by a certain user"
+  subgraphLink={url.protocol_subgraphs_legacy}
+  query={`query MyQuery($receiver: Bytes) {
+  vaultTransferTxes(where: { to: $receiver }) {
+    amount
+    to
+    subject
+    token
+    totalReserve
+    txHash
+    blockInfo {
+      blockNumber
+      hash
+      timestamp
+    }
+  }
+}`}
+  variable={`{
+  "receiver": "0x0f0ecb17575c232077075ef9d78fc9afad808b4d"
+}`}
+  response={`{
+  "data": {
+    "vaultTransferTxes": [
+      {
+        "amount": "444962989703525653824",
+        "to": "0x0f0ecb17575c232077075ef9d78fc9afad808b4d",
+        "subject": "0xf07fbe409a57c4cf896ed24c5a438058a7abe39c",
+        "token": "0xf80945fc1436b0ae8b86c8835f09870deeaf03d5",
+        "totalReserve": "1062954420051751294643",
+        "txHash": "0x25e098a6410bac83ed50d995c730bd4100004342b7ade456b1463a9a0390ce91",
+        "blockInfo": {
+          "blockNumber": "12639987",
+          "hash": "0x5d7e500d8ed7a89191975e229163480760cc90a52b6fc8c53484ae031406eea9",
+          "timestamp": "1721048262"
+        }
+      }
+    ]
+  }
+}`}
+/>
+
+## Step 2: Execute Your Code
+
+<ExecuteCode
+  response={`{
+  "data": {
+    "vaultTransferTxes": [
+      {
+        "amount": "444962989703525653824",
+        "to": "0x0f0ecb17575c232077075ef9d78fc9afad808b4d",
+        "subject": "0xf07fbe409a57c4cf896ed24c5a438058a7abe39c",
+        "token": "0xf80945fc1436b0ae8b86c8835f09870deeaf03d5",
+        "totalReserve": "1062954420051751294643",
+        "txHash": "0x25e098a6410bac83ed50d995c730bd4100004342b7ade456b1463a9a0390ce91",
+        "blockInfo": {
+          "blockNumber": "12639987",
+          "hash": "0x5d7e500d8ed7a89191975e229163480760cc90a52b6fc8c53484ae031406eea9",
+          "timestamp": "1721048262"
+        }
+      }
+    ]
+  }
+}`}
+  dataFetched="all the Moxie transfers from the vault contract received by a certain user"
+/>
+
+<DeveloperSupport />

@@ -7,7 +7,7 @@ import DeveloperSupport from "../../../../partial/_developer_support.mdx";
 import Header from "../../../../src/components/Tutorials/Header.tsx";
 import AddQuery from "../../../../src/components/Tutorials/AddQuery.tsx";
 import ExecuteCode from "../../../../src/components/Tutorials/ExecuteCode.tsx";
-import { SUBGRAPH_URL } from "../../../../constant.ts";
+import url from "../../../../constant/api_url.json";
 
 # Get Users's Balance Of Certain Fan Token
 
@@ -24,8 +24,9 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
 
 <AddQuery
   useCase="get user's balance of a certain fan token"
-  subgraphLink={SUBGRAPH_URL.protocol}
-  query={`query MyQuery($userAddress: ID, $fanTokenAddress: String) {
+  subgraphLink={url.protocol_subgraphs_legacy}
+  query={
+    `query MyQuery($userAddress: ID, $fanTokenAddress: String) {
   users(where: { id: $userAddress }) {
     portfolio(where: { subjectToken: $fanTokenAddress }) {
       balance
@@ -36,13 +37,28 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
       }
     }
   }
-}`}
+}` ??
+    `query MyQuery($userAddress: ID, $fanTokenAddress: String) {
+  users(where: { id: $userAddress }) {
+    portfolio(where: { subjectToken: $fanTokenAddress }) {
+      balance
+      buyVolume
+      sellVolume
+      subjectToken {
+        name
+        symbol
+      }
+    }
+  }
+}`
+  }
   variable={`{
-  "userAddress": "0x20e04003c2edfbca86300f6b2e6736142718dae3",
+  "userAddress": "0x00d620def6ccb76c92dbfc87bc2bebab7637ec53",
   // provide the fan token address here to get user's balance
-  "fanTokenAddress": "0x86580e2db3b5e56c373906d2dc39804acb79e23c"
+  "fanTokenAddress": "0x00e7d5fad22a375568d03b0688abbdfa4ec3b729"
 }`}
-  response={`{
+  response={
+    `{
   "data": {
     "users": [
       {
@@ -59,13 +75,34 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
       }
     ]
   }
-}`}
+}` ??
+    `{
+  "data": {
+    "users": [
+      {
+        "portfolio": [
+          {
+            "balance": "10000000000000000000",
+            "buyVolume": "10000000000000000000",
+            "sellVolume": "0",
+            "subjectToken": {
+              "name": "/fitness",
+              "symbol": "cid:fitness"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}`
+  }
 />
 
 ## Step 2: Execute Your Code
 
 <ExecuteCode
-  response={`{
+  response={
+    `{
   "data": {
     "users": [
       {
@@ -82,7 +119,27 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
       }
     ]
   }
-}`}
+}` ??
+    `{
+  "data": {
+    "users": [
+      {
+        "portfolio": [
+          {
+            "balance": "10000000000000000000",
+            "buyVolume": "10000000000000000000",
+            "sellVolume": "0",
+            "subjectToken": {
+              "name": "/fitness",
+              "symbol": "cid:fitness"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}`
+  }
   dataFetched="user's balance of a certain fan token"
 />
 

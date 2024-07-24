@@ -1,0 +1,92 @@
+---
+description: Learn how to use the Moxie Protocol Subgraph API to get all the Moxie deposits to the vault contract by a certain fan token on the Moxie protocol.
+---
+
+import Prerequisites from "../../../../src/components/Tutorials/Prerequisites.tsx";
+import DeveloperSupport from "../../../../partial/_developer_support.mdx";
+import Header from "../../../../src/components/Tutorials/Header.tsx";
+import AddQuery from "../../../../src/components/Tutorials/AddQuery.tsx";
+import ExecuteCode from "../../../../src/components/Tutorials/ExecuteCode.tsx";
+import url from "../../../../constant/api_url.json";
+
+# Get Deposits To Vault Of Certain Fan Token
+
+<Header
+  useCase="get all the Moxie deposits to the vault contract by a certain fan token"
+  apiName="Moxie Protocol Subgraph"
+/>
+
+# Pre-requisites
+
+<Prerequisites apiName="Moxie Protocol Subgraph" />
+
+## Step 1: Add The API Query To Your Code
+
+<AddQuery
+  useCase="get all the Moxie deposits to the vault contract by a certain fan token"
+  subgraphLink={url.protocol_subgraphs_legacy}
+  query={`query MyQuery($fanTokenAddress: Bytes) {
+  vaultDepositTxes(where: { subject: $fanTokenAddress }) {
+    amount
+    sender
+    subject
+    token
+    totalReserve
+    txHash
+    blockInfo {
+      blockNumber
+      hash
+      timestamp
+    }
+  }
+}`}
+  variable={`{
+  "fanTokenAddress": "0xf07fbe409a57c4cf896ed24c5a438058a7abe39c"
+}`}
+  response={`{
+  "data": {
+    "vaultDepositTxes": [
+      {
+        "amount": "1003000000000000000000",
+        "sender": "0x0f0ecb17575c232077075ef9d78fc9afad808b4d",
+        "subject": "0xf07fbe409a57c4cf896ed24c5a438058a7abe39c",
+        "token": "0xf80945fc1436b0ae8b86c8835f09870deeaf03d5",
+        "totalReserve": "1003000000000000000000",
+        "txHash": "0x027718ba1de18ee5f8d4399c356f7d3ce28535ea2df6c27979972c3dfb63fbff",
+        "blockInfo": {
+          "blockNumber": "12513857",
+          "hash": "0xd09d261c515a20b49d208c0df5b7e9cf4c425082ccd2ded1933463352a67a2e9",
+          "timestamp": "1720796002"
+        }
+      }
+    ]
+  }
+}`}
+/>
+
+## Step 2: Execute Your Code
+
+<ExecuteCode
+  response={`{
+  "data": {
+    "vaultDepositTxes": [
+      {
+        "amount": "1003000000000000000000",
+        "sender": "0x0f0ecb17575c232077075ef9d78fc9afad808b4d",
+        "subject": "0xf07fbe409a57c4cf896ed24c5a438058a7abe39c",
+        "token": "0xf80945fc1436b0ae8b86c8835f09870deeaf03d5",
+        "totalReserve": "1003000000000000000000",
+        "txHash": "0x027718ba1de18ee5f8d4399c356f7d3ce28535ea2df6c27979972c3dfb63fbff",
+        "blockInfo": {
+          "blockNumber": "12513857",
+          "hash": "0xd09d261c515a20b49d208c0df5b7e9cf4c425082ccd2ded1933463352a67a2e9",
+          "timestamp": "1720796002"
+        }
+      }
+    ]
+  }
+}`}
+  dataFetched="all the Moxie deposits to the vault contract by a certain fan token"
+/>
+
+<DeveloperSupport />

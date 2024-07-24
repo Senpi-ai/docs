@@ -7,7 +7,7 @@ import DeveloperSupport from "../../../../partial/_developer_support.mdx";
 import Header from "../../../../src/components/Tutorials/Header.tsx";
 import AddQuery from "../../../../src/components/Tutorials/AddQuery.tsx";
 import ExecuteCode from "../../../../src/components/Tutorials/ExecuteCode.tsx";
-import { SUBGRAPH_URL } from "../../../../constant.ts";
+import url from "../../../../constant/api_url.json";
 
 # Get Daily Snapshots Of Certain Fan Token
 
@@ -24,8 +24,9 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
 
 <AddQuery
   useCase="get all the daily snapshots of certain fan token"
-  subgraphLink={SUBGRAPH_URL.protocol}
-  query={`query MyQuery($fanTokenAddress: ID) {
+  subgraphLink={url.protocol_subgraphs_legacy}
+  query={
+    `query MyQuery($fanTokenAddress: ID) {
   subjectTokens(where: { id: $fanTokenAddress }) {
     dailySnapshots {
       dailyBeneficiaryFeeChange
@@ -48,11 +49,34 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
       totalSupply
     }
   }
-}`}
+}` ??
+    `query MyQuery($fanTokenAddress: ID) {
+  subjectTokens(where: { id: $fanTokenAddress }) {
+    dailySnapshots {
+      dailyPriceChange
+      dailyProtocolFeeChange
+      dailyUniqueHoldersChange
+      dailyVolumeChange
+      endPrice
+      endProtocolFee
+      endTimestamp
+      endUniqueHolders
+      endVolume
+      reserve
+      startPrice
+      startProtocolFee
+      startUniqueHolders
+      startVolume
+      totalSupply
+    }
+  }
+}`
+  }
   variable={`{
   "fanTokenAddress": "0x0045214aa342f75ff65c0208002302b57ddb9c22"
 }`}
-  response={`{
+  response={
+    `{
   "data": {
     "subjectTokens": [
       {
@@ -81,13 +105,42 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
       }
     ]
   }
-}`}
+}` ??
+    `{
+  "data": {
+    "subjectTokens": [
+      {
+        "dailySnapshots": [
+          {
+            "dailyPriceChange": "0.01536057923231617336512979146637123",
+            "dailyProtocolFeeChange": "2000000000000",
+            "dailyUniqueHoldersChange": "4",
+            "dailyVolumeChange": "10092000000000000",
+            "endPrice": "0.01536057923231617336512979146637123",
+            "endProtocolFee": "2000000000000",
+            "endTimestamp": "1721260800",
+            "endUniqueHolders": "4",
+            "endVolume": "10092000000000000",
+            "reserve": "9892000000000000",
+            "startPrice": "0",
+            "startProtocolFee": "0",
+            "startUniqueHolders": "0",
+            "startVolume": "0",
+            "totalSupply": "1013020342330530893"
+          }
+        ]
+      }
+    ]
+  }
+}`
+  }
 />
 
 ## Step 2: Execute Your Code
 
 <ExecuteCode
-  response={`{
+  response={
+    `{
   "data": {
     "subjectTokens": [
       {
@@ -116,7 +169,35 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
       }
     ]
   }
-}`}
+}` ??
+    `{
+  "data": {
+    "subjectTokens": [
+      {
+        "dailySnapshots": [
+          {
+            "dailyPriceChange": "0.01536057923231617336512979146637123",
+            "dailyProtocolFeeChange": "2000000000000",
+            "dailyUniqueHoldersChange": "4",
+            "dailyVolumeChange": "10092000000000000",
+            "endPrice": "0.01536057923231617336512979146637123",
+            "endProtocolFee": "2000000000000",
+            "endTimestamp": "1721260800",
+            "endUniqueHolders": "4",
+            "endVolume": "10092000000000000",
+            "reserve": "9892000000000000",
+            "startPrice": "0",
+            "startProtocolFee": "0",
+            "startUniqueHolders": "0",
+            "startVolume": "0",
+            "totalSupply": "1013020342330530893"
+          }
+        ]
+      }
+    ]
+  }
+}`
+  }
   dataFetched="the daily snapshots of a certain fan token"
 />
 

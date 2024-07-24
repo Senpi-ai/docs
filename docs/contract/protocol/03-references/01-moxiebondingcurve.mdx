@@ -12,10 +12,10 @@ Bonding curve contract which enables subject onboarding, buy & sell of subject s
 
 Update fee only be called by role UPDATE_FEES_ROLE.
 
-```js
+```solidity
 function updateFees(
     FeeInput memory _feeInput
-) external onlyRole(UPDATE_FEES_ROLE) {}
+) external onlyRole(UPDATE_FEES_ROLE)
 ```
 
 #### Parameters
@@ -28,10 +28,10 @@ function updateFees(
 
 Update formula to `_formula`. It can be done by UPDATE_FORMULA_ROLE.
 
-```js
+```solidity
 function updateFormula(
     address _formula
-) external onlyRole(UPDATE_FORMULA_ROLE) {}
+) external onlyRole(UPDATE_FORMULA_ROLE)
 ```
 
 #### Parameters
@@ -44,10 +44,10 @@ function updateFormula(
 
 Update beneficiary to `\_beneficiary. It can be done by UPDATE_BENEFICIARY_ROLE.
 
-```js
+```solidity
 function updateFeeBeneficiary(
     address _feeBeneficiary
-) external onlyRole(UPDATE_BENEFICIARY_ROLE) {}
+) external onlyRole(UPDATE_BENEFICIARY_ROLE)
 ```
 
 #### Parameters
@@ -60,13 +60,13 @@ function updateFeeBeneficiary(
 
 Initialize Bonding curve for subject, it's called by subject factory.
 
-```js
+```solidity
 function initializeSubjectBondingCurve(
   address _subject,
   uint32 _reserveRatio,
   uint256 _initialSupply,
   uint256 _reserveAmount
-) external whenNotPaused returns (bool) {}
+) external whenNotPaused returns (bool)
 ```
 
 #### Parameters
@@ -88,13 +88,13 @@ function initializeSubjectBondingCurve(
 
 Buy shares of a subject on behalf of a beneficiary.
 
-```js
+```solidity
 function buySharesFor(
     address _subject,
     uint256 _depositAmount,
     address _onBehalfOf,
     uint256 _minReturnAmountAfterFee
-) external whenNotPaused returns (uint256 shares_) {}
+) external whenNotPaused returns (uint256 shares_)
 ```
 
 #### Parameters
@@ -116,12 +116,12 @@ function buySharesFor(
 
 Buy shares of a subject.
 
-```js
+```solidity
 function buyShares(
     address _subject,
     uint256 _depositAmount,
     uint256 _minReturnAmountAfterFee
-) external whenNotPaused returns (uint256 shares_) {}
+) external whenNotPaused returns (uint256 shares_)
 ```
 
 #### Parameters
@@ -142,13 +142,13 @@ function buyShares(
 
 Sell shares of a subject on behalf of a beneficiary.
 
-```js
+```solidity
 function sellSharesFor(
     address _subject,
     uint256 _sellAmount,
     address _onBehalfOf,
     uint256 _minReturnAmountAfterFee
-) external whenNotPaused returns (uint256 returnAmount_) {}
+) external whenNotPaused returns (uint256 returnAmount_)
 ```
 
 #### Parameters
@@ -170,12 +170,12 @@ function sellSharesFor(
 
 Sell shares of a subject.
 
-```js
+```solidity
 function sellShares(
     address _subject,
     uint256 _sellAmount,
     uint256 _minReturnAmountAfterFee
-) external whenNotPaused returns (uint256 returnAmount_) {}
+) external whenNotPaused returns (uint256 returnAmount_)
 ```
 
 #### Parameters
@@ -196,7 +196,7 @@ function sellShares(
 
 ### UpdateFees
 
-```js
+```solidity
 event UpdateFees(
   uint256 _protocolBuyFeePct,
   uint256 _protocolSellFeePct,
@@ -207,19 +207,19 @@ event UpdateFees(
 
 ### UpdateBeneficiary
 
-```js
+```solidity
 event UpdateBeneficiary(address _beneficiary);
 ```
 
 ### UpdateFormula
 
-```js
+```solidity
 event UpdateFormula(address _formula);
 ```
 
 ### BondingCurveInitialized
 
-```js
+```solidity
 event BondingCurveInitialized(
   address _subject,
   address _subjectToken,
@@ -231,7 +231,7 @@ event BondingCurveInitialized(
 
 ### SubjectSharePurchased
 
-```js
+```solidity
 event SubjectSharePurchased(
   address _subject,
   address _sellToken,
@@ -244,7 +244,7 @@ event SubjectSharePurchased(
 
 ### SubjectShareSold
 
-```js
+```solidity
 event SubjectShareSold(
     address \_subject,
     address \_sellToken,
@@ -259,108 +259,108 @@ event SubjectShareSold(
 
 ### MoxieBondingCurve_InvalidToken
 
-```js
+```solidity
 error MoxieBondingCurve_InvalidToken();
 ```
 
 ### MoxieBondingCurve_InvalidVault
 
-```js
+```solidity
 error MoxieBondingCurve_InvalidVault();
 ```
 
 ### MoxieBondingCurve_InvalidBeneficiary
 
-```js
+```solidity
 error MoxieBondingCurve_InvalidBeneficiary();
 ```
 
 ### MoxieBondingCurve_InvalidFeePercentage
 
-```js
+```solidity
 error MoxieBondingCurve_InvalidFeePercentage();
 ```
 
 ### MoxieBondingCurve_InvalidFormula
 
-```js
+```solidity
 error MoxieBondingCurve_InvalidFormula();
 ```
 
 ### MoxieBondingCurve_InvalidTokenManager
 
-```js
+```solidity
 error MoxieBondingCurve_InvalidTokenManager();
 ```
 
 ### MoxieBondingCurve_InvalidOwner
 
-```js
+```solidity
 error MoxieBondingCurve_InvalidOwner();
 ```
 
 ### MoxieBondingCurve_InvalidSubjectFactory
 
-```js
+```solidity
 error MoxieBondingCurve_InvalidSubjectFactory();
 ```
 
 ### MoxieBondingCurve_OnlySubjectFactory
 
-```js
+```solidity
 error MoxieBondingCurve_OnlySubjectFactory();
 ```
 
 ### MoxieBondingCurve_InvalidReserveRation
 
-```js
+```solidity
 error MoxieBondingCurve_InvalidReserveRation();
 ```
 
 ### MoxieBondingCurve_SubjectAlreadyInitialized
 
-```js
+```solidity
 error MoxieBondingCurve_SubjectAlreadyInitialized();
 ```
 
 ### MoxieBondingCurve_SubjectNotInitialized
 
-```js
+```solidity
 error MoxieBondingCurve_SubjectNotInitialized();
 ```
 
 ### MoxieBondingCurve_InvalidSubjectSupply
 
-```js
+```solidity
 error MoxieBondingCurve_InvalidSubjectSupply();
 ```
 
 ### MoxieBondingCurve_InvalidSubject
 
-```js
+```solidity
 error MoxieBondingCurve_InvalidSubject();
 ```
 
 ### MoxieBondingCurve_InvalidDepositAmount
 
-```js
+```solidity
 error MoxieBondingCurve_InvalidDepositAmount();
 ```
 
 ### MoxieBondingCurve_InvalidSubjectToken
 
-```js
+```solidity
 error MoxieBondingCurve_InvalidSubjectToken();
 ```
 
 ### MoxieBondingCurve_SlippageExceedsLimit
 
-```js
+```solidity
 error MoxieBondingCurve_SlippageExceedsLimit();
 ```
 
 ### MoxieBondingCurve_InvalidSellAmount
 
-```js
+```solidity
 error MoxieBondingCurve_InvalidSellAmount();
 ```

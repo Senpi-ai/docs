@@ -1,0 +1,55 @@
+---
+description: Queries for the Airstack GraphQL API.
+---
+
+# Queries
+
+## FarcasterFanTokenAuctions
+
+You can use the `FarcasterFanTokenAuctions` to get the list of scheduled fan token auctions on the Moxie protocol.
+
+### Inputs
+
+#### filter
+
+| Name         | Type                                 | Description                                                                                                                                                            |
+| ------------ | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entityId`   | `String`                             | The name of the user, channel, or network associated with the fan token.                                                                                               |
+| `entityType` | `FarcasterFanTokenAuctionEntityType` | The type of fan token, either `USER`, `CHANNEL`, or `NETWORK`.                                                                                                         |
+| `entityName` | `String`                             | The name metadata of the fan token. For user type, it's the fname. For channel type, it's the channel's name. For network, it's formatted as `network:<network-name>`. |
+| `status`     | `FarcasterFanTokenAuctionStatusType` | The status of the auction associated with a certain fan token, either `UPCOMING`, `ACTIVE`, or `COMPLETED`.                                                            |
+
+#### blockchain
+
+| Value | Description                                                                    |
+| ----- | ------------------------------------------------------------------------------ |
+| `ALL` | This is required by default. This will not affect the outcome of the response. |
+
+#### order
+
+| Value                     | Description                        |
+| ------------------------- | ---------------------------------- |
+| `estimatedEndTimestamp`   | Sort by estimated end timestamp.   |
+| `estimatedStartTimestamp` | Sort by estimated start timestamp. |
+
+### Outputs
+
+| Name                      | Value                                   | Description                                                                                                                                                                                   |
+| ------------------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `auctionId`               | `Int`                                   | The auction ID.                                                                                                                                                                               |
+| `entityId`                | `String!`                               | The name of the user, channel, or network associated with the fan token.                                                                                                                      |
+| `entityType`              | `FarcasterFanTokenAuctionEntityType!`   | The type of fan token, either `USER`, `CHANNEL`, or `NETWORK`.                                                                                                                                |
+| `status`                  | `FarcasterFanTokenAuctionStatusType!`   | The status of the auction associated with a certain fan token, either `UPCOMING`, `ACTIVE`, or `COMPLETED`.                                                                                   |
+| `estimatedStartTimestamp` | `Time!`                                 | Estimated start timestamp.                                                                                                                                                                    |
+| `estimatedEndTimestamp`   | `Time!`                                 | Estimated end timestamp.                                                                                                                                                                      |
+| `decimals`                | `Int`                                   | The decimals associated with the fan tokens.                                                                                                                                                  |
+| `auctionSupply`           | `Float`                                 | The fan tokens supply available for auctions.                                                                                                                                                 |
+| `minPriceInMoxie`         | `Float`                                 | The minimum price of the auctioned fan token in terms of MOXIE.                                                                                                                               |
+| `subjectAddress`          | `String`                                | For user type, the user's connected address. For channel type, the custody address of the channel's owner. For network type, it will be the SAFE contract reserved for the Farcaster network. |
+| `minBiddingAmount`        | `Float`                                 | Minimum bidding amount.                                                                                                                                                                       |
+| `minFundingAmount`        | `Float`                                 | Minimum funding amount for the auction.                                                                                                                                                       |
+| `entityName`              | `String`                                | The name metadata of the fan token. For user type, it's the fname. For channel type, it's the channel's name. For network, it's formatted as `network:<network-name>`.                        |
+| `entitySymbol`            | `String`                                | The symbol metadata of the fan token.                                                                                                                                                         |
+| `launchCastUrl`           | `String`                                | Launch Cast URL.                                                                                                                                                                              |
+| `channel`                 | `FarcasterChannel`                      | The channel details for channel fan tokens.                                                                                                                                                   |
+| `socials`                 | `(input: SocialsNestedInput): [Social]` | The user's Farcaster account details for user fan tokens                                                                                                                                      |

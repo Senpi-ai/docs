@@ -1,0 +1,89 @@
+{
+  "clearingPrice": {
+    "apiHost": "http://batch-auction.uat.airstack.xyz",
+    "summary": "Get the clearing price of a certain auction",
+    "description": "Get the clearing price of a certain auction",
+    "method": "GET",
+    "path": "/api/clearing-price",
+    "pathParams": [],
+    "queryParams": [
+      {
+        "name": "auctionId",
+        "description": "The auction id to get the clearing price for",
+        "required": false,
+        "example": "19",
+        "type": "string"
+      },
+      {
+        "name": "chainId",
+        "description": "The chain to query from",
+        "required": false,
+        "example": "84532",
+        "type": "string"
+      }
+    ],
+    "responses": [
+      {
+        "status": "200",
+        "description": "Returns the clearing price of a certain auction",
+        "body": {
+          "type": "object",
+          "fields": [
+            {
+              "name": "auction",
+              "type": "object",
+              "example": {
+                "auction": {
+                  "minBuyAmount": "37320999999999999737856",
+                  "initialSupply": "37320999999999999737856",
+                  "id": "0",
+                  "clearingPrice": 1,
+                  "userId": "0"
+                }
+              },
+              "description": "The auction details",
+              "required": true,
+              "fields": [
+                {
+                  "name": "minBuyAmount",
+                  "type": "string",
+                  "example": "37320999999999999737856",
+                  "description": "The token name",
+                  "required": true
+                },
+                {
+                  "name": "initialSupply",
+                  "type": "string",
+                  "example": "37320999999999999737856",
+                  "description": "The fan token initial supply",
+                  "required": true
+                },
+                {
+                  "name": "id",
+                  "type": "string",
+                  "example": "0",
+                  "description": "The token name",
+                  "required": true
+                },
+                {
+                  "name": "clearingPrice",
+                  "type": "string",
+                  "example": 1,
+                  "description": "The clearing price of the specified auction",
+                  "required": true
+                },
+                {
+                  "name": "userId",
+                  "type": "string",
+                  "example": "0",
+                  "description": "The token name",
+                  "required": true
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -10,11 +10,11 @@ description: Learn all the functions, events, errors, and roles of the SubjectFa
 
 Function to onboard & start auction of the initial supply of subject.
 
-```js
+```solidity
 function initiateSubjectOnboarding(
     address _subject,
     SubjectAuctionInput memory _auctionInput
-) external whenNotPaused onlyRole(ONBOARDING_ROLE) returns (uint256) {}
+) external whenNotPaused onlyRole(ONBOARDING_ROLE) returns (uint256)
 ```
 
 #### Parameters
@@ -40,12 +40,12 @@ Finalize subject onboarding.
 1.  Calculate & transfer fee.
 1.  Initiate bonding curve.
 
-```js
+```solidity
 function finalizeSubjectOnboarding(
     address _subject,
     uint256 _buyAmount,
     uint32 _reserveRatio
-) external whenNotPaused onlyRole(ONBOARDING_ROLE) {}
+) external whenNotPaused onlyRole(ONBOARDING_ROLE)
 ```
 
 #### Parameters
@@ -60,10 +60,10 @@ function finalizeSubjectOnboarding(
 
 Update beneficiary to `\_beneficiary. It can be done by UPDATE_BENEFICIARY_ROLE.
 
-```js
+```solidity
 function updateFeeBeneficiary(
     address _feeBeneficiary
-) external onlyRole(UPDATE_BENEFICIARY_ROLE) {}
+) external onlyRole(UPDATE_BENEFICIARY_ROLE)
 ```
 
 #### Parameters
@@ -76,10 +76,10 @@ function updateFeeBeneficiary(
 
 Update fee only be called by role UPDATE_FEES_ROLE.
 
-```js
+```solidity
 function updateFees(
     FeeInput memory _feeInput
-) external onlyRole(UPDATE_FEES_ROLE) {}
+) external onlyRole(UPDATE_FEES_ROLE)
 ```
 
 #### Parameters
@@ -92,11 +92,11 @@ function updateFees(
 
 Update auction parameters.
 
-```js
+```solidity
 function updateAuctionTime(
     uint256 _auctionDuration,
     uint256 _auctionOrderCancellationDuration
-) external onlyRole(UPDATE_AUCTION_ROLE) {}
+) external onlyRole(UPDATE_AUCTION_ROLE)
 ```
 
 #### Parameters
@@ -112,7 +112,7 @@ function updateAuctionTime(
 
 The contract will emit the error if the beneficiary address is not valid.
 
-```js
+```solidity
 error SubjectFactory_InvalidBeneficiary();
 ```
 
@@ -120,7 +120,7 @@ error SubjectFactory_InvalidBeneficiary();
 
 The contract will emit the error if the fee percentage is not valid.
 
-```js
+```solidity
 error SubjectFactory_InvalidFeePercentage();
 ```
 
@@ -128,7 +128,7 @@ error SubjectFactory_InvalidFeePercentage();
 
 The contract will emit the error if the subject address is not valid.
 
-```js
+```solidity
 error SubjectFactory_InvalidSubject();
 ```
 
@@ -136,7 +136,7 @@ error SubjectFactory_InvalidSubject();
 
 The contract will emit the error if the token manager address is not valid.
 
-```js
+```solidity
 error SubjectFactory_InvalidTokenManager();
 ```
 
@@ -144,7 +144,7 @@ error SubjectFactory_InvalidTokenManager();
 
 The contract will emit the error if the moxie bonding curve address is not valid.
 
-```js
+```solidity
 error SubjectFactory_InvalidMoxieBondingCurve();
 ```
 
@@ -152,7 +152,7 @@ error SubjectFactory_InvalidMoxieBondingCurve();
 
 The contract will emit the error if the token address is not valid.
 
-```js
+```solidity
 error SubjectFactory_InvalidToken();
 ```
 
@@ -160,7 +160,7 @@ error SubjectFactory_InvalidToken();
 
 The contract will emit the error if the auction duration is not valid.
 
-```js
+```solidity
 error SubjectFactory_InvalidAuctionDuration();
 ```
 
@@ -168,7 +168,7 @@ error SubjectFactory_InvalidAuctionDuration();
 
 The contract will emit the error if the auction order cancellation duration is not valid.
 
-```js
+```solidity
 error SubjectFactory_InvalidAuctionOrderCancellationDuration();
 ```
 
@@ -176,7 +176,7 @@ error SubjectFactory_InvalidAuctionOrderCancellationDuration();
 
 The contract will emit the error if the auction contract is not valid.
 
-```js
+```solidity
 error SubjectFactory_InvalidAuctionContract();
 ```
 
@@ -184,7 +184,7 @@ error SubjectFactory_InvalidAuctionContract();
 
 The contract will emit the error if the auction is already created.
 
-```js
+```solidity
 error SubjectFactory_AuctionAlreadyCreated();
 ```
 
@@ -192,7 +192,7 @@ error SubjectFactory_AuctionAlreadyCreated();
 
 The contract will emit the error if the auction is not created.
 
-```js
+```solidity
 error SubjectFactory_AuctionNotCreated();
 ```
 
@@ -200,7 +200,7 @@ error SubjectFactory_AuctionNotCreated();
 
 The contract will emit the error if the auction is not done yet.
 
-```js
+```solidity
 error SubjectFactory_AuctionNotDoneYet();
 ```
 
@@ -208,7 +208,7 @@ error SubjectFactory_AuctionNotDoneYet();
 
 The contract will emit the error if the owner address is not valid.
 
-```js
+```solidity
 error SubjectFactory_InvalidOwner();
 ```
 
@@ -216,7 +216,7 @@ error SubjectFactory_InvalidOwner();
 
 The contract will emit the error if the reserve ratio is not valid.
 
-```js
+```solidity
 error SubjectFactory_InvalidReserveRatio();
 ```
 
@@ -224,6 +224,6 @@ error SubjectFactory_InvalidReserveRatio();
 
 The contract will emit the error if the buy amount is too less.
 
-```js
+```solidity
 error SubjectFactory_BuyAmountTooLess();
 ```

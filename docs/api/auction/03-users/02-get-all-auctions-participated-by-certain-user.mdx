@@ -7,7 +7,7 @@ import DeveloperSupport from "../../../../partial/_developer_support.mdx";
 import Header from "../../../../src/components/Tutorials/Header.tsx";
 import AddQuery from "../../../../src/components/Tutorials/AddQuery.tsx";
 import ExecuteCode from "../../../../src/components/Tutorials/ExecuteCode.tsx";
-import { SUBGRAPH_URL } from "../../../../constant.ts";
+import url from "../../../../constant/api_url.json";
 
 # Get All Auctions Participated By Certain User
 
@@ -24,7 +24,7 @@ import { SUBGRAPH_URL } from "../../../../constant.ts";
 
 <AddQuery
   useCase="get all auctions participated by a certain user"
-  subgraphLink={SUBGRAPH_URL.auction}
+  subgraphLink={url.auction_subgraphs_legacy}
   query={`query MyQuery($userAddress: Bytes!) {
   users(where: { address: $userAddress }) {
     participatedAuctions {

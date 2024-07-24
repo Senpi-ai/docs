@@ -3,8 +3,16 @@ import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
 const AddQuery = (props) => {
-  const { query, variable, response, subgraphLink, useCase, customLogic } =
-    props ?? {};
+  const {
+    query,
+    // NOTE: add headers
+    headers,
+    variable,
+    response,
+    subgraphLink,
+    useCase,
+    customLogic,
+  } = props ?? {};
   return (
     <>
       <p>To {useCase}, you can use the following query:</p>
@@ -27,6 +35,13 @@ const AddQuery = (props) => {
         <TabItem value="ts" label="TypeScript">
           <CodeBlock language="tsx" title="index.ts">
             {`import { gql, GraphQLClient } from "graphql-request";
+${
+  headers
+    ? `import { config } from "dotenv";
+
+config();`
+    : ""
+}
 
 const graphQLClient = new GraphQLClient(
   "${subgraphLink}"
@@ -34,12 +49,13 @@ const graphQLClient = new GraphQLClient(
 
 const query = gql\`
 ${query}
-\`;
-${variable ? `\nconst variable = ${variable}\n` : ""}
+\`;\n
+${variable ? `const variable = ${variable}\n` : ""}
+${headers ? `const headers = ${headers}\n` : ""}
 try {
   const data = await graphQLClient.request(query${
     variable ? ", variable" : ""
-  });
+  }${headers ? ", headers" : ""});
   ${customLogic ?? "console.log(data);"}
 } catch (e) {
   throw new Error(e);
@@ -49,6 +65,13 @@ try {
         <TabItem value="js" label="JavaScript">
           <CodeBlock language="jsx" title="index.js">
             {`const { gql, GraphQLClient } = require("graphql-request");
+${
+  headers
+    ? `const { config } = require("dotenv");
+
+config();`
+    : ""
+}
 
 const graphQLClient = new GraphQLClient(
   "${subgraphLink}"
@@ -56,12 +79,13 @@ const graphQLClient = new GraphQLClient(
 
 const query = gql\`
 ${query}
-\`;
+\`;\n
 ${variable ? `\nconst variable = ${variable}\n` : ""}
+${headers ? `\nconst headers = ${headers}\n` : ""}
 try {
   const data = await graphQLClient.request(query${
     variable ? ", variable" : ""
-  });
+  }${headers ? ", headers" : ""});
   ${customLogic ?? "console.log(data);"}
 } catch (e) {
   throw new Error(e);

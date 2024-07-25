@@ -24,7 +24,7 @@ import url from "../../../../constant/api_url.json";
 
 <AddQuery
   useCase="get all the fan tokens owned by a certain user"
-  subgraphLink={url.protocol_subgraphs_legacy}
+  subgraphLink={url.protocol_analytics_subgraphs}
   query={
     `query MyQuery($userAddress: ID) {
   users(where: { id: $userAddress }) {

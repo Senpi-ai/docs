@@ -24,7 +24,7 @@ import url from "../../../../constant/api_url.json";
 
 <AddQuery
   useCase="get all the protocol fee transfers on the Moxie protocol within a certain time range"
-  subgraphLink={url.protocol_subgraphs_legacy}
+  subgraphLink={url.protocol_analytics_subgraphs}
   query={`query MyQuery($startTime: BigInt, $endTime: BigInt) {
   protocolFeeTransfers(
     where: {

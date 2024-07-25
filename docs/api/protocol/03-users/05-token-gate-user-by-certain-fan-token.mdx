@@ -24,7 +24,7 @@ import url from "../../../../constant/api_url.json";
 
 <AddQuery
   useCase="build token gate feature to limit access to a certain fan token holders"
-  subgraphLink={url.protocol_subgraphs_legacy}
+  subgraphLink={url.protocol_analytics_subgraphs}
   query={
     `query MyQuery($userAddress: ID, $fanTokenAddress: String) {
   users(where: { id: $userAddress }) {

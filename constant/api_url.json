@@ -2,7 +2,7 @@
   "protocol_analytics_subgraphs": "https://testnets.graph-eu.p2pify.com/b5be556230af1a9764779d891b080d79/sgr-226-411-703",
   "protocol_transactional_subgraphs": "https://testnets.graph-eu.p2pify.com/1c05ccc3dd91e719ae76b199e1088e53/sgr-711-852-408",
   "protocol_subgraphs_legacy": "https://api.studio.thegraph.com/query/27864/protocol/v5.1.6",
-  "auction_analytics_subgraphs": "https://api.studio.thegraph.com/proxy/82737/auction/v.4.0.6",
+  "auction_analytics_subgraphs": "https://testnets.graph-eu.p2pify.com/cd5f276513c5f775161de72d4f07ea78/sgr-362-924-871",
   "auction_transactional_subgraphs": "https://testnets.graph-eu.p2pify.com/0e43a29318b2a7676fb046d18550ff9c/sgr-872-925-936",
   "auction_subgraphs_legacy": "https://api.studio.thegraph.com/proxy/82737/auction/v.4.0.6",
   "vesting_subgraphs": "https://testnets.graph-eu.p2pify.com/025b612e66120d40e6e7d53364589197/sgr-948-263-764",

@@ -1,5 +1,7 @@
+import Link from "@docusaurus/Link";
+
 const Header = (props) => {
-  const { apiName, dataSource, dataFetch } = props ?? {};
+  const { apiName, dataSource, dataFetch, subgraphStudioLink } = props ?? {};
   return (
     <>
       <p>
@@ -11,8 +13,8 @@ const Header = (props) => {
         can use other APIs to fetch other data available on the {apiName} API.
       </p>
       <p>
-        For more details on the {apiName} API, check out the API references
-        here.
+        For more details on the {apiName} API, check out the Subgraph Studio{" "}
+        <Link to={`${subgraphStudioLink}/graphql`}>here</Link>.
       </p>
     </>
   );

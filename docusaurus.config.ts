@@ -124,13 +124,13 @@ const config: Config = {
               description:
                 "Use Airstack’s GraphQL API to fetch Moxie Fan Token auction schedules and related data.",
             },
-            // {
-            //   type: "doc",
-            //   label: "REST API",
-            //   docId: "api/offchain-rest/overview",
-            //   description:
-            //     "Use the REST API to calculate clearing price order of an auction. You can host this API on your own backend.",
-            // },
+            {
+              type: "doc",
+              label: "REST API",
+              docId: "api/offchain-rest/overview",
+              description:
+                "Use the REST API to calculate clearing price order of an auction. You can host this API on your own backend.",
+            },
           ],
         },
         // {
@@ -185,10 +185,10 @@ const config: Config = {
               label: "Airstack GraphQL APIs",
               to: "/api/airstack-graphql/overview",
             },
-            // {
-            //   label: "REST APIs",
-            //   to: "/api/offchain-rest/overview",
-            // },
+            {
+              label: "REST APIs",
+              to: "/api/offchain-rest/overview",
+            },
           ],
         },
         // {

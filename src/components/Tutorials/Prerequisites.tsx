@@ -25,7 +25,9 @@ const Prerequisites = (props) => {
             For Node.js, install <code>graphql</code> and{" "}
             <code>graphql-request</code>:
             <Install
-              dependencies={`graphql graphql-request ${additionalDependencies}`}
+              dependencies={`graphql graphql-request ${
+                additionalDependencies ?? ""
+              }`}
             />
           </Details>
         </li>

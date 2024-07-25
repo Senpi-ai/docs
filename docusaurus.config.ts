@@ -85,7 +85,7 @@ const config: Config = {
             {
               type: "html",
               value:
-                "<h4 style='margin-left: 0.5rem; margin-top: 0.5rem;'>SUBGRPAPHS</h4>",
+                "<h4 style='margin-left: 0.5rem; margin-top: 0.5rem;'>SUBGRAPHS</h4>",
             },
             {
               type: "doc",
@@ -218,7 +218,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Moxie Protocol Foundation. Developer with 💜 by Airstack.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Moxie Protocol Foundation. Developed with 💜 by Airstack.`,
     },
     prism: {
       theme: prismThemes.github,

@@ -1,6 +1,6 @@
 {
   "clearingPrice": {
-    "apiHost": "http://batch-auction.uat.airstack.xyz",
+    "apiHost": "https://batch-auction.airstack.xyz",
     "summary": "Get the clearing price of a certain auction",
     "description": "Get the clearing price of a certain auction",
     "method": "GET",
@@ -10,14 +10,14 @@
       {
         "name": "auctionId",
         "description": "The auction id to get the clearing price for",
-        "required": false,
+        "required": true,
         "example": "19",
         "type": "string"
       },
       {
         "name": "chainId",
-        "description": "The chain to query from",
-        "required": false,
+        "description": "The chain ID to query from",
+        "required": true,
         "example": "84532",
         "type": "string"
       }
@@ -62,7 +62,7 @@
                   "name": "id",
                   "type": "string",
                   "example": "0",
-                  "description": "The token name",
+                  "description": "The auction ID",
                   "required": true
                 },
                 {
@@ -75,7 +75,7 @@
                 {
                   "name": "userId",
                   "type": "string",
-                  "example": "0",
+                  "example": "",
                   "description": "The token name",
                   "required": true
                 }

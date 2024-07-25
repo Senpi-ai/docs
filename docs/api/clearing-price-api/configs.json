@@ -75,8 +75,8 @@
                 {
                   "name": "userId",
                   "type": "string",
-                  "example": "",
-                  "description": "The token name",
+                  "example": "0",
+                  "description": "The FID of the user that get the last allocation from the auction. Everyone that bid the same amount, but with higher FID, or bid with less amount will automatically get refunded.",
                   "required": true
                 }
               ]

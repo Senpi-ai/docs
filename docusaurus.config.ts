@@ -126,10 +126,10 @@ const config: Config = {
             },
             {
               type: "doc",
-              label: "REST API",
-              docId: "api/offchain-rest/overview",
+              label: "Clearing Price API",
+              docId: "api/clearing-price-api/overview",
               description:
-                "Use the REST API to calculate clearing price order of an auction. You can host this API on your own backend.",
+                "Use the Clearing Price REST API to calculate clearing price order of an auction.",
             },
           ],
         },
@@ -186,8 +186,8 @@ const config: Config = {
               to: "/api/airstack-graphql/overview",
             },
             {
-              label: "REST APIs",
-              to: "/api/offchain-rest/overview",
+              label: "Clearing Price API",
+              to: "/api/clearing-price-api/overview",
             },
           ],
         },

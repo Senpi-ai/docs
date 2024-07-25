@@ -53,7 +53,7 @@ bun install node-fetch
 
 ## Step 1: Add REST API Call To The Code
 
-You can easily call the Clearing Price API by sending a GET request by the following code snippet with `node-fetch`:
+You can easily call the Clearing Price API by sending a GET request providing the `auctionId` of the auction and specifying which chain you would like to fetch from on the `chainId` parameter by the following code snippet with `node-fetch`:
 
 <Tabs>
     <TabItem value="ts" label="TypeScript">
@@ -68,8 +68,14 @@ const options = {
   },
 };
 
+// The ID of the auction you want to fetch the clearing price for
 const auctionId = 19;
 
+/*
+ * The Chain ID to fetch the data from:
+ * - 84532 is for Base Sepolia Testnet
+ * - 8453 is for Base Mainnet
+ */
 const chainId = 84532;
 
 fetch(
@@ -94,8 +100,14 @@ const options = {
   },
 };
 
+// The ID of the auction you want to fetch the clearing price for
 const auctionId = 19;
 
+/*
+ * The Chain ID to fetch the data from:
+ * - 84532 is for Base Sepolia Testnet
+ * - 8453 is for Base Mainnet
+ */
 const chainId = 84532;
 
 fetch(

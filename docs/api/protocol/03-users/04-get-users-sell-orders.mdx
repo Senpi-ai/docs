@@ -24,7 +24,7 @@ import url from "../../../../constant/api_url.json";
 
 <AddQuery
   useCase="get the user's sell orders"
-  subgraphLink={url.protocol_analytics_subgraphs}
+  subgraphLink={url.protocol_subgraphs_legacy}
   query={`query MyQuery($userAddress: ID) {
   users(where: {id: $userAddress}) {
     orders(where: {orderType: SELL}) {

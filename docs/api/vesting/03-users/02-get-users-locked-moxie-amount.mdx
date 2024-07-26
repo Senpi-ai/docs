@@ -24,7 +24,7 @@ import url from "../../../../constant/api_url.json";
 
 <AddQuery
   useCase="get the user's locked Moxie amount in the vesting contract"
-  subgraphLink={url.vesting_subgraphs}
+  subgraphLink={url.vesting_subgraphs_legacy}
   query={`query MyQuery($userAddress: Bytes!) {
   tokenLockWallets(
     where: {beneficiary: $userAddress}

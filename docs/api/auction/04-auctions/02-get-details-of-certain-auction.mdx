@@ -24,7 +24,7 @@ import url from "../../../../constant/api_url.json";
 
 <AddQuery
   useCase="get details of a certain auction"
-  subgraphLink={url.auction_analytics_subgraphs}
+  subgraphLink={url.auction_subgraphs_legacy}
   query={`query MyQuery($auctionId: BigInt!) {
   auctionDetails(where: { auctionId: $auctionId }) {
     auctionId

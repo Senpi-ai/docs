@@ -24,7 +24,7 @@ import url from "../../../../constant/api_url.json";
 
 <AddQuery
   useCase="get all the Moxie deposits to the vault contract done by a certain user"
-  subgraphLink={url.protocol_analytics_subgraphs}
+  subgraphLink={url.protocol_subgraphs_legacy}
   query={`query MyQuery($sender: Bytes) {
   vaultDepositTxes(where: { sender: $sender }) {
     amount

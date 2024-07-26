@@ -24,7 +24,7 @@ import url from "../../../../constant/api_url.json";
 
 <AddQuery
   useCase="get all the Moxie transfers from the vault contract of a certain fan token on the Moxie protocol"
-  subgraphLink={url.protocol_analytics_subgraphs}
+  subgraphLink={url.protocol_subgraphs_legacy}
   query={`query MyQuery($fanTokenAddress: Bytes) {
   vaultTransferTxes(where: { subject: $fanTokenAddress }) {
     amount

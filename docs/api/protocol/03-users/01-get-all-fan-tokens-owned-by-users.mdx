@@ -25,20 +25,7 @@ import url from "../../../../constant/api_url.json";
 <AddQuery
   useCase="get all the fan tokens owned by a certain user"
   subgraphLink={url.protocol_stats_subgraphs}
-  query={
-    `query MyQuery($userAddress: ID) {
-  users(where: { id: $userAddress }) {
-    portfolio {
-      balance
-      protocolTokenSpent
-      subjectToken {
-        name
-        symbol
-      }
-    }
-  }
-}` ??
-    `query MyQuery($userAddress: ID) {
+  query={`query MyQuery($userAddress: ID) {
   users(where: { id: $userAddress }) {
     portfolio {
       balance
@@ -50,31 +37,11 @@ import url from "../../../../constant/api_url.json";
       }
     }
   }
-}`
-  }
+}`}
   variable={`{
   "userAddress": "0x00d620def6ccb76c92dbfc87bc2bebab7637ec53"
 }`}
-  response={
-    `{
-  "data": {
-    "users": [
-      {
-        "portfolio": [
-          {
-            "balance": "772821289221015894850",
-            "protocolTokenSpent": "500000000000000000000",
-            "subject": {
-              "name": "fid-3761",
-              "symbol": "fid-3761"
-            }
-          }
-        ]
-      }
-    ]
-  }
-}` ??
-    `{
+  response={`{
   "data": {
     "users": [
       {
@@ -92,33 +59,13 @@ import url from "../../../../constant/api_url.json";
       }
     ]
   }
-}`
-  }
+}`}
 />
 
 ## Step 2: Execute Your Code
 
 <ExecuteCode
-  response={
-    `{
-  "data": {
-    "users": [
-      {
-        "portfolio": [
-          {
-            "balance": "772821289221015894850",
-            "protocolTokenSpent": "500000000000000000000",
-            "subject": {
-              "name": "fid-3761",
-              "symbol": "fid-3761"
-            }
-          }
-        ]
-      }
-    ]
-  }
-}` ??
-    `{
+  response={`{
   "data": {
     "users": [
       {
@@ -136,8 +83,7 @@ import url from "../../../../constant/api_url.json";
       }
     ]
   }
-}`
-  }
+}`}
   dataFetched="all fan tokens owned by a certain user"
 />
 

@@ -25,15 +25,7 @@ import url from "../../../../constant/api_url.json";
 <AddQuery
   useCase="all the holders of a certain fan token"
   subgraphLink={url.protocol_stats_subgraphs}
-  query={
-    `query MyQuery($fanTokenAddress: ID) {
-  subjectTokens(where: { id: $fanTokenAddress }) {
-    holders {
-      id
-    }
-  }
-}` ??
-    `query MyQuery($fanTokenAddress: ID) {
+  query={`query MyQuery($fanTokenAddress: ID) {
   subjectTokens(where: {id: $fanTokenAddress}) {
     portfolio {
       balance
@@ -42,35 +34,11 @@ import url from "../../../../constant/api_url.json";
       }
     }
   }
-}`
-  }
+}`}
   variable={`{
   "fanTokenAddress": "0x00e7d5fad22a375568d03b0688abbdfa4ec3b729"
 }`}
-  response={
-    `{
-  "data": {
-    "subjectTokens": [
-      {
-        "holders": [
-          {
-            "id": "0x075b108fc0a6426f9dec9a5c18e87eb577d1346a"
-          },
-          {
-            "id": "0x0b34eb0de7977b1d3e7facd449b92a0fe5772a40"
-          },
-          {
-            "id": "0x6de3ce213f27faf4339383c8aec7e255a1eb2a24"
-          },
-          {
-            "id": "0x990591a096934fef9d0eb6e2b9669f20ee0e424b"
-          }
-        ]
-      }
-    ]
-  }
-}` ??
-    `{
+  response={`{
   "data": {
     "subjectTokens": [
       {
@@ -85,37 +53,13 @@ import url from "../../../../constant/api_url.json";
       }
     ]
   }
-}`
-  }
+}`}
 />
 
 ## Step 2: Execute Your Code
 
 <ExecuteCode
-  response={
-    `{
-  "data": {
-    "subjectTokens": [
-      {
-        "holders": [
-          {
-            "id": "0x075b108fc0a6426f9dec9a5c18e87eb577d1346a"
-          },
-          {
-            "id": "0x0b34eb0de7977b1d3e7facd449b92a0fe5772a40"
-          },
-          {
-            "id": "0x6de3ce213f27faf4339383c8aec7e255a1eb2a24"
-          },
-          {
-            "id": "0x990591a096934fef9d0eb6e2b9669f20ee0e424b"
-          }
-        ]
-      }
-    ]
-  }
-}` ??
-    `{
+  response={`{
   "data": {
     "subjectTokens": [
       {
@@ -130,8 +74,7 @@ import url from "../../../../constant/api_url.json";
       }
     ]
   }
-}`
-  }
+}`}
   dataFetched="all the holders of a certain fan token"
 />
 

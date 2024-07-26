@@ -25,34 +25,14 @@ import url from "../../../../constant/api_url.json";
 <AddQuery
   useCase="build token gate feature to limit access to a certain fan token holders"
   subgraphLink={url.protocol_stats_subgraphs}
-  query={
-    `query MyQuery($userAddress: ID, $fanTokenAddress: String) {
-  users(where: { id: $userAddress }) {
-    portfolio(where: { subject: $fanTokenAddress }) {
-      balance
-      protocolTokenSpent
-      subject {
-        name
-        symbol
-      }
-    }
-  }
-}` ??
-    `query MyQuery($userAddress: ID, $fanTokenSymbol: String) {
+  query={`query MyQuery($userAddress: ID, $fanTokenSymbol: String) {
   users(where: { id: $userAddress }) {
     portfolio(where: { subjectToken_: { symbol: $fanTokenSymbol} }) {
       balance
     }
   }
-}`
-  }
-  variable={
-    `{
-  "userAddress": "0x20e04003c2edfbca86300f6b2e6736142718dae3",
-  // provide the fan token address here to check for token gating
-  "fanTokenAddress": "0xf07fbe409a57c4cf896ed24c5a438058a7abe39c"
-}` ??
-    `{
+}`}
+  variable={`{
   "userAddress": "0x00d620def6ccb76c92dbfc87bc2bebab7637ec53",
   /**
    * There are 3 types of fan tokens, here's how the symbol is formatted:
@@ -61,28 +41,8 @@ import url from "../../../../constant/api_url.json";
    * - NETWORK (Only for Farcaster) -> id:farcaster
    */
   "fanTokenSymbol": "cid:fitness"
-}`
-  }
-  response={
-    `{
-  "data": {
-    "users": [
-      {
-        "portfolio": [
-          {
-            "balance": "772821289221015894850",
-            "protocolTokenSpent": "500000000000000000000",
-            "subject": {
-              "name": "fid-3761",
-              "symbol": "fid-3761"
-            }
-          }
-        ]
-      }
-    ]
-  }
-}` ??
-    `{
+}`}
+  response={`{
   "data": {
     "users": [
       {
@@ -94,8 +54,7 @@ import url from "../../../../constant/api_url.json";
       }
     ]
   }
-}`
-  }
+}`}
   customLogic={`console.log(
     // Check if the user has a balance greater than 0
     Number.parseInt(data?.users?.[0]?.portfolio?.[0]?.balance) > 0

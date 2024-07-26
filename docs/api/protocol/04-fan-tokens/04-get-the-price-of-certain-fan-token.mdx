@@ -25,32 +25,15 @@ import url from "../../../../constant/api_url.json";
 <AddQuery
   useCase="get the price of a certain fan token"
   subgraphLink={url.protocol_stats_subgraphs}
-  query={
-    `query MyQuery($fanTokenAddress: ID) {
-  subjectTokens(where: { id: $fanTokenAddress }) {
-    currentPriceinMoxie
-  }
-}` ??
-    `query MyQuery($fanTokenAddress: ID) {
+  query={`query MyQuery($fanTokenAddress: ID) {
   subjectTokens(where: { id: $fanTokenAddress }) {
     currentPriceInMoxie
   }
-}`
-  }
+}`}
   variable={`{
   "fanTokenAddress": "0x0045214aa342f75ff65c0208002302b57ddb9c22"
 }`}
-  response={
-    `{
-  "data": {
-    "subjectTokens": [
-      {
-        "currentPriceinMoxie": "0.01536057923231617336512979146637123"
-      }
-    ]
-  }
-}` ??
-    `{
+  response={`{
   "data": {
     "subjectTokens": [
       {
@@ -58,24 +41,13 @@ import url from "../../../../constant/api_url.json";
       }
     ]
   }
-}`
-  }
+}`}
 />
 
 ## Step 2: Execute Your Code
 
 <ExecuteCode
-  response={
-    `{
-  "data": {
-    "subjectTokens": [
-      {
-        "currentPriceinMoxie": "0.01536057923231617336512979146637123"
-      }
-    ]
-  }
-}` ??
-    `{
+  response={`{
   "data": {
     "subjectTokens": [
       {
@@ -83,8 +55,7 @@ import url from "../../../../constant/api_url.json";
       }
     ]
   }
-}`
-  }
+}`}
   dataFetched="the price of a certain fan token"
 />
 

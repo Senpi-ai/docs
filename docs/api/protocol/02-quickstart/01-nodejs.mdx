@@ -32,19 +32,21 @@ import url from "../../../../constant/api_url.json";
 <AddQuery
   query={
     /* GraphQL*/ `query MyQuery {
-    summaries {
-      activeProtocolFeeBeneficiary {
-        beneficiary
-        totalFees
-      }
-      protocolBuyFeePct
-      protocolSellFeePct
-      subjectBuyFeePct
-      subjectSellFeePct
-      totalReserve
-      totalTokensIssued
+  summaries {
+    activeProtocolFeeBeneficiary {
+      beneficiary
+      totalFees
     }
-  }`
+    protocolBuyFeePct
+    protocolSellFeePct
+    subjectBuyFeePct
+    subjectSellFeePct
+    totalReserve
+    totalBuyVolume
+    totalSellVolume
+    totalProtocolFee
+  }
+}`
   }
   subgraphLink={url.protocol_stats_subgraphs}
   apiName="Moxie Protocol Subgraph"
@@ -54,18 +56,21 @@ import url from "../../../../constant/api_url.json";
 
 <ExecuteCode
   result={`{
-  data: {
-    tokenManagers: [
+  "data": {
+    "summaries": [
       {
-        id: "0xe8b58db33fce7d7d729462bd4908327d067bddfa",
-        masterCopy: "0x454834d526ba7110b42a8fa141f3c3f66af689ec",
-        moxiePassToken: "0x9ca26ebed5921e1297df490ad28eafb95fa63ac9",
-        tokenDestinations: [
-          "0x28e8a1817af21d39d6820fd930fde618e03d4d8d",
-          "0x0f0ecb17575c232077075ef9d78fc9afad808b4d",
-        ],
-        tokenLockCount: "5513",
-        tokens: "586435586999999999999990000"
+        "activeProtocolFeeBeneficiary": {
+          "beneficiary": "0x648e7e89a70ef654b5754e9eb91bf931a477e3cd",
+          "totalFees": "263686938800000000000000"
+        },
+        "protocolBuyFeePct": "10000000000000000",
+        "protocolSellFeePct": "20000000000000000",
+        "subjectBuyFeePct": "30000000000000000",
+        "subjectSellFeePct": "40000000000000000",
+        "totalReserve": "26696218719309458229047159",
+        "totalBuyVolume": "248812605935485122316883",
+        "totalSellVolume": "0",
+        "totalProtocolFee": "0"
       }
     ]
   }

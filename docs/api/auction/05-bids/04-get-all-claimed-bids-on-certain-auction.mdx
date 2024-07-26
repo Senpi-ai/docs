@@ -24,7 +24,7 @@ import url from "../../../../constant/api_url.json";
 
 <AddQuery
   useCase="get all claimed bids on a certain auction"
-  subgraphLink={url.auction_subgraphs_legacy}
+  subgraphLink={url.auction_stats_subgraphs}
   query={`query MyQuery($auctionId: BigInt!) {
   claimedFromOrders(where: { auctionId: $auctionId }) {
     auctionId

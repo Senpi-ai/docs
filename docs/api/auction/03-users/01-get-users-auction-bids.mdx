@@ -21,7 +21,7 @@ import url from "../../../../constant/api_url.json";
 
 <AddQuery
   useCase="get user's auction bids"
-  subgraphLink={url.auction_subgraphs_legacy}
+  subgraphLink={url.auction_stats_subgraphs}
   query={`query MyQuery($userAddress: Bytes!) {
   users(where: { address: $userAddress }) {
     orders {

@@ -202,6 +202,13 @@ const config: Config = {
           ],
         },
       ],
+      logo: {
+        alt: "Audited By Code4rena",
+        src: "img/code4rena-audit.png",
+        href: "https://github.com/moxie-protocol/contracts/tree/dev/audit",
+        width: 160,
+        height: 19,
+      },
       copyright: `Copyright © ${new Date().getFullYear()} Moxie Protocol Foundation. Developed with 💜 by Airstack.`,
     },
     prism: {

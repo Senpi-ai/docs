@@ -140,7 +140,7 @@ const config: Config = {
         },
         // { to: "/blog", label: "Blog", position: "left" },
         {
-          href: "https://github.com/moxie-protocol/docs",
+          href: "https://github.com/moxie-protocol",
           position: "right",
           className: "header-github-link",
           "aria-label": "GitHub repository",
@@ -197,7 +197,7 @@ const config: Config = {
             },
             {
               label: "GitHub",
-              href: "https://github.com/moxie-protocol/docs",
+              href: "https://github.com/moxie-protocol",
             },
           ],
         },

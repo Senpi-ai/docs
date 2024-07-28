@@ -1,0 +1,93 @@
+---
+sidebar_class_name: protocol_fees
+description: Learn how to use the Moxie Protocol Subgraph API to get the user's balance of a certain fan token.
+---
+
+import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
+import Header from "../../../src/components/Tutorials/Header";
+import AddQuery from "../../../src/components/Tutorials/AddQuery";
+import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
+import url from "../../../constant/api_url.json";
+
+# Get Users's Balance Of Certain Fan Token
+
+<Header
+  useCase="get user's balance of a certain fan token"
+  apiName="Moxie Protocol Subgraph"
+/>
+
+# Pre-requisites
+
+<Prerequisites apiName="Moxie Protocol Subgraph" />
+
+## Step 1: Add The API Query To Your Code
+
+<AddQuery
+  useCase="get user's balance of a certain fan token"
+  subgraphLink={url.protocol_stats_subgraphs}
+  query={`query MyQuery($userAddress: ID, $fanTokenAddress: String) {
+  users(where: { id: $userAddress }) {
+    portfolio(where: { subjectToken: $fanTokenAddress }) {
+      balance
+      buyVolume
+      sellVolume
+      subjectToken {
+        name
+        symbol
+      }
+    }
+  }
+}`}
+  variable={`{
+  "userAddress": "0x00d620def6ccb76c92dbfc87bc2bebab7637ec53",
+  // provide the fan token address here to get user's balance
+  "fanTokenAddress": "0x00e7d5fad22a375568d03b0688abbdfa4ec3b729"
+}`}
+  response={`{
+  "data": {
+    "users": [
+      {
+        "portfolio": [
+          {
+            "balance": "10000000000000000000",
+            "buyVolume": "10000000000000000000",
+            "sellVolume": "0",
+            "subjectToken": {
+              "name": "/fitness",
+              "symbol": "cid:fitness"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}`}
+/>
+
+## Step 2: Execute Your Code
+
+<ExecuteCode
+  response={`{
+  "data": {
+    "users": [
+      {
+        "portfolio": [
+          {
+            "balance": "10000000000000000000",
+            "buyVolume": "10000000000000000000",
+            "sellVolume": "0",
+            "subjectToken": {
+              "name": "/fitness",
+              "symbol": "cid:fitness"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}`}
+  dataFetched="user's balance of a certain fan token"
+/>
+
+<DeveloperSupport />

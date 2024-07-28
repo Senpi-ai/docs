@@ -1,0 +1,70 @@
+---
+sidebar_position: 7
+sidebar_class_name: cleared_fan_auction
+description: Learn how to use the Moxie Auction Subgraph API to get details of a cleared/finalized fan token auction.
+---
+
+import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
+import Header from "../../../src/components/Tutorials/Header";
+import AddQuery from "../../../src/components/Tutorials/AddQuery";
+import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
+import url from "../../../constant/api_url.json";
+
+# Get Details Of Cleared Fan Token Auction
+
+<Header
+  useCase="get details of a cleared/finalized fan token auction"
+  apiName="Moxie Auction Subgraph"
+/>
+
+# Pre-requisites
+
+<Prerequisites apiName="Moxie Auction Subgraph" />
+
+## Step 1: Add The API Query To Your Code
+
+<AddQuery
+  useCase="get details of a cleared auction"
+  subgraphLink={url.auction_stats_subgraphs}
+  query={`query MyQuery($auctionId: BigInt!) {
+  auctionCleareds(where: { auctionId: $auctionId }) {
+    clearingPriceOrder
+    soldAuctioningTokens
+    soldBiddingTokens
+  }
+}`}
+  variable={`{
+  "auctionId": "34"
+}`}
+  response={`{
+  "data": {
+    "auctionCleareds": [
+      {
+        "clearingPriceOrder": "0x00000000000000080000001b1ae4d6e2ef5000000000001b28c58d9696b40000",
+        "soldAuctioningTokens": "1000000000000000000000",
+        "soldBiddingTokens": "1002000000000000000000"
+      }
+    ]
+  }
+}`}
+/>
+
+## Step 2: Execute Your Code
+
+<ExecuteCode
+  response={`{
+  "data": {
+    "auctionCleareds": [
+      {
+        "clearingPriceOrder": "0x00000000000000080000001b1ae4d6e2ef5000000000001b28c58d9696b40000",
+        "soldAuctioningTokens": "1000000000000000000000",
+        "soldBiddingTokens": "1002000000000000000000"
+      }
+    ]
+  }
+}`}
+  dataFetched="details of a cleared/finalized fan token auction"
+/>
+
+<DeveloperSupport />

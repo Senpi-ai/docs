@@ -1,0 +1,77 @@
+---
+sidebar_class_name: protocol_fees
+description: Learn how to use the Moxie Vesting Subgraph API to get the user's locked Moxie amount in the vesting contract.
+---
+
+import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
+import Header from "../../../src/components/Tutorials/Header";
+import AddQuery from "../../../src/components/Tutorials/AddQuery";
+import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
+import url from "../../../constant/api_url.json";
+
+# Get User's Locked MOXIE Amount
+
+<Header
+  useCase="get the user's locked Moxie amount in the vesting contract"
+  apiName="Moxie Vesting Subgraph"
+/>
+
+# Pre-requisites
+
+<Prerequisites apiName="Moxie Vesting Subgraph" />
+
+## Step 1: Add The API Query To Your Code
+
+<AddQuery
+  useCase="get the user's locked Moxie amount in the vesting contract"
+  subgraphLink={url.vesting_subgraphs}
+  query={`query MyQuery($userAddress: Bytes!) {
+  tokenLockWallets(
+    where: {beneficiary: $userAddress}
+  ) {
+    token
+    tokensReleased
+    tokensRevoked
+    tokensWithdrawn
+    tokenDestinationsApproved
+  }
+}`}
+  variable={`{
+  "userAddress": "0xdb48314a86839b04c3434575cee9346f20d9070e"
+}`}
+  response={`{
+  "data": {
+    "tokenLockWallets": [
+      {
+        "token": "0xf86136afb0fb72cdbd27d7aea9e283725d6815a1",
+        "tokensReleased": "0",
+        "tokensRevoked": "0",
+        "tokensWithdrawn": "0",
+        "tokenDestinationsApproved": false
+      }
+    ]
+  }
+}`}
+/>
+
+## Step 2: Execute Your Code
+
+<ExecuteCode
+  response={`{
+  "data": {
+    "tokenLockWallets": [
+      {
+        "token": "0xf86136afb0fb72cdbd27d7aea9e283725d6815a1",
+        "tokensReleased": "0",
+        "tokensRevoked": "0",
+        "tokensWithdrawn": "0",
+        "tokenDestinationsApproved": false
+      }
+    ]
+  }
+}`}
+  dataFetched="user's locked Moxie amount in the vesting contract"
+/>
+
+<DeveloperSupport />

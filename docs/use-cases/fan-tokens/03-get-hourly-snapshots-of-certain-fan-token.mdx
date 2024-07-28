@@ -1,0 +1,115 @@
+---
+sidebar_class_name: clock
+description: Learn how to use the Moxie Protocol Subgraph API to get the hourly snapshots of a certain fan token.
+---
+
+import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
+import Header from "../../../src/components/Tutorials/Header";
+import AddQuery from "../../../src/components/Tutorials/AddQuery";
+import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
+import url from "../../../constant/api_url.json";
+
+# Get Hourly Snapshots Of Certain Fan Token
+
+<Header
+  useCase="get the hourly snapshots of a certain fan token"
+  apiName="Moxie Protocol Subgraph"
+/>
+
+# Pre-requisites
+
+<Prerequisites apiName="Moxie Protocol Subgraph" />
+
+## Step 1: Add The API Query To Your Code
+
+<AddQuery
+  useCase="get the hourly snapshots of a certain fan token"
+  subgraphLink={url.protocol_stats_subgraphs}
+  query={`query MyQuery($fanTokenAddress: ID) {
+  subjectTokens(where: { id: $fanTokenAddress }) {
+    hourlySnapshots {
+      hourlyPriceChange
+      hourlyProtocolFeeChange
+      hourlyUniqueHoldersChange
+      hourlyVolumeChange
+      endPrice
+      endProtocolFee
+      endTimestamp
+      endUniqueHolders
+      endVolume
+      reserve
+      startPrice
+      startProtocolFee
+      startUniqueHolders
+      startVolume
+      totalSupply
+    }
+  }
+}`}
+  variable={`{
+  "fanTokenAddress": "0x0045214aa342f75ff65c0208002302b57ddb9c22"
+}`}
+  response={`{
+  "data": {
+    "subjectTokens": [
+      {
+        "hourlySnapshots": [
+          {
+            "hourlyPriceChange": "0",
+            "hourlyProtocolFeeChange": "0",
+            "hourlyUniqueHoldersChange": "3",
+            "hourlyVolumeChange": "0",
+            "endPrice": "0",
+            "endProtocolFee": "0",
+            "endTimestamp": "1721239200",
+            "endUniqueHolders": "3",
+            "endVolume": "0",
+            "reserve": "0",
+            "startPrice": "0",
+            "startProtocolFee": "0",
+            "startUniqueHolders": "0",
+            "startVolume": "0",
+            "totalSupply": "10000000000000000000"
+          }
+        ]
+      }
+    ]
+  }
+}`}
+/>
+
+## Step 2: Execute Your Code
+
+<ExecuteCode
+  response={`{
+  "data": {
+    "subjectTokens": [
+      {
+        "hourlySnapshots": [
+          {
+            "hourlyPriceChange": "0",
+            "hourlyProtocolFeeChange": "0",
+            "hourlyUniqueHoldersChange": "3",
+            "hourlyVolumeChange": "0",
+            "endPrice": "0",
+            "endProtocolFee": "0",
+            "endTimestamp": "1721239200",
+            "endUniqueHolders": "3",
+            "endVolume": "0",
+            "reserve": "0",
+            "startPrice": "0",
+            "startProtocolFee": "0",
+            "startUniqueHolders": "0",
+            "startVolume": "0",
+            "totalSupply": "10000000000000000000"
+          }
+        ]
+      }
+    ]
+  }
+}`}
+  dataFetched="the hourly snapshots of a certain fan token"
+/>
+
+<DeveloperSupport />

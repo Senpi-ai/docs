@@ -1,4 +1,5 @@
 ---
+title: Overview
 sidebar_class_name: "overview"
 ---
 
@@ -6,16 +7,16 @@ import url from "../../../constant/api_url.json";
 import DocCardList from "@theme/DocCardList";
 import Link from "@docusaurus/Link";
 
-# Overview
+# Auction Subgraph Overview
 
 The Moxie Auction Subgraph API is now available to index and query data from the Moxie protocol's auction contract on the Base mainnet.
 
 The Moxie Auction Subgraph API provides you with various data points to support various use cases, including but not limited to:
 
-- [All auction bids made by a certain user](./03-users/01-get-users-auction-bids.mdx)
-- [All auctions that a user participated in](./03-users/02-get-all-auctions-participated-by-certain-user.mdx)
-- [List of all bids in a certain auction](./05-bids/01-get-all-bids-on-certain-auction.mdx)
-- [Details of a certain auction](./04-auctions/02-get-details-of-certain-auction.mdx)
+- [All auction bids made by a certain user](../../use-cases/users/02-get-all-auction-bids-made-by-certain-user.mdx)
+- [All auctions that a user participated in](../../use-cases/users/02-get-all-auctions-participated-by-certain-user.mdx)
+- [List of all bids in a certain auction](../../use-cases/bids/get-all-bids-on-certain-auction.mdx)
+- [Details of a certain auction](../../use-cases/fan-token-auctions/get-details-of-certain-fan-token-auction.mdx)
 - etc.
 
 The Moxie Protocol Subgraph API is divided into two, the <Link to={`${url.auction_minimal_subgraphs}/graphql`}>Auction Minimal Subgraph</Link> and the <Link to={`${url.auction_stats_subgraphs}/graphql`}>Auction Stats Subrgaph</Link>, and you can access both in the Graph studio.

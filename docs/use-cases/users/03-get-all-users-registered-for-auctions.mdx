@@ -1,0 +1,78 @@
+---
+sidebar_class_name: summary
+description: Learn how to use the Moxie Auction Subgraph API to get all the users registered for auctions.
+---
+
+import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
+import Header from "../../../src/components/Tutorials/Header";
+import AddQuery from "../../../src/components/Tutorials/AddQuery";
+import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
+import url from "../../../constant/api_url.json";
+
+# Get All Users Registered For Auctions
+
+<Header
+  useCase="get all users registered for auctions"
+  apiName="Moxie Auction Subgraph"
+/>
+
+# Pre-requisites
+
+<Prerequisites apiName="Moxie Auction Subgraph" />
+
+## Step 1: Add The API Query To Your Code
+
+<AddQuery
+  useCase="get all users registered for auctions"
+  subgraphLink={url.auction_stats_subgraphs}
+  query={`query MyQuery {
+  userRegistrations {
+    user
+    userId
+    blockInfo {
+      blockNumber
+      hash
+      timestamp
+    }
+  }
+}`}
+  response={`{
+  "data": {
+    "userRegistrations": [
+      {
+        "user": "0x3199219bda5dbc9ee45bb3dfad180be56a7ebfd0",
+        "userId": "1",
+        "blockInfo": {
+          "blockNumber": "12243506",
+          "hash": "0x9f0a36dfd210c53d43c6490378711d171f7199e288ca6294c947b8c7e91922aa",
+          "timestamp": "1720255300"
+        }
+      }
+    ]
+  }
+}`}
+/>
+
+## Step 2: Execute Your Code
+
+<ExecuteCode
+  response={`{
+  "data": {
+    "userRegistrations": [
+      {
+        "user": "0x3199219bda5dbc9ee45bb3dfad180be56a7ebfd0",
+        "userId": "1",
+        "blockInfo": {
+          "blockNumber": "12243506",
+          "hash": "0x9f0a36dfd210c53d43c6490378711d171f7199e288ca6294c947b8c7e91922aa",
+          "timestamp": "1720255300"
+        }
+      }
+    ]
+  }
+}`}
+  dataFetched="all the users registered for auctions"
+/>
+
+<DeveloperSupport />

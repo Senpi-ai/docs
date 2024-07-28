@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@docusaurus/core": "3.4.0",
+    "@docusaurus/plugin-client-redirects": "^3.4.0",
     "@docusaurus/preset-classic": "3.4.0",
     "@docusaurus/theme-search-algolia": "^3.4.0",
     "@mdx-js/react": "^3.0.0",
@@ -37,10 +38,10 @@
     "@docusaurus/tsconfig": "3.4.0",
     "@docusaurus/types": "3.4.0",
     "autoprefixer": "^10.4.19",
+    "graphql": "^16.9.0",
     "postcss": "^8.4.39",
     "tailwindcss": "^3.4.4",
-    "typescript": "~5.2.2",
-    "graphql": "^16.9.0"
+    "typescript": "~5.2.2"
   },
   "browserslist": {
     "production": [

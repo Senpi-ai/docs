@@ -1,0 +1,97 @@
+---
+sidebar_class_name: summary
+description: Learn how to use the Moxie Protocol Subgraph API to get the Moxie protocol summary.
+---
+
+import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
+import Header from "../../../src/components/Tutorials/Header";
+import AddQuery from "../../../src/components/Tutorials/AddQuery";
+import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
+import url from "../../../constant/api_url.json";
+
+# Get Protocol Summary
+
+In this tutorial, you will learn how to get the Moxie protocol summary data, which includes:
+
+- active protocol beneficiary
+- protocol buy & sell percentage fee
+- fan tokens buy & sell percentage fee
+- etc.
+
+by calling the Moxie Protocol Subgraph API.
+
+# Pre-requisites
+
+<Prerequisites apiName="Moxie Protocol Subgraph" />
+
+## Step 1: Add The API Query To Your Code
+
+<AddQuery
+  useCase="get Moxie protocol summary"
+  subgraphLink={url.protocol_stats_subgraphs}
+  query={`query MyQuery {
+  summaries {
+    activeProtocolFeeBeneficiary {
+      beneficiary
+      totalFees
+    }
+    protocolBuyFeePct
+    protocolSellFeePct
+    subjectBuyFeePct
+    subjectSellFeePct
+    totalReserve
+    totalBuyVolume
+    totalSellVolume
+    totalProtocolFee
+  }
+}`}
+  response={`{
+  "data": {
+    "summaries": [
+      {
+        "activeProtocolFeeBeneficiary": {
+          "beneficiary": "0x648e7e89a70ef654b5754e9eb91bf931a477e3cd",
+          "totalFees": "263686938800000000000000"
+        },
+        "protocolBuyFeePct": "10000000000000000",
+        "protocolSellFeePct": "20000000000000000",
+        "subjectBuyFeePct": "30000000000000000",
+        "subjectSellFeePct": "40000000000000000",
+        "totalReserve": "26696218719309458229047159",
+        "totalBuyVolume": "248812605935485122316883",
+        "totalSellVolume": "0",
+        "totalProtocolFee": "0"
+      }
+    ]
+  }
+}`}
+/>
+
+## Step 2: Execute Your Code
+
+<ExecuteCode
+  response={`{
+  "data": {
+    "summaries": [
+      {
+        "activeProtocolFeeBeneficiary": {
+          "beneficiary": "0x648e7e89a70ef654b5754e9eb91bf931a477e3cd",
+          "totalFees": "263686938800000000000000"
+        },
+        "protocolBuyFeePct": "10000000000000000",
+        "protocolSellFeePct": "20000000000000000",
+        "subjectBuyFeePct": "30000000000000000",
+        "subjectSellFeePct": "40000000000000000",
+        "totalReserve": "26696218719309458229047159",
+        "totalBuyVolume": "248812605935485122316883",
+        "totalSellVolume": "0",
+        "totalProtocolFee": "0"
+      }
+    ]
+  }
+}`}
+  dataFetched="Moxie protocol summary"
+/>
+
+<DeveloperSupport />

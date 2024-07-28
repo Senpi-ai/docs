@@ -1,0 +1,135 @@
+---
+slug: /
+---
+
+import DocCardList from "@theme/DocCardList";
+
+# Moxie Overview
+
+Welcome to the Moxie Developer Hub! 👋
+
+Start building on Moxie by exploring all the use cases enabled in the tutorials below:
+
+<DocCardList
+  items={[
+    {
+      type: "link",
+      label: "Fan Token Auctions",
+      href: "/use-cases/fan-token-auctions/get-fan-token-auction-schedule-by-status",
+      description:
+        "Fetch fan token auctions data from the Moxie protocol's subgraphs and third-party APIs",
+    },
+    {
+      type: "link",
+      label: "Fan Tokens",
+      href: "/use-cases/fan-tokens/get-all-fan-tokens-owned-by-users",
+      description:
+        "Fetch fan tokens balances, holdings, buy/sell orders on the bonding curves, and more from Moxie subgraphs.",
+    },
+    {
+      type: "link",
+      label: "Bids",
+      href: "/use-cases/bids/get-all-bids-on-certain-auction",
+      description:
+        "Fetch all bids on a certain auction from the Moxie subgraphs",
+    },
+    {
+      type: "link",
+      label: "Users",
+      href: "/use-cases/users/get-all-fan-tokens-owned-by-users",
+      description:
+        "Fetch user's bids, buy/sell orders, fan token portfolio, etc. from the Moxie subgraphs",
+    },
+    {
+      type: "link",
+      label: "Orders",
+      href: "/use-cases/orders/get-all-orders",
+      description:
+        "Fetch all buy/sell orders on the bonding curves from the Moxie subgraphs",
+    },
+    {
+      type: "link",
+      label: "Protocol",
+      href: "/use-cases/protocol/get-all-orders",
+      description:
+        "Fetch buy/sell orders, protocol fee transfers, and more from the Moxie subgraphs",
+    },
+    {
+      type: "link",
+      label: "Vesting",
+      href: "/use-cases/vesting/get-all-users-with-moxie-locked",
+      description:
+        "Fetch all data from the vesting contract using the Moxie subgraphs",
+    },
+  ]}
+/>
+
+In addition, you can also explore further in detail all the available subgraphs, contracts, and third-party APIs that you can use to build on top of the Moxie protocol.
+
+## Subgraphs
+
+There are a number of subgraphs that you can use to index on-chain data from the Moxie protocol. Each subgraphs are designed to provide you with a different set of data points that you can use to support various use cases.
+
+The list of subgraphs that are available are:
+
+<DocCardList
+  items={[
+    {
+      type: "link",
+      label: "Protocol Subgraph",
+      href: "/api/protocol/overview",
+      description:
+        "Fetch fan tokens balances, holdings, buy/sell orders on the bonding curves, and more.",
+    },
+    {
+      type: "link",
+      label: "Auction Subgraph",
+      href: "/api/auction/overview",
+      description:
+        "Fetch fan token auctions data from the Moxie protocol's auction contract.",
+    },
+    {
+      type: "link",
+      label: "Vesting Subgraph",
+      href: "/api/vesting/overview",
+      description:
+        "Fetch vesting data from the Moxie protocol's vesting contract.",
+    },
+  ]}
+/>
+
+Each subgraph is accessible via the Subgraph Studio for free but will be rate-limited. If you need higher throughput for your use case, you can use the associated network subgraph on the Graph network.
+
+You can check out the full source code of the collection of subgraphs in the [Moxie Subgraph GitHub repository](https://github.com/moxie-protocol/Subgraphs).
+
+## Contracts
+
+The Moxie protocol is composed of a series of smart contracts deployed on the Base mainnet that define the protocol mechanism and functionality as laid out in the [whitepaper](https://build.moxie.xyz/).
+
+The contract has been audited by Code4rena and you can find the audit report [here](https://github.com/moxie-protocol/contracts/tree/dev/audit).
+
+To learn more about the contracts, you can check out the Moxie contract references:
+
+<DocCardList
+  items={[
+    {
+      type: "link",
+      label: "Contract References",
+      href: "/contract/references",
+      description:
+        "Learn all the solidity functions and events that are available in the Moxie protocol contracts.",
+    },
+  ]}
+/>
+
+You can also check out the full source code of the Moxie protocol contracts in the [Moxie Contracts GitHub repository](https://github.com/moxie-protocol/contracts).
+
+## Third-Party APIs
+
+Airstack provides GraphQL API for querying certain Moxie Protocol data.
+
+You can access the Airstack GraphQL API with this endpoint https://api.airstack.xyz/graphql.
+
+For this, you'll be required to get an [Airstack API key](https://docs.airstack.xyz/airstack-docs-and-faqs/get-started/get-api-key).
+
+To learn more about it, click [here](https://docs.airstack.xyz/airstack-docs-and-faqs/moxie).

@@ -1,0 +1,94 @@
+---
+sidebar_class_name: new_auction
+description: Learn how to use the Moxie Auction Subgraph API to get all the auctions participated by a certain user.
+---
+
+import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
+import Header from "../../../src/components/Tutorials/Header";
+import AddQuery from "../../../src/components/Tutorials/AddQuery";
+import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
+import url from "../../../constant/api_url.json";
+
+# Get All Auctions Participated By Certain User
+
+<Header
+  useCase="get all auctions participated by a certain user"
+  apiName="Moxie Auction Subgraph"
+/>
+
+# Pre-requisites
+
+<Prerequisites apiName="Moxie Auction Subgraph" />
+
+## Step 1: Add The API Query To Your Code
+
+<AddQuery
+  useCase="get all auctions participated by a certain user"
+  subgraphLink={url.auction_stats_subgraphs}
+  query={`query MyQuery($userAddress: Bytes!) {
+  users(where: { address: $userAddress }) {
+    participatedAuctions {
+      auctionId
+      auctioningToken {
+        id
+        symbol
+        decimals
+      }
+      txHash
+    }
+    address
+  }
+}`}
+  variable={`{
+  "userAddress": "0x1a45675bd474c8e3056a7dbd19e738d7849c0d26"
+}`}
+  response={`{
+  "data": {
+    "users": [
+      {
+        "participatedAuctions": [
+          {
+            "auctionId": "37",
+            "auctioningToken": {
+              "id": "0xf08c342445e8ca84476941078a109a496244187f",
+              "symbol": "cid:goldy",
+              "decimals": "18"
+            },
+            "txHash": "0x2a96c4e8032e8eb270f17f8e4487630b171be3c20a75e8547196378f54ffab5f"
+          }
+        ],
+        "address": "0x1a45675bd474c8e3056a7dbd19e738d7849c0d26"
+      }
+    ]
+  }
+}`}
+/>
+
+## Step 2: Execute Your Code
+
+<ExecuteCode
+  response={`{
+  "data": {
+    "users": [
+      {
+        "participatedAuctions": [
+          {
+            "auctionId": "37",
+            "auctioningToken": {
+              "id": "0xf08c342445e8ca84476941078a109a496244187f",
+              "symbol": "cid:goldy",
+              "decimals": "18"
+            },
+            "txHash": "0x2a96c4e8032e8eb270f17f8e4487630b171be3c20a75e8547196378f54ffab5f"
+          }
+        ],
+        "address": "0x1a45675bd474c8e3056a7dbd19e738d7849c0d26"
+      }
+    ]
+  }
+}`}
+  dataFetched="all auctions participated by a certain user"
+/>
+
+<DeveloperSupport />

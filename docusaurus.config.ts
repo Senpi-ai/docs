@@ -71,12 +71,55 @@ const config: Config = {
           label: "Whitepaper",
           position: "left",
         },
-        // {
-        //   type: "docSidebar",
-        //   sidebarId: "conceptsSidebar",
-        //   position: "left",
-        //   label: "Concepts",
-        // },
+        {
+          type: "docSidebar",
+          sidebarId: "learnSidebar",
+          position: "left",
+          label: "Learn",
+        },
+        {
+          type: "dropdown",
+          position: "left",
+          label: "Use Cases",
+          items: [
+            {
+              type: "doc",
+              label: "Fan Token Auctions",
+              docId:
+                "use-cases/fan-token-auctions/get-fan-token-auction-schedule-by-status",
+            },
+            {
+              type: "doc",
+              label: "Fan Tokens",
+              docId: "use-cases/fan-tokens/get-all-fan-tokens-owned-by-users",
+            },
+            {
+              type: "doc",
+              label: "Bids",
+              docId: "use-cases/bids/get-all-bids-on-certain-auction",
+            },
+            {
+              type: "doc",
+              label: "Users",
+              docId: "use-cases/users/get-all-fan-tokens-owned-by-users",
+            },
+            {
+              type: "doc",
+              label: "Orders",
+              docId: "use-cases/orders/get-all-orders",
+            },
+            {
+              type: "doc",
+              label: "Protocol",
+              docId: "use-cases/protocol/get-all-orders",
+            },
+            {
+              type: "doc",
+              label: "Vesting",
+              docId: "use-cases/vesting/get-all-users-with-moxie-locked",
+            },
+          ],
+        },
         {
           type: "dropdown",
           position: "left",
@@ -119,13 +162,6 @@ const config: Config = {
             },
             {
               type: "doc",
-              label: "Airstack GraphQL API",
-              docId: "api/airstack-graphql/overview",
-              description:
-                "Use Airstack’s GraphQL API to fetch Moxie Fan Token auction schedules and related data.",
-            },
-            {
-              type: "doc",
               label: "Clearing Price API",
               docId: "api/clearing-price-api/overview",
               description:
@@ -150,28 +186,69 @@ const config: Config = {
     footer: {
       links: [
         {
-          title: "Subgraphs",
+          title: "Learn",
           items: [
             {
-              label: "Protocol APIs",
+              label: "Moxie Overview",
               to: "/",
             },
             {
-              label: "Auction APIs",
-              to: "/api/auction/overview",
+              label: "Protocol Concepts",
+              to: "https://build.moxie.xyz/the-moxie-protocol/moxie-protocol",
             },
             {
-              label: "Vesting APIs",
-              to: "/api/vesting/overview",
+              label: "Glossary",
+              to: "/learn/glossary",
             },
           ],
         },
         {
-          title: "Offchain APIs",
+          title: "Use Cases",
           items: [
             {
-              label: "Airstack GraphQL APIs",
-              to: "/api/airstack-graphql/overview",
+              label: "Fan Token Auctions",
+              to: "/use-cases/fan-token-auctions/get-fan-token-auction-schedule-by-status",
+            },
+            {
+              label: "Fan Tokens",
+              to: "/use-cases/fan-tokens/get-all-fan-tokens-owned-by-users",
+            },
+            {
+              label: "Bids",
+              to: "/use-cases/bids/get-all-bids-on-certain-auction",
+            },
+            {
+              label: "Users",
+              to: "/use-cases/users/get-all-fan-tokens-owned-by-users",
+            },
+            {
+              label: "Orders",
+              to: "/use-cases/orders/get-all-orders",
+            },
+            {
+              label: "Protocol",
+              to: "/use-cases/protocol/get-all-orders",
+            },
+            {
+              label: "Vesting",
+              to: "/use-cases/vesting/get-all-users-with-moxie-locked",
+            },
+          ],
+        },
+        {
+          title: "APIs",
+          items: [
+            {
+              label: "Protocol Subgraph",
+              to: "/",
+            },
+            {
+              label: "Auction Subgraph",
+              to: "/api/auction/overview",
+            },
+            {
+              label: "Vesting Subgraph",
+              to: "/api/vesting/overview",
             },
             {
               label: "Clearing Price API",
@@ -185,6 +262,10 @@ const config: Config = {
             {
               label: "References",
               to: "/contract/references",
+            },
+            {
+              label: "Audits",
+              to: "https://github.com/moxie-protocol/contracts/tree/dev/audit",
             },
           ],
         },
@@ -222,11 +303,254 @@ const config: Config = {
     [
       "docusaurus-graphql-plugin",
       {
-        id: "airstack-graphql-api",
-        schema: "./schema/airstack_graphql_api.graphql",
-        // it's important that routeBasePath has a different
-        // value for each instance of the plugin
-        routeBasePath: "/docs/api/airstack-graphql/04-references",
+        id: "protocol",
+        schema: "./schema/protocol.graphql",
+        routeBasePath: "/docs/api/protocol/09-references",
+      },
+    ],
+    [
+      "docusaurus-graphql-plugin",
+      {
+        id: "auction",
+        schema: "./schema/auction.graphql",
+        routeBasePath: "/docs/api/auction/07-references",
+      },
+    ],
+    [
+      "docusaurus-graphql-plugin",
+      {
+        id: "vesting",
+        schema: "./schema/vesting.graphql",
+        routeBasePath: "/docs/api/vesting/05-references",
+      },
+    ],
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [
+          {
+            to: "/use-cases/users/get-all-fan-tokens-owned-by-users",
+            from: [
+              "/api/protocol/users",
+              "/api/protocol/users/get-all-fan-tokens-owned-by-users",
+              "/api/protocol/fan-tokens",
+            ],
+          },
+          {
+            to: "/use-cases/users/get-users-balance-of-certain-fan-token",
+            from: [
+              "/api/protocol/users/get-users-balance-of-certain-fan-token",
+            ],
+          },
+          {
+            to: "/use-cases/users/get-users-buy-orders",
+            from: ["/api/protocol/users/get-users-buy-orders"],
+          },
+          {
+            to: "/use-cases/users/get-users-sell-orders",
+            from: ["/api/protocol/users/get-users-sell-orders"],
+          },
+          {
+            to: "/use-cases/users/token-gate-user-by-certain-fan-token",
+            from: ["/api/protocol/users/token-gate-user-by-certain-fan-token"],
+          },
+          {
+            to: "/use-cases/fan-tokens/get-holders-of-certain-fan-token",
+            from: ["/api/protocol/fan-tokens/get-holders-of-certain-fan-token"],
+          },
+          {
+            to: "/use-cases/fan-tokens/get-daily-snapshots-of-a-certain-fan-token",
+            from: [
+              "/api/protocol/fan-tokens/get-daily-snapshots-of-a-certain-fan-token",
+            ],
+          },
+          {
+            to: "/use-cases/fan-tokens/get-hourly-snapshots-of-certain-fan-token",
+            from: [
+              "/api/protocol/fan-tokens/get-hourly-snapshots-of-certain-fan-token",
+            ],
+          },
+          {
+            to: "/use-cases/fan-tokens/get-the-price-of-certain-fan-token",
+            from: [
+              "/api/protocol/fan-tokens/get-the-price-of-certain-fan-token",
+            ],
+          },
+          {
+            to: "/use-cases/protocol/get-all-protocol-fee-transfers",
+            from: [
+              "/api/protocol/protocol-fees/get-all-protocol-fee-transfers",
+              "/api/protocol/protocol-fees",
+            ],
+          },
+          {
+            to: "/use-cases/protocol/get-all-protocol-fee-transfers-within-certain-time-range",
+            from: [
+              "/api/protocol/protocol-fees/get-all-protocol-fee-transfers-within-certain-time-range",
+            ],
+          },
+          {
+            to: "/use-cases/protocol/get-all-orders",
+            from: [
+              "/api/protocol/orders/get-all-orders",
+              "/api/protocol/orders",
+            ],
+          },
+          {
+            to: "/use-cases/protocol/get-deposits-to-vault-by-certain-user",
+            from: [
+              "/api/protocol/vaults/get-deposits-to-vault-by-certain-user",
+              "/api/protocol/vaults",
+            ],
+          },
+          {
+            to: "/use-cases/protocol/get-deposits-to-vault-of-certain-fan-token",
+            from: [
+              "/api/protocol/vaults/get-deposits-to-vault-of-certain-fan-token",
+            ],
+          },
+          {
+            to: "/use-cases/protocol/get-transfers-from-vault-received-by-certain-user",
+            from: [
+              "/api/protocol/vaults/get-transfers-from-vault-received-by-certain-user",
+            ],
+          },
+          {
+            to: "/use-cases/protocol/get-transfers-from-vault-of-certain-fan-token",
+            from: [
+              "/api/protocol/vaults/get-transfers-from-vault-of-certain-fan-token",
+            ],
+          },
+          {
+            to: "/use-cases/protocol/get-protocol-summary",
+            from: [
+              "/api/protocol/summary/get-protocol-summary",
+              "/api/protocol/summary",
+            ],
+          },
+          {
+            to: "/use-cases/users/get-users-auction-bids",
+            from: [
+              "/api/auction/users",
+              "/api/auction/users/get-users-auction-bids",
+            ],
+          },
+          {
+            to: "/use-cases/users/get-all-auction-bids-made-by-certain-user",
+            from: [
+              "/api/auction/users/get-all-auction-bids-made-by-certain-user",
+            ],
+          },
+          {
+            to: "/use-cases/users/get-all-auctions-participated-by-certain-user",
+            from: [
+              "/api/auction/users/get-all-auctions-participated-by-certain-user",
+            ],
+          },
+          {
+            to: "/use-cases/users/get-all-users-registered-for-auctions",
+            from: ["/api/auction/users/get-all-users-registered-for-auctions"],
+          },
+          {
+            to: "/use-cases/fan-token-auctions/get-fan-token-auction-schedule-by-status",
+            from: ["/api/auction/auctions"],
+          },
+          {
+            to: "/use-cases/fan-token-auctions/get-all-fan-token-auctions-created",
+            from: ["/api/auction/auctions/get-all-new-auctions"],
+          },
+          {
+            to: "/use-cases/fan-token-auctions/get-details-of-certain-fan-token-auction",
+            from: ["/api/auction/auctions/get-details-of-certain-auction"],
+          },
+          {
+            to: "/use-cases/fan-token-auctions/get-details-of-cleared-fan-token-auction",
+            from: ["/api/auction/auctions/get-details-of-cleared-auction"],
+          },
+          {
+            to: "/use-cases/bids/get-all-bids-on-certain-auction",
+            from: ["/api/auction/bids/get-all-bids-on-certain-auction"],
+          },
+          {
+            to: "/use-cases/bids/get-all-new-sell-orders-on-certain-auction",
+            from: [
+              "/api/auction/bids/get-all-new-sell-orders-on-certain-auction",
+            ],
+          },
+          {
+            to: "/use-cases/bids/get-all-canceled-bids-from-certain-auction",
+            from: [
+              "/api/auction/bids/get-all-canceled-bids-from-certain-auction",
+            ],
+          },
+          {
+            to: "/use-cases/bids/get-all-claimed-bids-on-certain-auction",
+            from: ["/api/auction/bids/get-all-claimed-bids-on-certain-auction"],
+          },
+          {
+            to: "/use-cases/fan-token-auctions/get-auction-summary",
+            from: [
+              "/api/auction/summary",
+              "/api/auction/summary/get-auction-summary",
+            ],
+          },
+          {
+            to: "/use-cases/vesting/get-all-users-with-moxie-locked",
+            from: [
+              "/api/vesting/users",
+              "/api/vesting/users/get-all-users-with-moxie-locked",
+            ],
+          },
+          {
+            to: "/use-cases/vesting/get-users-locked-moxie-amount",
+            from: ["/api/vesting/users/get-users-locked-moxie-amount"],
+          },
+          {
+            to: "/use-cases/vesting/get-token-manager-details",
+            from: [
+              "/api/vesting/token-manager/get-token-manager-details",
+              "/api/vesting/token-manager",
+            ],
+          },
+          {
+            to: "https://docs.airstack.xyz/airstack-docs-and-faqs",
+            from: ["/api/airstack-graphql/overview"],
+          },
+          {
+            to: "https://docs.airstack.xyz/airstack-docs-and-faqs/get-started/quickstart/node",
+            from: [
+              "/api/airstack-graphql/quickstart",
+              "/api/airstack-graphql/quickstart/nodejs",
+            ],
+          },
+          {
+            to: "/use-cases/fan-token-auctions/get-fan-token-auction-schedule-by-status",
+            from: [
+              "/api/airstack-graphql/fan-token-auction-schedule",
+              "/api/airstack-graphql/fan-token-auction-schedule/get-fan-token-auction-schedule-by-status",
+            ],
+          },
+          {
+            to: "/use-cases/fan-token-auctions/get-fan-token-auction-schedule-by-fan-token-type",
+            from: [
+              "/api/airstack-graphql/fan-token-auction-schedule/get-fan-token-auction-schedule-by-fan-token-type",
+            ],
+          },
+          {
+            to: "https://docs.airstack.xyz/airstack-docs-and-faqs/api-references/api-reference",
+            from: [
+              "/api/airstack-graphql/references",
+              "/api/airstack-graphql/references/queries",
+            ],
+          },
+          {
+            to: "/use-cases/fan-token-auctions/get-clearing-price-of-certain-auction",
+            from: [
+              "/api/clearing-price-api/clearing-price",
+              "/api/clearing-price-api/clearing-price/get-clearing-price-of-certain-auction",
+            ],
+          },
+        ],
       },
     ],
   ],

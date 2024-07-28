@@ -1,0 +1,72 @@
+---
+sidebar_class_name: arrow_right
+description: Learn how to use the Moxie Protocol Subgraph API to build token gate feature to limit access to a certain fan token holders.
+---
+
+import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
+import Header from "../../../src/components/Tutorials/Header";
+import AddQuery from "../../../src/components/Tutorials/AddQuery";
+import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
+import url from "../../../constant/api_url.json";
+
+# Token Gate User By Certain Fan Token
+
+<Header
+  useCase="build token gate feature to limit access to a certain fan token holders"
+  apiName="Moxie Protocol Subgraph"
+/>
+
+# Pre-requisites
+
+<Prerequisites apiName="Moxie Protocol Subgraph" />
+
+## Step 1: Add The API Query To Your Code
+
+<AddQuery
+  useCase="build token gate feature to limit access to a certain fan token holders"
+  subgraphLink={url.protocol_stats_subgraphs}
+  query={`query MyQuery($userAddress: ID, $fanTokenSymbol: String) {
+  users(where: { id: $userAddress }) {
+    portfolio(where: { subjectToken_: { symbol: $fanTokenSymbol} }) {
+      balance
+    }
+  }
+}`}
+  variable={`{
+  "userAddress": "0x00d620def6ccb76c92dbfc87bc2bebab7637ec53",
+  /**
+   * There are 3 types of fan tokens, here's how the symbol is formatted:
+   * - USER -> fid:<fid>
+   * - CHANNEL -> cid:<channel-id>
+   * - NETWORK (Only for Farcaster) -> id:farcaster
+   */
+  "fanTokenSymbol": "cid:fitness"
+}`}
+  response={`{
+  "data": {
+    "users": [
+      {
+        "portfolio": [
+          {
+            "balance": "10000000000000000000"
+          }
+        ]
+      }
+    ]
+  }
+}`}
+  customLogic={`console.log(
+    // Check if the user has a balance greater than 0
+    Number.parseInt(data?.users?.[0]?.portfolio?.[0]?.balance) > 0
+  );`}
+/>
+
+## Step 2: Execute Your Code
+
+<ExecuteCode
+  response={`true // true if balance is greater than 0, otherwise false`}
+  dataFetched="user's balance of a certain fan token and use it to build token gate feature to limit access to a certain fan token holders"
+/>
+
+<DeveloperSupport />

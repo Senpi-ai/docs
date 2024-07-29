@@ -91,7 +91,7 @@ const config: Config = {
             {
               type: "doc",
               label: "Fan Tokens",
-              docId: "use-cases/fan-tokens/get-all-fan-tokens-owned-by-users",
+              docId: "use-cases/fan-tokens/get-trending-fan-tokens",
             },
             {
               type: "doc",
@@ -211,7 +211,7 @@ const config: Config = {
             },
             {
               label: "Fan Tokens",
-              to: "/use-cases/fan-tokens/get-all-fan-tokens-owned-by-users",
+              to: "/use-cases/fan-tokens/get-trending-fan-tokens",
             },
             {
               label: "Bids",
@@ -333,8 +333,11 @@ const config: Config = {
             from: [
               "/api/protocol/users",
               "/api/protocol/users/get-all-fan-tokens-owned-by-users",
-              "/api/protocol/fan-tokens",
             ],
+          },
+          {
+            to: "/use-cases/fan-tokens/get-trending-fan-tokens",
+            from: ["/api/protocol/fan-tokens"],
           },
           {
             to: "/use-cases/users/get-users-balance-of-certain-fan-token",

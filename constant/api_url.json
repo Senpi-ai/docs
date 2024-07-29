@@ -3,7 +3,7 @@
   "protocol_minimal_subgraphs": "https://api.studio.thegraph.com/query/23537/moxie_protocol_minimal_mainnet/version/latest",
   "protocol_subgraphs_legacy": "https://api.studio.thegraph.com/query/27864/protocol/v5.1.6",
   "auction_stats_subgraphs": "https://api.studio.thegraph.com/query/23537/moxie_auction_stats_mainnet/version/latest",
-  "auction_minimal_subgraphs": "https://testnets.graph-eu.p2pify.com/0e43a29318b2a7676fb046d18550ff9c/sgr-872-925-936",
+  "auction_minimal_subgraphs": "https://api.studio.thegraph.com/query/23537/moxie_auction_minimal_mainnet/version/latest",
   "auction_subgraphs_legacy": "https://api.studio.thegraph.com/proxy/82737/auction/v.4.0.6",
   "vesting_subgraphs": "https://api.studio.thegraph.com/query/23537/moxie_vesting_mainnet/version/latest",
   "vesting_subgraphs_legacy": "https://api.studio.thegraph.com/query/23537/moxie_vesting_mainnet/version/latest",

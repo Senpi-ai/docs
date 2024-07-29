@@ -38,7 +38,9 @@
                   "initialSupply": "37320999999999999737856",
                   "id": "0",
                   "clearingPrice": 1,
-                  "userId": "0"
+                  "userId": "0",
+                  "clearingPriceBuyAmount": "37320999999999999737856",
+                  "clearingPriceSellAmount": "37320999999999999737856"
                 }
               },
               "description": "The auction details",
@@ -48,7 +50,7 @@
                   "name": "minBuyAmount",
                   "type": "string",
                   "example": "37320999999999999737856",
-                  "description": "The token name",
+                  "description": "Minimum buy amount",
                   "required": true
                 },
                 {
@@ -77,6 +79,20 @@
                   "type": "string",
                   "example": "0",
                   "description": "The FID of the user that get the last allocation from the auction. Everyone that bid the same amount, but with higher FID, or bid with less amount will automatically get refunded.",
+                  "required": true
+                },
+                {
+                  "name": "clearingPriceBuyAmount",
+                  "type": "string",
+                  "example": "37320999999999999737856",
+                  "description": "The clearing price buy amount of the auction",
+                  "required": true
+                },
+                {
+                  "name": "clearingPriceSellAmount",
+                  "type": "string",
+                  "example": "37320999999999999737856",
+                  "description": "The clearing price sell amount of the auction",
                   "required": true
                 }
               ]

@@ -96,7 +96,8 @@ const config: Config = {
             {
               type: "doc",
               label: "Bids",
-              docId: "use-cases/bids/get-all-bids-on-certain-auction",
+              docId:
+                "use-cases/bids/get-all-bids-registered-on-certain-auction",
             },
             {
               type: "doc",
@@ -215,7 +216,7 @@ const config: Config = {
             },
             {
               label: "Bids",
-              to: "/use-cases/bids/get-all-bids-on-certain-auction",
+              to: "/use-cases/bids/get-all-bids-registered-on-certain-auction",
             },
             {
               label: "Users",
@@ -471,11 +472,11 @@ const config: Config = {
             from: ["/api/auction/auctions/get-details-of-cleared-auction"],
           },
           {
-            to: "/use-cases/bids/get-all-bids-on-certain-auction",
+            to: "/use-cases/bids/get-all-bids-registered-on-certain-auction",
             from: ["/api/auction/bids/get-all-bids-on-certain-auction"],
           },
           {
-            to: "/use-cases/bids/get-all-new-sell-orders-on-certain-auction",
+            to: "/use-cases/bids/get-all-bids-created-on-certain-auction",
             from: [
               "/api/auction/bids/get-all-new-sell-orders-on-certain-auction",
             ],

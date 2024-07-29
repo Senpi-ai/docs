@@ -11,7 +11,7 @@ sidebar_position: 1
 
 **Type:** [\_Meta\_](objects#_meta_)
 
-Access to subgraph metadata
+`_meta` will return you the protocol subgraph metadata.
 
 <p style={{ marginBottom: "0.4em" }}><strong>Arguments</strong></p>
 
@@ -33,6 +33,8 @@ block<br />
 ## auctionCleared
 
 **Type:** [AuctionCleared](objects#auctioncleared)
+
+`auctionCleared` index all [auctions](../../../learn/glossary.mdx#fan-token-auctions) that has been cleared or finalized. You can use this API to fetch a certain cleared/finalized [auction](../../../learn/glossary.mdx#fan-token-auctions).
 
 <p style={{ marginBottom: "0.4em" }}><strong>Arguments</strong></p>
 
@@ -76,6 +78,8 @@ subgraphError<br />
 ## auctionCleareds
 
 **Type:** [[AuctionCleared!]!](objects#auctioncleared)
+
+`auctionCleareds` index all [auctions](../../../learn/glossary.mdx#fan-token-auctions) that has been cleared or finalized. You can use this API to fetch all cleared [auctions](../../../learn/glossary.mdx#fan-token-auctions) and filter based on certain requirements.
 
 <p style={{ marginBottom: "0.4em" }}><strong>Arguments</strong></p>
 
@@ -156,6 +160,8 @@ subgraphError<br />
 
 **Type:** [AuctionDetail](objects#auctiondetail)
 
+`auctionDetail` index all [auction](../../../learn/glossary.mdx#fan-token-auctions) that has been created on the Moxie protocol. You can use this API to fetch a certain [auction](../../../learn/glossary.mdx#fan-token-auctions).
+
 <p style={{ marginBottom: "0.4em" }}><strong>Arguments</strong></p>
 
 <table>
@@ -198,6 +204,8 @@ subgraphError<br />
 ## auctionDetails
 
 **Type:** [[AuctionDetail!]!](objects#auctiondetail)
+
+`auctionDetails` index all [auctions](../../../learn/glossary.mdx#fan-token-auctions) that has been created in the Moxie protocol. You can use this API to fetch all [auctions](../../../learn/glossary.mdx#fan-token-auctions) and filter based on certain requirements.
 
 <p style={{ marginBottom: "0.4em" }}><strong>Arguments</strong></p>
 
@@ -278,6 +286,8 @@ subgraphError<br />
 
 **Type:** [BlockInfo](objects#blockinfo)
 
+`blockInfo` enables you to fetch on-chain data related to a certain block.
+
 <p style={{ marginBottom: "0.4em" }}><strong>Arguments</strong></p>
 
 <table>
@@ -320,6 +330,10 @@ subgraphError<br />
 ## blockInfos
 
 **Type:** [[BlockInfo!]!](objects#blockinfo)
+
+`blockInfos` enables you to fetch on-chain data related to blocks indexed by the subgraph, that is when certain events from the Moxie protocol's auction contract occurs.
+
+This is most useful when you include it in the response field when calling other APIs.
 
 <p style={{ marginBottom: "0.4em" }}><strong>Arguments</strong></p>
 

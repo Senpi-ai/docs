@@ -554,6 +554,10 @@ const config: Config = {
               "/api/clearing-price-api/clearing-price/get-clearing-price-of-certain-auction",
             ],
           },
+          {
+            to: "/api/vesting/changelog",
+            from: ["/api/vesting/index"],
+          },
         ],
       },
     ],

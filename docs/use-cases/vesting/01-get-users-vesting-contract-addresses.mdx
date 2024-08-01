@@ -26,20 +26,18 @@ import url from "../../../constant/api_url.json";
 <AddQuery
   useCase="get user's vesting contract addresses"
   subgraphLink={url.vesting_subgraphs}
-  query={`query MyQuery($addresses: [ID!]) {
-  tokenLockWallets(where: {id: $addresses}) {
-    beneficiary
+  query={`query MyQuery($beneficiary: Bytes) {
+  tokenLockWallets(where: {beneficiary: $beneficiary}) {
     address: id
   }
 }`}
   variable={`{
-  "addresses": "0x0000f530fc6397d28deb9eb28890cac2afa5c893"
+  "beneficiary": "0x9a15cdf8cfcc7b5c4bba01f1585be80bb3c3fe70"
 }`}
   response={`{
   "data": {
     "tokenLockWallets": [
       {
-        "beneficiary": "0x9a15cdf8cfcc7b5c4bba01f1585be80bb3c3fe70",
         "address": "0x0000f530fc6397d28deb9eb28890cac2afa5c893"
       }
     ]
@@ -54,7 +52,6 @@ import url from "../../../constant/api_url.json";
   "data": {
     "tokenLockWallets": [
       {
-        "beneficiary": "0x9a15cdf8cfcc7b5c4bba01f1585be80bb3c3fe70",
         "address": "0x0000f530fc6397d28deb9eb28890cac2afa5c893"
       }
     ]

@@ -1,0 +1,89 @@
+---
+sidebar_class_name: camera
+description: Learn how to use the Moxie Protocol Subgraph API to get all the holders snapshot of a certain fan token.
+---
+
+import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
+import Header from "../../../src/components/Tutorials/Header";
+import AddQuery from "../../../src/components/Tutorials/AddQuery";
+import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
+import url from "../../../constant/api_url.json";
+
+# Get Holders Snapshot Of Certain Fan Token
+
+<Header
+  useCase="get all the holders snapshot of a certain fan token"
+  apiName="Moxie Protocol Subgraph"
+/>
+
+# Pre-requisites
+
+<Prerequisites apiName="Moxie Protocol Subgraph" />
+
+## Step 1: Add The API Query To Your Code
+
+<AddQuery
+  useCase="get all the holders snapshot of a certain fan token"
+  subgraphLink={url.protocol_stats_subgraphs}
+  query={`query MyQuery($symbol: String, $blockNumber: Int) {
+  subjectTokens(where: {symbol: $symbol}, block: {number: $blockNumber}) {
+    portfolio(where: {balance_gt: 0}) {
+      balance
+      user {
+        id
+      }
+    }
+  }
+}`}
+  variable={`{
+  /**
+   * There are 3 types of fan tokens, here's how the symbol is formatted:
+   * - USER -> fid:<fid>
+   * - CHANNEL -> cid:<channel-id>
+   * - NETWORK (Only for Farcaster) -> id:farcaster
+   */
+  "symbol": "id:farcaster",
+  "blockNumber": 17895057
+}`}
+  response={`{
+  "data": {
+    "subjectTokens": [
+      {
+        "portfolio": [
+          {
+            "balance": "11616135683624072140",
+            "user": {
+              "id": "0x011c08baf3908843c30391767890d7e9a94116fe"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}`}
+/>
+
+## Step 2: Execute Your Code
+
+<ExecuteCode
+  response={`{
+  "data": {
+    "subjectTokens": [
+      {
+        "portfolio": [
+          {
+            "balance": "11616135683624072140",
+            "user": {
+              "id": "0x011c08baf3908843c30391767890d7e9a94116fe"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}`}
+  dataFetched="all the holders snapshot of a certain fan token"
+/>
+
+<DeveloperSupport />

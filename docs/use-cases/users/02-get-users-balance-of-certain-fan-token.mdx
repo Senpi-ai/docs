@@ -17,6 +17,14 @@ import url from "../../../constant/api_url.json";
   apiName="Moxie Protocol Subgraph"
 />
 
+:::info[Include User's Vesting Addresses]
+
+Moxie protocol users have Moxie token currently vesting in their vesting contract. A huge portion of them use these to bid on auctions and buy/sell fan tokens on the Moxie protocol.
+
+Therefore, it is important that you include the user's vesting addresses in the query to get user's balance of a certain fan token. To **get user's vesting contract addresses**, click [**here**](../vesting/01-get-users-vesting-contract-addresses.mdx).
+
+:::
+
 # Pre-requisites
 
 <Prerequisites apiName="Moxie Protocol Subgraph" />
@@ -26,8 +34,8 @@ import url from "../../../constant/api_url.json";
 <AddQuery
   useCase="get user's balance of a certain fan token"
   subgraphLink={url.protocol_stats_subgraphs}
-  query={`query MyQuery($userAddress: ID, $fanTokenAddress: String) {
-  users(where: { id: $userAddress }) {
+  query={`query MyQuery($userAddresses: [ID!], $fanTokenAddress: String) {
+  users(where: { id_in: $userAddresses }) {
     portfolio(where: { subjectToken: $fanTokenAddress }) {
       balance
       buyVolume

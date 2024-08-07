@@ -17,6 +17,14 @@ import url from "../../../constant/api_url.json";
   apiName="Moxie Protocol Subgraph"
 />
 
+:::info[Include User's Vesting Addresses]
+
+Moxie protocol users have Moxie token currently vesting in their vesting contract. A huge portion of them use these to bid on auctions and buy/sell fan tokens on the Moxie protocol.
+
+Therefore, it is important that you include the user's vesting addresses in the query to get all channel fan tokens owned by a certain user. To **get user's vesting contract addresses**, click [**here**](../vesting/01-get-users-vesting-contract-addresses.mdx).
+
+:::
+
 # Pre-requisites
 
 <Prerequisites />
@@ -26,8 +34,8 @@ import url from "../../../constant/api_url.json";
 <AddQuery
   useCase="get all the channel-type fan tokens owned by a certain user in the Moxie protocol"
   subgraphLink={url.protocol_stats_subgraphs}
-  query={`query MyQuery($userAddress: ID, $symbol_starts_with: String) {
-  users(where: { id: $userAddress }) {
+  query={`query MyQuery($userAddresses: [ID!], $symbol_starts_with: String) {
+  users(where: { id_in: $userAddresses }) {
     portfolio(where: {subjectToken_: {symbol_starts_with: $symbol_starts_with}}) {
       balance
       subjectToken {
@@ -40,7 +48,9 @@ import url from "../../../constant/api_url.json";
   }
 }`}
   variable={`{
-  "userAddress": "0x062c86ca636061e49193307d8462017c51b4834b",
+  "userAddresses": [
+    "0x062c86ca636061e49193307d8462017c51b4834b"
+  ],
   // Check if the symbol starts with "cid:" to include only channel-type fan tokens
   "symbol_starts_with": "cid:"
 }`}

@@ -17,6 +17,14 @@ import url from "../../../constant/api_url.json";
   apiName="Moxie Protocol Subgraph"
 />
 
+:::info[Include User's Vesting Addresses]
+
+Moxie protocol users have Moxie token currently vesting in their vesting contract. A huge portion of them use these to bid on auctions and buy/sell fan tokens on the Moxie protocol.
+
+Therefore, it is important that you include the user's vesting addresses in the query to get ransfers from vault received by a certain user. To **get user's vesting contract addresses**, click [**here**](../vesting/01-get-users-vesting-contract-addresses.mdx).
+
+:::
+
 # Pre-requisites
 
 <Prerequisites apiName="Moxie Protocol Subgraph" />
@@ -26,8 +34,8 @@ import url from "../../../constant/api_url.json";
 <AddQuery
   useCase="get all the Moxie transfers from the vault contract received by a certain user"
   subgraphLink={url.protocol_stats_subgraphs}
-  query={`query MyQuery($receiver: Bytes) {
-  vaultTransferTxes(where: { to: $receiver }) {
+  query={`query MyQuery($receivers: [Bytes!]) {
+  vaultTransferTxes(where: { to_in: $receivers }) {
     amount
     to
     subject
@@ -42,7 +50,9 @@ import url from "../../../constant/api_url.json";
   }
 }`}
   variable={`{
-  "receiver": "0x0f0ecb17575c232077075ef9d78fc9afad808b4d"
+  "receivers": [
+    "0x0f0ecb17575c232077075ef9d78fc9afad808b4d"
+  ]
 }`}
   response={`{
   "data": {

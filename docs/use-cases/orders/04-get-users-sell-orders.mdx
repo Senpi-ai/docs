@@ -17,6 +17,14 @@ import url from "../../../constant/api_url.json";
   apiName="Moxie Protocol Subgraph"
 />
 
+:::info[Include User's Vesting Addresses]
+
+Moxie protocol users have Moxie token currently vesting in their vesting contract. A huge portion of them use these to bid on auctions and buy/sell fan tokens on the Moxie protocol.
+
+Therefore, it is important that you include the user's vesting addresses in the query to get user's sell orders in Moxie bonding curve. To **get user's vesting contract addresses**, click [**here**](../vesting/01-get-users-vesting-contract-addresses.mdx).
+
+:::
+
 # Pre-requisites
 
 <Prerequisites apiName="Moxie Protocol Subgraph" />
@@ -26,8 +34,8 @@ import url from "../../../constant/api_url.json";
 <AddQuery
   useCase="get the user's sell orders"
   subgraphLink={url.protocol_stats_subgraphs}
-  query={`query MyQuery($userAddress: ID) {
-  users(where: {id: $userAddress}) {
+  query={`query MyQuery($userAddresses: ID) {
+  users(where: {id_in: $userAddresses}) {
     orders(where: {orderType: SELL}) {
       price
       protocolToken
@@ -49,7 +57,9 @@ import url from "../../../constant/api_url.json";
   }
 }`}
   variable={`{
-  "userAddress": "0x3bd3e709e946b0882cd6393dde0fb200ce7119ce"
+  "userAddresses": [
+    "0x3bd3e709e946b0882cd6393dde0fb200ce7119ce"
+  ]
 }`}
   response={`{
   "data": {

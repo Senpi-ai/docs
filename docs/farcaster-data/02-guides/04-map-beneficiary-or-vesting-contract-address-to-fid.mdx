@@ -1,0 +1,37 @@
+---
+description: Learn how to resolve from vesting contract addresses or beneficiary addresses to their respective FID when integrating the Moxie protocol.
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Map Beneficiary Or Vesting Contract Addresses to FID
+
+Using data from the [`moxie_resolve.json`](/farcaster-data/guides/download-data) file, you can easily import it and map a beneficiary or vesting contract addresses to an FID very easily using the function defined below:
+
+<Tabs>
+  <TabItem value="ts" label="TypeScript">
+
+```ts title="index.ts"
+import data from "./moxie_resolve.json";
+
+const resolveBeneficiaryOrVestingToFid = (address: string) =>
+  data
+    ?.filter((d) => d?.address === address?.toLowerCase())
+    ?.map((d) => d?.fid);
+```
+
+  </TabItem>
+  <TabItem value="js" label="JavaScript">
+
+```js title="index.ts"
+const data = require("./moxie_resolve.json");
+
+const resolveBeneficiaryOrVestingToFid = (address) =>
+  data
+    ?.filter((d) => d?.address === address?.toLowerCase())
+    ?.map((d) => d?.fid);
+```
+
+  </TabItem>
+</Tabs>

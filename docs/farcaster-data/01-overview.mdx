@@ -1,0 +1,61 @@
+---
+description: Learn how to resolve between FIDs and their respective addresses when integrating the Moxie protocol.
+sidebar_class_name: overview
+---
+
+import DocCardList from "@theme/DocCardList";
+
+# Overview
+
+In the Moxie protocol, a user can participate in the protocol either through one of their Farcaster verified wallet (must have Moxie Pass NFT) or their respective vesting contract address (if they earn airdrops).
+
+While a user on Farcaster is identified by their FID, a user on-chain action on the Moxie protocol is identified through their beneficiary and vesting contract addresses instead
+
+Thus, you must be able to resolve between FIDs and their addresses, either beneficiary or vesting contract, to fetch the necessary data from the subgraphs or execute a smart contract function on the Moxie protocol.
+
+To simplify the resolution, here we provide you with a static JSON file that you can [download](/farcaster-data/guides/download-data) and include in your project.
+
+:::info[Alternatives: API solutions]
+
+As an alternative solution, you can also use a third-party API provider, such as [Airstack](https://airstack.xyz), to resolve the identities.
+
+However, keep in mind that this might increase the latency of your application as you will need to make additional API calls.
+
+:::
+
+# Tutorials
+
+You can follow the list of tutorials below to enable resolution between FIDs and their respective addresses when integrating the Moxie protocol:
+
+<DocCardList
+  items={[
+    {
+      type: "link",
+      label: "Download Data",
+      href: "/farcaster-data/guides/download-data",
+      description:
+        "Download the JSON file to start resolving between FIDs and beneficiary and vesting contract addresses.",
+    },
+    {
+      type: "link",
+      label: "Map FID to Beneficiary Addresses",
+      href: "/farcaster-data/guides/map-fid-to-beneficiary-addresses",
+      description:
+        "Learn how to resolve FIDs to their respective beneficiary addresses when integrating the Moxie protocol.",
+    },
+    {
+      type: "link",
+      label: "Map FID to Vesting Contract Addresses",
+      href: "/farcaster-data/guides/map-fid-to-vesting-contract-addresses",
+      description:
+        "Learn how to resolve FIDs to their respective vesting contract addresses when integrating the Moxie protocol.",
+    },
+    {
+      type: "link",
+      label: "Map Beneficiary Or Vesting Contract Addresses to FID",
+      href: "/farcaster-data/guides/map-beneficiary-or-vesting-contract-address-to-fid",
+      description:
+        "Learn how to resolve from vesting contract addresses or beneficiary addresses to their respective FID when integrating the Moxie protocol.",
+    },
+  ]}
+/>

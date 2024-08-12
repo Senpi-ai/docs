@@ -3,14 +3,117 @@ sidebar_class_name: hidden
 description: Learn how to make calls to the the Moxie Bonding Curve smart contract to buy fan tokens on behalf of other address.
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
 import DeveloperSupport from "../../../partial/_developer_support.mdx";
 
 # Buy Fan Tokens On Behalf Of Others
 
 ## Pre-requisites
 
+Install the `ethers` package into your project:
+
+<Tabs>
+  <TabItem value="npm" label="npm">
+    
+```sh
+npm install ethers
+```
+
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+
+```sh
+yarn add ethers
+```
+
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+
+```sh
+pnpm add ethers
+```
+
+  </TabItem>
+  <TabItem value="bun" label="bun">
+
+```sh
+bun install ethers
+```
+
+  </TabItem>
+</Tabs>
+
 ## Step 1: Add Contract Call To Your Code
 
+<Tabs>
+  <TabItem value="ts" label="TypeScript">
+
+```ts title="index.ts"
+import { ethers } from "ethers";
+import { abi } from "./MoxieBondingCurve.json";
+
+try {
+  const contract = new ethers.Contract(
+    "0x373065e66B32a1C428aa14698dFa99BA7199B55E",
+    abi,
+    signer
+  );
+
+  const tx = await contract.buySharesFor();
+  await tx.wait();
+} catch (e) {
+  console.error(e);
+}
+```
+
+    </TabItem>
+    <TabItem value="js" label="JavaScript">
+
+```js title="index.js"
+const { ethers } = require("ethers");
+const { abi } = require("./MoxieBondingCurve.json");
+
+try {
+  const contract = new ethers.Contract(
+    "0x373065e66B32a1C428aa14698dFa99BA7199B55E",
+    abi,
+    signer
+  );
+
+  const tx = await contract.buySharesFor();
+  await tx.wait();
+} catch (e) {
+  console.error(e);
+}
+```
+
+    </TabItem>
+
+</Tabs>
+
 ## Step 2: Execute The Contract Call
+
+Once you have your code ready, you can execute it by running the following command:
+
+<Tabs>
+    <TabItem value="ts" label="TypeScript">
+
+```sh
+ts-node index.ts
+```
+
+    </TabItem>
+    <TabItem value="js" label="JavaScript">
+
+```sh
+node index.js
+```
+
+    </TabItem>
+
+</Tabs>
 
 <DeveloperSupport />

@@ -180,7 +180,7 @@ const config: Config = {
           label: "Farcaster Data",
           docId: "farcaster-data/overview",
         },
-        { to: "/blog", label: "Blog", position: "left" },
+        // { to: "/blog", label: "Blog", position: "left" },
         {
           href: "https://github.com/moxie-protocol",
           position: "right",

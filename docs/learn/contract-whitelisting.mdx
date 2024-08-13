@@ -13,7 +13,7 @@ Before requesting whitelisting, make sure you have read and understood the [bene
 By default, the Moxie protocol functions are only accessible to Farcaster users and their vesting contracts. However, by getting your smart contract whitelisted, you can access the same functionalities which include:
 
 - Facilitate buys/sells of Fan Tokens from your smart contracts.
-- Allows your smart contracts to securely hold users' Fan tokens.
+- Allows your smart contracts to securely hold users' Fan Tokens.
 - Grants permission to execute whitelisted functions from your smart contract on users' vesting contracts.
 - Access the Fan Tokens owned by the user’s airdrop vesting contract.
 
@@ -21,17 +21,17 @@ By default, the Moxie protocol functions are only accessible to Farcaster users 
 
 To avoid any potential security risks and ensure the integrity of the Moxie protocol, your smart contract must meet the following requirements to be eligible for whitelisting:
 
-**No wallet-to-wallet transfer of fan tokens is permitted, either direct or indirect**
+**No wallet-to-wallet transfer of Fan Tokens is permitted, either direct or indirect**
 
-For example, your contract should not facilitate any Fan token transfer from a user to another user (which can be a non-Farcaster user) with your contract as an intermediary.
+For example, your contract should not facilitate any Fan Token transfer from a user to another user (which can be a non-Farcaster user) with your contract as an intermediary.
 
-**Fan tokens withdrawn from the vesting contract shall always be returned to the original sender (msg.sender)**
+**Fan Tokens withdrawn from the vesting contract shall always be returned to the original sender (msg.sender)**
 
-When your protocol takes fan tokens out of the vesting contract, it **MUST** always return those fan tokens to the original vesting contract sender.
+When your protocol takes Fan Tokens out of the vesting contract, it **MUST** always return those Fan Tokens to the original vesting contract sender.
 
-**No secondary market is allowed for any derivative assets that lock or stake Fan tokens within their contracts**
+**No secondary market is allowed for any derivative assets that lock or stake Fan Tokens within their contracts**
 
-For example, fungible or non-fungible tokens minted by staking Fan tokens in a contract should not be tradable on any DEX or marketplace, as this would allow non-Farcaster users to hold Fan tokens, thereby compromising the Moxie protocol.
+For example, fungible or non-fungible tokens minted by staking Fan Tokens in a contract should not be tradable on any DEX or marketplace, as this would allow non-Farcaster users to hold Fan Tokens, thereby compromising the Moxie protocol.
 
 **Undergo an audit by a reputable auditor (optional but preferred)**
 

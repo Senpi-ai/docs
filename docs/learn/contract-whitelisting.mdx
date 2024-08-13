@@ -25,11 +25,13 @@ To avoid any potential security risks and ensure the integrity of the Moxie prot
 
 Your contract should not facilitate any Fan Token transfer from one user to another user with your contract as an intermediary, **unless the transfer goes through the Moxie Contracts**.
 
-Your contract should not knowingly facilitate any Fan Token transfers to a non-Farcaster Member.
+**Your contract should not knowingly facilitate any Fan Token transfers to a non-Farcaster Member**
 
-**Fan Tokens withdrawn from the vesting contract shall always be returned to the original sender (msg.sender)**
+The Moxie protocol is built for only Farcaster Members. Your contract should not knowingly facilitate any Fan Token transfers to a non-Farcaster Member. Such action will result in losing your whitelisting.
 
-When your protocol takes Fan Tokens out of the vesting contract, it **MUST** always return those Fan Tokens to the original vesting contract sender.
+**Moxie/Fan Tokens withdrawn from the vesting contract shall always be returned to the original sender (msg.sender)**
+
+When your protocol takes Moxie/Fan Tokens out of the vesting contract, it **MUST** always return those Moxie/Fan Tokens to the original vesting contract sender.
 
 **No secondary market is allowed for any derivative assets that lock or stake Fan Tokens within their contracts**
 

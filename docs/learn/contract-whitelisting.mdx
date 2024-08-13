@@ -4,7 +4,7 @@ description: If you are working to integrate the Moxie protocol into your smart 
 
 # Contract Whitelisting
 
-If you are integrating the Moxie protocol into your smart contract, you might need to be whitelisted to get access to several functionalities offered by the Moxie protocol.
+If you are integrating the Moxie protocol into your smart contract, you will need to be whitelisted to get access to several functionalities offered by the Moxie protocol.
 
 Before requesting whitelisting, make sure you have read and understood the [benefits](#benefits) you will get and the [requirements](#requirements) you will need to fulfill to have your smart contract whitelisted.
 
@@ -23,7 +23,9 @@ To avoid any potential security risks and ensure the integrity of the Moxie prot
 
 **No wallet-to-wallet transfer of Fan Tokens is permitted, either direct or indirect**
 
-For example, your contract should not facilitate any Fan Token transfer from a user to another user (which can be a non-Farcaster user) with your contract as an intermediary.
+Your contract should not facilitate any Fan Token transfer from one user to another user with your contract as an intermediary, **unless the transfer goes through the Moxie Contracts**.
+
+Your contract should not knowingly facilitate any Fan Token transfers to a non-Farcaster Member.
 
 **Fan Tokens withdrawn from the vesting contract shall always be returned to the original sender (msg.sender)**
 
@@ -31,7 +33,7 @@ When your protocol takes Fan Tokens out of the vesting contract, it **MUST** alw
 
 **No secondary market is allowed for any derivative assets that lock or stake Fan Tokens within their contracts**
 
-For example, fungible or non-fungible tokens minted by staking Fan Tokens in a contract should not be tradable on any DEX or marketplace, as this would allow non-Farcaster users to hold Fan Tokens, thereby compromising the Moxie protocol.
+For example, fungible or non-fungible tokens minted by staking Fan Tokens in a contract should not be tradable on any DEX or marketplace.
 
 **Undergo an audit by a reputable auditor (optional but preferred)**
 
@@ -42,3 +44,9 @@ By getting whitelisted, you also agree to an audit (at your own expense) once/if
 ## Ready to Apply?
 
 If you have read and understood all the benefits mentioned above and are confident that your smart contracts meet all the requirements, you can apply for whitelisting by simply filling out this form [here](https://forms.gle/VKUYj9JEgj8fbkWx8).
+
+:::warning[ACKNOWLEDGEMENT]
+
+**By submitting this form, you acknowledge that breaking any of these requirements will result in losing your whitelisting.**
+
+:::

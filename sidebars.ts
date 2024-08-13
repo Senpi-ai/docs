@@ -32,8 +32,8 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "doc",
-      id: "learn/contract-whitelisting",
-      label: "Contract Whitelisting",
+      id: "learn/contract-allowlisting",
+      label: "Contract Allowlisting",
       className: "shield_check",
     },
   ],

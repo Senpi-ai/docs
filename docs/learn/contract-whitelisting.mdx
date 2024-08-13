@@ -1,0 +1,44 @@
+---
+description: If you are working to integrate the Moxie protocol into your smart contract, learn how you can benefit from having your smart contract whitelisted by the Moxie protocol.
+---
+
+# Contract Whitelisting
+
+If you are integrating the Moxie protocol into your smart contract, you might need to be whitelisted to get access to several functionalities offered by the Moxie protocol.
+
+Before requesting whitelisting, make sure you have read and understood the [benefits](#benefits) you will get and the [requirements](#requirements) you will need to fulfill to have your smart contract whitelisted.
+
+## Benefits
+
+By default, the Moxie protocol functions are only accessible to Farcaster users and their vesting contracts. However, by getting your smart contract whitelisted, you can access the same functionalities which include:
+
+- Facilitate buys/sells of Fan Tokens from your smart contracts.
+- Allows your smart contracts to securely hold users' Fan tokens.
+- Grants permission to execute whitelisted functions from your smart contract on users' vesting contracts.
+- Provides access to users' vesting contract funds.
+
+## Requirements
+
+To avoid any potential security risks and ensure the integrity of the Moxie protocol, your smart contract must meet the following requirements to be eligible for whitelisting:
+
+**No wallet-to-wallet transfer of fan tokens is permitted, either direct or indirect**
+
+For example, your contract should not facilitate any Fan token transfer from a user to another user (which can be a non-Farcaster user) with your contract as an intermediary.
+
+**Fan tokens withdrawn from the vesting contract shall always be returned to the original sender (msg.sender)**
+
+When your protocol takes fan tokens out of the vesting contract, it **MUST** always return those fan tokens to the original vesting contract sender.
+
+**No secondary market is allowed for any derivative assets that lock or stake Fan tokens within their contracts**
+
+For example, fungible or non-fungible tokens minted by staking Fan tokens in a contract should not be tradable on any DEX or marketplace, as this would allow non-Farcaster users to hold Fan tokens, thereby compromising the Moxie protocol.
+
+**Undergo an audit by a reputable auditor (optional but preferred)**
+
+While optional, we will prefer projects that have had their smart contracts audited by a reputable auditor.
+
+By getting whitelisted, you also agree to an audit (at your own expense) once/if the total value of Fan Tokens in your protocol exceeds USD 100,000.
+
+## Ready to Apply?
+
+If you have read and understood all the benefits mentioned above and are confident that your smart contracts meet all the requirements, you can apply for whitelisting by simply filling out this form [here](https://forms.gle/VKUYj9JEgj8fbkWx8).

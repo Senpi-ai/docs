@@ -1,0 +1,54 @@
+---
+description: If you are working to integrate the Moxie protocol into your smart contract, learn how you can benefit from having your smart contract allowlisted by the Moxie protocol.
+---
+
+# Contract Allowlisting
+
+If you are integrating the Moxie protocol into your smart contract, you will need to be allowlisted to get access to several functionalities offered by the Moxie protocol.
+
+Before requesting allowlisting, make sure you have read and understood the [benefits](#benefits) you will get and the [requirements](#requirements) you will need to fulfill to have your smart contract allowlisted.
+
+## Benefits
+
+By default, the Moxie protocol functions are only accessible to Farcaster users and their vesting contracts. However, by getting your smart contract allowlisted, you can access the same functionalities which include:
+
+- Facilitate buys/sells of Fan Tokens from your smart contracts.
+- Allows your smart contracts to securely hold users' Fan Tokens.
+- Grants permission to execute allowlisted functions from your smart contract on users' vesting contracts.
+- Access the Fan Tokens owned by the user’s airdrop vesting contract.
+
+## Requirements
+
+To avoid any potential security risks and ensure the integrity of the Moxie protocol, your smart contract must meet the following requirements to be eligible for allowlisting:
+
+**No wallet-to-wallet transfer of Fan Tokens is permitted, either direct or indirect**
+
+Your contract should not facilitate any Fan Token transfer from one user to another user with your contract as an intermediary, **unless the transfer goes through the Moxie Contracts**.
+
+**Your contract should not knowingly facilitate any Fan Token transfers to a non-Farcaster Member**
+
+The Moxie protocol is built for only Farcaster Members. Your contract should not knowingly facilitate any Fan Token transfers to a non-Farcaster Member. Such action will result in losing your allowlisting.
+
+**Moxie/Fan Tokens withdrawn from the vesting contract shall always be returned to the original sender (msg.sender)**
+
+When your protocol takes Moxie/Fan Tokens out of the vesting contract, it **MUST** always return those Moxie/Fan Tokens to the original vesting contract sender.
+
+**No secondary market is allowed for any derivative assets that lock or stake Fan Tokens within their contracts**
+
+For example, fungible or non-fungible tokens minted by staking Fan Tokens in a contract should not be tradable on any DEX or marketplace.
+
+**Undergo an audit by a reputable auditor (optional but preferred)**
+
+While optional, we will prefer projects that have had their smart contracts audited by a reputable auditor.
+
+By getting allowlisted, you also agree to an audit (at your own expense) once/if the total value of Fan Tokens in your protocol exceeds USD 100,000.
+
+## Ready to Apply?
+
+If you have read and understood all the benefits mentioned above and are confident that your smart contracts meet all the requirements, you can apply for allowlisting by simply filling out this form [here](https://forms.gle/VKUYj9JEgj8fbkWx8).
+
+:::warning[ACKNOWLEDGEMENT]
+
+**By submitting this form, you acknowledge that breaking any of these requirements will result in losing your allowlisting.**
+
+:::

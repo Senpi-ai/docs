@@ -563,6 +563,10 @@ const config: Config = {
             to: "/api/vesting/changelog",
             from: ["/api/vesting/index"],
           },
+          {
+            to: "/learn/contract-allowlisting",
+            from: ["/learn/contract-whitelisting"],
+          },
         ],
       },
     ],

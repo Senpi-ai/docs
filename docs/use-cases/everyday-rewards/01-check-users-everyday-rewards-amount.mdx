@@ -1,0 +1,78 @@
+---
+description: Learn how to use the Moxie Everyday Rewards Claim API to check the user's everyday rewards amount.
+---
+
+import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
+import Header from "../../../src/components/Tutorials/Header";
+import AddQuery from "../../../src/components/Tutorials/AddQuery";
+import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
+
+# Check User's Everyday Rewards Amount
+
+<Header
+  useCase="check user's everyday rewards amount"
+  apiName="Moxie Everyday Rewards Claim API"
+/>
+
+# Pre-requisites
+
+<Prerequisites apiName="Moxie Everyday Rewards Claim API" />
+
+## Step 1: Add The API Query To Your Code
+
+<AddQuery
+  useCase="check user's everyday rewards amount"
+  subgraphLink="https://claims.airstack.xyz/moxie"
+  query={`query FarcasterUserClaimTransactionDetails($fid: Int!) {
+  FarcasterUserClaimTransactionDetails(input: { fid: $fid }) {
+    fid
+    availableClaimAmount
+    minimumClaimableAmountInWei
+    availableClaimAmountInWei
+    claimedAmount
+    claimedAmountInWei
+    processingAmount
+    processingAmountInWei
+  }
+}`}
+  headers={`{
+  // Add Airstack API key here
+  "x-airstack-claims": process.env.AIRSTACK_API_KEY as string,
+}`}
+  variable={`{
+  fid: 3
+}`}
+  response={`{
+  "FarcasterUserClaimTransactionDetails": {
+    "fid": "3",
+    "availableClaimAmount": 1348749.451359723,
+    "minimumClaimableAmountInWei": "1000000000000000000",
+    "availableClaimAmountInWei": "1348749451359723040759142",
+    "claimedAmount": 0,
+    "claimedAmountInWei": "0",
+    "processingAmount": 0,
+    "processingAmountInWei": "0"
+  }
+}`}
+/>
+
+## Step 2: Execute Your Code
+
+<ExecuteCode
+  response={`{
+  "FarcasterUserClaimTransactionDetails": {
+    "fid": "3",
+    "availableClaimAmount": 1348749.451359723,
+    "minimumClaimableAmountInWei": "1000000000000000000",
+    "availableClaimAmountInWei": "1348749451359723040759142",
+    "claimedAmount": 0,
+    "claimedAmountInWei": "0",
+    "processingAmount": 0,
+    "processingAmountInWei": "0"
+  }
+}`}
+  dataFetched="user's everyday rewards amount"
+/>
+
+<DeveloperSupport />

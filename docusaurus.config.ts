@@ -97,6 +97,12 @@ const config: Config = {
             },
             {
               type: "doc",
+              label: "Everyday Rewards",
+              docId:
+                "use-cases/everyday-rewards/check-users-everyday-rewards-amount",
+            },
+            {
+              type: "doc",
               label: "Bids",
               docId:
                 "use-cases/bids/get-all-bids-registered-on-certain-auction",

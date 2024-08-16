@@ -228,6 +228,10 @@ const config: Config = {
               to: "/use-cases/fan-tokens/get-trending-fan-tokens",
             },
             {
+              label: "Everyday Rewards",
+              to: "/use-cases/everyday-rewards/check-users-everyday-rewards-amount",
+            },
+            {
               label: "Bids",
               to: "/use-cases/bids/get-all-bids-registered-on-certain-auction",
             },

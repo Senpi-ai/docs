@@ -23,7 +23,7 @@ In this tutorial, you will learn how to get all the fan tokens owned by a certai
 
 <Install dependencies="graphql graphql-request" />
 
-2. For profile resolution from FID to addresses, you will either [download moxie_resolve.json](/farcaster-data/guides/download-data) file or use a third-service API provider, such as [Airstack](https://airstack.xyz). If you are using Airstack, you can install the Airstack Node SDK:
+2. For profile resolution from FID to addresses, you will either [download moxie_resolve.json](/farcaster-data/guides/download-data) file or use a third-service API provider, such as [Airstack](https://airstack.xyz). If you are using Airstack, you can get the [Airstack API key](https://docs.airstack.xyz/airstack-docs-and-faqs/get-started/get-api-key) and install the Airstack Node SDK:
 
 <Install dependencies="@airstack/node" />
 
@@ -66,13 +66,168 @@ module.exports = resolveFidToAddresses;
   </TabItem>
 </Tabs>
 
-To resolve, simply call the function and provide the user's FID as input. In return, you will get an array of the user's Farcaster verified wallet and vesting contract wallet addresses that can be used in [Step 2](#step-2-add-the-api-query-to-your-code).
+To resolve, simply call the function and provide the user's FID as input. In return, you will get an array of the user's Farcaster verified wallets and vesting contract wallet addresses that can be used in [Step 2](#step-2-add-the-api-query-to-your-code).
 
 **Using subgraph and third-party APIs**
 
+Alternatively, you can use the call a third-party API provider, such as [Airstack](https://airstack.xyz), to get all user's Farcaster verified wallets and the [Moxie Vesting Subgraph API](../../api/vesting/01-overview.mdx) to get all user's vesting contract wallet addresses with the following utility function:
+
+<Tabs>
+  <TabItem value="ts" label="TypeScript">
+
+```ts title="utils/resolve.ts"
+import { gql, GraphQLClient } from "graphql-request";
+import { config } from "dotenv";
+
+config();
+
+const airstackGraphQLClient = new GraphQLClient("https://api.airstack.xyz/gql");
+
+const vestingSubgraphQLClient = new GraphQLClient(
+  "https://api.studio.thegraph.com/query/23537/moxie_vesting_mainnet/version/latest"
+);
+
+const airstackQuery = gql`
+  query MyQuery($fid: String) {
+    Socials(
+      input: { filter: { userId: { _eq: $fid } }, blockchain: ethereum }
+    ) {
+      Social {
+        connectedAddresses {
+          address
+          blockchain
+        }
+      }
+    }
+  }
+`;
+
+const vestingSubgraphQuery = gql`
+  query MyQuery($beneficiaries: [Bytes!]) {
+    tokenLockWallets(where: { beneficiary_in: $beneficiaries }) {
+      address: id
+    }
+  }
+`;
+
+const resolveFidToAddresses = async (fid: number) => {
+  try {
+    const farcasterWalletData = await airstackGraphQLClient.request(
+      airstackQuery,
+      {
+        fid: fid?.toString(),
+      },
+      {
+        // Provide Airstack API key here
+        Authorization: process.env.AIRSTACK_API_KEY,
+      }
+    );
+    const userAddresses =
+      // Get all Farcaster verified wallet addresses
+      farcasterWalletData?.Socials?.Social?.[0]?.connectedAddresses
+        // Filter out non-Ethereum addresses
+        ?.filter(({ blockchain }) => blockchain === "ethereum")
+        ?.map(({ address }) => address) ?? [];
+    const vestingAddressesData = await vestingSubgraphQLClient.request(
+      vestingSubgraphQuery,
+      {
+        beneficiaries: userAddresses,
+      }
+    );
+    return [
+      ...userAddresses,
+      ...vestingAddressesData.tokenLockWallets.map((t) => t?.address),
+    ];
+  } catch (e) {
+    throw new Error(e);
+  }
+};
+
+export default resolveFidToAddresses;
+```
+
+  </TabItem>
+  <TabItem value="js" label="JavaScript">
+
+```js title="utils/resolve.js"
+const { gql, GraphQLClient } = require("graphql-request");
+const { config } = require("dotenv");
+
+config();
+
+const airstackGraphQLClient = new GraphQLClient("https://api.airstack.xyz/gql");
+
+const vestingSubgraphQLClient = new GraphQLClient(
+  "https://api.studio.thegraph.com/query/23537/moxie_vesting_mainnet/version/latest"
+);
+
+const airstackQuery = gql`
+  query MyQuery($fid: String) {
+    Socials(
+      input: { filter: { userId: { _eq: $fid } }, blockchain: ethereum }
+    ) {
+      Social {
+        connectedAddresses {
+          address
+          blockchain
+        }
+      }
+    }
+  }
+`;
+
+const vestingSubgraphQuery = gql`
+  query MyQuery($beneficiaries: [Bytes!]) {
+    tokenLockWallets(where: { beneficiary_in: $beneficiaries }) {
+      address: id
+    }
+  }
+`;
+
+const resolveFidToAddresses = async (fid) => {
+  try {
+    const farcasterWalletData = await airstackGraphQLClient.request(
+      airstackQuery,
+      {
+        fid: fid?.toString(),
+      },
+      {
+        // Provide Airstack API key here
+        Authorization: process.env.AIRSTACK_API_KEY,
+      }
+    );
+    const userAddresses =
+      // Get all Farcaster verified wallet addresses
+      farcasterWalletData?.Socials?.Social?.[0]?.connectedAddresses
+        // Filter out non-Ethereum addresses
+        ?.filter(({ blockchain }) => blockchain === "ethereum")
+        ?.map(({ address }) => address) ?? [];
+    const vestingAddressesData = await vestingSubgraphQLClient.request(
+      vestingSubgraphQuery,
+      {
+        beneficiaries: userAddresses,
+      }
+    );
+    return [
+      ...userAddresses,
+      ...vestingAddressesData.tokenLockWallets.map((t) => t?.address),
+    ];
+  } catch (e) {
+    throw new Error(e);
+  }
+};
+
+module.exports = resolveFidToAddresses;
+```
+
+  </TabItem>
+</Tabs>
+
+To resolve, simply call the function and provide the user's FID as input. In return, you will get an array of the user's Farcaster verified wallets and vesting contract wallet addresses that can be used in [Step 2](#step-2-add-the-api-query-to-your-code).
+
 ## Step 2: Add The API Query To Your Code
 
-To get all the fan tokens owned by a certain user, you can use the following query on the [Moxie Protocol Subgraph API](../../api/protocol/01-overview.mdx) and provide the array of addresses resolved in [Step 1](#step-1-resolve-users-fid-to-addresses) as input:
+To get all the fan tokens owned by a certain user, you can use the following query on the [Moxie Protocol Subgraph API](../../api/protocol/01-overview.mdx) and provide the array of addresses resolved in [Step 1](#step-1-resolve-users-fid-to-addresses) as input to the `$userAddresses` variable:
 
 <Tabs>
   <TabItem value="query" label="Query">

@@ -1,0 +1,64 @@
+---
+sidebar_class_name: fan_token_schedule
+description: Learn how to use the Moxie Protocol Subgraph API to get the channel fan token address of a certain channel ID.
+---
+
+import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
+import Header from "../../../src/components/Tutorials/Header";
+import AddQuery from "../../../src/components/Tutorials/AddQuery";
+import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
+import url from "../../../constant/api_url.json";
+
+# Get The Channel Fan Token Address Of Certain Channel ID
+
+<Header
+  useCase="get the channel fan token address of a certain channel ID"
+  apiName="Moxie Protocol Subgraph"
+/>
+
+# Pre-requisites
+
+<Prerequisites apiName="Moxie Protocol Subgraph" />
+
+## Step 1: Add The API Query To Your Code
+
+<AddQuery
+  useCase="get the channel fan token address by a certain channel ID"
+  subgraphLink={url.protocol_stats_subgraphs}
+  query={`query MyQuery($fanTokenSymbol: String) {
+  subjectTokens(where: {symbol: $fanTokenSymbol}) {
+    tokenAddress: id
+  }
+}`}
+  variable={`{
+  // Format the fan token symbol as "cid:<channel-ID>"
+  "fanTokenSymbol": "cid:airstack"
+}`}
+  response={`{
+  "data": {
+    "subjectTokens": [
+      {
+        "tokenAddress": "0x3a2281e71dc0aabecfa8045959cf3020f2a562e6"
+      }
+    ]
+  }
+}`}
+/>
+
+## Step 2: Execute Your Code
+
+<ExecuteCode
+  response={`{
+  "data": {
+    "subjectTokens": [
+      {
+        "tokenAddress": "0x3a2281e71dc0aabecfa8045959cf3020f2a562e6"
+      }
+    ]
+  }
+}`}
+  dataFetched="the channel fan token address of a certain channel ID"
+/>
+
+<DeveloperSupport />

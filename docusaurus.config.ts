@@ -45,6 +45,8 @@ const config: Config = {
         blog: {
           showReadingTime: true,
           editUrl: "https://github.com/moxie-protocol/docs/edit/main/",
+          onUntruncatedBlogPosts: "ignore",
+          onInlineAuthors: "ignore",
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -562,6 +564,10 @@ const config: Config = {
           {
             to: "/api/vesting/changelog",
             from: ["/api/vesting/index"],
+          },
+          {
+            to: "/learn/contract-allowlisting",
+            from: ["/learn/contract-whitelisting"],
           },
         ],
       },

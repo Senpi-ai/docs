@@ -45,6 +45,8 @@ const config: Config = {
         blog: {
           showReadingTime: true,
           editUrl: "https://github.com/moxie-protocol/docs/edit/main/",
+          onUntruncatedBlogPosts: "ignore",
+          onInlineAuthors: "ignore",
         },
         theme: {
           customCss: "./src/css/custom.css",

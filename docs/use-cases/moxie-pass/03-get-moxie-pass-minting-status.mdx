@@ -1,0 +1,96 @@
+---
+sidebar_class_name: clock
+description: Learn how to use the Moxie Pass Claim API to get the Moxie Pass minting status after mint has been initiated.
+---
+
+import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
+import Header from "../../../src/components/Tutorials/Header";
+import AddQuery from "../../../src/components/Tutorials/AddQuery";
+import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
+import url from "../../../constant/api_url.json";
+import Install from "../../../src/components/Install";
+
+# Get Moxie Pass Minting Status
+
+<Header useCase="get Moxie Pass mint status" apiName="Moxie Pass Claim" />
+
+# Pre-requisites
+
+1. Install dependencies `graphql`and`graphql-request` to your project :
+
+<Install dependencies="graphql graphql-request" />
+
+2. Your will need a special API key to access to the Moxie Pass Claim API. To request access, please fill in this form [here](https://forms.gle/th7hKumcxz3X5txZ6).
+
+## Step 1: Add The API Query To Your Code
+
+<AddQuery
+  useCase="get Moxie Pass mint status"
+  subgraphLink="https://api.moxie.xyz/protocol/graphql"
+  query={`query MyQuery($input: FarcasterMoxieMintStatusInput!) {
+  FarcasterMoxieMintStatus(input: $input) {
+    fid
+    lastSuccessState
+    status
+    tokenId
+    tokenImageUrl
+    tokenUrl
+    transactionHash
+    transactionId
+    walletAddress
+  }
+}
+`}
+  headers={`{
+  // Add Airstack API key here
+  "x-airstack-protocol": process.env.AIRSTACK_API_KEY as string,
+}`}
+  variable={`{
+  "input": {
+    // Provide User FID here (optional)
+    "fid": "0",
+    // Provide Farcaster verified wallet here
+    // If wallet is not associated to the given FID, the API will return an error
+    "preferredConnectedWallet": "0x0000000000000000b600000000000000000000000"
+  }
+}`}
+  response={`{
+  "data": {
+    "FarcasterMoxieMintStatus": {
+      "fid": "0",
+      "lastSuccessState": "minted",
+      "status": "COMPLETED", // This indicate that the Moxie Pass has been claimed
+      "tokenId": "0",
+      "tokenImageUrl": "https://d1dmtrbs0t4wod.cloudfront.net/image/0xc7486219881c780b676499868716b27095317416-15971.jpg",
+      "tokenUrl": "https://d1dmtrbs0t4wod.cloudfront.net/metadata/0xc7486219881c780b676499868716b2709531741615971.json",
+      "transactionHash": "0x6ce371b5755fcb4f62ab4b629bbe46fba364abd26d695845aa2219f115ad0f77",
+      "transactionId": "042add97-cca1-443d-b3ae-eeec78712760",
+      "walletAddress": "0x0000000000000000b600000000000000000000000"
+    }
+  }
+}`}
+/>
+
+## Step 2: Execute Your Code
+
+<ExecuteCode
+  response={`{
+  "data": {
+    "FarcasterMoxieMintStatus": {
+      "fid": "0",
+      "lastSuccessState": "minted",
+      "status": "COMPLETED", // This indicate that the Moxie Pass has been claimed
+      "tokenId": "0",
+      "tokenImageUrl": "https://d1dmtrbs0t4wod.cloudfront.net/image/0xc7486219881c780b676499868716b27095317416-15971.jpg",
+      "tokenUrl": "https://d1dmtrbs0t4wod.cloudfront.net/metadata/0xc7486219881c780b676499868716b2709531741615971.json",
+      "transactionHash": "0x6ce371b5755fcb4f62ab4b629bbe46fba364abd26d695845aa2219f115ad0f77",
+      "transactionId": "042add97-cca1-443d-b3ae-eeec78712760",
+      "walletAddress": "0x0000000000000000b600000000000000000000000"
+    }
+  }
+}`}
+  dataFetched="the Moxie Pass minting status"
+/>
+
+<DeveloperSupport />

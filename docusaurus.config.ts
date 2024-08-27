@@ -103,6 +103,11 @@ const config: Config = {
             },
             {
               type: "doc",
+              label: "Moxie Pass",
+              docId: "use-cases/moxie-pass/mint-moxie-pass",
+            },
+            {
+              type: "doc",
               label: "Bids",
               docId:
                 "use-cases/bids/get-all-bids-registered-on-certain-auction",

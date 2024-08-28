@@ -2,13 +2,15 @@ import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 import tailwindPlugin from "./plugins/tailwind-plugin.cjs";
-import fs from "node:fs";
 
 const config: Config = {
+  themes: ["@docusaurus/theme-mermaid"],
   title: "Moxie Developer Hubs",
   tagline: "Empowering the Farcaster Economy",
   favicon: "img/favicon.ico",
-
+  markdown: {
+    mermaid: true,
+  },
   // Set the production url of your site here
   url: "https://developer.moxie.xyz",
   // Set the /<baseUrl>/ pathname under which your site is served
@@ -132,6 +134,12 @@ const config: Config = {
               label: "Vesting",
               docId: "use-cases/vesting/get-all-users-with-moxie-locked",
             },
+            {
+              type: "doc",
+              label: "Frames & Actions",
+              docId:
+                "use-cases/frames-and-actions/validate-frames-and-actions-message",
+            },
           ],
         },
         {
@@ -237,6 +245,10 @@ const config: Config = {
               to: "/use-cases/everyday-rewards/check-users-everyday-rewards-amount",
             },
             {
+              label: "Moxie Pass",
+              to: "/use-cases/moxie-pass/mint-moxie-pass",
+            },
+            {
               label: "Bids",
               to: "/use-cases/bids/get-all-bids-registered-on-certain-auction",
             },
@@ -255,6 +267,10 @@ const config: Config = {
             {
               label: "Vesting",
               to: "/use-cases/vesting/get-all-users-with-moxie-locked",
+            },
+            {
+              label: "Frames & Actions",
+              to: "/use-cases/frames-and-actions/validate-frames-and-actions-message",
             },
           ],
         },

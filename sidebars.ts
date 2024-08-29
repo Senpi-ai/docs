@@ -27,7 +27,7 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Technical Deep Dive",
-      className: "hidden",
+      className: "quickstart",
       link: { type: "doc", id: "learn/technical-deep-dive/index" },
       items: [
         {

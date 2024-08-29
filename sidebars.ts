@@ -25,6 +25,19 @@ const sidebars: SidebarsConfig = {
       className: "concepts",
     },
     {
+      type: "category",
+      label: "Technical Deep Dive",
+      className: "hidden",
+      link: { type: "doc", id: "learn/technical-deep-dive/index" },
+      items: [
+        {
+          type: "doc",
+          id: "learn/technical-deep-dive/rewards-split",
+          label: "Rewards Split",
+        },
+      ],
+    },
+    {
       type: "doc",
       id: "learn/glossary",
       className: "references",

@@ -1,0 +1,109 @@
+---
+sidebar_class_name: scissors
+description: Learn how to use the Airstack GraphQL API to get the Everday Rewards split of a user.
+---
+
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
+import Header from "../../../src/components/Tutorials/Header";
+import AddQuery from "../../../src/components/Tutorials/AddQuery";
+import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
+import Install from "../../../src/components/Install";
+
+# Get Everyday Rewards Split Of A User
+
+By default [Everyday Rewards](https://build.moxie.xyz/the-moxie-protocol/everyday-rewards) earned from Casts and Frames by a member are split as follows:
+
+- 50% to the member who earned the reward
+- 20% to their Fans (holders of their Fan Tokens)
+- 20% to the Fans of the Channel casted into (holders of their Fan Tokens)
+- 10% to Fans of Farcaster overall (holders of the Fan Tokens)
+
+This split can be modified by the address that is the subject of the Member Fan Token.
+
+To learn more about the different split options and how it can impact [Everyday Rewards](https://build.moxie.xyz/the-moxie-protocol/everyday-rewards) distribution on the Moxie protocol, click [here](../../learn/technical-deep-dive/rewards-split.mdx).
+
+<Header
+  useCase="get everyday rewards split of a user"
+  apiName="Airstack GraphQL API"
+/>
+
+# Pre-requisites
+
+1. Install dependencies `graphql`and`graphql-request` to your project :
+
+<Install dependencies="graphql graphql-request" />
+
+2. Get your Airstack API key
+
+For access to the Airstack API key, you'll need to **hold at least 1 /airstack Channel Fan Token** in either your Farcaster custodial wallet or one of your Farcaster verified wallets AND make sure that you have connected one of those wallet or your Farcaster account to your Airstack account.
+
+If you don't have it yet, you can buy it [here](https://www.airstack.xyz/channels/airstack).
+
+## Step 1: Add The API Query To Your Code
+
+<AddQuery
+  useCase="get everyday rewards split of a user"
+  subgraphLink="https://api.airstack.xyz/graphql"
+  query={`query MyQuery($fid: String, $fanTokenType: FarcasterFanTokenAuctionEntityType) {
+  FarcasterFanTokenAuctions(
+    input: {filter: {entityId: {_eq: $fid}, entityType: {_eq: $fanTokenType}}, blockchain: ALL}
+  ) {
+    FarcasterFanTokenAuction {
+      rewardDistributionPercentage {
+        channelFans
+        creator
+        creatorFans
+        network
+      }
+    }
+  }
+}`}
+  headers={`{
+  // Add Airstack API key here
+  "Authorization": process.env.AIRSTACK_API_KEY as string,
+}`}
+  variable={`{
+  "fid": "602",
+  "fanTokenType": "USER"
+}`}
+  response={`{
+  "data": {
+    "FarcasterFanTokenAuctions": {
+      "FarcasterFanTokenAuction": [
+        {
+          "rewardDistributionPercentage": {
+            "channelFans": 20, // 20% of the rewards goes to the Fans of the Channel casted into
+            "creator": 0, // 0% of the rewards goes to the member who earned the reward
+            "creatorFans": 70, // 70% of the rewards goes to their Fans (holders of their Fan Tokens)
+            "network": 10 // 10% of the rewards goes to Fans of Farcaster overall (holders of the Fan Tokens)
+          }
+        }
+      ]
+    }
+  }
+}`}
+/>
+
+## Step 2: Execute Your Code
+
+<ExecuteCode
+  response={`{
+  "data": {
+    "FarcasterFanTokenAuctions": {
+      "FarcasterFanTokenAuction": [
+        {
+          "rewardDistributionPercentage": {
+            "channelFans": 20, // 20% of the rewards goes to the Fans of the Channel casted into
+            "creator": 0, // 0% of the rewards goes to the member who earned the reward
+            "creatorFans": 70, // 70% of the rewards goes to their Fans (holders of their Fan Tokens)
+            "network": 10 // 10% of the rewards goes to Fans of Farcaster overall (holders of the Fan Tokens)
+          }
+        }
+      ]
+    }
+  }
+}`}
+  dataFetched="user's everyday rewards split"
+/>
+
+<DeveloperSupport />

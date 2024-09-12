@@ -1,0 +1,157 @@
+---
+sidebar_class_name: hidden
+description: "In this tutorial, you will learn how to retrieve the clearing price of a market using the Clearing Price API."
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import DeveloperSupport from "@site/partial/_developer_support.mdx";
+
+# Send 3rd Party Rewards Data
+
+If you have an app, you can setup custom [Everyday Rewards](https://build.moxie.xyz/the-moxie-protocol/everyday-rewards) for your users so that they can earn Moxie rewards by using your app based on their respective usages. If you want to enable this in your app/project, you can contact [Alex](https://warpcast.com/alexcomeau) for discussion.
+
+In order to distribute the rewards, it is required for you to track user's usage on your app and send it to us.
+
+In this tutorial, you will learn, as a vendor, how to use the Webhook 3rd Party Rewards REST API to fetch the clearing price of a certain auction in Node.js.
+
+## Pre-requisites
+
+Before following the tutorial, make sure that your machine fulfills the following requirements:
+
+1. Install dependency `node-fetch` to your project:
+
+<Install dependencies="node-fetch" />
+
+2. Your will need a Partner ID & a special API key to access to the Webhook 3rd Party Rewards REST API. This will be given to you once you're onboarded as a vendor.
+
+## Step 1: Add REST API Call To The Code
+
+You can easily call the Webhook 3rd Party Rewards REST API by sending a POST request providing the `partnerId` assigned to you and add the event usage details to the request body by the following code snippet with `node-fetch`:
+
+:::info[Test]
+
+Test
+
+:::
+
+<Tabs>
+    <TabItem value="ts" label="TypeScript">
+
+```ts title="index.ts"
+import fetch from "node-fetch";
+
+const options = {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: "Bearer <YOUR_AIRSTACK_API_KEY>",
+  },
+  body: JSON.stringify({
+    eventId: "1",
+    hostFid: 3,
+    eventStartTimestamp: "2024-09-11T04:04:51.901Z",
+    eventEndTimestamp: "2024-09-11T04:25:51.901Z",
+    attendees: [
+      {
+        attendeeFid: 61,
+        attendanceDuration: 100,
+      },
+      {
+        attendeeFid: 21,
+        attendanceDuration: 1200,
+      },
+      // Other attendees
+    ],
+  }),
+};
+
+// The Partner ID assigned for each vendor
+const partnerId = "abc";
+
+fetch(`https://rewards.airstack.xyz/${partnerId}/event`, options)
+  .then((response) => response.json())
+  .then((response) => console.log(response))
+  .catch((err) => console.error(err));
+```
+
+    </TabItem>
+    <TabItem value="js" label="JavaScript">
+
+```js title="index.js"
+const fetch = require("node-fetch");
+
+const options = {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: "Bearer <YOUR_AIRSTACK_API_KEY>",
+  },
+  body: JSON.stringify({
+    eventId: "1",
+    hostFid: 3,
+    eventStartTimestamp: "2024-09-11T04:04:51.901Z",
+    eventEndTimestamp: "2024-09-11T04:25:51.901Z",
+    attendees: [
+      {
+        attendeeFid: 61,
+        attendanceDuration: 100,
+      },
+      {
+        attendeeFid: 21,
+        attendanceDuration: 1200,
+      },
+      // Other attendees
+    ],
+  }),
+};
+
+// The Partner ID assigned for each vendor
+const partnerId = "abc";
+
+fetch(`https://rewards.airstack.xyz/${partnerId}/event`, options)
+  .then((response) => response.json())
+  .then((response) => console.log(response))
+  .catch((err) => console.error(err));
+```
+
+    </TabItem>
+
+</Tabs>
+
+## Step 2: Execute Your Code
+
+Once you have your code ready, you can execute it by running the following command:
+
+<Tabs>
+    <TabItem value="ts" label="TypeScript">
+
+```sh
+ts-node index.ts
+```
+
+    </TabItem>
+    <TabItem value="js" label="JavaScript">
+
+```sh
+node index.js
+```
+
+    </TabItem>
+
+</Tabs>
+
+If it runs successfully, you should see the data returned in the terminal:
+
+```json
+{
+  "requestId": "62a6ed27-61de-446e-b222-0f09dd60bb8a",
+  "success": true
+}
+```
+
+If `success` is `true`, you have successfully sent your usage data to Moxie for processing. For your users, they should be able to claim their rewards in the Frames as part of the [Everyday Rewards](https://build.moxie.xyz/the-moxie-protocol/everyday-rewards).
+
+Congrats! 🥳🎉 You've just successfully sent 3rd party rewards data to Moxie!
+
+<DeveloperSupport />

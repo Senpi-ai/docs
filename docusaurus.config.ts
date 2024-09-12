@@ -88,6 +88,12 @@ const config: Config = {
           items: [
             {
               type: "doc",
+              label: "Moxie",
+              docId:
+                "use-cases/moxie/get-the-circulating-supply-of-moxie-token",
+            },
+            {
+              type: "doc",
               label: "Fan Token Auctions",
               docId:
                 "use-cases/fan-token-auctions/get-fan-token-auction-schedule-by-status",
@@ -232,6 +238,10 @@ const config: Config = {
         {
           title: "Use Cases",
           items: [
+            {
+              label: "Moxie",
+              to: "/use-cases/moxie/get-the-circulating-supply-of-moxie-token",
+            },
             {
               label: "Fan Token Auctions",
               to: "/use-cases/fan-token-auctions/get-fan-token-auction-schedule-by-status",

@@ -1,0 +1,25 @@
+---
+sidebar_class_name: arrow_right
+description: Learn how to use the Airstack GraphQL API to get the Everday Rewards split of a user.
+---
+
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
+import Header from "../../../src/components/Tutorials/Header";
+import AddQuery from "../../../src/components/Tutorials/AddQuery";
+import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
+import Install from "../../../src/components/Install";
+
+# Get The Split Details Of Moxie Earned By A Certain Member
+
+The [Everyday Rewards](https://build.moxie.xyz/the-moxie-protocol/everyday-rewards) earned by a Farcaster user through Casts and Frames are generally distributed among multiple parties. These parties include the member (the user), their fans, channel fans (if the Cast/Frame was posted in a channel), and the Farcaster network fans.
+
+By default, the distribution is as follows, though it can be customized by the user:
+
+- 50% to the member who earned the reward
+- 20% to their Fans (holders of their Fan Tokens)
+- 20% to the Fans of the Channel casted into (holders of their Fan Tokens)
+- 10% to Fans of Farcaster overall (holders of the Fan Tokens)
+
+This means that any Moxie earned by a member contributes to the earnings of these various groups.
+
+The Moxie earning data split is currently offchain and available to fetch from the [Airstack API](https://app.airstack.xyz). To learn more on how to fetch the Moxie earnings split details of a specific member amongst these various groups, click [here](https://docs.airstack.xyz/airstack-docs-and-faqs/moxie/farcaster-moxie-rewards-earnings#get-the-split-details-of-moxie-earned-by-certain-user).

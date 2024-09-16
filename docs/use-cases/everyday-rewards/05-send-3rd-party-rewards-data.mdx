@@ -1,6 +1,6 @@
 ---
-sidebar_class_name: hidden
-description: "In this tutorial, you will learn how to retrieve the clearing price of a market using the Clearing Price API."
+sidebar_class_name: protocol_fees
+description: "In this tutorial, you will learn, as a vendor, how to send 3rd party reward usage data to Moxie using the Webhook 3rd Party Rewards REST API in Node.js to reward Moxie to your users for using your app."
 ---
 
 import Tabs from "@theme/Tabs";
@@ -30,9 +30,11 @@ Before following the tutorial, make sure that your machine fulfills the followin
 
 You can easily call the Webhook 3rd Party Rewards REST API by sending a POST request providing the `partnerId` assigned to you and add the event usage details to the request body by the following code snippet with `node-fetch`:
 
-:::info[Test]
+:::info[Unique Event ID]
 
-Test
+Keep in mind that the `eventId` sent to the webhook should be unique and only be sent once. If you send the same `eventId` more than once, the API will revert and the usage data will not be registered on Moxie for your user's to get rewarded.
+
+It is highly recommended that you send the usage data once the event has ended.
 
 :::
 
@@ -49,13 +51,19 @@ const options = {
     Authorization: "Bearer <YOUR_AIRSTACK_API_KEY>",
   },
   body: JSON.stringify({
+    // unique event ID
     eventId: "1",
+    // the host's FID
     hostFid: 3,
+    // the start timstamp of the event
     eventStartTimestamp: "2024-09-11T04:04:51.901Z",
+    // the end timstamp of the event
     eventEndTimestamp: "2024-09-11T04:25:51.901Z",
     attendees: [
       {
+        // the attendee's FID
         attendeeFid: 61,
+        // the duration of the attendance in seconds
         attendanceDuration: 100,
       },
       {
@@ -68,7 +76,7 @@ const options = {
 };
 
 // The Partner ID assigned for each vendor
-const partnerId = "abc";
+const partnerId = "YOUR_PARTNER_ID";
 
 fetch(`https://rewards.airstack.xyz/${partnerId}/event`, options)
   .then((response) => response.json())
@@ -89,13 +97,19 @@ const options = {
     Authorization: "Bearer <YOUR_AIRSTACK_API_KEY>",
   },
   body: JSON.stringify({
+    // unique event ID
     eventId: "1",
+    // the host's FID
     hostFid: 3,
+    // the start timstamp of the event
     eventStartTimestamp: "2024-09-11T04:04:51.901Z",
+    // the end timstamp of the event
     eventEndTimestamp: "2024-09-11T04:25:51.901Z",
     attendees: [
       {
+        // the attendee's FID
         attendeeFid: 61,
+        // the duration of the attendance in seconds
         attendanceDuration: 100,
       },
       {
@@ -108,7 +122,7 @@ const options = {
 };
 
 // The Partner ID assigned for each vendor
-const partnerId = "abc";
+const partnerId = "YOUR_PARTNER_ID";
 
 fetch(`https://rewards.airstack.xyz/${partnerId}/event`, options)
   .then((response) => response.json())

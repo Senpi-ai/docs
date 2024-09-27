@@ -15,7 +15,7 @@ import url from "../../../constant/api_url.json";
 
 # Get All Fan Tokens Owned By Certain User
 
-In this tutorial, you will learn how to get all the fan tokens owned by a certain user by calling the [Moxie Protocol Subgraph API](../../api/protocol/01-overview.mdx).
+In this tutorial, you will learn how to get all the fan tokens owned by a certain user, whether it is hold in their wallet/vesting contract or locked in the staking contract, by calling the [Moxie Protocol Subgraph API](../../api/protocol/01-overview.mdx).
 
 # Pre-requisites
 
@@ -240,7 +240,8 @@ To get all the fan tokens owned by a certain user, you can use the following que
 query MyQuery($userAddresses: [ID!]) {
   users(where: { id_in: $userAddresses }) {
     portfolio {
-      balance
+      stakedBalance
+      unstakedBalance
       buyVolume
       sellVolume
       subjectToken {
@@ -271,7 +272,8 @@ query MyQuery($userAddresses: [ID!]) {
       {
         "portfolio": [
           {
-            "balance": "442691639238050376",
+            "stakedBalance": "442691639238050376",
+            "unstakedBalance": "0",
             "buyVolume": "0",
             "sellVolume": "0",
             "subjectToken": {
@@ -309,7 +311,8 @@ const query = gql`
   query MyQuery($userAddresses: [ID!]) {
     users(where: { id_in: $userAddresses }) {
       portfolio {
-        balance
+        stakedBalance
+        unstakedBalance
         buyVolume
         sellVolume
         subjectToken {
@@ -352,7 +355,8 @@ const query = gql`
   query MyQuery($userAddresses: [ID!]) {
     users(where: { id_in: $userAddresses }) {
       portfolio {
-        balance
+        stakedBalance
+        unstakedBalance
         buyVolume
         sellVolume
         subjectToken {
@@ -390,7 +394,8 @@ try {
       {
         "portfolio": [
           {
-            "balance": "442691639238050376",
+            "stakedBalance": "442691639238050376",
+            "unstakedBalance": "0",
             "buyVolume": "0",
             "sellVolume": "0",
             "subjectToken": {

@@ -17,7 +17,11 @@ import url from "../../../constant/api_url.json";
 
 In this tutorial, you will learn how to get all the fan tokens owned by a certain user, whether it is hold in their wallet/vesting contract or locked in the staking contract, by calling the [Moxie Protocol Subgraph API](../../api/protocol/01-overview.mdx).
 
-# Pre-requisites
+You can either use the subgraph APIs or Airstack API to fetch this data.
+
+# Method #1: Subgraphs
+
+## Pre-requisites
 
 1. Install dependencies `graphql`and`graphql-request` to your project :
 
@@ -31,7 +35,7 @@ For access to the Airstack API key, you'll need to **hold at least 1 /airstack C
 
 If you don't have it yet, you can buy it [here](https://www.airstack.xyz/channels/airstack).
 
-## Step 1: Resolve User's FID to Addresses
+### Step 1: Resolve User's FID to Addresses
 
 A user can hold their [Fan tokens](../../learn/glossary.mdx#fan-token) in either their Farcaster verified wallet or their vesting contract address (a.k.a. airdrop wallet).
 
@@ -229,7 +233,7 @@ module.exports = resolveFidToAddresses;
 
 To resolve, simply call the function and provide the user's FID as input. In return, you will get an array of the user's Farcaster verified wallets and vesting contract wallet addresses that can be used in [Step 2](#step-2-add-the-api-query-to-your-code).
 
-## Step 2: Add The API Query To Your Code
+### Step 2: Add The API Query To Your Code
 
 To get all the fan tokens owned by a certain user, you can use the following query on the [Moxie Protocol Subgraph API](../../api/protocol/01-overview.mdx) and provide the array of addresses resolved in [Step 1](#step-1-resolve-users-fid-to-addresses) as input to the `$userAddresses` variable:
 
@@ -385,7 +389,7 @@ try {
 
 </Tabs>
 
-## Step 3: Execute Your Code
+### Step 3: Execute Your Code
 
 <ExecuteCode
   response={`{
@@ -410,5 +414,11 @@ try {
 }`}
   dataFetched="all fan tokens owned by a certain user"
 />
+
+# Method #2: Airstack API
+
+Using the Airstack `MoxieUserPortolio` API, you can simply provide the user FID to get all the fan tokens owned by the user, both staked and non-staked in the Moxie Power Staking contract.
+
+To learn more, click [here](https://docs.airstack.xyz/airstack-docs-and-faqs/moxie/moxie-fan-token-balances#get-users-fan-token-balances-by-fid).
 
 <DeveloperSupport />

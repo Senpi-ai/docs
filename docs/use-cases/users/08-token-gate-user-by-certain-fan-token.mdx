@@ -17,6 +17,10 @@ import url from "../../../constant/api_url.json";
   apiName="Moxie Protocol Subgraph"
 />
 
+You can either use the subgraph APIs or Airstack API to build Fan Token gating for your app/project.
+
+# Method #1: Subgraphs
+
 :::info[Include User's Vesting Addresses]
 
 Moxie protocol users have Moxie token currently vesting in their vesting contract. A huge portion of them use these to bid on auctions and buy/sell fan tokens on the Moxie protocol.
@@ -25,11 +29,11 @@ Therefore, it is important that you include the user's vesting addresses in the 
 
 :::
 
-# Pre-requisites
+## Pre-requisites
 
 <Prerequisites apiName="Moxie Protocol Subgraph" />
 
-## Step 1: Add The API Query To Your Code
+### Step 1: Add The API Query To Your Code
 
 <AddQuery
   useCase="build token gate feature to limit access to a certain fan token holders"
@@ -72,11 +76,17 @@ Therefore, it is important that you include the user's vesting addresses in the 
   );`}
 />
 
-## Step 2: Execute Your Code
+### Step 2: Execute Your Code
 
 <ExecuteCode
   response={`true // true if balance is greater than 0, otherwise false`}
   dataFetched="user's balance of a certain fan token and use it to build token gate feature to limit access to a certain fan token holders"
 />
+
+# Method #2: Airstack API
+
+Using the Airstack `MoxieUserPortolio` API, you can simply provide the user FID and the designated Fan Token to check their holdings, both staked and non-staked in the Moxie Power Staking contract.
+
+To learn more, click [here](https://docs.airstack.xyz/airstack-docs-and-faqs/moxie/moxie-fan-token-balances#check-if-certain-user-hold-certain-fan-token).
 
 <DeveloperSupport />

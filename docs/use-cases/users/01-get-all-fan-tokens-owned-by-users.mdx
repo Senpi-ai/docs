@@ -19,11 +19,17 @@ In this tutorial, you will learn how to get all the fan tokens owned by a certai
 
 You can either use the subgraph APIs or Airstack API to fetch this data.
 
-# Method #1: Subgraphs
+# Method #1: Airstack API
+
+Using the Airstack `MoxieUserPortolio` API, you can simply provide the user FID to get all the fan tokens owned by the user, both staked and non-staked in the Moxie Power Staking contract.
+
+To learn more, click [here](https://docs.airstack.xyz/airstack-docs-and-faqs/moxie/moxie-fan-token-balances#get-users-fan-token-balances-by-fid).
+
+# Method #2: Subgraphs
 
 ## Pre-requisites
 
-1. Install dependencies `graphql`and`graphql-request` to your project :
+1. Install dependencies `graphql`and`graphql-request` to your project:
 
 <Install dependencies="graphql graphql-request" />
 
@@ -414,11 +420,4 @@ try {
 }`}
   dataFetched="all fan tokens owned by a certain user"
 />
-
-# Method #2: Airstack API
-
-Using the Airstack `MoxieUserPortolio` API, you can simply provide the user FID to get all the fan tokens owned by the user, both staked and non-staked in the Moxie Power Staking contract.
-
-To learn more, click [here](https://docs.airstack.xyz/airstack-docs-and-faqs/moxie/moxie-fan-token-balances#get-users-fan-token-balances-by-fid).
-
 <DeveloperSupport />

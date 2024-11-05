@@ -100,12 +100,12 @@ const config: Config = {
               docId:
                 "use-cases/moxie/get-the-circulating-supply-of-moxie-token",
             },
-            // {
-            //   type: "doc",
-            //   label: "Moxie Earn",
-            //   docId:
-            //     "use-cases/moxie-earn/get-all-active-moxie-earn-promotions-promoted-by-a-user",
-            // },
+            {
+              type: "doc",
+              label: "Moxie Earn",
+              docId:
+                "use-cases/moxie-earn/get-all-active-moxie-earn-promotions-promoted-by-a-user",
+            },
             {
               type: "doc",
               label: "Fan Token Auctions",
@@ -244,6 +244,14 @@ const config: Config = {
               to: "https://build.moxie.xyz/the-moxie-protocol/moxie-protocol",
             },
             {
+              label: "Technical Deep Dive",
+              to: "/learn/technical-deep-dive",
+            },
+            {
+              label: "Moxie Earn",
+              to: "/learn/moxie-earn",
+            },
+            {
               label: "Glossary",
               to: "/learn/glossary",
             },
@@ -255,6 +263,10 @@ const config: Config = {
             {
               label: "Moxie",
               to: "/use-cases/moxie/get-the-circulating-supply-of-moxie-token",
+            },
+            {
+              label: "Moxie Earn",
+              to: "/use-cases/moxie-earn/get-all-active-moxie-earn-promotions-promoted-by-a-user",
             },
             {
               label: "Fan Token Auctions",

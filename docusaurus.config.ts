@@ -57,6 +57,14 @@ const config: Config = {
     ],
   ],
   themeConfig: {
+    announcementBar: {
+      id: "moxie_earn",
+      content:
+        'Learn more about <a target="_blank" rel="noopener noreferrer" href="#">Moxie Earn</a>',
+      backgroundColor: "#8e55ff",
+      textColor: "#ffffff",
+      isCloseable: false,
+    },
     algolia: {
       appId: "0E7JT4EO4H",
       apiKey: "27c2281916aa623aa3fca88e9d0c6696",
@@ -92,6 +100,12 @@ const config: Config = {
               docId:
                 "use-cases/moxie/get-the-circulating-supply-of-moxie-token",
             },
+            // {
+            //   type: "doc",
+            //   label: "Moxie Earn",
+            //   docId:
+            //     "use-cases/moxie-earn/get-all-active-moxie-earn-promotions-promoted-by-a-user",
+            // },
             {
               type: "doc",
               label: "Fan Token Auctions",

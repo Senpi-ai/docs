@@ -1,0 +1,164 @@
+import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
+import Header from "../../../src/components/Tutorials/Header";
+import AddQuery from "../../../src/components/Tutorials/AddQuery";
+import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
+import url from "../../../constant/api_url.json";
+import CodeBlock from "@theme/CodeBlock";
+import Install from "../../../src/components/Install";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Get Moxie Promotion Earning Details Of A Certain Promotion ID
+
+<Header
+  useCase="get Moxie Earn promotion details promoted on a certain cast hash"
+  apiName="Moxie Partner"
+/>
+
+# Pre-requisites
+
+1. Install dependencies `graphql`and`graphql-request` to your project :
+
+<Install dependencies="graphql graphql-request" />
+
+2. Your will need a special API key to access to the Moxie Partner API. To request access, please fill in this form [here](https://forms.gle/eRQ6uiCzica2J6qo8).
+
+## Step 1: Add The API Query To Your Code
+
+<AddQuery
+  useCase="get Moxie Earn promotion details promoted on a certain cast hash"
+  subgraphLink="https://api.moxie.xyz/protocol/graphql"
+  query={`query ($earnerFid: String!, $status: [String!]!) {
+  FetchEligiblePromotions(input: {
+    earnerFid: $earnerFid,
+    status: $status,
+  }) {
+    earnerFid
+    promotions {
+      actualBudget
+      audienceReach
+      avgFarScore
+      castHash
+      castURL
+      castedByFid
+      createdAt
+      initialBudget
+      promoterFid
+      promotionRuleOperatorType
+      promotionRules {
+        channelFollowerRule {
+          operatorType
+          value
+        }
+        channelMemberRule {
+          operatorType
+          value
+        }
+        farRankRule {
+          operatorType
+          value
+        }
+        farScoreRule {
+          operatorType
+          value
+        }
+        followedByRule {
+          operatorType
+          value
+        }
+        ruleType
+      }
+      remainingBudget
+      rewardBoost
+      status
+      updatedAt
+    }
+  }
+}`}
+  headers={`{
+  // Add Airstack API key here
+  "x-airstack-protocol": process.env.AIRSTACK_API_KEY as string,
+}`}
+  variable={`{
+  // specify the FID of the earner
+  "earnerFid": "602",
+  "status": "ACTIVE"],
+}`}
+  response={`{
+  "data": {
+    "FetchEligiblePromotions": {
+      "earnerFid": "602",
+      "promotions": [
+        {
+          "actualBudget": "100000000000000000000",
+          "audienceReach": null,
+          "avgFarScore": null,
+          "castHash": "0x69e8bb6c0827b865434c84a36cf41a024b5d1de0",
+          "castURL": "https://warpcast.com/eduardmsmr/0x69e8bb6c",
+          "castedByFid": "290249",
+          "createdAt": "2024-11-05 03:27:55.000",
+          "initialBudget": "100000000000000000000",
+          "promoterFid": "8408",
+          "promotionRuleOperatorType": null,
+          "promotionRules": null,
+          "remainingBudget": null,
+          "rewardBoost": 5,
+          "status": "ACTIVE",
+          "updatedAt": "2024-11-05 03:30:28.000"
+        },
+        // Other eligible Moxie earn promotions for the user
+      ]
+    }
+  }
+}`}
+/>
+
+## Step 2: Execute Your Code
+
+Once you have your code ready, you can execute it by running the following command:
+
+<Tabs>
+  <TabItem value="ts" label="TypeScript">
+    <CodeBlock language="sh">{"ts-node index.ts"}</CodeBlock>
+  </TabItem>
+  <TabItem value="js" label="JavaScript">
+    <CodeBlock language="sh">{"node index.js"}</CodeBlock>
+  </TabItem>
+</Tabs>
+
+If it runs successfully, you should see the data returned in the terminal:
+
+```json
+{
+  "data": {
+    "FetchEligiblePromotions": {
+      "earnerFid": "602",
+      "promotions": [
+        {
+          "actualBudget": "100000000000000000000",
+          "audienceReach": null,
+          "avgFarScore": null,
+          "castHash": "0x69e8bb6c0827b865434c84a36cf41a024b5d1de0",
+          "castURL": "https://warpcast.com/eduardmsmr/0x69e8bb6c",
+          "castedByFid": "290249",
+          "createdAt": "2024-11-05 03:27:55.000",
+          "initialBudget": "100000000000000000000",
+          "promoterFid": "8408",
+          "promotionRuleOperatorType": null,
+          "promotionRules": null,
+          "remainingBudget": null,
+          "rewardBoost": 5,
+          "status": "ACTIVE",
+          "updatedAt": "2024-11-05 03:30:28.000"
+        }
+        // Other eligible Moxie earn promotions for the user
+      ]
+    }
+  }
+}
+```
+
+Congrats! 🥳🎉 You've just successfully fetch all active Moxie Earn promotions promoted on a certain cast hash!
+
+<DeveloperSupport />

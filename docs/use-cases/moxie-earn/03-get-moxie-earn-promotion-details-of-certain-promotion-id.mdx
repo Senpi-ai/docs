@@ -1,0 +1,187 @@
+import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
+import Header from "../../../src/components/Tutorials/Header";
+import AddQuery from "../../../src/components/Tutorials/AddQuery";
+import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
+import url from "../../../constant/api_url.json";
+import CodeBlock from "@theme/CodeBlock";
+import Install from "../../../src/components/Install";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Get Moxie Earn Promotion Details Of A Certain Promotion ID
+
+<Header
+  useCase="get Moxie Earn promotion details of a certain promotion ID"
+  apiName="Moxie Partner"
+/>
+
+# Pre-requisites
+
+1. Install dependencies `graphql`and`graphql-request` to your project :
+
+<Install dependencies="graphql graphql-request" />
+
+2. Your will need a special API key to access to the Moxie Partner API. To request access, please fill in this form [here](https://forms.gle/eRQ6uiCzica2J6qo8).
+
+## Step 1: Add The API Query To Your Code
+
+<AddQuery
+  useCase="get Moxie Earn promotion details of a certain promotion ID"
+  subgraphLink="https://api.moxie.xyz/protocol/graphql"
+  query={`query Query($status: [String!], $promoterFid: String) {
+  GetMoxiePromotions(input: {
+    filter: {
+      status: $status,
+      promoterFid: $promoterFid
+    }
+  }) {
+    promotions {
+      actualBudget
+      audienceReach
+      avgFarScore
+      castHash
+      castURL
+      castedByFid
+      createdAt
+      initialBudget
+      promoterFid
+      promotionRuleOperatorType
+      promotionRules {
+        channelFollowerRule {
+          operatorType
+          value
+        }
+        channelMemberRule {
+          operatorType
+          value
+        }
+        farRankRule {
+          operatorType
+          value
+        }
+        farScoreRule {
+          operatorType
+          value
+        }
+        followedByRule {
+          operatorType
+          value
+        }
+        ruleType
+      }
+      remainingBudget
+      rewardBoost
+      status
+      updatedAt
+    }
+  }
+}`}
+  headers={`{
+  // Add Airstack API key here
+  "x-airstack-protocol": process.env.AIRSTACK_API_KEY as string,
+}`}
+  variable={`{
+  // input an existing Moxie Earn promotion ID here
+  "promotionId": "b1ee5208-f127-47a5-b483-f125c9a8495f",
+  "status": ["ACTIVE", "INACTIVE", "CREATED"],
+}`}
+  response={`{
+  "data": {
+    "GetMoxiePromotions": {
+      "promotions": [
+        {
+          "actualBudget": "0",
+          "audienceReach": 0,
+          "avgFarScore": 0,
+          "castHash": "0x",
+          "castURL": "https://test.xyz",
+          "castedByFid": "602",
+          "createdAt": "2024-11-04 12:11:51.000",
+          "initialBudget": "20",
+          "promoterFid": "3",
+          "promotionRuleOperatorType": "AND",
+          "promotionRules": [
+            {
+              "channelFollowerRule": null,
+              "channelMemberRule": null,
+              "farRankRule": null,
+              "farScoreRule": null,
+              "followedByRule": {
+                "operatorType": "TOTAL_GREATER_THAN",
+                "value": [
+                  "3"
+                ]
+              },
+              "ruleType": "FOLLOWED_BY"
+            }
+          ],
+          "remainingBudget": "0",
+          "rewardBoost": 2,
+          "status": "CREATED",
+          "updatedAt": "2024-11-04 12:11:51.000"
+        }
+      ]
+    }
+  }
+}`}
+/>
+
+## Step 2: Execute Your Code
+
+Once you have your code ready, you can execute it by running the following command:
+
+<Tabs>
+  <TabItem value="ts" label="TypeScript">
+    <CodeBlock language="sh">{"ts-node index.ts"}</CodeBlock>
+  </TabItem>
+  <TabItem value="js" label="JavaScript">
+    <CodeBlock language="sh">{"node index.js"}</CodeBlock>
+  </TabItem>
+</Tabs>
+
+If it runs successfully, you should see the data returned in the terminal:
+
+```json
+{
+  "data": {
+    "GetMoxiePromotions": {
+      "promotions": [
+        {
+          "actualBudget": "0",
+          "audienceReach": 0,
+          "avgFarScore": 0,
+          "castHash": "0x",
+          "castURL": "https://test.xyz",
+          "castedByFid": "602",
+          "createdAt": "2024-11-04 12:11:51.000",
+          "initialBudget": "20",
+          "promoterFid": "3",
+          "promotionRuleOperatorType": "AND",
+          "promotionRules": [
+            {
+              "channelFollowerRule": null,
+              "channelMemberRule": null,
+              "farRankRule": null,
+              "farScoreRule": null,
+              "followedByRule": {
+                "operatorType": "TOTAL_GREATER_THAN",
+                "value": ["3"]
+              },
+              "ruleType": "FOLLOWED_BY"
+            }
+          ],
+          "remainingBudget": "0",
+          "rewardBoost": 2,
+          "status": "CREATED",
+          "updatedAt": "2024-11-04 12:11:51.000"
+        }
+      ]
+    }
+  }
+}
+```
+
+Congrats! 🥳🎉 You've just successfully fetch all active Moxie Earn promotions by providing a certain promotion ID!
+
+<DeveloperSupport />

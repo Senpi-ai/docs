@@ -33,7 +33,7 @@ import TabItem from "@theme/TabItem";
 
 <AddQuery
   useCase="get Moxie Earn promotion details promoted on a certain cast hash"
-  subgraphLink="https://api.moxie.xyz/protocol/graphql"
+  subgraphLink="https://api.moxie.xyz/promotion/graphql"
   query={`query Query($status: [String!], $castHash: String) {
   GetMoxiePromotions(
     input: { filter: { status: $status, castHash: $castHash } }
@@ -81,7 +81,7 @@ import TabItem from "@theme/TabItem";
 }`}
   headers={`{
   // Add Airstack API key here
-  "x-airstack-protocol": process.env.AIRSTACK_API_KEY as string,
+  "x-airstack-promotion": process.env.AIRSTACK_API_KEY as string,
 }`}
   variable={`{
   // input the cast hash here

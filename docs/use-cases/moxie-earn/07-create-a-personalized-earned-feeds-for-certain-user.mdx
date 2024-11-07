@@ -33,7 +33,7 @@ import TabItem from "@theme/TabItem";
 
 <AddQuery
   useCase="create a personalized earned feeds for a certain Farcaster user"
-  subgraphLink="https://api.moxie.xyz/protocol/graphql"
+  subgraphLink="https://api.moxie.xyz/promotion/graphql"
   query={`query ($earnerFid: String!, $status: [String!]!) {
   FetchEligiblePromotions(input: {
     earnerFid: $earnerFid,
@@ -41,49 +41,22 @@ import TabItem from "@theme/TabItem";
   }) {
     earnerFid
     promotions {
-      actualBudget
-      audienceReach
-      avgFarScore
       castHash
       castURL
       castedByFid
       createdAt
-      initialBudget
       promoterFid
-      promotionRuleOperatorType
-      promotionRules {
-        channelFollowerRule {
-          operatorType
-          value
-        }
-        channelMemberRule {
-          operatorType
-          value
-        }
-        farRankRule {
-          operatorType
-          value
-        }
-        farScoreRule {
-          operatorType
-          value
-        }
-        followedByRule {
-          operatorType
-          value
-        }
-        ruleType
-      }
-      remainingBudget
       rewardBoost
       status
       updatedAt
+      promotionId
+      targetAudienceStatus
     }
   }
 }`}
   headers={`{
   // Add Airstack API key here
-  "x-airstack-protocol": process.env.AIRSTACK_API_KEY as string,
+  "x-airstack-promotion": process.env.AIRSTACK_API_KEY as string,
 }`}
   variable={`{
   // specify the FID of the Farcaster user
@@ -96,21 +69,16 @@ import TabItem from "@theme/TabItem";
       "earnerFid": "602",
       "promotions": [
         {
-          "actualBudget": "100000000000000000000",
-          "audienceReach": null,
-          "avgFarScore": null,
           "castHash": "0x69e8bb6c0827b865434c84a36cf41a024b5d1de0",
           "castURL": "https://warpcast.com/eduardmsmr/0x69e8bb6c",
           "castedByFid": "290249",
           "createdAt": "2024-11-05 03:27:55.000",
-          "initialBudget": "100000000000000000000",
           "promoterFid": "8408",
-          "promotionRuleOperatorType": null,
-          "promotionRules": null,
-          "remainingBudget": null,
           "rewardBoost": 5,
           "status": "ACTIVE",
-          "updatedAt": "2024-11-05 03:30:28.000"
+          "updatedAt": "2024-11-05 03:30:28.000",
+          "promotionId": "a1bb3d5a-3757-4be3-baf5-c3755ef99542",
+          "targetAudienceStatus": "ACTIVE"
         },
         // Other eligible Moxie earn promotions for the user
       ]
@@ -141,21 +109,16 @@ If it runs successfully, you should see the data returned in the terminal:
       "earnerFid": "602",
       "promotions": [
         {
-          "actualBudget": "100000000000000000000",
-          "audienceReach": null,
-          "avgFarScore": null,
           "castHash": "0x69e8bb6c0827b865434c84a36cf41a024b5d1de0",
           "castURL": "https://warpcast.com/eduardmsmr/0x69e8bb6c",
           "castedByFid": "290249",
           "createdAt": "2024-11-05 03:27:55.000",
-          "initialBudget": "100000000000000000000",
           "promoterFid": "8408",
-          "promotionRuleOperatorType": null,
-          "promotionRules": null,
-          "remainingBudget": null,
           "rewardBoost": 5,
           "status": "ACTIVE",
-          "updatedAt": "2024-11-05 03:30:28.000"
+          "updatedAt": "2024-11-05 03:30:28.000",
+          "promotionId": "a1bb3d5a-3757-4be3-baf5-c3755ef99542",
+          "targetAudienceStatus": "ACTIVE"
         }
         // Other eligible Moxie earn promotions for the user
       ]

@@ -39,7 +39,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Moxie Earn Developer Preview",
+      label: "Moxie Earn",
       className: "protocol_fees",
       link: { type: "doc", id: "learn/moxie-earn/index" },
       items: [

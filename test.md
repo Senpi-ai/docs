@@ -1,4 +1,4 @@
-## User_filter
+## Summary_filter
 
 <p style={{ marginBottom: "0.4em" }}>
   <strong>Arguments</strong>
@@ -81,88 +81,7 @@ id_not_in<br />
 </tr>
 <tr>
 <td>
-portfolio_<br />
-<a href="inputObjects#portfolio_filter"><code>Portfolio_filter</code></a>
-</td>
-<td>
-
-</td>
-</tr>
-<tr>
-<td>
-orders_<br />
-<a href="inputObjects#order_filter"><code>Order_filter</code></a>
-</td>
-<td>
-
-</td>
-</tr>
-<tr>
-<td>
-subjectFeeTransfer<br />
-<a href="scalars#string"><code>[String!]</code></a>
-</td>
-<td>
-
-</td>
-</tr>
-<tr>
-<td>
-subjectFeeTransfer_not<br />
-<a href="scalars#string"><code>[String!]</code></a>
-</td>
-<td>
-
-</td>
-</tr>
-<tr>
-<td>
-subjectFeeTransfer_contains<br />
-<a href="scalars#string"><code>[String!]</code></a>
-</td>
-<td>
-
-</td>
-</tr>
-<tr>
-<td>
-subjectFeeTransfer_contains_nocase<br />
-<a href="scalars#string"><code>[String!]</code></a>
-</td>
-<td>
-
-</td>
-</tr>
-<tr>
-<td>
-subjectFeeTransfer_not_contains<br />
-<a href="scalars#string"><code>[String!]</code></a>
-</td>
-<td>
-
-</td>
-</tr>
-<tr>
-<td>
-subjectFeeTransfer_not_contains_nocase<br />
-<a href="scalars#string"><code>[String!]</code></a>
-</td>
-<td>
-
-</td>
-</tr>
-<tr>
-<td>
-subjectFeeTransfer_<br />
-<a href="inputObjects#subjectfeetransfer_filter"><code>SubjectFeeTransfer_filter</code></a>
-</td>
-<td>
-
-</td>
-</tr>
-<tr>
-<td>
-buyVolume<br />
+totalSubjectTokensIssued<br />
 <a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
@@ -171,7 +90,7 @@ buyVolume<br />
 </tr>
 <tr>
 <td>
-buyVolume_not<br />
+totalSubjectTokensIssued_not<br />
 <a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
@@ -180,7 +99,7 @@ buyVolume_not<br />
 </tr>
 <tr>
 <td>
-buyVolume_gt<br />
+totalSubjectTokensIssued_gt<br />
 <a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
@@ -189,7 +108,7 @@ buyVolume_gt<br />
 </tr>
 <tr>
 <td>
-buyVolume_lt<br />
+totalSubjectTokensIssued_lt<br />
 <a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
@@ -198,7 +117,7 @@ buyVolume_lt<br />
 </tr>
 <tr>
 <td>
-buyVolume_gte<br />
+totalSubjectTokensIssued_gte<br />
 <a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
@@ -207,7 +126,7 @@ buyVolume_gte<br />
 </tr>
 <tr>
 <td>
-buyVolume_lte<br />
+totalSubjectTokensIssued_lte<br />
 <a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
@@ -216,7 +135,7 @@ buyVolume_lte<br />
 </tr>
 <tr>
 <td>
-buyVolume_in<br />
+totalSubjectTokensIssued_in<br />
 <a href="scalars#bigint"><code>[BigInt!]</code></a>
 </td>
 <td>
@@ -225,7 +144,7 @@ buyVolume_in<br />
 </tr>
 <tr>
 <td>
-buyVolume_not_in<br />
+totalSubjectTokensIssued_not_in<br />
 <a href="scalars#bigint"><code>[BigInt!]</code></a>
 </td>
 <td>
@@ -234,7 +153,7 @@ buyVolume_not_in<br />
 </tr>
 <tr>
 <td>
-sellVolume<br />
+totalReserve<br />
 <a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
@@ -243,7 +162,7 @@ sellVolume<br />
 </tr>
 <tr>
 <td>
-sellVolume_not<br />
+totalReserve_not<br />
 <a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
@@ -252,7 +171,7 @@ sellVolume_not<br />
 </tr>
 <tr>
 <td>
-sellVolume_gt<br />
+totalReserve_gt<br />
 <a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
@@ -261,7 +180,7 @@ sellVolume_gt<br />
 </tr>
 <tr>
 <td>
-sellVolume_lt<br />
+totalReserve_lt<br />
 <a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
@@ -270,7 +189,7 @@ sellVolume_lt<br />
 </tr>
 <tr>
 <td>
-sellVolume_gte<br />
+totalReserve_gte<br />
 <a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
@@ -279,7 +198,7 @@ sellVolume_gte<br />
 </tr>
 <tr>
 <td>
-sellVolume_lte<br />
+totalReserve_lte<br />
 <a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
@@ -288,7 +207,7 @@ sellVolume_lte<br />
 </tr>
 <tr>
 <td>
-sellVolume_in<br />
+totalReserve_in<br />
 <a href="scalars#bigint"><code>[BigInt!]</code></a>
 </td>
 <td>
@@ -297,7 +216,7 @@ sellVolume_in<br />
 </tr>
 <tr>
 <td>
-sellVolume_not_in<br />
+totalReserve_not_in<br />
 <a href="scalars#bigint"><code>[BigInt!]</code></a>
 </td>
 <td>
@@ -306,7 +225,7 @@ sellVolume_not_in<br />
 </tr>
 <tr>
 <td>
-protocolTokenInvested<br />
+totalProtocolTokenInvested<br />
 <a href="scalars#bigdecimal"><code>BigDecimal</code></a>
 </td>
 <td>
@@ -315,7 +234,7 @@ protocolTokenInvested<br />
 </tr>
 <tr>
 <td>
-protocolTokenInvested_not<br />
+totalProtocolTokenInvested_not<br />
 <a href="scalars#bigdecimal"><code>BigDecimal</code></a>
 </td>
 <td>
@@ -324,7 +243,7 @@ protocolTokenInvested_not<br />
 </tr>
 <tr>
 <td>
-protocolTokenInvested_gt<br />
+totalProtocolTokenInvested_gt<br />
 <a href="scalars#bigdecimal"><code>BigDecimal</code></a>
 </td>
 <td>
@@ -333,7 +252,7 @@ protocolTokenInvested_gt<br />
 </tr>
 <tr>
 <td>
-protocolTokenInvested_lt<br />
+totalProtocolTokenInvested_lt<br />
 <a href="scalars#bigdecimal"><code>BigDecimal</code></a>
 </td>
 <td>
@@ -342,7 +261,7 @@ protocolTokenInvested_lt<br />
 </tr>
 <tr>
 <td>
-protocolTokenInvested_gte<br />
+totalProtocolTokenInvested_gte<br />
 <a href="scalars#bigdecimal"><code>BigDecimal</code></a>
 </td>
 <td>
@@ -351,7 +270,7 @@ protocolTokenInvested_gte<br />
 </tr>
 <tr>
 <td>
-protocolTokenInvested_lte<br />
+totalProtocolTokenInvested_lte<br />
 <a href="scalars#bigdecimal"><code>BigDecimal</code></a>
 </td>
 <td>
@@ -360,7 +279,7 @@ protocolTokenInvested_lte<br />
 </tr>
 <tr>
 <td>
-protocolTokenInvested_in<br />
+totalProtocolTokenInvested_in<br />
 <a href="scalars#bigdecimal"><code>[BigDecimal!]</code></a>
 </td>
 <td>
@@ -369,7 +288,7 @@ protocolTokenInvested_in<br />
 </tr>
 <tr>
 <td>
-protocolTokenInvested_not_in<br />
+totalProtocolTokenInvested_not_in<br />
 <a href="scalars#bigdecimal"><code>[BigDecimal!]</code></a>
 </td>
 <td>
@@ -378,7 +297,196 @@ protocolTokenInvested_not_in<br />
 </tr>
 <tr>
 <td>
-protocolOrdersCount<br />
+activeProtocolFeeBeneficiary<br />
+<a href="scalars#string"><code>String</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+activeProtocolFeeBeneficiary_not<br />
+<a href="scalars#string"><code>String</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+activeProtocolFeeBeneficiary_gt<br />
+<a href="scalars#string"><code>String</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+activeProtocolFeeBeneficiary_lt<br />
+<a href="scalars#string"><code>String</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+activeProtocolFeeBeneficiary_gte<br />
+<a href="scalars#string"><code>String</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+activeProtocolFeeBeneficiary_lte<br />
+<a href="scalars#string"><code>String</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+activeProtocolFeeBeneficiary_in<br />
+<a href="scalars#string"><code>[String!]</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+activeProtocolFeeBeneficiary_not_in<br />
+<a href="scalars#string"><code>[String!]</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+activeProtocolFeeBeneficiary_contains<br />
+<a href="scalars#string"><code>String</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+activeProtocolFeeBeneficiary_contains_nocase<br />
+<a href="scalars#string"><code>String</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+activeProtocolFeeBeneficiary_not_contains<br />
+<a href="scalars#string"><code>String</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+activeProtocolFeeBeneficiary_not_contains_nocase<br />
+<a href="scalars#string"><code>String</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+activeProtocolFeeBeneficiary_starts_with<br />
+<a href="scalars#string"><code>String</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+activeProtocolFeeBeneficiary_starts_with_nocase<br />
+<a href="scalars#string"><code>String</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+activeProtocolFeeBeneficiary_not_starts_with<br />
+<a href="scalars#string"><code>String</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+activeProtocolFeeBeneficiary_not_starts_with_nocase<br />
+<a href="scalars#string"><code>String</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+activeProtocolFeeBeneficiary_ends_with<br />
+<a href="scalars#string"><code>String</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+activeProtocolFeeBeneficiary_ends_with_nocase<br />
+<a href="scalars#string"><code>String</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+activeProtocolFeeBeneficiary_not_ends_with<br />
+<a href="scalars#string"><code>String</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+activeProtocolFeeBeneficiary_not_ends_with_nocase<br />
+<a href="scalars#string"><code>String</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+activeProtocolFeeBeneficiary_<br />
+<a href="inputObjects#protocolfeebeneficiary_filter"><code>ProtocolFeeBeneficiary_filter</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+protocolBuyFeePct<br />
 <a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
@@ -387,7 +495,7 @@ protocolOrdersCount<br />
 </tr>
 <tr>
 <td>
-protocolOrdersCount_not<br />
+protocolBuyFeePct_not<br />
 <a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
@@ -396,7 +504,7 @@ protocolOrdersCount_not<br />
 </tr>
 <tr>
 <td>
-protocolOrdersCount_gt<br />
+protocolBuyFeePct_gt<br />
 <a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
@@ -405,7 +513,7 @@ protocolOrdersCount_gt<br />
 </tr>
 <tr>
 <td>
-protocolOrdersCount_lt<br />
+protocolBuyFeePct_lt<br />
 <a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
@@ -414,7 +522,7 @@ protocolOrdersCount_lt<br />
 </tr>
 <tr>
 <td>
-protocolOrdersCount_gte<br />
+protocolBuyFeePct_gte<br />
 <a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
@@ -423,7 +531,7 @@ protocolOrdersCount_gte<br />
 </tr>
 <tr>
 <td>
-protocolOrdersCount_lte<br />
+protocolBuyFeePct_lte<br />
 <a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
@@ -432,7 +540,7 @@ protocolOrdersCount_lte<br />
 </tr>
 <tr>
 <td>
-protocolOrdersCount_in<br />
+protocolBuyFeePct_in<br />
 <a href="scalars#bigint"><code>[BigInt!]</code></a>
 </td>
 <td>
@@ -441,7 +549,7 @@ protocolOrdersCount_in<br />
 </tr>
 <tr>
 <td>
-protocolOrdersCount_not_in<br />
+protocolBuyFeePct_not_in<br />
 <a href="scalars#bigint"><code>[BigInt!]</code></a>
 </td>
 <td>
@@ -450,8 +558,8 @@ protocolOrdersCount_not_in<br />
 </tr>
 <tr>
 <td>
-createdAtBlockInfo<br />
-<a href="scalars#string"><code>String</code></a>
+protocolSellFeePct<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -459,8 +567,8 @@ createdAtBlockInfo<br />
 </tr>
 <tr>
 <td>
-createdAtBlockInfo_not<br />
-<a href="scalars#string"><code>String</code></a>
+protocolSellFeePct_not<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -468,8 +576,8 @@ createdAtBlockInfo_not<br />
 </tr>
 <tr>
 <td>
-createdAtBlockInfo_gt<br />
-<a href="scalars#string"><code>String</code></a>
+protocolSellFeePct_gt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -477,8 +585,8 @@ createdAtBlockInfo_gt<br />
 </tr>
 <tr>
 <td>
-createdAtBlockInfo_lt<br />
-<a href="scalars#string"><code>String</code></a>
+protocolSellFeePct_lt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -486,8 +594,8 @@ createdAtBlockInfo_lt<br />
 </tr>
 <tr>
 <td>
-createdAtBlockInfo_gte<br />
-<a href="scalars#string"><code>String</code></a>
+protocolSellFeePct_gte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -495,8 +603,8 @@ createdAtBlockInfo_gte<br />
 </tr>
 <tr>
 <td>
-createdAtBlockInfo_lte<br />
-<a href="scalars#string"><code>String</code></a>
+protocolSellFeePct_lte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -504,8 +612,8 @@ createdAtBlockInfo_lte<br />
 </tr>
 <tr>
 <td>
-createdAtBlockInfo_in<br />
-<a href="scalars#string"><code>[String!]</code></a>
+protocolSellFeePct_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
 </td>
 <td>
 
@@ -513,8 +621,8 @@ createdAtBlockInfo_in<br />
 </tr>
 <tr>
 <td>
-createdAtBlockInfo_not_in<br />
-<a href="scalars#string"><code>[String!]</code></a>
+protocolSellFeePct_not_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
 </td>
 <td>
 
@@ -522,8 +630,8 @@ createdAtBlockInfo_not_in<br />
 </tr>
 <tr>
 <td>
-createdAtBlockInfo_contains<br />
-<a href="scalars#string"><code>String</code></a>
+subjectBuyFeePct<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -531,8 +639,8 @@ createdAtBlockInfo_contains<br />
 </tr>
 <tr>
 <td>
-createdAtBlockInfo_contains_nocase<br />
-<a href="scalars#string"><code>String</code></a>
+subjectBuyFeePct_not<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -540,8 +648,8 @@ createdAtBlockInfo_contains_nocase<br />
 </tr>
 <tr>
 <td>
-createdAtBlockInfo_not_contains<br />
-<a href="scalars#string"><code>String</code></a>
+subjectBuyFeePct_gt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -549,8 +657,8 @@ createdAtBlockInfo_not_contains<br />
 </tr>
 <tr>
 <td>
-createdAtBlockInfo_not_contains_nocase<br />
-<a href="scalars#string"><code>String</code></a>
+subjectBuyFeePct_lt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -558,8 +666,8 @@ createdAtBlockInfo_not_contains_nocase<br />
 </tr>
 <tr>
 <td>
-createdAtBlockInfo_starts_with<br />
-<a href="scalars#string"><code>String</code></a>
+subjectBuyFeePct_gte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -567,8 +675,8 @@ createdAtBlockInfo_starts_with<br />
 </tr>
 <tr>
 <td>
-createdAtBlockInfo_starts_with_nocase<br />
-<a href="scalars#string"><code>String</code></a>
+subjectBuyFeePct_lte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -576,8 +684,8 @@ createdAtBlockInfo_starts_with_nocase<br />
 </tr>
 <tr>
 <td>
-createdAtBlockInfo_not_starts_with<br />
-<a href="scalars#string"><code>String</code></a>
+subjectBuyFeePct_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
 </td>
 <td>
 
@@ -585,8 +693,8 @@ createdAtBlockInfo_not_starts_with<br />
 </tr>
 <tr>
 <td>
-createdAtBlockInfo_not_starts_with_nocase<br />
-<a href="scalars#string"><code>String</code></a>
+subjectBuyFeePct_not_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
 </td>
 <td>
 
@@ -594,8 +702,8 @@ createdAtBlockInfo_not_starts_with_nocase<br />
 </tr>
 <tr>
 <td>
-createdAtBlockInfo_ends_with<br />
-<a href="scalars#string"><code>String</code></a>
+subjectSellFeePct<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -603,8 +711,8 @@ createdAtBlockInfo_ends_with<br />
 </tr>
 <tr>
 <td>
-createdAtBlockInfo_ends_with_nocase<br />
-<a href="scalars#string"><code>String</code></a>
+subjectSellFeePct_not<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -612,8 +720,8 @@ createdAtBlockInfo_ends_with_nocase<br />
 </tr>
 <tr>
 <td>
-createdAtBlockInfo_not_ends_with<br />
-<a href="scalars#string"><code>String</code></a>
+subjectSellFeePct_gt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -621,8 +729,8 @@ createdAtBlockInfo_not_ends_with<br />
 </tr>
 <tr>
 <td>
-createdAtBlockInfo_not_ends_with_nocase<br />
-<a href="scalars#string"><code>String</code></a>
+subjectSellFeePct_lt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -630,8 +738,8 @@ createdAtBlockInfo_not_ends_with_nocase<br />
 </tr>
 <tr>
 <td>
-createdAtBlockInfo_<br />
-<a href="inputObjects#blockinfo_filter"><code>BlockInfo_filter</code></a>
+subjectSellFeePct_gte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -639,8 +747,8 @@ createdAtBlockInfo_<br />
 </tr>
 <tr>
 <td>
-updatedAtBlockInfo<br />
-<a href="scalars#string"><code>String</code></a>
+subjectSellFeePct_lte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -648,8 +756,8 @@ updatedAtBlockInfo<br />
 </tr>
 <tr>
 <td>
-updatedAtBlockInfo_not<br />
-<a href="scalars#string"><code>String</code></a>
+subjectSellFeePct_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
 </td>
 <td>
 
@@ -657,8 +765,8 @@ updatedAtBlockInfo_not<br />
 </tr>
 <tr>
 <td>
-updatedAtBlockInfo_gt<br />
-<a href="scalars#string"><code>String</code></a>
+subjectSellFeePct_not_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
 </td>
 <td>
 
@@ -666,8 +774,8 @@ updatedAtBlockInfo_gt<br />
 </tr>
 <tr>
 <td>
-updatedAtBlockInfo_lt<br />
-<a href="scalars#string"><code>String</code></a>
+numberOfBuyOrders<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -675,8 +783,8 @@ updatedAtBlockInfo_lt<br />
 </tr>
 <tr>
 <td>
-updatedAtBlockInfo_gte<br />
-<a href="scalars#string"><code>String</code></a>
+numberOfBuyOrders_not<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -684,8 +792,8 @@ updatedAtBlockInfo_gte<br />
 </tr>
 <tr>
 <td>
-updatedAtBlockInfo_lte<br />
-<a href="scalars#string"><code>String</code></a>
+numberOfBuyOrders_gt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -693,8 +801,8 @@ updatedAtBlockInfo_lte<br />
 </tr>
 <tr>
 <td>
-updatedAtBlockInfo_in<br />
-<a href="scalars#string"><code>[String!]</code></a>
+numberOfBuyOrders_lt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -702,8 +810,8 @@ updatedAtBlockInfo_in<br />
 </tr>
 <tr>
 <td>
-updatedAtBlockInfo_not_in<br />
-<a href="scalars#string"><code>[String!]</code></a>
+numberOfBuyOrders_gte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -711,8 +819,8 @@ updatedAtBlockInfo_not_in<br />
 </tr>
 <tr>
 <td>
-updatedAtBlockInfo_contains<br />
-<a href="scalars#string"><code>String</code></a>
+numberOfBuyOrders_lte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -720,8 +828,8 @@ updatedAtBlockInfo_contains<br />
 </tr>
 <tr>
 <td>
-updatedAtBlockInfo_contains_nocase<br />
-<a href="scalars#string"><code>String</code></a>
+numberOfBuyOrders_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
 </td>
 <td>
 
@@ -729,8 +837,8 @@ updatedAtBlockInfo_contains_nocase<br />
 </tr>
 <tr>
 <td>
-updatedAtBlockInfo_not_contains<br />
-<a href="scalars#string"><code>String</code></a>
+numberOfBuyOrders_not_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
 </td>
 <td>
 
@@ -738,8 +846,8 @@ updatedAtBlockInfo_not_contains<br />
 </tr>
 <tr>
 <td>
-updatedAtBlockInfo_not_contains_nocase<br />
-<a href="scalars#string"><code>String</code></a>
+numberOfSellOrders<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -747,8 +855,8 @@ updatedAtBlockInfo_not_contains_nocase<br />
 </tr>
 <tr>
 <td>
-updatedAtBlockInfo_starts_with<br />
-<a href="scalars#string"><code>String</code></a>
+numberOfSellOrders_not<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -756,8 +864,8 @@ updatedAtBlockInfo_starts_with<br />
 </tr>
 <tr>
 <td>
-updatedAtBlockInfo_starts_with_nocase<br />
-<a href="scalars#string"><code>String</code></a>
+numberOfSellOrders_gt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -765,8 +873,8 @@ updatedAtBlockInfo_starts_with_nocase<br />
 </tr>
 <tr>
 <td>
-updatedAtBlockInfo_not_starts_with<br />
-<a href="scalars#string"><code>String</code></a>
+numberOfSellOrders_lt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -774,8 +882,8 @@ updatedAtBlockInfo_not_starts_with<br />
 </tr>
 <tr>
 <td>
-updatedAtBlockInfo_not_starts_with_nocase<br />
-<a href="scalars#string"><code>String</code></a>
+numberOfSellOrders_gte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -783,8 +891,8 @@ updatedAtBlockInfo_not_starts_with_nocase<br />
 </tr>
 <tr>
 <td>
-updatedAtBlockInfo_ends_with<br />
-<a href="scalars#string"><code>String</code></a>
+numberOfSellOrders_lte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -792,8 +900,8 @@ updatedAtBlockInfo_ends_with<br />
 </tr>
 <tr>
 <td>
-updatedAtBlockInfo_ends_with_nocase<br />
-<a href="scalars#string"><code>String</code></a>
+numberOfSellOrders_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
 </td>
 <td>
 
@@ -801,8 +909,8 @@ updatedAtBlockInfo_ends_with_nocase<br />
 </tr>
 <tr>
 <td>
-updatedAtBlockInfo_not_ends_with<br />
-<a href="scalars#string"><code>String</code></a>
+numberOfSellOrders_not_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
 </td>
 <td>
 
@@ -810,8 +918,8 @@ updatedAtBlockInfo_not_ends_with<br />
 </tr>
 <tr>
 <td>
-updatedAtBlockInfo_not_ends_with_nocase<br />
-<a href="scalars#string"><code>String</code></a>
+numberOfAuctionOrders<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
 </td>
 <td>
 
@@ -819,8 +927,566 @@ updatedAtBlockInfo_not_ends_with_nocase<br />
 </tr>
 <tr>
 <td>
-updatedAtBlockInfo_<br />
-<a href="inputObjects#blockinfo_filter"><code>BlockInfo_filter</code></a>
+numberOfAuctionOrders_not<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+numberOfAuctionOrders_gt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+numberOfAuctionOrders_lt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+numberOfAuctionOrders_gte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+numberOfAuctionOrders_lte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+numberOfAuctionOrders_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+numberOfAuctionOrders_not_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+numberOfUsers<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+numberOfUsers_not<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+numberOfUsers_gt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+numberOfUsers_lt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+numberOfUsers_gte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+numberOfUsers_lte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+numberOfUsers_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+numberOfUsers_not_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalBuyVolume<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalBuyVolume_not<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalBuyVolume_gt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalBuyVolume_lt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalBuyVolume_gte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalBuyVolume_lte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalBuyVolume_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalBuyVolume_not_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSellVolume<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSellVolume_not<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSellVolume_gt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSellVolume_lt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSellVolume_gte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSellVolume_lte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSellVolume_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSellVolume_not_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalProtocolFee<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalProtocolFee_not<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalProtocolFee_gt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalProtocolFee_lt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalProtocolFee_gte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalProtocolFee_lte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalProtocolFee_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalProtocolFee_not_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalProtocolFeeFromAuction<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalProtocolFeeFromAuction_not<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalProtocolFeeFromAuction_gt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalProtocolFeeFromAuction_lt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalProtocolFeeFromAuction_gte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalProtocolFeeFromAuction_lte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalProtocolFeeFromAuction_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalProtocolFeeFromAuction_not_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSubjectFee<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSubjectFee_not<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSubjectFee_gt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSubjectFee_lt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSubjectFee_gte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSubjectFee_lte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSubjectFee_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSubjectFee_not_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSubjectFeeFromAuction<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSubjectFeeFromAuction_not<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSubjectFeeFromAuction_gt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSubjectFeeFromAuction_lt<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSubjectFeeFromAuction_gte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSubjectFeeFromAuction_lte<br />
+<a href="scalars#bigint"><code>BigInt</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSubjectFeeFromAuction_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+totalSubjectFeeFromAuction_not_in<br />
+<a href="scalars#bigint"><code>[BigInt!]</code></a>
 </td>
 <td>
 
@@ -838,7 +1504,7 @@ _change_block<br />
 <tr>
 <td>
 and<br />
-<a href="inputObjects#user_filter"><code>[User_filter]</code></a>
+<a href="inputObjects#summary_filter"><code>[Summary_filter]</code></a>
 </td>
 <td>
 
@@ -847,7 +1513,7 @@ and<br />
 <tr>
 <td>
 or<br />
-<a href="inputObjects#user_filter"><code>[User_filter]</code></a>
+<a href="inputObjects#summary_filter"><code>[Summary_filter]</code></a>
 </td>
 <td>
 

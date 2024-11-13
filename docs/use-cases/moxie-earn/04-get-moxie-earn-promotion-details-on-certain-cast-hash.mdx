@@ -34,7 +34,7 @@ import TabItem from "@theme/TabItem";
 <AddQuery
   useCase="get Moxie Earn promotion details promoted on a certain cast hash"
   subgraphLink="https://api.moxie.xyz/promotion/graphql"
-  query={`query Query($status: [String!], $castHash: String) {
+  query={`query Query($status: [PromotionStatus!], $castHash: String) {
   GetMoxiePromotions(
     input: { filter: { status: $status, castHash: $castHash } }
   ) {

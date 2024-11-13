@@ -34,10 +34,10 @@ import TabItem from "@theme/TabItem";
 <AddQuery
   useCase="create a personalized earned feeds for a certain Farcaster user"
   subgraphLink="https://api.moxie.xyz/promotion/graphql"
-  query={`query ($earnerFid: String!, $status: [String!]!) {
+  query={`query ($earnerFid: String!, $targetAudienceStatus: [TargetAudienceStatus]) {
   FetchEligiblePromotions(input: {
     earnerFid: $earnerFid,
-    status: $status,
+    targetAudienceStatus: $targetAudienceStatus,
   }) {
     earnerFid
     promotions {
@@ -61,7 +61,7 @@ import TabItem from "@theme/TabItem";
   variable={`{
   // specify the FID of the Farcaster user
   "earnerFid": "602",
-  "status": "ACTIVE"],
+  "status": "ACTIVE",
 }`}
   response={`{
   "data": {

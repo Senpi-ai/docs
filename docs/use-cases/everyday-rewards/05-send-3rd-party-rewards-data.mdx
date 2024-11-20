@@ -30,11 +30,13 @@ Before following the tutorial, make sure that your machine fulfills the followin
 
 You can easily call the Webhook 3rd Party Rewards REST API by sending a POST request providing the `partnerId` assigned to you and add the event usage details to the request body by the following code snippet with `node-fetch`:
 
-:::info[Unique Event ID]
+:::info[Input Validations]
 
-Keep in mind that the `eventId` sent to the webhook should be unique and only be sent once. If you send the same `eventId` more than once, the API will revert and the usage data will not be registered on Moxie for your user's to get rewarded.
+There are several rules to follow for the input value in the request body to be considered valid for processing:
 
-It is highly recommended that you send the usage data once the event has ended.
+1. The `id` must be unique value for each call. `id` value used in previous API call can't be used in subsequent calls.
+2. `data` field must have **AT LEAST** 1 object and cannot be an empty array as there will be no rewards to be distributed.
+3. For `CHANNEL` and `NETWORK` type, the inputted `entityId` must have their corresponding Fan Tokens deployed. If not, the API call will revert.
 
 :::
 
@@ -51,26 +53,25 @@ const options = {
     Authorization: "Bearer <YOUR_AIRSTACK_API_KEY>",
   },
   body: JSON.stringify({
-    // unique event ID
-    eventId: "1",
-    // the host's FID
-    hostFid: 3,
-    // the start timstamp of the event
-    eventStartTimestamp: "2024-09-11T04:04:51.901Z",
-    // the end timstamp of the event
-    eventEndTimestamp: "2024-09-11T04:25:51.901Z",
-    attendees: [
+    // unique ID, e.g. UUID
+    id: "1",
+    // the current timestamp
+    timestamp: "2024-09-11T04:04:51.901Z",
+    data: [
       {
-        // the attendee's FID
-        attendeeFid: 61,
-        // the duration of the attendance in seconds
-        attendanceDuration: 100,
+        /*
+         * Enter different value depending on the entityType:
+         * - For `CHANNEL` -> input the Channel ID
+         * - For `USER` -> input the user's FID
+         * - For `NETWORK` -> currently only network:farcaster
+         */
+        entityId: "3",
+        // CHANNEL, USER, NETWORK
+        entityType: "USER",
+        // Amount of Moxie to be distributed in wei
+        amount: "1000000",
       },
-      {
-        attendeeFid: 21,
-        attendanceDuration: 1200,
-      },
-      // Other attendees
+      // Other distribution
     ],
   }),
 };
@@ -97,26 +98,25 @@ const options = {
     Authorization: "Bearer <YOUR_AIRSTACK_API_KEY>",
   },
   body: JSON.stringify({
-    // unique event ID
-    eventId: "1",
-    // the host's FID
-    hostFid: 3,
-    // the start timstamp of the event
-    eventStartTimestamp: "2024-09-11T04:04:51.901Z",
-    // the end timstamp of the event
-    eventEndTimestamp: "2024-09-11T04:25:51.901Z",
-    attendees: [
+    // unique ID, e.g. UUID
+    id: "1",
+    // the current timestamp
+    timestamp: "2024-09-11T04:04:51.901Z",
+    data: [
       {
-        // the attendee's FID
-        attendeeFid: 61,
-        // the duration of the attendance in seconds
-        attendanceDuration: 100,
+        /*
+         * Enter different value depending on the entityType:
+         * - For `CHANNEL` -> input the Channel ID
+         * - For `USER` -> input the user's FID
+         * - For `NETWORK` -> currently only network:farcaster
+         */
+        entityId: "3",
+        // CHANNEL, USER, NETWORK
+        entityType: "USER",
+        // Amount of Moxie to be distributed in wei
+        amount: "1000000",
       },
-      {
-        attendeeFid: 21,
-        attendanceDuration: 1200,
-      },
-      // Other attendees
+      // Other distribution
     ],
   }),
 };
@@ -133,6 +133,14 @@ fetch(`https://rewards.moxie.xyz/partners/${partnerId}/events`, options)
     </TabItem>
 
 </Tabs>
+
+It is important to keep in mind that the Moxie distribution for each `entityType` will be different:
+
+- For `USER` type,
+  - If the user has no Fan Token, then 100% will go straight to the user and their rewards will be claimable as a regular [Everyday Rewards](https://build.moxie.xyz/the-moxie-protocol/everyday-rewards).
+  - Otherwise, their rewards will be split based on the % allocated for their Fans
+    - e.g. if the Fan Token is configured to split 90% with fans, then 90% of the rewards go to the Fans through buy & burn process, while the rest 10% go to the user for claim.
+- For `CHANNEL` and `NETWORK` type, 100% of the rewards will be distributed through regular buy & burn and holders will benefit from the price increase.
 
 ## Step 2: Execute Your Code
 

@@ -125,11 +125,6 @@ const config: Config = {
             },
             {
               type: "doc",
-              label: "Moxie Pass",
-              docId: "use-cases/moxie-pass/mint-moxie-pass",
-            },
-            {
-              type: "doc",
               label: "Bids",
               docId:
                 "use-cases/bids/get-all-bids-registered-on-certain-auction",
@@ -279,10 +274,6 @@ const config: Config = {
             {
               label: "Everyday Rewards",
               to: "/use-cases/everyday-rewards/check-users-everyday-rewards-amount",
-            },
-            {
-              label: "Moxie Pass",
-              to: "/use-cases/moxie-pass/mint-moxie-pass",
             },
             {
               label: "Bids",

@@ -71,7 +71,7 @@ const config: Config = {
       indexName: "developer-moxie",
     },
     // Replace with your project's social card
-    image: "img/social-card.png",
+    image: "img/social-card.jpg",
     navbar: {
       logo: {
         alt: "Moxie Logo",

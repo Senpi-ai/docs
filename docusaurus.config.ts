@@ -115,7 +115,7 @@ const config: Config = {
             {
               type: "doc",
               label: "Fan Tokens",
-              docId: "use-cases/fan-tokens/get-trending-fan-tokens",
+              docId: "use-cases/fan-tokens/buy-fan-tokens",
             },
             {
               type: "doc",
@@ -264,7 +264,7 @@ const config: Config = {
             },
             {
               label: "Fan Tokens",
-              to: "/use-cases/fan-tokens/get-trending-fan-tokens",
+              to: "/use-cases/fan-tokens/buy-fan-tokens",
             },
             {
               label: "Everyday Rewards",
@@ -397,7 +397,7 @@ const config: Config = {
             ],
           },
           {
-            to: "/use-cases/fan-tokens/get-trending-fan-tokens",
+            to: "/use-cases/fan-tokens/buy-fan-tokens",
             from: ["/api/protocol/fan-tokens"],
           },
           {

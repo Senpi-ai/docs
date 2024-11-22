@@ -211,11 +211,6 @@ const config: Config = {
           label: "Contracts",
           docId: "contract/overview",
         },
-        {
-          type: "doc",
-          label: "Farcaster Data",
-          docId: "farcaster-data/overview",
-        },
         // { to: "/blog", label: "Blog", position: "left" },
         {
           href: "https://github.com/moxie-protocol",

@@ -1,0 +1,139 @@
+---
+sidebar_class_name: scissors
+description: Learn how to make calls to the the Moxie Bonding Curve smart contract to sell fan tokens, either from your wallet or your vesting contract.
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import Install from "../../../src/components/Install";
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
+
+# Sell Fan Tokens
+
+In this tutorial, you will learn step-by-step on how to sell any Fan Tokens on the Moxie protocol through the bonding curve contract.
+
+While the tutorial shown here will be using [viem](https://viem.sh) in TypeScript, you should be able to use other programming language and their web3-equivalent libraries to execute the Fan Token buying process. Alternatives web3 libraries you can use are:
+
+- [ethers.js (JS/TS)](https://docs.ethers.org/v5/)
+- [web3.js (JS/TS)](https://www.web3js.org/)
+- [web3.py (Python)](https://web3py.readthedocs.io/en/stable/)
+- etc.
+
+## Pre-requisites
+
+1. Install dependencies
+
+<Install dependencies="viem" />
+
+2. Download the [Subject ERC20 Token](https://github.com/moxie-protocol/contracts/blob/dev/packages/protocol/ignition/deployments/base-mainnet/artifacts/ProtocolContracts%23SubjectERC20.json) and [Moxie Bonding Curve ABI](https://github.com/moxie-protocol/contracts/blob/dev/packages/protocol/ignition/deployments/base-mainnet/artifacts/ProtocolContracts%23MoxieBondingCurve.json).
+
+3. Make sure to have some Moxie Fan Tokens to sell from your wallet and sufficient Base ETH to cover the transaction fees.
+
+## Step 1: Setup Client
+
+First, setup a viem client and provide the mnemonic of your account to create an `account` instance:
+
+:::info[Keep Your Mnemonic Secure]
+
+Ensure to store the mnemonic securley and privately as an environment variable so that your wallet address will not be compromised.
+
+:::
+
+```ts title="client.ts"
+import { createWalletClient, createPublicClient, http } from "viem";
+import { mnemonicToAccount } from "viem/accounts";
+import { base } from "viem/chains";
+
+const account = mnemonicToAccount("YOUR_WALLET_MNEMONIC");
+
+const client = createWalletClient({
+  account,
+  chain: base,
+  transport: http(),
+});
+
+export const publicClient = createPublicClient({
+  chain: base,
+  transport: http(),
+});
+```
+
+## Step 2: Check Fan Token Allowance
+
+To check the Fan Token Allowance, simply call the `allowance` function from the specified Fan token contract.
+
+When calling the `allowance` function set the parameters as follows:
+
+| Parameter | Value                                                                                                               |
+| --------- | ------------------------------------------------------------------------------------------------------------------- |
+| `owner`   | Either the senders's EOA wallet or vesting contract address.                                                        |
+| `spender` | The [Moxie bonding curve contract address](https://basescan.org/address/0x373065e66B32a1C428aa14698dFa99BA7199B55E) |
+
+## Step 3: Calculate Sell Price For Fan Tokens
+
+To calculate the sell price, call the Moxie bonding curve smart contract `calculateTokensForSell` with the following parameters:
+
+| Parameter             | Value                                             |
+| --------------------- | ------------------------------------------------- |
+| `_subjectTokenAmount` | how much FT user wanna buy (in wei)               |
+| `_subject`            | The subject address associated to the Fan tokens. |
+
+## Step 4: Approve Fan Tokens
+
+If the Fan token `allowance` is either 0 or less than what is needed to sell the inputted amount of Fan Tokens (from [Step 2](./03-sell-fan-tokens.mdx#step-2-check-fan-token-allowance)), then approval on the Fan Token will need to be initiated to ensure that the buy transaction is successful.
+
+Otherwise, if there is sufficient `allowance` value, skip to [Step 5](./03-sell-fan-tokens.mdx#step-5-execute-contract-call) to execute the buy Fan Tokens transaction.
+
+### EOA Wallet
+
+From EOA wallet, simply call the `approve` function on the Fan token with the following variables:
+
+| Parameter | Description                                                                                                |
+| --------- | ---------------------------------------------------------------------------------------------------------- |
+| `spender` | the [Moxie bonding curve address](https://basescan.org/address/0x373065e66B32a1C428aa14698dFa99BA7199B55E) |
+| `value`   | the amount of Moxie to buy FT                                                                              |
+
+### Vesting Contract
+
+From vesting contract there is the `approveSubjectToken` function that you can call by providing the Fan token's subject to the `_subject` parameter to approve a specific Fan token in your vesting contract to be accessible by other Moxie protocol contracts.
+
+After the approval, all the Fan Token in the vesting contract will be available for selling.
+
+## Step 5: Execute Contract Call
+
+Lastly, call the `sellShares` function on the Moxie bonding curve contract to execute the Fan Token selling transaction:
+
+<Tabs>
+  <TabItem value="viem-ts" label="Viem (TS)">
+
+```ts title="index.ts"
+import client from "./client";
+import { MoxieBondingCurveABI } from "./abi/ProtocolContracts#MoxieBondingCurve.json";
+
+try {
+  clientwriteContract({
+    account,
+    address: MoxieBondingCurveAddress, // or user's vesting contract address
+    abi: MoxieBondingCurveABI,
+    functionName: "sellShares",
+    args: [
+      // subject address
+      "0x338fDD513Ed2eC7ee1249Ee286F967FC56492C78",
+      //  amount of FT to sell
+      BigInt("10000000000000000"),
+      // (minimum) amount of Moxie to receive from the selling, calculated from step 2
+      BigInt("263749847732490543"),
+    ],
+  });
+} catch (e) {
+  console.error(e);
+}
+```
+
+</TabItem>
+</Tabs>
+
+Congrats! 🥳🎉 You've just successfully sold a Fan Token!
+
+<DeveloperSupport />

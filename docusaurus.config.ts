@@ -57,14 +57,14 @@ const config: Config = {
     ],
   ],
   themeConfig: {
-    // announcementBar: {
-    //   id: "moxie_earn",
-    //   content:
-    //     'Learn more about <a target="_blank" rel="noopener noreferrer" href="#">Moxie Earn</a>',
-    //   backgroundColor: "#8e55ff",
-    //   textColor: "#ffffff",
-    //   isCloseable: false,
-    // },
+    announcementBar: {
+      id: "moxie_base",
+      content:
+        'Moxie is now open to all 🔵 Base users. Learn more <a href="/contract/changelog#november-22-2024">here</a>.',
+      backgroundColor: "#8e55ff",
+      textColor: "#ffffff",
+      isCloseable: false,
+    },
     algolia: {
       appId: "0E7JT4EO4H",
       apiKey: "27c2281916aa623aa3fca88e9d0c6696",
@@ -115,18 +115,13 @@ const config: Config = {
             {
               type: "doc",
               label: "Fan Tokens",
-              docId: "use-cases/fan-tokens/get-trending-fan-tokens",
+              docId: "use-cases/fan-tokens/buy-fan-tokens",
             },
             {
               type: "doc",
               label: "Everyday Rewards",
               docId:
                 "use-cases/everyday-rewards/check-users-everyday-rewards-amount",
-            },
-            {
-              type: "doc",
-              label: "Moxie Pass",
-              docId: "use-cases/moxie-pass/mint-moxie-pass",
             },
             {
               type: "doc",
@@ -216,11 +211,6 @@ const config: Config = {
           label: "Contracts",
           docId: "contract/overview",
         },
-        {
-          type: "doc",
-          label: "Farcaster Data",
-          docId: "farcaster-data/overview",
-        },
         // { to: "/blog", label: "Blog", position: "left" },
         {
           href: "https://github.com/moxie-protocol",
@@ -274,15 +264,11 @@ const config: Config = {
             },
             {
               label: "Fan Tokens",
-              to: "/use-cases/fan-tokens/get-trending-fan-tokens",
+              to: "/use-cases/fan-tokens/buy-fan-tokens",
             },
             {
               label: "Everyday Rewards",
               to: "/use-cases/everyday-rewards/check-users-everyday-rewards-amount",
-            },
-            {
-              label: "Moxie Pass",
-              to: "/use-cases/moxie-pass/mint-moxie-pass",
             },
             {
               label: "Bids",
@@ -411,7 +397,7 @@ const config: Config = {
             ],
           },
           {
-            to: "/use-cases/fan-tokens/get-trending-fan-tokens",
+            to: "/use-cases/fan-tokens/buy-fan-tokens",
             from: ["/api/protocol/fan-tokens"],
           },
           {

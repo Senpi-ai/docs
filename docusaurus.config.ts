@@ -6,7 +6,7 @@ import tailwindPlugin from "./plugins/tailwind-plugin.cjs";
 const config: Config = {
   themes: ["@docusaurus/theme-mermaid"],
   title: "Moxie Developer Hubs",
-  tagline: "Empowering the Farcaster & Base Economy",
+  tagline: "SocialFi on Farcaster & Base",
   favicon: "img/favicon.ico",
   markdown: {
     mermaid: true,

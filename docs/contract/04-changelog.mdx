@@ -6,6 +6,11 @@ sidebar_class_name: changelog
 
 ## November 22, 2024
 
-The `erc721ContractAddress` state variable in the [`MoxiePassVerifier.sol`](./03-references/03-moxiepassverifier.mdx) contract have been set as the null/zero address.
+The Moxie protocol is now available for all 🔵 Base users! Here are the changes made on the protocol level:
 
-Thus, Moxie Pass will no longer be needed for any [Base](https://base.org) address to buy or hold any Fan Token on the Moxie protocol.
+- The `erc721ContractAddress` state variable in the [`MoxiePassVerifier.sol`](./03-references/03-moxiepassverifier.mdx) contract have been set as the null/zero address.
+  - This changes enable any Fan Tokens to be bought and hold by all Base users without the need for [Moxie Pass](../learn/glossary.mdx#moxie-pass).
+- The `transferAllowList` state variable in the [`TokenManager.sol`](./03-references/09-tokenmanager.mdx) contract is now an empty array.
+  - With the variable empty, this [line of code](https://github.com/moxie-protocol/contracts/blob/dev/packages/protocol/contracts/TokenManager.sol#L148C13-L148C30) will disable the restriction to transfer Fan Tokens from one wallet to another.
+
+With these changes, all 🔵 Base users will now have full access to participate in Moxie protocol and be able to buy, hold, and transfer Fan Tokens.

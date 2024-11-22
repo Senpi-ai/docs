@@ -6,7 +6,7 @@ import tailwindPlugin from "./plugins/tailwind-plugin.cjs";
 const config: Config = {
   themes: ["@docusaurus/theme-mermaid"],
   title: "Moxie Developer Hubs",
-  tagline: "Empowering the Farcaster Economy",
+  tagline: "Empowering the Farcaster & Base Economy",
   favicon: "img/favicon.ico",
   markdown: {
     mermaid: true,
@@ -617,10 +617,6 @@ const config: Config = {
           {
             to: "/api/vesting/changelog",
             from: ["/api/vesting/index"],
-          },
-          {
-            to: "/learn/contract-allowlisting",
-            from: ["/learn/contract-whitelisting"],
           },
         ],
       },

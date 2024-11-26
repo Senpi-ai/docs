@@ -106,8 +106,8 @@ const options = {
       {
         /*
          * Enter different value depending on the entityType:
+         * - For `USER` & `USER_FANS` -> input the user's FID
          * - For `CHANNEL` -> input the Channel ID
-         * - For `USER` -> input the user's FID
          * - For `NETWORK` -> currently only network:farcaster
          */
         entityId: "3",
@@ -140,7 +140,7 @@ It is important to keep in mind that the Moxie distribution for each `entityType
   - If the user has no Fan Token, then 100% will go straight to the user and their rewards will be claimable as a regular [Everyday Rewards](https://build.moxie.xyz/the-moxie-protocol/everyday-rewards).
   - Otherwise, their rewards will be split based on the % allocated for their Fans
     - e.g. if the Fan Token is configured to split 90% with fans, then 90% of the rewards go to the Fans through buy & burn process, while the rest 10% go to the user for claim.
-- For `CHANNEL` and `NETWORK` type, 100% of the rewards will be distributed through regular buy & burn and holders will benefit from the price increase.
+- For `USER_FANS`, `CHANNEL`, and `NETWORK` type, 100% of the rewards will be distributed through regular buy & burn and holders will benefit from the price increase.
 
 ## Step 2: Execute Your Code
 

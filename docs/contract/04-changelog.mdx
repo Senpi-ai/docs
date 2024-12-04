@@ -4,6 +4,26 @@ sidebar_class_name: changelog
 
 # Changelog
 
+## December 4, 2024
+
+### Pull Requests
+
+- [#55](https://github.com/moxie-protocol/contracts/pull/55) Upgrading contracts to include referral fees for buying/selling/auctioning Fan Tokens.
+
+### Developer Impact
+
+New contract `ProtocolRewards` have been deployed along with upgrades on several existing contracts to include referral fees for buying, selling, and auctioning Fan Tokens. The referral fees will be distributed to the referrer's wallet address.
+
+No breaking changes have been made to the contract and you can continue to use the same addresses for the upgraded contracts with their respective existing functions.
+
+Contracts upgraded in this PR are:
+
+- [`MoxieBondingCurve.sol`](./03-references/01-moxiebondingcurve.mdx)
+- [`SubjectFactory.sol`](./03-references/07-subjectfactory.mdx)
+- [`Staking.sol`](./03-references/10-staking.mdx)
+
+For these upgraded contracts, you can also find new "V2" functions added with additional referral address inputs to receive the referral fees for each transactions.
+
 ## November 22, 2024
 
 The Moxie protocol is now available for all 🔵 Base users! Here are the changes made on the protocol level:

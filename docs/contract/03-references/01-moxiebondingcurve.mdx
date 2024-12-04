@@ -1,8 +1,8 @@
 ---
-description: Learn all the functions, events, errors, and roles of the MoxieBondingCurve.sol contract.
+description: Learn all the functions, events, errors, and roles of the MoxieBondingCurveV2.sol contract.
 ---
 
-# MoxieBondingCurve.sol
+# MoxieBondingCurveV2.sol
 
 Bonding curve contract which enables subject onboarding, buy & sell of subject shares.
 
@@ -65,18 +65,20 @@ function initializeSubjectBondingCurve(
   address _subject,
   uint32 _reserveRatio,
   uint256 _initialSupply,
-  uint256 _reserveAmount
+  uint256 _reserveAmount,
+  address _platformReferrer
 ) external whenNotPaused returns (bool)
 ```
 
 #### Parameters
 
-| Name             | Type    | Description                                                                   |
-| :--------------- | :------ | :---------------------------------------------------------------------------- |
-| `_subject`       | address | Address of subject.                                                           |
-| `_reserveRatio`  | uint32  | Initial supply of subject tokens at the time of bonding curve initialization. |
-| `_initialSupply` | uint256 | reserve ratio of subject for bonding curve.                                   |
-| `_reserveAmount` | uint256 | Initial reserve amount.                                                       |
+| Name                | Type    | Description                                                                                          |
+| :------------------ | :------ | :--------------------------------------------------------------------------------------------------- |
+| `_subject`          | address | Address of subject.                                                                                  |
+| `_reserveRatio`     | uint32  | Initial supply of subject tokens at the time of bonding curve initialization.                        |
+| `_initialSupply`    | uint256 | reserve ratio of subject for bonding curve.                                                          |
+| `_reserveAmount`    | uint256 | Initial reserve amount.                                                                              |
+| `_platformReferrer` | address | The referrer address that will be rewarded for onboarding a new valid subject to the Moxie protocol. |
 
 #### Return Value
 
@@ -84,9 +86,140 @@ function initializeSubjectBondingCurve(
 | :-------------- | :--- | :---------------------------------------------------------- |
 | `isInitialized` | bool | `true` if bonding curve is initialized. Otherwise, `false`. |
 
+### buySharesForV2
+
+Buy shares of subject on behalf of a third party addresss `_onBehalfOf` and reward the referral fees to the `_orderReferrer`.
+
+```solidity
+function buySharesForV2(
+  address _subject,
+  uint256 _depositAmount,
+  address _onBehalfOf,
+  uint256 _minReturnAmountAfterFee,
+  address _orderReferrer
+) external whenNotPaused whenNotTradingPaused(_subject) returns (uint256 shares_) {
+  shares_ = _buySharesInternal(_subject, _depositAmount, _onBehalfOf, _minReturnAmountAfterFee, _orderReferrer);
+}
+```
+
+#### Parameters
+
+| Name                       | Type    | Description                                     |
+| :------------------------- | :------ | :---------------------------------------------- |
+| `_subject`                 | address | Address of subject.                             |
+| `_depositAmount`           | uint256 | Amount of deposit to buy shares.                |
+| `_onBehalfOf`              | address | Address of beneficiary.                         |
+| `_minReturnAmountAfterFee` | uint256 | Minimum number of shares that must be received. |
+| `_orderReferrer`           | address | Address of order referrer.                      |
+
+#### Return Value
+
+| Name      | Type    | Description       |
+| :-------- | :------ | :---------------- |
+| `shares_` | uint256 | Number of shares. |
+
+### buySharesV2
+
+Buy shares of subject for `msg.sender` and reward the referral fees to the `_orderReferrer`.
+
+```solidity
+function buySharesV2(
+  address _subject,
+  uint256 _depositAmount,
+  uint256 _minReturnAmountAfterFee,
+  address _orderReferrer
+) external whenNotPaused whenNotTradingPaused(_subject) returns (uint256 shares_) {
+  shares_ = _buySharesInternal(_subject, _depositAmount, msg.sender, _minReturnAmountAfterFee, _orderReferrer);
+}
+```
+
+#### Parameters
+
+| Name                       | Type    | Description                                     |
+| :------------------------- | :------ | :---------------------------------------------- |
+| `_subject`                 | address | Address of subject.                             |
+| `_depositAmount`           | uint256 | Amount of deposit to buy shares.                |
+| `_minReturnAmountAfterFee` | uint256 | Minimum number of shares that must be received. |
+| `_orderReferrer`           | address | Address of order referrer.                      |
+
+#### Return Value
+
+| Name      | Type    | Description       |
+| :-------- | :------ | :---------------- |
+| `shares_` | uint256 | Number of shares. |
+
+### sellSharesForV2
+
+Sell shares of a subject on behalf of a third party address `_onBehalfOf` and reward the referral fees to the `_orderReferrer`.
+
+```solidity
+function sellSharesForV2(
+  address _subject,
+  uint256 _sellAmount,
+  address _onBehalfOf,
+  uint256 _minReturnAmountAfterFee,
+  address _orderReferrer
+) external whenNotPaused whenNotTradingPaused(_subject) returns (uint256 returnAmount_) {
+  returnAmount_ =
+      _sellSharesInternal(_subject, _sellAmount, _onBehalfOf, _minReturnAmountAfterFee, _orderReferrer);
+}
+```
+
+#### Parameters
+
+| Name                       | Type    | Description                                     |
+| :------------------------- | :------ | :---------------------------------------------- |
+| `_subject`                 | address | Address of subject.                             |
+| `_sellAmount`              | uint256 | Amount of subject shares to sell.               |
+| `_onBehalfOf`              | address | Address of buy token beneficiary.               |
+| `_minReturnAmountAfterFee` | uint256 | Minimum number of shares that must be received. |
+| `_orderReferrer`           | address | Address of order referrer.                      |
+
+#### Return Value
+
+| Name            | Type    | Description                                           |
+| :-------------- | :------ | :---------------------------------------------------- |
+| `returnAmount_` | uint256 | Amount received in MOXIE from selling subject shares. |
+
+### sellSharesV2
+
+Sell shares of a subject and reward the referral fees to the `_orderReferrer`.
+
+```solidity
+function sellSharesV2(
+  address _subject,
+  uint256 _sellAmount,
+  uint256 _minReturnAmountAfterFee,
+  address _orderReferrer
+) external whenNotPaused whenNotTradingPaused(_subject) returns (uint256 returnAmount_) {
+  returnAmount_ = _sellSharesInternal(_subject, _sellAmount, msg.sender, _minReturnAmountAfterFee, _orderReferrer);
+}
+```
+
+#### Parameters
+
+| Name                       | Type    | Description                                     |
+| :------------------------- | :------ | :---------------------------------------------- |
+| `_subject`                 | address | Address of subject.                             |
+| `_sellAmount`              | uint256 | Amount of subject shares to sell.               |
+| `_minReturnAmountAfterFee` | uint256 | Minimum number of shares that must be received. |
+| `_orderReferrer`           | address | Address of order referrer.                      |
+
+#### Return Value
+
+| Name            | Type    | Description                                           |
+| :-------------- | :------ | :---------------------------------------------------- |
+| `returnAmount_` | uint256 | Amount received in MOXIE from selling subject shares. |
+
 ### buySharesFor
 
 Buy shares of a subject on behalf of a beneficiary.
+
+:::info
+
+If you're looking to earn referral rewards from every buy transaction, use the [`buySharesForV2`](./01-moxiebondingcurve.mdx#buysharesforv2) function instead.
+
+:::
 
 ```solidity
 function buySharesFor(
@@ -116,6 +249,12 @@ function buySharesFor(
 
 Buy shares of a subject.
 
+:::info
+
+If you're looking to earn referral rewards from every buy transaction, use the [`buySharesV2`](./01-moxiebondingcurve.mdx#buysharesv2) function instead.
+
+:::
+
 ```solidity
 function buyShares(
     address _subject,
@@ -141,6 +280,12 @@ function buyShares(
 ### sellSharesFor
 
 Sell shares of a subject on behalf of a beneficiary.
+
+:::info
+
+If you're looking to earn referral rewards from every sell transaction, use the [`sellSharesForV2`](./01-moxiebondingcurve.mdx#buysharesforv2) function instead.
+
+:::
 
 ```solidity
 function sellSharesFor(
@@ -169,6 +314,12 @@ function sellSharesFor(
 ### sellShares
 
 Sell shares of a subject.
+
+:::info
+
+If you're looking to earn referral rewards from every sell transaction, use the [`sellSharesForV2`](./01-moxiebondingcurve.mdx#sellsharesv2) function instead.
+
+:::
 
 ```solidity
 function sellShares(
@@ -252,6 +403,36 @@ event SubjectShareSold(
     address \_buyToken,
     uint256 \_buyAmount,
     address \_beneficiary
+);
+```
+
+### UpdateReferralFees
+
+```solidity
+event UpdateReferralFees(
+  uint256 _platformReferrerBuyFeePct,
+  uint256 _platformReferrerSellFeePct,
+  uint256 _orderReferrerBuyFeePct,
+  uint256 _orderReferrerSellFeePct
+);
+```
+
+### SubjectReserveRatioUpdated
+
+```solidity
+event SubjectReserveRatioUpdated(
+  address _subject,
+  uint32 _oldReserveRatio,
+  uint32 _newReserveRatio
+);
+```
+
+### TradingPaused
+
+```solidity
+event TradingPaused(
+  address _subject,
+  bool _isPaused
 );
 ```
 
@@ -363,4 +544,28 @@ error MoxieBondingCurve_SlippageExceedsLimit();
 
 ```solidity
 error MoxieBondingCurve_InvalidSellAmount();
+```
+
+### MoxieBondingCurve_InvalidAmount
+
+```solidity
+error MoxieBondingCurve_InvalidAmount();
+```
+
+### MoxieBondingCurve_InvalidProtocolRewardAddress
+
+```solidity
+error MoxieBondingCurve_InvalidProtocolRewardAddress();
+```
+
+### MoxieBondingCurve_InvalidSubjectRewardAddress
+
+```solidity
+error MoxieBondingCurve_SubjectNotPaused();
+```
+
+### MoxieBondingCurve_TradingPaused
+
+```solidity
+error MoxieBondingCurve_TradingPaused();
 ```

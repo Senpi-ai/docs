@@ -12,7 +12,11 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "update-schema:protocol": "npx get-graphql-schema https://api.studio.thegraph.com/query/23537/moxie_protocol_stats_mainnet/version/latest > ./schema/protocol.graphql",
+    "update-schema:auction": "npx get-graphql-schema https://api.studio.thegraph.com/query/23537/moxie_auction_stats_mainnet/version/latest > ./schema/auction.graphql",
+    "update-schema:vesting": "npx get-graphql-schema https://api.studio.thegraph.com/query/23537/moxie_vesting_mainnet/version/latest > ./schema/vesting.graphql",
+    "update-schema": "npm run update-schema:protocol && npm run update-schema:auction && npm run update-schema:vesting"
   },
   "dependencies": {
     "@docusaurus/core": "^3.6.3",

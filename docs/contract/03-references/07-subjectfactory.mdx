@@ -2,7 +2,7 @@
 description: Learn all the functions, events, errors, and roles of the SubjectFactory.sol contract.
 ---
 
-# SubjectFactory.sol
+# SubjectFactoryV2.sol
 
 ## Functions
 
@@ -13,16 +13,18 @@ Function to onboard & start auction of the initial supply of subject.
 ```solidity
 function initiateSubjectOnboarding(
     address _subject,
-    SubjectAuctionInput memory _auctionInput
+    SubjectAuctionInput memory _auctionInput,
+    address _platformReferrer
 ) external whenNotPaused onlyRole(ONBOARDING_ROLE) returns (uint256)
 ```
 
 #### Parameters
 
-| Name            | Type    | Description                        |
-| :-------------- | :------ | :--------------------------------- |
-| `_subject`      | address | Address of subject.                |
-| `_auctionInput` | struct  | Input params for auction creation. |
+| Name                | Type    | Description                                                                                          |
+| :------------------ | :------ | :--------------------------------------------------------------------------------------------------- |
+| `_subject`          | address | Address of subject.                                                                                  |
+| `_auctionInput`     | struct  | Input params for auction creation.                                                                   |
+| `_platformReferrer` | address | The referrer address that will be rewarded for onboarding a new valid subject to the Moxie protocol. |
 
 #### Return Values
 
@@ -226,4 +228,12 @@ The contract will emit the error if the buy amount is too less.
 
 ```solidity
 error SubjectFactory_BuyAmountTooLess();
+```
+
+### SubjectFactory_InvalidProtocolRewardAddress
+
+The contract will emit the error if the protocol reward address is a zero/null address.
+
+```solidity
+error SubjectFactory_InvalidProtocolRewardAddress();
 ```

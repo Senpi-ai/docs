@@ -60,7 +60,7 @@ const config: Config = {
     announcementBar: {
       id: "moxie_base",
       content:
-        'Moxie is now open to all 🔵 Base users. Learn more <a href="/contract/changelog#november-22-2024">here</a>.',
+        'Earn <b>Referral Fees</b> for every buy/sell Fan Token txs. Learn more <a href="/learn/technical-deep-dive/referral-fees">here</a>.',
       backgroundColor: "#8e55ff",
       textColor: "#ffffff",
       isCloseable: false,

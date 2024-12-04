@@ -102,7 +102,7 @@ After the approval, all the Fan Token in the vesting contract will be available 
 
 ## Step 5: Execute Contract Call
 
-Lastly, call the `sellSharesFor` function on the Moxie bonding curve contract to execute the Fan Token selling transaction:
+Lastly, call the `sellSharesForV2` function on the Moxie bonding curve contract to execute the Fan Token selling transaction:
 
 <Tabs>
   <TabItem value="viem-ts" label="Viem (TS)">
@@ -116,7 +116,7 @@ try {
     account,
     address: MoxieBondingCurveAddress, // or user's vesting contract address
     abi: MoxieBondingCurveABI,
-    functionName: "sellSharesFor",
+    functionName: "sellSharesForV2",
     args: [
       // subject address
       "0x338fDD513Ed2eC7ee1249Ee286F967FC56492C78",
@@ -126,6 +126,8 @@ try {
       "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
       // (minimum) amount of Moxie to receive from the selling, calculated from step 2
       BigInt("263749847732490543"),
+      // referrer address
+      "0x2211d1d0020daea8039e46cf1367962070d77da9",
     ],
   });
 } catch (e) {

@@ -103,7 +103,7 @@ After the approval, all the Moxie Token in the vesting contract will be availabl
 
 ## Step 5: Execute Contract Call
 
-Lastly, call the `buyShares` function on the Moxie bonding curve contract to execute the Fan Token purchase transaction:
+Lastly, call the `buySharesV2` function on the Moxie bonding curve contract to execute the Fan Token purchase transaction:
 
 <Tabs>
   <TabItem value="viem-ts" label="Viem (TS)">
@@ -117,7 +117,7 @@ try {
     account,
     address: "0x373065e66B32a1C428aa14698dFa99BA7199B55E",
     abi: MoxieBondingCurveABI,
-    functionName: "buyShares",
+    functionName: "buySharesV2",
     args: [
       // subject address
       "0x338fDD513Ed2eC7ee1249Ee286F967FC56492C78",
@@ -125,6 +125,8 @@ try {
       BigInt("263749847732490543"),
       // (minimum) amount of FT to buy in wei
       BigInt("10000000000000000"),
+      // referrer address
+      "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
     ],
   });
 } catch (e) {

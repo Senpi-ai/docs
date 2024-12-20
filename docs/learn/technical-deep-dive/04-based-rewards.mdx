@@ -1,0 +1,41 @@
+# Based Rewards
+
+**Based Rewards** is the amount of Moxie that a user will automatically earn for every transaction that they execute on [Base](https://base.org).
+
+Each day a fixed number of Moxie, represented by variable $M$, will be distributed to all users proportionally based on the % amount they contributed to the pool that day. It is important to keep in mind that the variable $M$ will differ from day to day.
+
+The amount contributed to the pool in a given day is defined as the sum of the product of the Moxie Score and the gas spent by each user on Base, which can be written as an equation shown below:
+
+$$
+P = \sum_{i=1}^k M_{score}(U_i) \times G_{spent}(U_i)
+$$
+
+And the % of contribution of a user $$U$$ to the pool in a given day can be calculated using the equation below:
+
+$$
+\frac{M_{score}(U) \times G_{spent}(U)}{P}
+$$
+
+Thus, by definition, the Based Rewards of a user $$U$$ can be represented as follows:
+
+$$
+B_{rewards}(U) = \frac{M_{score}(U) \times G_{spent}(U)}{P} \times M
+$$
+
+<br />
+
+where:
+
+| Notation           | Description                                               |
+| ------------------ | --------------------------------------------------------- |
+| $$k$$              | Total number of users                                     |
+| $$P$$              | Total amount contributed to the pool in a given day       |
+| $$B_{rewards}(U)$$ | Based Rewards of user $$U$$                               |
+| $$M_{score}(U)$$   | [Moxie Score](./03-moxie-score.mdx) of user $$U$$         |
+| $$G_{spent}(U)$$   | Total gas spent by user $$U$$ on [Base](https://base.org) |
+
+As shown by the equation above, the amount of Based Rewards is directly proportional to the amount of Moxie Score you have. Thus, the more account you connect to your Moxie profile, the higher amount of Based Rewards you will earn for each transaction on Base.
+
+Similarly, the more active you are on Base, the higher amount of gas on Base you will spend, which will result in higher amount of Based Rewards you will earn for each transaction on Base.
+
+These data will be available in Dune publicly where you can fetch the data for your own analysis, projects, or apps.

@@ -2,6 +2,8 @@ import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 import tailwindPlugin from "./plugins/tailwind-plugin.cjs";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 
 const config: Config = {
   themes: ["@docusaurus/theme-mermaid"],
@@ -35,7 +37,15 @@ const config: Config = {
     defaultLocale: "en",
     locales: ["en"],
   },
-
+  stylesheets: [
+    {
+      href: "https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css",
+      type: "text/css",
+      integrity:
+        "sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM",
+      crossorigin: "anonymous",
+    },
+  ],
   presets: [
     [
       "classic",
@@ -43,6 +53,8 @@ const config: Config = {
         docs: {
           routeBasePath: "/",
           sidebarPath: "./sidebars.ts",
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
         },
         blog: {
           showReadingTime: true,
@@ -60,7 +72,7 @@ const config: Config = {
     announcementBar: {
       id: "moxie_base",
       content:
-        'Earn <b>Referral Fees</b> for every buy/sell Fan Token txs. Learn more <a href="/learn/technical-deep-dive/referral-fees">here</a>.',
+        'Moxie is expanding to Base and X. Learn more on how <a href="/learn/technical-deep-dive/moxie-score">Moxie Score</a> and <a href="/learn/technical-deep-dive/based-rewards">Based Rewards</a> work.',
       backgroundColor: "#8e55ff",
       textColor: "#ffffff",
       isCloseable: false,

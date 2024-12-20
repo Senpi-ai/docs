@@ -32,6 +32,16 @@ const sidebars: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "learn/technical-deep-dive/moxie-score",
+          label: "Moxie Score",
+        },
+        {
+          type: "doc",
+          id: "learn/technical-deep-dive/based-rewards",
+          label: "Based Rewards",
+        },
+        {
+          type: "doc",
           id: "learn/technical-deep-dive/referral-fees",
           label: "Referral Fees",
         },

@@ -39,3 +39,35 @@ As shown by the equation above, the amount of Based Rewards is directly proporti
 Similarly, the more active you are on Base, the higher amount of gas on Base you will spend, which will result in higher amount of Based Rewards you will earn for each transaction on Base.
 
 These data will be available in Dune publicly where you can fetch the data for your own analysis, projects, or apps.
+
+## Example
+
+Let's consider an example where there are 3 users on Base, and the total amount of Moxie distributed on a given day is 5,000 Moxie. The Moxie Score and gas spent by each user on Base are as follows:
+
+| User | Moxie Score | Gas Spent |
+| ---- | ----------- | --------- |
+| A    | $10$        | $100$     |
+| B    | $15$        | $200$     |
+| C    | $20$        | $300$     |
+
+The total amount contributed to the pool in a given day can be calculated as follows:
+
+$$
+P = 10 \times 100 + 15 \times 200 + 20 \times 300 = 10,000
+$$
+
+Thus, the % of contribution of each user to the pool will be:
+
+| User | % Contribution                       |
+| ---- | ------------------------------------ |
+| A    | $10% = \frac{10 \times 100}{10,000}$ |
+| B    | $30% = \frac{15 \times 200}{10,000}$ |
+| C    | $60% = \frac{20 \times 300}{10,000}$ |
+
+Finally, the total 5,000 Moxie will be distributed to each user as Based Rewards based on their % contribution to the pool:
+
+| User | Based Rewards              |
+| ---- | -------------------------- |
+| A    | $500 = 10% \times 5,000$   |
+| B    | $1,500 = 30% \times 5,000$ |
+| C    | $3,000 = 60% \times 5,000$ |

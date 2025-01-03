@@ -13,11 +13,12 @@ These tables are tailored to meet the needs of both users and developers, enabli
 
 Below is a comprehensive list of tables available for your use:
 
-| Table                                                 | Description                                                                                                                                                                                                                                                                  |
-| ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [User Rewards Live](https://dune.com/queries/4510714) | This table provides estimated [Based Rewards](../learn/technical-deep-dive/04-based-rewards.mdx) that Moxie users will earn based on their gas usage on that day. <br /><br /> This table is sorted by rewards earned in descending order, making it ideal as a leaderboard. |
-| [User Daily Live](https://dune.com/queries/4511063)   | This table provides the amount of [Based Rewards](../learn/technical-deep-dive/04-based-rewards.mdx) earned by Moxie users the previous day. Rewards will be calculated daily at 00:00 UTC.                                                                                  |
-| [User Snapshot](https://dune.com/queries/4468458)     | This table provides historical snapshot data of [Based Rewards](../learn/technical-deep-dive/04-based-rewards.mdx) earned by all Moxie users since Moxie expansion on Base.                                                                                                  |
+| Table                                                     | Description                                                                                                                                                                                                                                                                  |
+| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [User Rewards Live](https://dune.com/queries/4510714)     | This table provides estimated [Based Rewards](../learn/technical-deep-dive/04-based-rewards.mdx) that Moxie users will earn based on their gas usage on that day. <br /><br /> This table is sorted by rewards earned in descending order, making it ideal as a leaderboard. |
+| [User Daily Live](https://dune.com/queries/4516789)       | This table provides the amount of [Based Rewards](../learn/technical-deep-dive/04-based-rewards.mdx) earned by Moxie users the previous day. Rewards will be calculated daily at 00:00 UTC.                                                                                  |
+| [User Snapshot](https://dune.com/queries/4468458)         | This table provides historical snapshot data of [Based Rewards](../learn/technical-deep-dive/04-based-rewards.mdx) earned by all Moxie users since Moxie expansion on Base.                                                                                                  |
+| [Allowlisted Contracts](https://dune.com/queries/4516518) | This table provides the list of all allowlisted contracts for Based Rewards with their corresponding multipliers. For every transactions user made through these allowlisted contracts, they'll earn multipliers on their gas calculations.                                  |
 
 These tables are thoughtfully organized and readily accessible, allowing you to dive into the data effortlessly. Whether you are analyzing trends, extracting insights, or building applications, these resources are here to support your needs.
 
@@ -54,6 +55,13 @@ Below, you'll find some of the most common use cases for fetching data from a Du
       description:
         "Learn how to get a certain user's previous day Based Rewards from the Dune table.",
       href: "/dune-data/guides/get-user-previous-day-based-rewards",
+    },
+    {
+      type: "link",
+      label: "Get All Allowlisted Contracts For Based Rewards",
+      description:
+        "Learn how to get all allowlisted contracts for Based Rewards from the Dune table.",
+      href: "/dune-data/guides/get-all-allowlisted-contracts-for-based-rewards",
     },
   ]}
 />

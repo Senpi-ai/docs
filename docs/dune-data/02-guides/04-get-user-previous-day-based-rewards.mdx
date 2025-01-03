@@ -4,9 +4,9 @@ description: Learn how to get a certain user's previous day Based Rewards from t
 
 # Get User Previous Day Based Rewards
 
-Simply fork [this Dune table](https://dune.com/queries/4511063). Then, delete the existing query and replace with the following query below and `<moxie-user-id>` added as the desired user to search:
+Simply fork [this Dune table](https://dune.com/queries/4516789). Then, delete the existing query and replace with the following query below and `<moxie-user-id>` added as the desired user to search:
 
-```sql {56}
+```sql {68}
 WITH gas_spent AS (
     SELECT
         DATE_TRUNC('day', block_time) AS timestamp,
@@ -21,7 +21,7 @@ WITH gas_spent AS (
     ON
         f.tx_to = wc.contract_address
     WHERE
-        DATE_TRUNC('day', block_time) = CURRENT_DATE - interval '1' day
+        DATE_TRUNC('day', block_time) = CURRENT_DATE
         AND blockchain = 'base'
     GROUP BY
         1, tx_from
@@ -31,21 +31,32 @@ WITH gas_spent AS (
         MAX(u.score) AS score,
         SUM(gas_spent.total_gas_spent_native) AS total_gas_spent_native,
         SUM(gas_spent.total_gas_spent_usd) AS total_gas_spent_usd,
-        SUM(gas_spent.total_gas_used) AS total_gas_used,
+        SUM(total_gas_used) AS total_gas_used,
         MAX(u.score) * SUM(gas_spent.total_gas_used) AS reward_contribution
     FROM
         dune.moxieprotocol.wallets w
-    JOIN gas_spent ON gas_spent.tx_from = w.wallet_address
-    JOIN dune.moxieprotocol.users_score_yesterday u ON w.user_id = u.user_id
-    WHERE u.status = 'ACTIVE' AND w.status = 'ACTIVE' AND u.score > 0.0
-    GROUP BY w.user_id
+    JOIN
+        gas_spent ON gas_spent.tx_from = w.wallet_address
+    JOIN
+        dune.moxieprotocol.users_score_yesterday u ON w.user_id = u.user_id
+    WHERE
+        u.status = 'ACTIVE'
+        AND w.status = 'ACTIVE'
+        AND u.score > 0.0
+    GROUP BY
+        w.user_id
 ), total_score AS (
     SELECT
         SUM(reward_contribution) AS total_score
     FROM
         user_score
 ), total_pool AS (
-    SELECT CAST(value AS UINT256) AS pool FROM dune.moxieprotocol.constants WHERE KEY = 'DAILY_MOXIE_ALLOCATION'
+    SELECT
+        CAST(value AS UINT256) AS pool
+    FROM
+        dune.moxieprotocol.constants
+    WHERE
+        KEY = 'DAILY_MOXIE_ALLOCATION'
 ), rewards AS (
     SELECT
         u.*,
@@ -57,7 +68,8 @@ WITH gas_spent AS (
         total_score t
     CROSS JOIN
         total_pool tp
-) SELECT
+)
+SELECT
     *,
     NOW() AS last_computed_at
 FROM

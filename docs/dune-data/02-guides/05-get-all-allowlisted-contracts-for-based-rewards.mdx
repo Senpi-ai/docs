@@ -1,0 +1,15 @@
+---
+description: Learn how to get all allowlisted contracts for Based Rewards.
+---
+
+# Get All Allowlisted Contracts For Based Rewards
+
+To view the top Based Rewards earner on the Moxie protocol live data, you can simply go to the Allowlisted Contracts table [here](https://dune.com/queries/4516518).
+
+Currently, the contracts allowlisted here are the Moxie bonding curve and staking contract with **5x multiplier** for both. This implies for every transactions a user initatied on these contracts, their gas usage will be multiplied by 5 for the [Based Rewards calculation](../../learn/technical-deep-dive/04-based-rewards.mdx).
+
+:::info[Only Direct Transactions Counts]
+
+Keep in mind that the multiplier effect will only affect transactions to the Moxie bonding curve and staking contract directly. Any non-direct transactions, that is transaction to Moxie bonding curve or staking contract that goes through a proxy contract, will not gain any multiplier.
+
+:::

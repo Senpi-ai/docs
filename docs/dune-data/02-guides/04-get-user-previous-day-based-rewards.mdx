@@ -4,17 +4,22 @@ description: Learn how to get a certain user's previous day Based Rewards from t
 
 # Get User Previous Day Based Rewards
 
-Simply fork [this Dune table](https://dune.com/queries/4488208). Then, delete the existing query and replace with the following query below and `<moxie-user-id>` added as the desired user to search:
+Simply fork [this Dune table](https://dune.com/queries/4511063). Then, delete the existing query and replace with the following query below and `<moxie-user-id>` added as the desired user to search:
 
 ```sql {51}
 WITH gas_spent AS (
     SELECT
         DATE_TRUNC('day', block_time) AS timestamp,
         tx_from,
-        SUM(gas_used) AS total_gas_used,
+        SUM(gas_used * COALESCE(wc.reward_multiplier, 1)) AS total_gas_used,
         SUM(tx_fee) AS total_gas_spent_native,
         SUM(tx_fee_usd) AS total_gas_spent_usd
-    FROM gas.fees
+    FROM
+        gas.fees f
+    LEFT JOIN
+        dune.moxieprotocol.whitelisted_contracts_with_multiplier wc
+    ON
+        f.tx_to = wc.contract_address
     WHERE
         DATE_TRUNC('day', block_time) = CURRENT_DATE - interval '1' day
         AND blockchain = 'base'

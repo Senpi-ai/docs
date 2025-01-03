@@ -6,7 +6,7 @@ description: Learn how to get a certain user's previous day Based Rewards from t
 
 Simply fork [this Dune table](https://dune.com/queries/4511063). Then, delete the existing query and replace with the following query below and `<moxie-user-id>` added as the desired user to search:
 
-```sql {51}
+```sql {56}
 WITH gas_spent AS (
     SELECT
         DATE_TRUNC('day', block_time) AS timestamp,

@@ -69,14 +69,14 @@ const config: Config = {
     ],
   ],
   themeConfig: {
-    announcementBar: {
-      id: "moxie_base",
-      content:
-        'Moxie is expanding to Base and X. Learn more on how <a href="/learn/technical-deep-dive/moxie-score">Moxie Score</a> and <a href="/learn/technical-deep-dive/based-rewards">Based Rewards</a> work.',
-      backgroundColor: "#8e55ff",
-      textColor: "#ffffff",
-      isCloseable: false,
-    },
+    // announcementBar: {
+    //   id: "moxie_base",
+    //   content:
+    //     'Moxie is expanding to Base and X. Learn more on how <a href="/learn/technical-deep-dive/moxie-score">Moxie Score</a> and <a href="/learn/technical-deep-dive/based-rewards">Based Rewards</a> work.',
+    //   backgroundColor: "#8e55ff",
+    //   textColor: "#ffffff",
+    //   isCloseable: false,
+    // },
     algolia: {
       appId: "0E7JT4EO4H",
       apiKey: "27c2281916aa623aa3fca88e9d0c6696",
@@ -222,6 +222,11 @@ const config: Config = {
           type: "doc",
           label: "Contracts",
           docId: "contract/overview",
+        },
+        {
+          type: "doc",
+          label: "Dune Data",
+          docId: "dune-data/overview",
         },
         // { to: "/blog", label: "Blog", position: "left" },
         {

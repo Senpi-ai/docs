@@ -1,0 +1,65 @@
+---
+description: Learn how to get a certain user's previous day Based Rewards from the Dune table.
+---
+
+# Get User Previous Day Based Rewards
+
+Simply fork [this Dune table](https://dune.com/queries/4488208). Then, delete the existing query and replace with the following query below and `<moxie-user-id>` added as the desired user to search:
+
+```sql {51}
+WITH gas_spent AS (
+    SELECT
+        DATE_TRUNC('day', block_time) AS timestamp,
+        tx_from,
+        SUM(gas_used) AS total_gas_used,
+        SUM(tx_fee) AS total_gas_spent_native,
+        SUM(tx_fee_usd) AS total_gas_spent_usd
+    FROM gas.fees
+    WHERE
+        DATE_TRUNC('day', block_time) = CURRENT_DATE - interval '1' day
+        AND blockchain = 'base'
+    GROUP BY
+        1, tx_from
+), user_score AS (
+    SELECT
+        w.user_id AS user_id,
+        MAX(u.score) AS score,
+        SUM(gas_spent.total_gas_spent_native) AS total_gas_spent_native,
+        SUM(gas_spent.total_gas_spent_usd) AS total_gas_spent_usd,
+        SUM(gas_spent.total_gas_used) AS total_gas_used,
+        MAX(u.score) * SUM(gas_spent.total_gas_used) AS reward_contribution
+    FROM
+        dune.moxieprotocol.wallets w
+    JOIN gas_spent ON gas_spent.tx_from = w.wallet_address
+    JOIN dune.moxieprotocol.users_score_yesterday u ON w.user_id = u.user_id
+    WHERE u.status = 'ACTIVE' AND w.status = 'ACTIVE' AND u.score > 0.0
+    GROUP BY w.user_id
+), total_score AS (
+    SELECT
+        SUM(reward_contribution) AS total_score
+    FROM
+        user_score
+), total_pool AS (
+    SELECT CAST(value AS UINT256) AS pool FROM dune.moxieprotocol.constants WHERE KEY = 'DAILY_MOXIE_ALLOCATION'
+), rewards AS (
+    SELECT
+        u.*,
+        (u.reward_contribution / t.total_score) * 100 AS percent_contribution,
+        (u.reward_contribution / t.total_score) * (tp.pool) AS reward_amount
+    FROM
+        user_score u
+    CROSS JOIN
+        total_score t
+    CROSS JOIN
+        total_pool tp
+) SELECT
+    *,
+    NOW() AS last_computed_at
+FROM
+    rewards
+WHERE rewards.user_id='<moxie-user-id>'
+ORDER BY
+    reward_amount DESC;
+```
+
+Once that's done, simply click on the `Run` button to get the result.

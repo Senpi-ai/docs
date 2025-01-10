@@ -2,37 +2,87 @@
 
 **Based Rewards** is the amount of Moxie that a user will automatically earn for every transaction that they execute on [Base](https://base.org).
 
-Each day a fixed number of Moxie, represented by variable $M$, will be distributed to all users proportionally based on the % amount they contributed to the pool that day. It is important to keep in mind that the variable $M$ will differ from day to day.
+## Pre-requisites
 
-The amount contributed to the pool in a given day is defined as the sum of the product of the Moxie Score and the gas spent by each user on Base, which can be written as an equation shown below:
+- Read the [Moxie Scores](./03-moxie-score.mdx) page.
+
+## Total Gas Used And Multipliers
+
+The **Total Gas Used** by a user $U$ is calculated as the sum of all gas fees (in gwei), multiplied by a multiplier value, for all **eligible transactions** completed by the user within a single day.
+
+A transaction is considered **eligible** for this calculation if it satisfies both of the following conditions:
+
+1. The `to` address of the transaction must belong to one of the **allowlisted contracts** on Moxie. These contracts, listed [here](https://dune.com/queries/4542828), are selected from the top 50 Base protocols with user fees.
+1. The **value** of the transaction must be at least $5, which can have either Ether or ERC20 tokens transferred within the transactions.
+
+Additionally, a **multiplier value** is applied to each eligible transaction, depending on the type of contract the user interacts with. The applicable multipliers are as follows:
+
+| **Contract Type**                                          | **Multiplier Value** |
+| ---------------------------------------------------------- | -------------------- |
+| Moxie Bonding Curve & Staking (Creator Coins Transactions) | $5\times$            |
+| Other Allowlisted Contracts                                | $1\times$            |
+| Non-Allowlisted Contracts                                  | $0\times$            |
+
+Using the criteria and multipliers above, given user $U$ has made transactions $tx_1, tx_2, ..., tx_j$ on the Base chain, then the **Total Gas Used** for user $U$ can be formulated using the following equations:
 
 $$
-P = \sum_{i=1}^k M_{score}(U_i) \times G_{spent}(U_i)
-$$
-
-And the % of contribution of a user $$U$$ to the pool in a given day can be calculated using the equation below:
-
-$$
-\frac{M_{score}(U) \times G_{spent}(U)}{P}
-$$
-
-Thus, by definition, the Based Rewards of a user $$U$$ can be represented as follows:
-
-$$
-B_{rewards}(U) = \frac{M_{score}(U) \times G_{spent}(U)}{P} \times M
+G_{used}(U) = \sum_{i=1}^j m(tx_{i}) \times E(tx_{i}) \times G(tx_{i})
 $$
 
 <br />
 
 where:
 
-| Notation           | Description                                               |
-| ------------------ | --------------------------------------------------------- |
-| $$k$$              | Total number of users                                     |
-| $$P$$              | Total amount contributed to the pool in a given day       |
-| $$B_{rewards}(U)$$ | Based Rewards of user $$U$$                               |
-| $$M_{score}(U)$$   | [Moxie Score](./03-moxie-score.mdx) of user $$U$$         |
-| $$G_{spent}(U)$$   | Total gas spent by user $$U$$ on [Base](https://base.org) |
+| Notation      | Description                                                         |
+| ------------- | ------------------------------------------------------------------- |
+| $G_{used}(U)$ | Total gas used by user $$U$$ on [Base](https://base.org).           |
+| $m(tx_{i})$   | Multiplier on transaction $tx_{i}$                                  |
+| $E(tx_{i})$   | If transaction $tx_{i}$ is eligible, return 1. Otherwise, return 0. |
+| $G(tx_{i})$   | Gas used on transaction $tx\_{i}$                                   |
+
+## Reward & Percentage Contribution
+
+Each day a fixed number of Moxie, represented by variable $M$, will be distributed to all users proportionally based on the % amount they contributed to the pool that day. It is important to keep in mind that the variable $M$ will differ from day to day.
+
+The **Base Usage** of user $U_i$ is defined as the amount contributed to the pool in a given day.
+
+This can be formulated as the sum of the product of the Moxie Score, the total eligible gas spent by each user on Base, and the total USD amount transacted in the day, which can be written as an equation shown below:
+
+$$
+B_{usage}(U) = M_{score}(U) \times G_{used}(U) \times T_{USD}(U)
+$$
+
+By summing up all the Base Usages from all users $U_1, U_2, ..., U_k$, the **Total Base Usage** to the reward pool can be defined as follows:
+
+$$
+P = \sum_{i=1}^k B_{usage}(U_i)
+$$
+
+And the **Percentage of Contribution** of a user $$U$$ to the pool in a given day can be calculated using the equation below:
+
+$$
+\frac{B_{usage}(U)}{P}
+$$
+
+Thus, by definition, the Based Rewards of a user $$U$$ can be represented as follows:
+
+$$
+B_{rewards}(U) = \frac{B_{usage}(U)}{P} \times M
+$$
+
+<br />
+
+where:
+
+| Notation           | Description                                                                                                                                         |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| $$k$$              | Total number of users                                                                                                                               |
+| $$P$$              | Total amount contributed to the pool in a given day                                                                                                 |
+| $$B_{usage}(U)$$   | The Base usage by user $U$                                                                                                                          |
+| $$B_{rewards}(U)$$ | Based Rewards of user $$U$$                                                                                                                         |
+| $$M_{score}(U)$$   | [Moxie Score](./03-moxie-score.mdx) of user $$U$$                                                                                                   |
+| $$G_{used}(U)$$    | Total gas used by user $$U$$ on [Base](https://base.org). For more details, read [Total Gas Used And Multipliers](#total-gas-used-and-multipliers). |
+| $$T_{USD}(U)$$     | Total USD amount transacted in the day                                                                                                              |
 
 As shown by the equation above, the amount of Based Rewards is directly proportional to the amount of Moxie Score you have. Thus, the more account you connect to your Moxie profile, the higher amount of Based Rewards you will earn for each transaction on Base.
 
@@ -44,16 +94,16 @@ These data is available in Dune publicly where you can fetch the data for your o
 
 Let's consider an example where there are 3 users on Base, and the total amount of Moxie distributed on a given day is 5,000 Moxie. The Moxie Score and gas spent by each user on Base are as follows:
 
-| User | Moxie Score | Gas Spent |
-| ---- | ----------- | --------- |
-| A    | $10$        | $100$     |
-| B    | $15$        | $200$     |
-| C    | $20$        | $300$     |
+| User | Moxie Score | Gas Used | Total USD transacted |
+| ---- | ----------- | -------- | -------------------- |
+| A    | $2$         | $100$    | $5$                  |
+| B    | $5$         | $200$    | $3$                  |
+| C    | $10$        | $300$    | $2$                  |
 
 The total amount contributed to the pool in a given day can be calculated as follows:
 
 $$
-P = 10 \times 100 + 15 \times 200 + 20 \times 300 = 10,000
+P = 2 \times 100 \times 5 + 5 \times 200 \times 3 + 10 \times 300 \times 2 = 10,000
 $$
 
 Thus, the % of contribution of each user to the pool will be:

@@ -57,7 +57,7 @@
                   "name": "initialSupply",
                   "type": "string",
                   "example": "37320999999999999737856",
-                  "description": "The fan token initial supply",
+                  "description": "The Creator Coin initial supply",
                   "required": true
                 },
                 {

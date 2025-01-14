@@ -1,6 +1,6 @@
 ---
 sidebar_class_name: protocol_fees
-description: Learn how to use the Moxie Protocol Subgraph API to get the user's balance of a certain fan token.
+description: Learn how to use the Moxie Protocol Subgraph API to get the user's balance of a certain Creator Coin.
 ---
 
 import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
@@ -10,18 +10,18 @@ import AddQuery from "../../../src/components/Tutorials/AddQuery";
 import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
 import url from "../../../constant/api_url.json";
 
-# Get Users's Balance Of Certain Fan Token
+# Get Users's Balance Of Certain Creator Coin
 
 <Header
-  useCase="get user's balance of a certain fan token"
+  useCase="get user's balance of a certain Creator Coin"
   apiName="Moxie Protocol Subgraph"
 />
 
 :::info[Include User's Vesting Addresses]
 
-Moxie protocol users have Moxie token currently vesting in their vesting contract. A huge portion of them use these to bid on auctions and buy/sell fan tokens on the Moxie protocol.
+Moxie protocol users have Moxie token currently vesting in their vesting contract. A huge portion of them use these to bid on auctions and buy/sell Creator Coins on the Moxie protocol.
 
-Therefore, it is important that you include the user's vesting addresses in the query to get user's balance of a certain fan token. To **get user's vesting contract addresses**, click [**here**](../vesting/01-get-users-vesting-contract-addresses.mdx).
+Therefore, it is important that you include the user's vesting addresses in the query to get user's balance of a certain Creator Coin. To **get user's vesting contract addresses**, click [**here**](../vesting/01-get-users-vesting-contract-addresses.mdx).
 
 :::
 
@@ -32,7 +32,7 @@ Therefore, it is important that you include the user's vesting addresses in the 
 ## Step 1: Add The API Query To Your Code
 
 <AddQuery
-  useCase="get user's balance of a certain fan token"
+  useCase="get user's balance of a certain Creator Coin"
   subgraphLink={url.protocol_stats_subgraphs}
   query={`query MyQuery($userAddresses: [ID!], $fanTokenAddress: String) {
   users(where: { id_in: $userAddresses }) {
@@ -49,7 +49,7 @@ Therefore, it is important that you include the user's vesting addresses in the 
 }`}
   variable={`{
   "userAddress": "0x00d620def6ccb76c92dbfc87bc2bebab7637ec53",
-  // provide the fan token address here to get user's balance
+  // provide the Creator Coin address here to get user's balance
   "fanTokenAddress": "0x00e7d5fad22a375568d03b0688abbdfa4ec3b729"
 }`}
   response={`{
@@ -95,7 +95,7 @@ Therefore, it is important that you include the user's vesting addresses in the 
     ]
   }
 }`}
-  dataFetched="user's balance of a certain fan token"
+  dataFetched="user's balance of a certain Creator Coin"
 />
 
 <DeveloperSupport />

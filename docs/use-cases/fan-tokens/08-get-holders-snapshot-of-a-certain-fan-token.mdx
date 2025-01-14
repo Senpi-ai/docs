@@ -1,6 +1,6 @@
 ---
 sidebar_class_name: camera
-description: Learn how to use the Moxie Protocol Subgraph API to get all the holders snapshot of a certain fan token.
+description: Learn how to use the Moxie Protocol Subgraph API to get all the holders snapshot of a certain Creator Coin.
 ---
 
 import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
@@ -10,10 +10,10 @@ import AddQuery from "../../../src/components/Tutorials/AddQuery";
 import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
 import url from "../../../constant/api_url.json";
 
-# Get Holders Snapshot Of Certain Fan Token
+# Get Holders Snapshot Of Certain Creator Coin
 
 <Header
-  useCase="get all the holders snapshot of a certain fan token"
+  useCase="get all the holders snapshot of a certain Creator Coin"
   apiName="Moxie Protocol Subgraph"
 />
 
@@ -24,7 +24,7 @@ import url from "../../../constant/api_url.json";
 ## Step 1: Add The API Query To Your Code
 
 <AddQuery
-  useCase="get all the holders snapshot of a certain fan token"
+  useCase="get all the holders snapshot of a certain Creator Coin"
   subgraphLink={url.protocol_stats_subgraphs}
   query={`query MyQuery($symbol: String, $blockNumber: Int) {
   subjectTokens(where: {symbol: $symbol}, block: {number: $blockNumber}) {
@@ -38,7 +38,7 @@ import url from "../../../constant/api_url.json";
 }`}
   variable={`{
   /**
-   * There are 3 types of fan tokens, here's how the symbol is formatted:
+   * There are 3 types of Creator Coins, here's how the symbol is formatted:
    * - USER -> fid:<fid>
    * - CHANNEL -> cid:<channel-id>
    * - NETWORK (Only for Farcaster) -> id:farcaster
@@ -83,7 +83,7 @@ import url from "../../../constant/api_url.json";
     ]
   }
 }`}
-  dataFetched="all the holders snapshot of a certain fan token"
+  dataFetched="all the holders snapshot of a certain Creator Coin"
 />
 
 <DeveloperSupport />

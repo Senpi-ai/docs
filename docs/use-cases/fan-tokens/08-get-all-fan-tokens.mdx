@@ -1,6 +1,6 @@
 ---
 sidebar_class_name: circle_stack
-description: Learn how to use the Moxie Protocol Subgraph API to get all the fan tokens in the Moxie protocol.
+description: Learn how to use the Moxie Protocol Subgraph API to get all the Creator Coins in the Moxie protocol.
 ---
 
 import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
@@ -10,10 +10,10 @@ import AddQuery from "../../../src/components/Tutorials/AddQuery";
 import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
 import url from "../../../constant/api_url.json";
 
-# Get All Fan Tokens
+# Get All Creator Coins
 
 <Header
-  useCase="get all the fan tokens in the Moxie protocol"
+  useCase="get all the Creator Coins in the Moxie protocol"
   apiName="Moxie Protocol Subgraph"
 />
 
@@ -24,7 +24,7 @@ import url from "../../../constant/api_url.json";
 ## Step 1: Add The API Query To Your Code
 
 <AddQuery
-  useCase="get all the fan tokens in the Moxie protocol"
+  useCase="get all the Creator Coins in the Moxie protocol"
   subgraphLink={url.protocol_stats_subgraphs}
   query={`query MyQuery {
   subjectTokens {
@@ -64,7 +64,7 @@ import url from "../../../constant/api_url.json";
     ]
   }
 }`}
-  dataFetched="all the fan tokens in the Moxie protocol"
+  dataFetched="all the Creator Coins in the Moxie protocol"
 />
 
 <DeveloperSupport />

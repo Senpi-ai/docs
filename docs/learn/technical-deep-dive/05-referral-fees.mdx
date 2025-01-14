@@ -4,7 +4,7 @@ import DeveloperSupport from "../../../partial/_developer_support.mdx";
 
 ## Overview
 
-Referral fees are rewards provided to third parties for facilitating user activities such as buying, selling, or auctioning a Fan Token on the Moxie protocol.
+Referral fees are rewards provided to third parties for facilitating user activities such as buying, selling, or auctioning a Creator Coin on the Moxie protocol.
 
 The Moxie protocol offers three types of referral fees:
 
@@ -24,7 +24,7 @@ Auction & signup referrals, however, can only be made through the referral links
 
 ### Buy/Sell Referral Fees
 
-For every buy and sell Fan Token transactions that occurs on your platform, you can include your address as a referrer to receive the referral fees from each transaction.
+For every buy and sell Creator Coin transactions that occurs on your platform, you can include your address as a referrer to receive the referral fees from each transaction.
 
 This can be done easily by calling "v2" functions added from the [December 4, 2024 contract upgrade](../../contract/04-changelog.mdx#december-4-2024) in both the [`MoxieBondingCurveV2.sol`](../../contract/03-references/01-moxiebondingcurve.mdx) and [`StakingV2.sol`](../../contract/03-references/06-staking.mdx) contracts. Those functions are:
 
@@ -60,20 +60,20 @@ flowchart LR
 PR[ProtocolRewards.sol] ---> |Withdraw | OR(Order Referrer)
 ```
 
-To learn more on how to buy/sell Fan Tokens with referral fees, you can continue following the tutorial below:
+To learn more on how to buy/sell Creator Coins with referral fees, you can continue following the tutorial below:
 
-- [Buy Fan Tokens](../../use-cases/fan-tokens/01-buy-fan-tokens.mdx)
-- [Buy Fan Tokens On Behalf Of Others](../../use-cases/fan-tokens/02-buy-fan-tokens-on-behalf-of-others.mdx)
-- [Sell Fan Tokens](../../use-cases/fan-tokens/03-sell-fan-tokens.mdx)
-- [Sell Fan Tokens On Behalf Of Others](../../use-cases/fan-tokens/04-sell-fan-tokens-on-behalf-of-others.mdx)
+- [Buy Creator Coins](../../use-cases/fan-tokens/01-buy-fan-tokens.mdx)
+- [Buy Creator Coins On Behalf Of Others](../../use-cases/fan-tokens/02-buy-fan-tokens-on-behalf-of-others.mdx)
+- [Sell Creator Coins](../../use-cases/fan-tokens/03-sell-fan-tokens.mdx)
+- [Sell Creator Coins On Behalf Of Others](../../use-cases/fan-tokens/04-sell-fan-tokens-on-behalf-of-others.mdx)
 
 In addition, if you successfully onboard another user to [moxie.xyz](https://moxie.xyz), you can earn 0.15% [signup referral fees](#signup-referral-fees) for every buy/sell transactions from that user indefinitely.
 
 ### Auction Referral Fees
 
-Auction referral fees are rewards provided to referrers who promoted certain Fan Token auction to another user that successfully bid on it.
+Auction referral fees are rewards provided to referrers who promoted certain Creator Coin auction to another user that successfully bid on it.
 
-For every successful bid on a Fan Token auction that you referred, you will earn 1.5% of that particular auction order proceeds.
+For every successful bid on a Creator Coin auction that you referred, you will earn 1.5% of that particular auction order proceeds.
 
 Auction referral fees for this will be handled off-chain and will be paid out to the `ProtocolRewards.sol` contract where all other referral fees are accumulated and can be claimed on-chain.
 
@@ -84,7 +84,7 @@ Signup referral fees are rewards provided to referrers for successfully onboardi
 For every user that you successfully onboard to [moxie.xyz](https://moxie.xyz), you will be labelled as a **Platform Referrer** by Moxie for those users and will earn:
 
 - 0.15% referral fees for every buy/sell transactions from that user indefinitely
-- 1.5% of that user's Fan Token auction proceeds when they launch a Fan Token
+- 1.5% of that user's Creator Coin auction proceeds when they launch a Creator Coin
 - 10% of that user's [Moxie Score](03-moxie-score.mdx) added to your Moxie Score
 
 Signup referral fees for this will be handled off-chain and will be paid out to the `ProtocolRewards.sol` contract where all other referral fees are accumulated and can be claimed on-chain.

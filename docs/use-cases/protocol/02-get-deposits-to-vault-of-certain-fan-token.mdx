@@ -1,6 +1,6 @@
 ---
 sidebar_class_name: bank_notes
-description: Learn how to use the Moxie Protocol Subgraph API to get all the Moxie deposits to the vault contract by a certain fan token on the Moxie protocol.
+description: Learn how to use the Moxie Protocol Subgraph API to get all the Moxie deposits to the vault contract by a certain Creator Coin on the Moxie protocol.
 ---
 
 import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
@@ -10,10 +10,10 @@ import AddQuery from "../../../src/components/Tutorials/AddQuery";
 import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
 import url from "../../../constant/api_url.json";
 
-# Get Deposits To Vault Of Certain Fan Token
+# Get Deposits To Vault Of Certain Creator Coin
 
 <Header
-  useCase="get all the Moxie deposits to the vault contract by a certain fan token"
+  useCase="get all the Moxie deposits to the vault contract by a certain Creator Coin"
   apiName="Moxie Protocol Subgraph"
 />
 
@@ -24,7 +24,7 @@ import url from "../../../constant/api_url.json";
 ## Step 1: Add The API Query To Your Code
 
 <AddQuery
-  useCase="get all the Moxie deposits to the vault contract by a certain fan token"
+  useCase="get all the Moxie deposits to the vault contract by a certain Creator Coin"
   subgraphLink={url.protocol_stats_subgraphs}
   query={`query MyQuery($fanTokenAddress: Bytes) {
   vaultDepositTxes(where: { subject: $fanTokenAddress }) {
@@ -87,7 +87,7 @@ import url from "../../../constant/api_url.json";
     ]
   }
 }`}
-  dataFetched="all the Moxie deposits to the vault contract by a certain fan token"
+  dataFetched="all the Moxie deposits to the vault contract by a certain Creator Coin"
 />
 
 <DeveloperSupport />

@@ -4,7 +4,9 @@ is required to be annotated with this directive.
 """
 directive @entity on OBJECT
 
-"""Defined a Subgraph ID for an object type"""
+"""
+Defined a Subgraph ID for an object type
+"""
 directive @subgraphId(id: String!) on OBJECT
 
 """
@@ -13,39 +15,54 @@ creates a virtual field on the entity that may be queried but cannot be set manu
 directive @derivedFrom(field: String!) on FIELD_DEFINITION
 
 type _Block_ {
-  """The hash of the block"""
+  """
+  The hash of the block
+  """
   hash: Bytes
 
-  """The block number"""
+  """
+  The block number
+  """
   number: Int!
 
-  """Integer representation of the timestamp stored in blocks for the chain"""
+  """
+  Integer representation of the timestamp stored in blocks for the chain
+  """
   timestamp: Int
 
-  """The hash of the parent block"""
+  """
+  The hash of the parent block
+  """
   parentHash: Bytes
 }
 
-"""The type for the top-level _meta field"""
+"""
+The type for the top-level _meta field
+"""
 type _Meta_ {
   """
   Information about a specific subgraph block. The hash of the block
   will be null if the _meta field has a block constraint that asks for
   a block number. It will be filled if the _meta field has no block constraint
   and therefore asks for the latest  block
-  
   """
   block: _Block_!
 
-  """The deployment ID"""
+  """
+  The deployment ID
+  """
   deployment: String!
 
-  """If `true`, the subgraph encountered indexing errors at some past block"""
+  """
+  If `true`, the subgraph encountered indexing errors at some past block
+  """
   hasIndexingErrors: Boolean!
 }
 
 enum _SubgraphErrorPolicy_ {
-  """Data will be returned even if the subgraph has indexing errors"""
+  """
+  Data will be returned even if the subgraph has indexing errors
+  """
   allow
 
   """
@@ -60,10 +77,14 @@ enum Aggregation_interval {
 }
 
 type Auction {
-  """auctionid"""
+  """
+  auctionid
+  """
   id: ID!
 
-  """protocol token address"""
+  """
+  protocol token address
+  """
   protocolToken: Bytes!
   subjectToken: SubjectToken
   minFundingThreshold: BigInt!
@@ -74,7 +95,7 @@ type Auction {
   volumeClearingPriceOrder: BigInt!
 
   """
-  _bondingAmount + _protocolFee + _subjectFee -> from auction , should be added in summary buyVolume 
+  _bondingAmount + _protocolFee + _subjectFee -> from auction , should be added in summary buyVolume
   """
   amountRaised: BigInt!
   subjectFee: BigInt!
@@ -265,7 +286,9 @@ input Auction_filter {
   auctionEndDate_in: [BigInt!]
   auctionEndDate_not_in: [BigInt!]
 
-  """Filter for the block changed event."""
+  """
+  Filter for the block changed event.
+  """
   _change_block: BlockChangedFilter
   and: [Auction_filter]
   or: [Auction_filter]
@@ -343,7 +366,9 @@ input AuctionUser_filter {
   userAddress_contains: Bytes
   userAddress_not_contains: Bytes
 
-  """Filter for the block changed event."""
+  """
+  Filter for the block changed event.
+  """
   _change_block: BlockChangedFilter
   and: [AuctionUser_filter]
   or: [AuctionUser_filter]
@@ -411,7 +436,9 @@ input BlockInfo_filter {
   timestamp_in: [BigInt!]
   timestamp_not_in: [BigInt!]
 
-  """Filter for the block changed event."""
+  """
+  Filter for the block changed event.
+  """
   _change_block: BlockChangedFilter
   and: [BlockInfo_filter]
   or: [BlockInfo_filter]
@@ -428,54 +455,83 @@ scalar Bytes
 
 """
 8 bytes signed integer
-
 """
 scalar Int8
 
 type LockInfo {
-  """index"""
+  """
+  index
+  """
   id: ID!
 
-  """txHash of the transaction"""
+  """
+  txHash of the transaction
+  """
   txHash: Bytes!
 
-  """logIndex of the transaction"""
+  """
+  logIndex of the transaction
+  """
   logIndex: BigInt!
 
-  """User's address"""
+  """
+  User's address
+  """
   user: User!
 
-  """Buyer's address, if the lock is a buy and lock"""
+  """
+  Buyer's address, if the lock is a buy and lock
+  """
   buyer: User
 
-  """Subject's token address"""
+  """
+  Subject's token address
+  """
   subjectToken: SubjectToken!
 
-  """portfolio"""
+  """
+  portfolio
+  """
   portfolio: Portfolio!
 
-  """Buyer's portfolio , if the lock is a buy and lock"""
+  """
+  Buyer's portfolio , if the lock is a buy and lock
+  """
   buyerPortfolio: Portfolio
 
-  """Subject's address"""
+  """
+  Subject's address
+  """
   subject: User!
 
-  """Unlock time in seconds"""
+  """
+  Unlock time in seconds
+  """
   unlockTimeInSec: BigInt!
 
-  """Amount locked"""
+  """
+  Amount locked
+  """
   amount: BigInt!
 
-  """isBuy"""
+  """
+  isBuy
+  """
   isBuy: Boolean!
 
-  """Lock period"""
+  """
+  Lock period
+  """
   lockPeriodInSec: BigInt!
 
-  """moxie spent to buy the subject token & lock"""
+  """
+  moxie spent to buy the subject token & lock
+  """
   moxieDepositAmount: BigInt!
 
-  """created at block information"""
+  """
+  created at block information
+  """
   createdAtBlockInfo: BlockInfo!
 }
 
@@ -690,7 +746,9 @@ input LockInfo_filter {
   createdAtBlockInfo_not_ends_with_nocase: String
   createdAtBlockInfo_: BlockInfo_filter
 
-  """Filter for the block changed event."""
+  """
+  Filter for the block changed event.
+  """
   _change_block: BlockChangedFilter
   and: [LockInfo_filter]
   or: [LockInfo_filter]
@@ -774,49 +832,79 @@ enum OnboardingStatus {
 }
 
 type Order {
-  """txHash+-+logIndex"""
+  """
+  txHash+-+logIndex
+  """
   id: ID!
 
-  """Moxie Token address"""
+  """
+  Moxie Token address
+  """
   protocolToken: Bytes!
 
-  """Amount of moxie token"""
+  """
+  Amount of moxie token
+  """
   protocolTokenAmount: BigInt!
 
-  """Subject Token address"""
+  """
+  Subject Token address
+  """
   subjectToken: SubjectToken!
 
-  """Amount of subject token"""
+  """
+  Amount of subject token
+  """
   subjectAmount: BigInt!
 
-  """investment amount in moxie"""
+  """
+  investment amount in moxie
+  """
   protocolTokenInvested: BigDecimal!
 
-  """subject fee"""
+  """
+  subject fee
+  """
   subjectFee: BigInt!
 
-  """protocol fee"""
+  """
+  protocol fee
+  """
   protocolFee: BigInt!
 
-  """Price of the subject token"""
+  """
+  Price of the subject token
+  """
   price: BigDecimal!
 
-  """BUY/SELL order type"""
+  """
+  BUY/SELL order type
+  """
   orderType: OrderType
 
-  """Seller/Buyer of Fan token"""
+  """
+  Seller/Buyer of Creator Coin
+  """
   user: User
 
-  """associated portfolio"""
+  """
+  associated portfolio
+  """
   portfolio: Portfolio!
 
-  """subject fee transaction"""
+  """
+  subject fee transaction
+  """
   subjectFeeTransfer: SubjectFeeTransfer
 
-  """protocol fee transaction"""
+  """
+  protocol fee transaction
+  """
   protocolFeeTransfer: ProtocolFeeTransfer
 
-  """block information"""
+  """
+  block information
+  """
   blockInfo: BlockInfo!
 }
 
@@ -1018,7 +1106,9 @@ input Order_filter {
   blockInfo_not_ends_with_nocase: String
   blockInfo_: BlockInfo_filter
 
-  """Filter for the block changed event."""
+  """
+  Filter for the block changed event.
+  """
   _change_block: BlockChangedFilter
   and: [Order_filter]
   or: [Order_filter]
@@ -1084,7 +1174,9 @@ enum Order_orderBy {
   blockInfo__timestamp
 }
 
-"""Defines the order direction, either ascending or descending"""
+"""
+Defines the order direction, either ascending or descending
+"""
 enum OrderDirection {
   asc
   desc
@@ -1097,49 +1189,97 @@ enum OrderType {
 }
 
 type Portfolio {
-  """User's address+-+Subject's token address"""
+  """
+  User's address+-+Subject's token address
+  """
   id: ID!
 
-  """User's address"""
+  """
+  User's address
+  """
   user: User!
 
-  """Subject's token address"""
+  """
+  Subject's token address
+  """
   subjectToken: SubjectToken!
 
-  """lockInfos"""
-  lockInfos(skip: Int = 0, first: Int = 100, orderBy: LockInfo_orderBy, orderDirection: OrderDirection, where: LockInfo_filter): [LockInfo!]!
+  """
+  lockInfos
+  """
+  lockInfos(
+    skip: Int = 0
+    first: Int = 100
+    orderBy: LockInfo_orderBy
+    orderDirection: OrderDirection
+    where: LockInfo_filter
+  ): [LockInfo!]!
 
-  """lockInfos as buyer"""
-  buyerLockInfos(skip: Int = 0, first: Int = 100, orderBy: LockInfo_orderBy, orderDirection: OrderDirection, where: LockInfo_filter): [LockInfo!]!
+  """
+  lockInfos as buyer
+  """
+  buyerLockInfos(
+    skip: Int = 0
+    first: Int = 100
+    orderBy: LockInfo_orderBy
+    orderDirection: OrderDirection
+    where: LockInfo_filter
+  ): [LockInfo!]!
 
-  """Net quantity of the subject token by the user"""
+  """
+  Net quantity of the subject token by the user
+  """
   balance: BigInt!
 
-  """staked quantity of the subject token by the user"""
+  """
+  staked quantity of the subject token by the user
+  """
   stakedBalance: BigInt!
 
-  """unstaked quantity of the subject token by the user"""
+  """
+  unstaked quantity of the subject token by the user
+  """
   unstakedBalance: BigInt!
 
-  """Moxie spent by user to buy the subject token(buyShare + auctionOrders)"""
+  """
+  Moxie spent by user to buy the subject token(buyShare + auctionOrders)
+  """
   buyVolume: BigInt!
 
-  """total subject token bought by user"""
+  """
+  total subject token bought by user
+  """
   subjectTokenBuyVolume: BigInt!
 
-  """amount of moxie earned by user by selling the subject token"""
+  """
+  amount of moxie earned by user by selling the subject token
+  """
   sellVolume: BigInt!
 
-  """total moxie invested by the user"""
+  """
+  total moxie invested by the user
+  """
   protocolTokenInvested: BigDecimal!
 
-  """Orders associated with the user's portfolio"""
-  orders(skip: Int = 0, first: Int = 100, orderBy: Order_orderBy, orderDirection: OrderDirection, where: Order_filter): [Order!]!
+  """
+  Orders associated with the user's portfolio
+  """
+  orders(
+    skip: Int = 0
+    first: Int = 100
+    orderBy: Order_orderBy
+    orderDirection: OrderDirection
+    where: Order_filter
+  ): [Order!]!
 
-  """created at block information"""
+  """
+  created at block information
+  """
   createdAtBlockInfo: BlockInfo!
 
-  """updated at block information"""
+  """
+  updated at block information
+  """
   updatedAtBlockInfo: BlockInfo!
 }
 
@@ -1296,7 +1436,9 @@ input Portfolio_filter {
   updatedAtBlockInfo_not_ends_with_nocase: String
   updatedAtBlockInfo_: BlockInfo_filter
 
-  """Filter for the block changed event."""
+  """
+  Filter for the block changed event.
+  """
   _change_block: BlockChangedFilter
   and: [Portfolio_filter]
   or: [Portfolio_filter]
@@ -1353,17 +1495,31 @@ enum Portfolio_orderBy {
 }
 
 type ProtocolFeeBeneficiary {
-  """address of the beneficiary"""
+  """
+  address of the beneficiary
+  """
   id: ID!
 
-  """address of the beneficiary"""
+  """
+  address of the beneficiary
+  """
   beneficiary: Bytes!
 
-  """total fees collected by the protocol"""
+  """
+  total fees collected by the protocol
+  """
   totalFees: BigInt!
 
-  """protocol fee transfers"""
-  protocolFeeTransfers(skip: Int = 0, first: Int = 100, orderBy: ProtocolFeeTransfer_orderBy, orderDirection: OrderDirection, where: ProtocolFeeTransfer_filter): [ProtocolFeeTransfer!]!
+  """
+  protocol fee transfers
+  """
+  protocolFeeTransfers(
+    skip: Int = 0
+    first: Int = 100
+    orderBy: ProtocolFeeTransfer_orderBy
+    orderDirection: OrderDirection
+    where: ProtocolFeeTransfer_filter
+  ): [ProtocolFeeTransfer!]!
 }
 
 input ProtocolFeeBeneficiary_filter {
@@ -1395,7 +1551,9 @@ input ProtocolFeeBeneficiary_filter {
   totalFees_not_in: [BigInt!]
   protocolFeeTransfers_: ProtocolFeeTransfer_filter
 
-  """Filter for the block changed event."""
+  """
+  Filter for the block changed event.
+  """
   _change_block: BlockChangedFilter
   and: [ProtocolFeeBeneficiary_filter]
   or: [ProtocolFeeBeneficiary_filter]
@@ -1409,25 +1567,39 @@ enum ProtocolFeeBeneficiary_orderBy {
 }
 
 type ProtocolFeeTransfer {
-  """txHash+-+logIndex"""
+  """
+  txHash+-+logIndex
+  """
   id: ID!
 
-  """txHash of the transaction"""
+  """
+  txHash of the transaction
+  """
   txHash: Bytes!
 
-  """block information"""
+  """
+  block information
+  """
   blockInfo: BlockInfo!
 
-  """order"""
+  """
+  order
+  """
   order: Order!
 
-  """subject token address"""
+  """
+  subject token address
+  """
   subjectToken: SubjectToken!
 
-  """ProtocolFee Beneficiary"""
+  """
+  ProtocolFee Beneficiary
+  """
   beneficiary: ProtocolFeeBeneficiary!
 
-  """amount of moxie transferred"""
+  """
+  amount of moxie transferred
+  """
   amount: BigInt!
 }
 
@@ -1543,7 +1715,9 @@ input ProtocolFeeTransfer_filter {
   amount_in: [BigInt!]
   amount_not_in: [BigInt!]
 
-  """Filter for the block changed event."""
+  """
+  Filter for the block changed event.
+  """
   _change_block: BlockChangedFilter
   and: [ProtocolFeeTransfer_filter]
   or: [ProtocolFeeTransfer_filter]
@@ -2276,30 +2450,46 @@ type Query {
     subgraphError: _SubgraphErrorPolicy_! = deny
   ): [VaultTransferTx!]!
 
-  """Access to subgraph metadata"""
+  """
+  Access to subgraph metadata
+  """
   _meta(block: Block_height): _Meta_
 }
 
 type SubjectFeeTransfer {
-  """txHash"""
+  """
+  txHash
+  """
   id: ID!
 
-  """txHash of the transaction"""
+  """
+  txHash of the transaction
+  """
   txHash: Bytes!
 
-  """block information"""
+  """
+  block information
+  """
   blockInfo: BlockInfo!
 
-  """order"""
+  """
+  order
+  """
   order: Order!
 
-  """subject token address"""
+  """
+  subject token address
+  """
   subjectToken: SubjectToken!
 
-  """address of the beneficiary"""
+  """
+  address of the beneficiary
+  """
   subject: User!
 
-  """amount of moxie transferred"""
+  """
+  amount of moxie transferred
+  """
   amount: BigInt!
 }
 
@@ -2415,7 +2605,9 @@ input SubjectFeeTransfer_filter {
   amount_in: [BigInt!]
   amount_not_in: [BigInt!]
 
-  """Filter for the block changed event."""
+  """
+  Filter for the block changed event.
+  """
   _change_block: BlockChangedFilter
   and: [SubjectFeeTransfer_filter]
   or: [SubjectFeeTransfer_filter]
@@ -2469,86 +2661,174 @@ enum SubjectFeeTransfer_orderBy {
 }
 
 type SubjectToken {
-  """address of the subject token"""
+  """
+  address of the subject token
+  """
   id: ID!
 
-  """name of the token"""
+  """
+  name of the token
+  """
   name: String!
 
-  """symbol of the token"""
+  """
+  symbol of the token
+  """
   symbol: String!
 
-  """decimals of the token"""
+  """
+  decimals of the token
+  """
   decimals: BigInt!
 
-  """address of the beneficiary"""
+  """
+  address of the beneficiary
+  """
   subject: User
 
-  """reserve balance in vault"""
+  """
+  reserve balance in vault
+  """
   reserve: BigInt!
 
-  """current price of the token in Moxie"""
+  """
+  current price of the token in Moxie
+  """
   currentPriceInMoxie: BigDecimal!
 
-  """current price of the token in Moxie in wei unit"""
+  """
+  current price of the token in Moxie in wei unit
+  """
   currentPriceInWeiInMoxie: BigDecimal!
 
-  """constant used to calculate bonding curve"""
+  """
+  constant used to calculate bonding curve
+  """
   reserveRatio: BigInt!
 
-  """Total supply of the token"""
+  """
+  Total supply of the token
+  """
   totalSupply: BigInt!
 
-  """total locked In staking"""
+  """
+  total locked In staking
+  """
   totalStaked: BigInt!
 
-  """initial supply when bonding curve is initialized"""
+  """
+  initial supply when bonding curve is initialized
+  """
   initialSupply: BigInt!
 
-  """all the lockInfos"""
-  lockInfos(skip: Int = 0, first: Int = 100, orderBy: LockInfo_orderBy, orderDirection: OrderDirection, where: LockInfo_filter): [LockInfo!]!
+  """
+  all the lockInfos
+  """
+  lockInfos(
+    skip: Int = 0
+    first: Int = 100
+    orderBy: LockInfo_orderBy
+    orderDirection: OrderDirection
+    where: LockInfo_filter
+  ): [LockInfo!]!
 
-  """total number of unique holders"""
+  """
+  total number of unique holders
+  """
   uniqueHolders: BigInt!
 
-  """amount of moxie used to buy or sell or auction this subject token"""
+  """
+  amount of moxie used to buy or sell or auction this subject token
+  """
   lifetimeVolume: BigInt!
 
-  """snapshots"""
-  hourlySnapshots(skip: Int = 0, first: Int = 100, orderBy: SubjectTokenHourlySnapshot_orderBy, orderDirection: OrderDirection, where: SubjectTokenHourlySnapshot_filter): [SubjectTokenHourlySnapshot!]!
-  dailySnapshots(skip: Int = 0, first: Int = 100, orderBy: SubjectTokenDailySnapshot_orderBy, orderDirection: OrderDirection, where: SubjectTokenDailySnapshot_filter): [SubjectTokenDailySnapshot!]!
+  """
+  snapshots
+  """
+  hourlySnapshots(
+    skip: Int = 0
+    first: Int = 100
+    orderBy: SubjectTokenHourlySnapshot_orderBy
+    orderDirection: OrderDirection
+    where: SubjectTokenHourlySnapshot_filter
+  ): [SubjectTokenHourlySnapshot!]!
+  dailySnapshots(
+    skip: Int = 0
+    first: Int = 100
+    orderBy: SubjectTokenDailySnapshot_orderBy
+    orderDirection: OrderDirection
+    where: SubjectTokenDailySnapshot_filter
+  ): [SubjectTokenDailySnapshot!]!
   latestRollingDailySnapshot: SubjectTokenRollingDailySnapshot
   latestDailySnapshot: SubjectTokenDailySnapshot
   previousDailySnapshot: SubjectTokenDailySnapshot
 
-  """total beneficiary fees collected"""
+  """
+  total beneficiary fees collected
+  """
   subjectFee: BigInt!
 
-  """total protocol fees collected"""
+  """
+  total protocol fees collected
+  """
   protocolFee: BigInt!
 
-  """beneficiary fee transfer"""
-  subjectFeeTransfers(skip: Int = 0, first: Int = 100, orderBy: SubjectFeeTransfer_orderBy, orderDirection: OrderDirection, where: SubjectFeeTransfer_filter): [SubjectFeeTransfer!]!
+  """
+  beneficiary fee transfer
+  """
+  subjectFeeTransfers(
+    skip: Int = 0
+    first: Int = 100
+    orderBy: SubjectFeeTransfer_orderBy
+    orderDirection: OrderDirection
+    where: SubjectFeeTransfer_filter
+  ): [SubjectFeeTransfer!]!
 
-  """protocol fee transfers"""
-  protocolFeeTransfers(skip: Int = 0, first: Int = 100, orderBy: ProtocolFeeTransfer_orderBy, orderDirection: OrderDirection, where: ProtocolFeeTransfer_filter): [ProtocolFeeTransfer!]!
+  """
+  protocol fee transfers
+  """
+  protocolFeeTransfers(
+    skip: Int = 0
+    first: Int = 100
+    orderBy: ProtocolFeeTransfer_orderBy
+    orderDirection: OrderDirection
+    where: ProtocolFeeTransfer_filter
+  ): [ProtocolFeeTransfer!]!
 
-  """portfolios with this subject"""
-  portfolio(skip: Int = 0, first: Int = 100, orderBy: Portfolio_orderBy, orderDirection: OrderDirection, where: Portfolio_filter): [Portfolio!]!
+  """
+  portfolios with this subject
+  """
+  portfolio(
+    skip: Int = 0
+    first: Int = 100
+    orderBy: Portfolio_orderBy
+    orderDirection: OrderDirection
+    where: Portfolio_filter
+  ): [Portfolio!]!
 
-  """created at block information"""
+  """
+  created at block information
+  """
   createdAtBlockInfo: BlockInfo!
 
-  """updated at block information"""
+  """
+  updated at block information
+  """
   updatedAtBlockInfo: BlockInfo!
 
-  """updated at block information"""
+  """
+  updated at block information
+  """
   lastUpdatedAtBlockInfo: BlockInfo!
 
-  """Moxie spent by all users buy this subject token"""
+  """
+  Moxie spent by all users buy this subject token
+  """
   buySideVolume: BigInt!
 
-  """Moxie earned by all user to sell the subject token"""
+  """
+  Moxie earned by all user to sell the subject token
+  """
   sellSideVolume: BigInt!
 
   """
@@ -2556,8 +2836,16 @@ type SubjectToken {
   """
   protocolTokenInvested: BigDecimal!
 
-  """orders associated with the subject"""
-  orders(skip: Int = 0, first: Int = 100, orderBy: Order_orderBy, orderDirection: OrderDirection, where: Order_filter): [Order!]!
+  """
+  orders associated with the subject
+  """
+  orders(
+    skip: Int = 0
+    first: Int = 100
+    orderBy: Order_orderBy
+    orderDirection: OrderDirection
+    where: Order_filter
+  ): [Order!]!
   auction: Auction
   status: OnboardingStatus!
 }
@@ -2911,7 +3199,9 @@ input SubjectToken_filter {
   status_in: [OnboardingStatus!]
   status_not_in: [OnboardingStatus!]
 
-  """Filter for the block changed event."""
+  """
+  Filter for the block changed event.
+  """
   _change_block: BlockChangedFilter
   and: [SubjectToken_filter]
   or: [SubjectToken_filter]
@@ -3047,43 +3337,69 @@ enum SubjectToken_orderBy {
 }
 
 type SubjectTokenDailySnapshot {
-  """subjectId+-+endTimestamp"""
+  """
+  subjectId+-+endTimestamp
+  """
   id: ID!
 
-  """start block timestamp"""
+  """
+  start block timestamp
+  """
   startTimestamp: BigInt!
 
-  """end block timestamp"""
+  """
+  end block timestamp
+  """
   endTimestamp: BigInt!
 
-  """subject token address"""
+  """
+  subject token address
+  """
   subjectToken: SubjectToken!
 
-  """address of the beneficiary"""
+  """
+  address of the beneficiary
+  """
   subject: User
 
-  """reserve balance (moxie)/ total locked value"""
+  """
+  reserve balance (moxie)/ total locked value
+  """
   reserve: BigInt!
 
-  """price of the token at the start of the snapshot"""
+  """
+  price of the token at the start of the snapshot
+  """
   startPrice: BigDecimal!
 
-  """price of the token at the end of the snapshot"""
+  """
+  price of the token at the end of the snapshot
+  """
   endPrice: BigDecimal!
 
-  """daily price change"""
+  """
+  daily price change
+  """
   dailyPriceChange: BigDecimal!
 
-  """Total supply of the token"""
+  """
+  Total supply of the token
+  """
   totalSupply: BigInt!
 
-  """total number of unique holders at start of the snapshot"""
+  """
+  total number of unique holders at start of the snapshot
+  """
   startUniqueHolders: BigInt!
 
-  """total number of unique holders at end of the snapshot"""
+  """
+  total number of unique holders at end of the snapshot
+  """
   endUniqueHolders: BigInt!
 
-  """daily unique holders change"""
+  """
+  daily unique holders change
+  """
   dailyUniqueHoldersChange: BigInt!
 
   """
@@ -3096,25 +3412,39 @@ type SubjectTokenDailySnapshot {
   """
   endVolume: BigInt!
 
-  """daily volume change"""
+  """
+  daily volume change
+  """
   dailyVolumeChange: BigInt!
 
-  """total beneficiary fee at start of the snapshot"""
+  """
+  total beneficiary fee at start of the snapshot
+  """
   startSubjectFee: BigInt!
 
-  """total beneficiary fee at end of the snapshot"""
+  """
+  total beneficiary fee at end of the snapshot
+  """
   endSubjectFee: BigInt!
 
-  """daily beneficiary fee change"""
+  """
+  daily beneficiary fee change
+  """
   dailySubjectFeeChange: BigInt!
 
-  """total protocol fee at start of the snapshot"""
+  """
+  total protocol fee at start of the snapshot
+  """
   startProtocolFee: BigInt!
 
-  """total protocol fee at end of the snapshot"""
+  """
+  total protocol fee at end of the snapshot
+  """
   endProtocolFee: BigInt!
 
-  """daily protocol fee change"""
+  """
+  daily protocol fee change
+  """
   dailyProtocolFeeChange: BigInt!
   createdAtBlockInfo: BlockInfo!
   updatedAtBlockInfo: BlockInfo!
@@ -3395,7 +3725,9 @@ input SubjectTokenDailySnapshot_filter {
   hourlySnapshotEndTimestamps_not_contains: [BigInt!]
   hourlySnapshotEndTimestamps_not_contains_nocase: [BigInt!]
 
-  """Filter for the block changed event."""
+  """
+  Filter for the block changed event.
+  """
   _change_block: BlockChangedFilter
   and: [SubjectTokenDailySnapshot_filter]
   or: [SubjectTokenDailySnapshot_filter]
@@ -3483,43 +3815,69 @@ enum SubjectTokenDailySnapshot_orderBy {
 }
 
 type SubjectTokenHourlySnapshot {
-  """subjectId+-+endTimestamp"""
+  """
+  subjectId+-+endTimestamp
+  """
   id: ID!
 
-  """start block timestamp"""
+  """
+  start block timestamp
+  """
   startTimestamp: BigInt!
 
-  """end block timestamp"""
+  """
+  end block timestamp
+  """
   endTimestamp: BigInt!
 
-  """subject token address"""
+  """
+  subject token address
+  """
   subjectToken: SubjectToken!
 
-  """address of the beneficiary"""
+  """
+  address of the beneficiary
+  """
   subject: User
 
-  """reserve balance (moxie)/ total locked value"""
+  """
+  reserve balance (moxie)/ total locked value
+  """
   reserve: BigInt!
 
-  """price of the token at the start of the snapshot"""
+  """
+  price of the token at the start of the snapshot
+  """
   startPrice: BigDecimal!
 
-  """price of the token at the end of the snapshot"""
+  """
+  price of the token at the end of the snapshot
+  """
   endPrice: BigDecimal!
 
-  """hourly price change"""
+  """
+  hourly price change
+  """
   hourlyPriceChange: BigDecimal!
 
-  """Total supply of the token"""
+  """
+  Total supply of the token
+  """
   totalSupply: BigInt!
 
-  """total number of unique holders at start of the snapshot"""
+  """
+  total number of unique holders at start of the snapshot
+  """
   startUniqueHolders: BigInt!
 
-  """total number of unique holders at end of the snapshot"""
+  """
+  total number of unique holders at end of the snapshot
+  """
   endUniqueHolders: BigInt!
 
-  """hourly unique holders change"""
+  """
+  hourly unique holders change
+  """
   hourlyUniqueHoldersChange: BigInt!
 
   """
@@ -3532,25 +3890,39 @@ type SubjectTokenHourlySnapshot {
   """
   endVolume: BigInt!
 
-  """hourly volume change"""
+  """
+  hourly volume change
+  """
   hourlyVolumeChange: BigInt!
 
-  """total beneficiary fee at start of the snapshot"""
+  """
+  total beneficiary fee at start of the snapshot
+  """
   startSubjectFee: BigInt!
 
-  """total beneficiary fee at end of the snapshot"""
+  """
+  total beneficiary fee at end of the snapshot
+  """
   endSubjectFee: BigInt!
 
-  """hourly beneficiary fee change"""
+  """
+  hourly beneficiary fee change
+  """
   hourlySubjectFeeChange: BigInt!
 
-  """total protocol fee at start of the snapshot"""
+  """
+  total protocol fee at start of the snapshot
+  """
   startProtocolFee: BigInt!
 
-  """total protocol fee at end of the snapshot"""
+  """
+  total protocol fee at end of the snapshot
+  """
   endProtocolFee: BigInt!
 
-  """hourly protocol fee change"""
+  """
+  hourly protocol fee change
+  """
   hourlyProtocolFeeChange: BigInt!
   createdAtBlockInfo: BlockInfo!
   updatedAtBlockInfo: BlockInfo!
@@ -3802,7 +4174,9 @@ input SubjectTokenHourlySnapshot_filter {
   updatedAtBlockInfo_not_ends_with_nocase: String
   updatedAtBlockInfo_: BlockInfo_filter
 
-  """Filter for the block changed event."""
+  """
+  Filter for the block changed event.
+  """
   _change_block: BlockChangedFilter
   and: [SubjectTokenHourlySnapshot_filter]
   or: [SubjectTokenHourlySnapshot_filter]
@@ -3868,46 +4242,74 @@ enum SubjectTokenHourlySnapshot_orderBy {
 }
 
 type SubjectTokenRollingDailySnapshot {
-  """subjectId+-+endTimestamp"""
+  """
+  subjectId+-+endTimestamp
+  """
   id: ID!
 
-  """start block timestamp"""
+  """
+  start block timestamp
+  """
   startTimestamp: BigInt!
 
-  """end block timestamp"""
+  """
+  end block timestamp
+  """
   endTimestamp: BigInt!
 
-  """reference snapshot's end timestamp"""
+  """
+  reference snapshot's end timestamp
+  """
   startReferenceTimestamp: BigInt!
 
-  """subject token address"""
+  """
+  subject token address
+  """
   subjectToken: SubjectToken!
 
-  """address of the beneficiary"""
+  """
+  address of the beneficiary
+  """
   subject: User
 
-  """reserve balance (moxie)/ total locked value"""
+  """
+  reserve balance (moxie)/ total locked value
+  """
   reserve: BigInt!
 
-  """price of the token at the start of the snapshot"""
+  """
+  price of the token at the start of the snapshot
+  """
   startPrice: BigDecimal!
 
-  """price of the token at the end of the snapshot"""
+  """
+  price of the token at the end of the snapshot
+  """
   endPrice: BigDecimal!
 
-  """daily price change"""
+  """
+  daily price change
+  """
   dailyPriceChange: BigDecimal!
 
-  """Total supply of the token"""
+  """
+  Total supply of the token
+  """
   totalSupply: BigInt!
 
-  """total number of unique holders at start of the snapshot"""
+  """
+  total number of unique holders at start of the snapshot
+  """
   startUniqueHolders: BigInt!
 
-  """total number of unique holders at end of the snapshot"""
+  """
+  total number of unique holders at end of the snapshot
+  """
   endUniqueHolders: BigInt!
 
-  """daily unique holders change"""
+  """
+  daily unique holders change
+  """
   dailyUniqueHoldersChange: BigInt!
 
   """
@@ -3920,25 +4322,39 @@ type SubjectTokenRollingDailySnapshot {
   """
   endVolume: BigInt!
 
-  """daily volume change"""
+  """
+  daily volume change
+  """
   dailyVolumeChange: BigInt!
 
-  """total beneficiary fee at start of the snapshot"""
+  """
+  total beneficiary fee at start of the snapshot
+  """
   startSubjectFee: BigInt!
 
-  """total beneficiary fee at end of the snapshot"""
+  """
+  total beneficiary fee at end of the snapshot
+  """
   endSubjectFee: BigInt!
 
-  """daily beneficiary fee change"""
+  """
+  daily beneficiary fee change
+  """
   dailySubjectFeeChange: BigInt!
 
-  """total protocol fee at start of the snapshot"""
+  """
+  total protocol fee at start of the snapshot
+  """
   startProtocolFee: BigInt!
 
-  """total protocol fee at end of the snapshot"""
+  """
+  total protocol fee at end of the snapshot
+  """
   endProtocolFee: BigInt!
 
-  """daily protocol fee change"""
+  """
+  daily protocol fee change
+  """
   dailyProtocolFeeChange: BigInt!
   createdAtBlockInfo: BlockInfo!
   updatedAtBlockInfo: BlockInfo!
@@ -4220,7 +4636,9 @@ input SubjectTokenRollingDailySnapshot_filter {
   initialHourlySnapshot_not_ends_with_nocase: String
   initialHourlySnapshot_: SubjectTokenHourlySnapshot_filter
 
-  """Filter for the block changed event."""
+  """
+  Filter for the block changed event.
+  """
   _change_block: BlockChangedFilter
   and: [SubjectTokenRollingDailySnapshot_filter]
   or: [SubjectTokenRollingDailySnapshot_filter]
@@ -4989,7 +5407,9 @@ type Subscription {
     subgraphError: _SubgraphErrorPolicy_! = deny
   ): [VaultTransferTx!]!
 
-  """Access to subgraph metadata"""
+  """
+  Access to subgraph metadata
+  """
   _meta(block: Block_height): _Meta_
 }
 
@@ -4997,7 +5417,9 @@ type Summary {
   id: ID!
   totalSubjectTokensIssued: BigInt!
 
-  """total reserve in the vault"""
+  """
+  total reserve in the vault
+  """
   totalReserve: BigInt!
 
   """
@@ -5005,7 +5427,9 @@ type Summary {
   """
   totalProtocolTokenInvested: BigDecimal!
 
-  """total subject tokens staked"""
+  """
+  total subject tokens staked
+  """
   totalStakedSubjectTokens: BigInt!
   activeProtocolFeeBeneficiary: ProtocolFeeBeneficiary
   protocolBuyFeePct: BigInt!
@@ -5017,7 +5441,9 @@ type Summary {
   numberOfAuctionOrders: BigInt!
   numberOfUsers: BigInt!
 
-  """total moxie spent in buy orders + initialization"""
+  """
+  total moxie spent in buy orders + initialization
+  """
   totalBuyVolume: BigInt!
   totalSellVolume: BigInt!
   totalProtocolFee: BigInt!
@@ -5201,7 +5627,9 @@ input Summary_filter {
   totalSubjectFeeFromAuction_in: [BigInt!]
   totalSubjectFeeFromAuction_not_in: [BigInt!]
 
-  """Filter for the block changed event."""
+  """
+  Filter for the block changed event.
+  """
   _change_block: BlockChangedFilter
   and: [Summary_filter]
   or: [Summary_filter]
@@ -5235,39 +5663,76 @@ enum Summary_orderBy {
 
 """
 A string representation of microseconds UNIX timestamp (16 digits)
-
 """
 scalar Timestamp
 
 type User {
-  """Ethereum address of the user"""
+  """
+  Ethereum address of the user
+  """
   id: ID!
 
-  """User's Portfolio for each subject token he/she holds"""
-  portfolio(skip: Int = 0, first: Int = 100, orderBy: Portfolio_orderBy, orderDirection: OrderDirection, where: Portfolio_filter): [Portfolio!]!
+  """
+  User's Portfolio for each subject token he/she holds
+  """
+  portfolio(
+    skip: Int = 0
+    first: Int = 100
+    orderBy: Portfolio_orderBy
+    orderDirection: OrderDirection
+    where: Portfolio_filter
+  ): [Portfolio!]!
 
-  """orders placed by the user (auction, buy & sell)"""
-  orders(skip: Int = 0, first: Int = 100, orderBy: Order_orderBy, orderDirection: OrderDirection, where: Order_filter): [Order!]!
+  """
+  orders placed by the user (auction, buy & sell)
+  """
+  orders(
+    skip: Int = 0
+    first: Int = 100
+    orderBy: Order_orderBy
+    orderDirection: OrderDirection
+    where: Order_filter
+  ): [Order!]!
 
-  """beneficiary fee transfers"""
-  subjectFeeTransfer(skip: Int = 0, first: Int = 100, orderBy: SubjectFeeTransfer_orderBy, orderDirection: OrderDirection, where: SubjectFeeTransfer_filter): [SubjectFeeTransfer!]!
+  """
+  beneficiary fee transfers
+  """
+  subjectFeeTransfer(
+    skip: Int = 0
+    first: Int = 100
+    orderBy: SubjectFeeTransfer_orderBy
+    orderDirection: OrderDirection
+    where: SubjectFeeTransfer_filter
+  ): [SubjectFeeTransfer!]!
 
-  """total moxie spent by the user"""
+  """
+  total moxie spent by the user
+  """
   buyVolume: BigInt!
 
-  """Moxie earned by user to sell the subject token"""
+  """
+  Moxie earned by user to sell the subject token
+  """
   sellVolume: BigInt!
 
-  """total moxie invested by the user"""
+  """
+  total moxie invested by the user
+  """
   protocolTokenInvested: BigDecimal!
 
-  """total number of orders (auction & buyOrders)"""
+  """
+  total number of orders (auction & buyOrders)
+  """
   protocolOrdersCount: BigInt!
 
-  """created at block information"""
+  """
+  created at block information
+  """
   createdAtBlockInfo: BlockInfo!
 
-  """updated at block information"""
+  """
+  updated at block information
+  """
   updatedAtBlockInfo: BlockInfo!
 }
 
@@ -5364,7 +5829,9 @@ input User_filter {
   updatedAtBlockInfo_not_ends_with_nocase: String
   updatedAtBlockInfo_: BlockInfo_filter
 
-  """Filter for the block changed event."""
+  """
+  Filter for the block changed event.
+  """
   _change_block: BlockChangedFilter
   and: [User_filter]
   or: [User_filter]
@@ -5489,7 +5956,9 @@ input VaultDepositTx_filter {
   blockInfo_not_ends_with_nocase: String
   blockInfo_: BlockInfo_filter
 
-  """Filter for the block changed event."""
+  """
+  Filter for the block changed event.
+  """
   _change_block: BlockChangedFilter
   and: [VaultDepositTx_filter]
   or: [VaultDepositTx_filter]
@@ -5608,7 +6077,9 @@ input VaultTransferTx_filter {
   blockInfo_not_ends_with_nocase: String
   blockInfo_: BlockInfo_filter
 
-  """Filter for the block changed event."""
+  """
+  Filter for the block changed event.
+  """
   _change_block: BlockChangedFilter
   and: [VaultTransferTx_filter]
   or: [VaultTransferTx_filter]
@@ -5628,4 +6099,3 @@ enum VaultTransferTx_orderBy {
   blockInfo__blockNumber
   blockInfo__timestamp
 }
-

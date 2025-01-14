@@ -1,6 +1,6 @@
 ---
 sidebar_class_name: sun
-description: Learn how to use the Moxie Protocol Subgraph API to get the daily snapshots of a certain fan token.
+description: Learn how to use the Moxie Protocol Subgraph API to get the daily snapshots of a certain Creator Coin.
 ---
 
 import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
@@ -10,10 +10,10 @@ import AddQuery from "../../../src/components/Tutorials/AddQuery";
 import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
 import url from "../../../constant/api_url.json";
 
-# Get Daily Snapshots Of Certain Fan Token
+# Get Daily Snapshots Of Certain Creator Coin
 
 <Header
-  useCase="get all the daily snapshots of certain fan token"
+  useCase="get all the daily snapshots of certain Creator Coin"
   apiName="Moxie Protocol Subgraph"
 />
 
@@ -24,7 +24,7 @@ import url from "../../../constant/api_url.json";
 ## Step 1: Add The API Query To Your Code
 
 <AddQuery
-  useCase="get all the daily snapshots of certain fan token"
+  useCase="get all the daily snapshots of certain Creator Coin"
   subgraphLink={url.protocol_stats_subgraphs}
   query={`query MyQuery($fanTokenAddress: ID) {
   subjectTokens(where: { id: $fanTokenAddress }) {
@@ -109,7 +109,7 @@ import url from "../../../constant/api_url.json";
     ]
   }
 }`}
-  dataFetched="the daily snapshots of a certain fan token"
+  dataFetched="the daily snapshots of a certain Creator Coin"
 />
 
 <DeveloperSupport />

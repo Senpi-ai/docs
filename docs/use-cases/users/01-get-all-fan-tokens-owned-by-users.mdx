@@ -1,6 +1,6 @@
 ---
 sidebar_class_name: users
-description: Learn how to use the Moxie Protocol Subgraph API to get all fan tokens owned by a certain user.
+description: Learn how to use the Moxie Protocol Subgraph API to get all Creator Coins owned by a certain user.
 ---
 
 import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
@@ -13,15 +13,15 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import url from "../../../constant/api_url.json";
 
-# Get All Fan Tokens Owned By Certain User
+# Get All Creator Coins Owned By Certain User
 
-In this tutorial, you will learn how to get all the fan tokens owned by a certain user, whether it is hold in their wallet/vesting contract or locked in the staking contract, by calling the [Moxie Protocol Subgraph API](../../api/protocol/01-overview.mdx).
+In this tutorial, you will learn how to get all the Creator Coins owned by a certain user, whether it is hold in their wallet/vesting contract or locked in the staking contract, by calling the [Moxie Protocol Subgraph API](../../api/protocol/01-overview.mdx).
 
 You can either use the subgraph APIs or Airstack API to fetch this data.
 
 # Method #1: Airstack API
 
-Using the Airstack `MoxieUserPortolio` API, you can simply provide the user FID to get all the fan tokens owned by the user, both staked and non-staked in the Moxie Power Staking contract.
+Using the Airstack `MoxieUserPortolio` API, you can simply provide the user FID to get all the Creator Coins owned by the user, both staked and non-staked in the Moxie Power Staking contract.
 
 To learn more, click [here](https://docs.airstack.xyz/airstack-docs-and-faqs/moxie/moxie-fan-token-balances#get-users-fan-token-balances-by-fid).
 
@@ -37,7 +37,7 @@ To learn more, click [here](https://docs.airstack.xyz/airstack-docs-and-faqs/mox
 
 <Install dependencies="@airstack/node" />
 
-For access to the Airstack API key, you'll need to **hold at least 1 /airstack Channel Fan Token** in either your Farcaster custodial wallet or one of your Farcaster verified wallets AND make sure that you have connected one of those wallet or your Farcaster account to your Airstack account.
+For access to the Airstack API key, you'll need to **hold at least 1 /airstack Channel Creator Coin** in either your Farcaster custodial wallet or one of your Farcaster verified wallets AND make sure that you have connected one of those wallet or your Farcaster account to your Airstack account.
 
 If you don't have it yet, you can buy it [here](https://www.airstack.xyz/channels/airstack).
 
@@ -200,7 +200,7 @@ To resolve, simply call the function and provide the user's FID as input. In ret
 
 ### Step 2: Add The API Query To Your Code
 
-To get all the fan tokens owned by a certain user, you can use the following query on the [Moxie Protocol Subgraph API](../../api/protocol/01-overview.mdx) and provide the array of addresses resolved in [Step 1](#step-1-resolve-users-fid-to-addresses) as input to the `$userAddresses` variable:
+To get all the Creator Coins owned by a certain user, you can use the following query on the [Moxie Protocol Subgraph API](../../api/protocol/01-overview.mdx) and provide the array of addresses resolved in [Step 1](#step-1-resolve-users-fid-to-addresses) as input to the `$userAddresses` variable:
 
 <Tabs>
   <TabItem value="query" label="Query">
@@ -377,6 +377,6 @@ try {
     ]
   }
 }`}
-  dataFetched="all fan tokens owned by a certain user"
+  dataFetched="all Creator Coins owned by a certain user"
 />
 <DeveloperSupport />

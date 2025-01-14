@@ -1,6 +1,6 @@
 ---
 sidebar_class_name: member_card
-description: Learn how to use the Moxie Protocol Subgraph API to get all the member-type fan tokens in the Moxie protocol.
+description: Learn how to use the Moxie Protocol Subgraph API to get all the member-type Creator Coins in the Moxie protocol.
 ---
 
 import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
@@ -10,10 +10,10 @@ import AddQuery from "../../../src/components/Tutorials/AddQuery";
 import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
 import url from "../../../constant/api_url.json";
 
-# Get All Member Fan Tokens
+# Get All Member Creator Coins
 
 <Header
-  useCase="get all the member-type fan tokens in the Moxie protocol"
+  useCase="get all the member-type Creator Coins in the Moxie protocol"
   apiName="Moxie Protocol Subgraph"
 />
 
@@ -24,7 +24,7 @@ import url from "../../../constant/api_url.json";
 ## Step 1: Add The API Query To Your Code
 
 <AddQuery
-  useCase="get all the member-type fan tokens in the Moxie protocol"
+  useCase="get all the member-type Creator Coins in the Moxie protocol"
   subgraphLink={url.protocol_stats_subgraphs}
   query={`query MyQuery($symbol_starts_with: String) {
   subjectTokens(where: {symbol_starts_with: $symbol_starts_with}) {
@@ -35,7 +35,7 @@ import url from "../../../constant/api_url.json";
   }
 }`}
   variable={`{
-  // Check if the symbol starts with "fid:" to include only member-type fan tokens
+  // Check if the symbol starts with "fid:" to include only member-type Creator Coins
   "symbol_starts_with": "fid:"
 }`}
   response={`{
@@ -67,7 +67,7 @@ import url from "../../../constant/api_url.json";
     ]
   }
 }`}
-  dataFetched="all the member-type fan tokens in the Moxie protocol"
+  dataFetched="all the member-type Creator Coins in the Moxie protocol"
 />
 
 <DeveloperSupport />

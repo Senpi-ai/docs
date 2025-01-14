@@ -7,7 +7,7 @@ sidebar_class_name: references
 
 ## Auction Orders
 
-Auction orders are orders registered on the auction contract to bid on a [fan token auction (FTA)](#fan-token-auctions). The auction orders from multiple users will determine the clearing price of a fan token once the auction is cleared/finalized.
+Auction orders are orders registered on the auction contract to bid on a [Creator Coin auction (FTA)](#fan-token-auctions). The auction orders from multiple users will determine the clearing price of a Creator Coin once the auction is cleared/finalized.
 
 This is equivalent to [bids](#bids) in the context of auctions, but this term is more commonly used in subgraphs and contracts.
 
@@ -17,42 +17,42 @@ Bids are equivalent to [auction orders](#auction-orders).
 
 ## Bonding Curve
 
-A bonding curve is a mathematical curve that defines the relationship between the price of a token and the supply of the token. The bonding curve is used to determine the [price](../use-cases/fan-tokens/17-get-the-price-of-certain-fan-token.mdx) of a fan token in the [fan token auction (FTA)](#fan-token-auctions).
+A bonding curve is a mathematical curve that defines the relationship between the price of a token and the supply of the token. The bonding curve is used to determine the [price](../use-cases/fan-tokens/17-get-the-price-of-certain-fan-token.mdx) of a Creator Coin in the [Creator Coin auction (FTA)](#fan-token-auctions).
 
 To learn more about the bonding curve that is implemented in the Moxie protocol, click [here](https://build.moxie.xyz/the-moxie-protocol/moxie-protocol/fan-tokens#moxie-bonding-curves).
 
 ## Buy Orders
 
-Buy orders are orders registered on the Moxie Bonding Curve smart contract to purchase a fan token in exchange for a certain amount of the [Moxie token](https://build.moxie.xyz/the-moxie-protocol/moxie-token) deposited into the [Vault](#vault) contract based on the [price](../use-cases/fan-tokens/ 10-get-the-price-of-certain-fan-token.mdx) determined by the Moxie [bonding curve](#bonding-curve).
+Buy orders are orders registered on the Moxie Bonding Curve smart contract to purchase a Creator Coin in exchange for a certain amount of the [Moxie token](https://build.moxie.xyz/the-moxie-protocol/moxie-token) deposited into the [Vault](#vault) contract based on the [price](../use-cases/fan-tokens/ 10-get-the-price-of-certain-fan-token.mdx) determined by the Moxie [bonding curve](#bonding-curve).
 
-## Fan Token
+## Creator Coin
 
-To learn more about fan tokens, click [here](https://build.moxie.xyz/the-moxie-protocol/moxie-protocol/fan-tokens).
+To learn more about Creator Coins, click [here](https://build.moxie.xyz/the-moxie-protocol/moxie-protocol/fan-tokens).
 
-## Fan Token Auctions
+## Creator Coin Auctions
 
-Fan token auctions (FTA) are auctions that are conducted to determine the clearing price of a fan token based on the [bids](#bids) from multiple users. The clearing price is determined by the [Moxie bonding curve](#bonding-curve) and the [auction orders](#auction-orders) from multiple users.
+Creator Coin auctions (FTA) are auctions that are conducted to determine the clearing price of a Creator Coin based on the [bids](#bids) from multiple users. The clearing price is determined by the [Moxie bonding curve](#bonding-curve) and the [auction orders](#auction-orders) from multiple users.
 
 ## Moxie Pass
 
-Moxie Pass is a Soulbound NFT that is required by the Moxie protocol to hold Fan Tokens prior to 22nd November 2024. This NFT is mainly only available to those who have Farcaster account.
+Moxie Pass is a Soulbound NFT that is required by the Moxie protocol to hold Creator Coins prior to 22nd November 2024. This NFT is mainly only available to those who have Farcaster account.
 
-By 22nd November 2024, holding Moxie Pass NFT is no longer a requirement and any EOA wallet or contract address on [Base](https://base.org/) can now buy and hold Fan Tokens.
+By 22nd November 2024, holding Moxie Pass NFT is no longer a requirement and any EOA wallet or contract address on [Base](https://base.org/) can now buy and hold Creator Coins.
 
 ## Sell Orders
 
-Sell orders are orders registered on the Moxie Bonding Curve smart contract to sell a fan token in exchange for a certain amount of the [Moxie token](#vault) withdrawn from the [Vault](../contract/03-references/10-vault.mdx) contract based on the [price](../use-cases/fan-tokens/ 10-get-the-price-of-certain-fan-token.mdx) determined by the Moxie [bonding curve](#bonding-curve).
+Sell orders are orders registered on the Moxie Bonding Curve smart contract to sell a Creator Coin in exchange for a certain amount of the [Moxie token](#vault) withdrawn from the [Vault](../contract/03-references/10-vault.mdx) contract based on the [price](../use-cases/fan-tokens/ 10-get-the-price-of-certain-fan-token.mdx) determined by the Moxie [bonding curve](#bonding-curve).
 
 ## Subject Token
 
-Subject token is equivalent/synonymous to [fan token](#fan-token). This term is more commonly used in subgraphs and contracts.
+Subject token is equivalent/synonymous to [Creator Coin](#fan-token). This term is more commonly used in subgraphs and contracts.
 
 ## Portfolio
 
-Portfolio is defined as all the [fan tokens](#fan-token) that a user owns. To get a user's portfolio, follow this tutorial [here](../use-cases/users/01-get-all-fan-tokens-owned-by-users.mdx).
+Portfolio is defined as all the [Creator Coins](#fan-token) that a user owns. To get a user's portfolio, follow this tutorial [here](../use-cases/users/01-get-all-fan-tokens-owned-by-users.mdx).
 
 ## Vault
 
-Vault is a smart contract that holds the [Moxie token](https://build.moxie.xyz/the-moxie-protocol/moxie-token) when [fan tokens](#fan-token) are purchased. On the other hand, if a [fan token](#fan-token) is sold, then the [Moxie token](https://build.moxie.xyz/the-moxie-protocol/moxie-token) will be withdrawn from the Vault contract.
+Vault is a smart contract that holds the [Moxie token](https://build.moxie.xyz/the-moxie-protocol/moxie-token) when [Creator Coins](#fan-token) are purchased. On the other hand, if a [Creator Coin](#fan-token) is sold, then the [Moxie token](https://build.moxie.xyz/the-moxie-protocol/moxie-token) will be withdrawn from the Vault contract.
 
 To learn more about the Vault contract, click [here](../contract/03-references/10-vault.mdx).

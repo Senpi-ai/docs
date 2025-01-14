@@ -435,7 +435,7 @@ user<br />
 <a href="objects#user"><code>User!</code></a>
 </td>
 <td>
-<p>Seller/Buyer of Fan token</p>
+<p>Seller/Buyer of Creator Coin</p>
 </td>
 </tr>
 <tr>

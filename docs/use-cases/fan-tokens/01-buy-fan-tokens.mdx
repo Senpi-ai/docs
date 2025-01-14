@@ -1,6 +1,6 @@
 ---
 sidebar_class_name: cleared_fan_auction
-description: Learn how to make calls to the the Moxie Bonding Curve smart contract to buy fan tokens, either from your wallet or your vesting contract.
+description: Learn how to make calls to the the Moxie Bonding Curve smart contract to buy Creator Coins, either from your wallet or your vesting contract.
 ---
 
 import Tabs from "@theme/Tabs";
@@ -8,18 +8,18 @@ import TabItem from "@theme/TabItem";
 import DeveloperSupport from "../../../partial/_developer_support.mdx";
 import Install from "../../../src/components/Install";
 
-# Buy Fan Tokens
+# Buy Creator Coins
 
-In this tutorial, you will learn step-by-step on how to buy any Fan Tokens on the Moxie protocol through the bonding curve contract.
+In this tutorial, you will learn step-by-step on how to buy any Creator Coins on the Moxie protocol through the bonding curve contract.
 
-While the tutorial shown here will be using [viem](https://viem.sh) in TypeScript, you should be able to use other programming language and their web3-equivalent libraries to execute the Fan Token buying process. Alternatives web3 libraries you can use are:
+While the tutorial shown here will be using [viem](https://viem.sh) in TypeScript, you should be able to use other programming language and their web3-equivalent libraries to execute the Creator Coin buying process. Alternatives web3 libraries you can use are:
 
 - [ethers.js (JS/TS)](https://docs.ethers.org/v5/)
 - [web3.js (JS/TS)](https://www.web3js.org/)
 - [web3.py (Python)](https://web3py.readthedocs.io/en/stable/)
 - etc.
 
-Starting 22nd November 2024, any EOA wallet or contracts on [Base](https://base.org/) can buy Fan Tokens without needing to hold any [Moxie Pass](../../learn/glossary.mdx#moxie-pass).
+Starting 22nd November 2024, any EOA wallet or contracts on [Base](https://base.org/) can buy Creator Coins without needing to hold any [Moxie Pass](../../learn/glossary.mdx#moxie-pass).
 
 ## Pre-requisites
 
@@ -71,20 +71,20 @@ When calling the `allowance` function set the parameters as follows:
 | `owner`   | Either the user's EOA wallet or vesting contract address.                                                           |
 | `spender` | The [Moxie bonding curve contract address](https://basescan.org/address/0x373065e66B32a1C428aa14698dFa99BA7199B55E) |
 
-## Step 3: Calculate Buy Price For Fan Tokens
+## Step 3: Calculate Buy Price For Creator Coins
 
 To calculate the buy price, call the Moxie bonding curve smart contract `calculateTokensForBuy` with the following parameters:
 
-| Parameter             | Value                                             |
-| --------------------- | ------------------------------------------------- |
-| `_subjectTokenAmount` | how much FT user wanna buy (in wei)               |
-| `_subject`            | The subject address associated to the Fan tokens. |
+| Parameter             | Value                                                |
+| --------------------- | ---------------------------------------------------- |
+| `_subjectTokenAmount` | how much FT user wanna buy (in wei)                  |
+| `_subject`            | The subject address associated to the Creator Coins. |
 
 ## Step 4: Approve Moxie Tokens
 
-If the Moxie token `allowance` is either 0 or less than what is needed to buy the inputted amount of Fan Tokens (from [Step 2](./01-buy-fan-tokens.mdx#step-2-check-moxie-token-allowance)), then approval on the Moxie Token will need to be initiated to ensure that the buy transaction is successful.
+If the Moxie token `allowance` is either 0 or less than what is needed to buy the inputted amount of Creator Coins (from [Step 2](./01-buy-fan-tokens.mdx#step-2-check-moxie-token-allowance)), then approval on the Moxie Token will need to be initiated to ensure that the buy transaction is successful.
 
-Otherwise, if there is sufficient `allowance` value, skip to [Step 5](./01-buy-fan-tokens.mdx#step-5-execute-contract-call) to execute the buy Fan Tokens transaction.
+Otherwise, if there is sufficient `allowance` value, skip to [Step 5](./01-buy-fan-tokens.mdx#step-5-execute-contract-call) to execute the buy Creator Coins transaction.
 
 ### EOA Wallet
 
@@ -99,11 +99,11 @@ From EOA wallet, simply call the `approve` function on the Moxie token with the 
 
 From vesting contract there is the `approveProtocol` function that you can call to approve all Moxie token in your vesting contract to be accessible by other Moxie protocol contracts.
 
-After the approval, all the Moxie Token in the vesting contract will be available for Fan Token purchase.
+After the approval, all the Moxie Token in the vesting contract will be available for Creator Coin purchase.
 
 ## Step 5: Execute Contract Call
 
-Lastly, call the `buySharesV2` function on the Moxie bonding curve contract to execute the Fan Token purchase transaction:
+Lastly, call the `buySharesV2` function on the Moxie bonding curve contract to execute the Creator Coin purchase transaction:
 
 <Tabs>
   <TabItem value="viem-ts" label="Viem (TS)">
@@ -137,6 +137,6 @@ try {
 </TabItem>
 </Tabs>
 
-Congrats! 🥳🎉 You've just successfully purchased a Fan Token!
+Congrats! 🥳🎉 You've just successfully purchased a Creator Coin!
 
 <DeveloperSupport />

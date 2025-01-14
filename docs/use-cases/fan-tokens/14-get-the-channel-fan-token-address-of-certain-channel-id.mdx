@@ -1,6 +1,6 @@
 ---
 sidebar_class_name: fan_token_schedule
-description: Learn how to use the Moxie Protocol Subgraph API to get the channel fan token address of a certain channel ID.
+description: Learn how to use the Moxie Protocol Subgraph API to get the channel Creator Coin address of a certain channel ID.
 ---
 
 import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
@@ -10,10 +10,10 @@ import AddQuery from "../../../src/components/Tutorials/AddQuery";
 import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
 import url from "../../../constant/api_url.json";
 
-# Get The Channel Fan Token Address Of Certain Channel ID
+# Get The Channel Creator Coin Address Of Certain Channel ID
 
 <Header
-  useCase="get the channel fan token address of a certain channel ID"
+  useCase="get the channel Creator Coin address of a certain channel ID"
   apiName="Moxie Protocol Subgraph"
 />
 
@@ -24,7 +24,7 @@ import url from "../../../constant/api_url.json";
 ## Step 1: Add The API Query To Your Code
 
 <AddQuery
-  useCase="get the channel fan token address by a certain channel ID"
+  useCase="get the channel Creator Coin address by a certain channel ID"
   subgraphLink={url.protocol_stats_subgraphs}
   query={`query MyQuery($fanTokenSymbol: String) {
   subjectTokens(where: {symbol: $fanTokenSymbol}) {
@@ -32,7 +32,7 @@ import url from "../../../constant/api_url.json";
   }
 }`}
   variable={`{
-  // Format the fan token symbol as "cid:<channel-ID>"
+  // Format the Creator Coin symbol as "cid:<channel-ID>"
   "fanTokenSymbol": "cid:airstack"
 }`}
   response={`{
@@ -58,7 +58,7 @@ import url from "../../../constant/api_url.json";
     ]
   }
 }`}
-  dataFetched="the channel fan token address of a certain channel ID"
+  dataFetched="the channel Creator Coin address of a certain channel ID"
 />
 
 <DeveloperSupport />

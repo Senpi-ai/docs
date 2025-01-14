@@ -1,6 +1,6 @@
 ---
 sidebar_class_name: cancel
-description: Learn how to make calls to the the Moxie Bonding Curve smart contract to sell fan tokens on behalf of other address.
+description: Learn how to make calls to the the Moxie Bonding Curve smart contract to sell Creator Coins on behalf of other address.
 ---
 
 import Tabs from "@theme/Tabs";
@@ -9,11 +9,11 @@ import CodeBlock from "@theme/CodeBlock";
 import Install from "../../../src/components/Install";
 import DeveloperSupport from "../../../partial/_developer_support.mdx";
 
-# Sell Fan Tokens On Behalf Of Others
+# Sell Creator Coins On Behalf Of Others
 
-In this tutorial, you will learn step-by-step on how to sell any Fan Tokens and transfer it to a third-party [Base](https://www.base.org/) address on the Moxie protocol through the bonding curve contract.
+In this tutorial, you will learn step-by-step on how to sell any Creator Coins and transfer it to a third-party [Base](https://www.base.org/) address on the Moxie protocol through the bonding curve contract.
 
-While the tutorial shown here will be using [viem](https://viem.sh) in TypeScript, you should be able to use other programming language and their web3-equivalent libraries to execute the Fan Token buying process. Alternatives web3 libraries you can use are:
+While the tutorial shown here will be using [viem](https://viem.sh) in TypeScript, you should be able to use other programming language and their web3-equivalent libraries to execute the Creator Coin buying process. Alternatives web3 libraries you can use are:
 
 - [ethers.js (JS/TS)](https://docs.ethers.org/v5/)
 - [web3.js (JS/TS)](https://www.web3js.org/)
@@ -28,7 +28,7 @@ While the tutorial shown here will be using [viem](https://viem.sh) in TypeScrip
 
 2. Download the [Subject ERC20 Token](https://github.com/moxie-protocol/contracts/blob/dev/packages/protocol/ignition/deployments/base-mainnet/artifacts/ProtocolContracts%23SubjectERC20.json) and [Moxie Bonding Curve ABI](https://github.com/moxie-protocol/contracts/blob/dev/packages/protocol/ignition/deployments/base-mainnet/artifacts/ProtocolContracts%23MoxieBondingCurve.json).
 
-3. Make sure to have some Moxie Fan Tokens to sell from your wallet and sufficient Base ETH to cover the transaction fees.
+3. Make sure to have some Moxie Creator Coins to sell from your wallet and sufficient Base ETH to cover the transaction fees.
 
 ## Step 1: Setup Client
 
@@ -59,9 +59,9 @@ export const publicClient = createPublicClient({
 });
 ```
 
-## Step 2: Check Fan Token Allowance
+## Step 2: Check Creator Coin Allowance
 
-To check the Fan Token Allowance, simply call the `allowance` function from the specified Fan token contract.
+To check the Creator Coin Allowance, simply call the `allowance` function from the specified Creator Coin contract.
 
 When calling the `allowance` function set the parameters as follows:
 
@@ -70,24 +70,24 @@ When calling the `allowance` function set the parameters as follows:
 | `owner`   | Either the senders's EOA wallet or vesting contract address.                                                        |
 | `spender` | The [Moxie bonding curve contract address](https://basescan.org/address/0x373065e66B32a1C428aa14698dFa99BA7199B55E) |
 
-## Step 3: Calculate Sell Price For Fan Tokens
+## Step 3: Calculate Sell Price For Creator Coins
 
 To calculate the sell price, call the Moxie bonding curve smart contract `calculateTokensForSell` with the following parameters:
 
-| Parameter             | Value                                             |
-| --------------------- | ------------------------------------------------- |
-| `_subjectTokenAmount` | how much FT user wanna buy (in wei)               |
-| `_subject`            | The subject address associated to the Fan tokens. |
+| Parameter             | Value                                                |
+| --------------------- | ---------------------------------------------------- |
+| `_subjectTokenAmount` | how much FT user wanna buy (in wei)                  |
+| `_subject`            | The subject address associated to the Creator Coins. |
 
-## Step 4: Approve Fan Tokens
+## Step 4: Approve Creator Coins
 
-If the Fan token `allowance` is either 0 or less than what is needed to sell the inputted amount of Fan Tokens (from [Step 2](./04-sell-fan-tokens-on-behalf-of-others.mdx#step-2-check-fan-token-allowance)), then approval on the Fan Token will need to be initiated to ensure that the buy transaction is successful.
+If the Creator Coin `allowance` is either 0 or less than what is needed to sell the inputted amount of Creator Coins (from [Step 2](./04-sell-fan-tokens-on-behalf-of-others.mdx#step-2-check-fan-token-allowance)), then approval on the Creator Coin will need to be initiated to ensure that the buy transaction is successful.
 
-Otherwise, if there is sufficient `allowance` value, skip to [Step 5](./04-sell-fan-tokens-on-behalf-of-others.mdx#step-5-execute-contract-call) to execute the buy Fan Tokens transaction.
+Otherwise, if there is sufficient `allowance` value, skip to [Step 5](./04-sell-fan-tokens-on-behalf-of-others.mdx#step-5-execute-contract-call) to execute the buy Creator Coins transaction.
 
 ### EOA Wallet
 
-From EOA wallet, simply call the `approve` function on the Fan token with the following variables:
+From EOA wallet, simply call the `approve` function on the Creator Coin with the following variables:
 
 | Parameter | Description                                                                                                |
 | --------- | ---------------------------------------------------------------------------------------------------------- |
@@ -96,13 +96,13 @@ From EOA wallet, simply call the `approve` function on the Fan token with the fo
 
 ### Vesting Contract
 
-From vesting contract there is the `approveSubjectToken` function that you can call by providing the Fan token's subject to the `_subject` parameter to approve a specific Fan token in your vesting contract to be accessible by other Moxie protocol contracts.
+From vesting contract there is the `approveSubjectToken` function that you can call by providing the Creator Coin's subject to the `_subject` parameter to approve a specific Creator Coin in your vesting contract to be accessible by other Moxie protocol contracts.
 
-After the approval, all the Fan Token in the vesting contract will be available for selling.
+After the approval, all the Creator Coin in the vesting contract will be available for selling.
 
 ## Step 5: Execute Contract Call
 
-Lastly, call the `sellSharesForV2` function on the Moxie bonding curve contract to execute the Fan Token selling transaction:
+Lastly, call the `sellSharesForV2` function on the Moxie bonding curve contract to execute the Creator Coin selling transaction:
 
 <Tabs>
   <TabItem value="viem-ts" label="Viem (TS)">
@@ -138,6 +138,6 @@ try {
 </TabItem>
 </Tabs>
 
-Congrats! 🥳🎉 You've just successfully sold a Fan Token and transfer it to a third-party address!
+Congrats! 🥳🎉 You've just successfully sold a Creator Coin and transfer it to a third-party address!
 
 <DeveloperSupport />

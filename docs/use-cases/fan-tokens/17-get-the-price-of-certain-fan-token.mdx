@@ -1,6 +1,6 @@
 ---
 sidebar_class_name: protocol_fees
-description: Learn how to use the Moxie Protocol Subgraph API to get the price of a certain fan token.
+description: Learn how to use the Moxie Protocol Subgraph API to get the price of a certain Creator Coin.
 ---
 
 import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
@@ -10,10 +10,10 @@ import AddQuery from "../../../src/components/Tutorials/AddQuery";
 import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
 import url from "../../../constant/api_url.json";
 
-# Get The Price Of Certain Fan Token
+# Get The Price Of Certain Creator Coin
 
 <Header
-  useCase="get the price of a certain fan token"
+  useCase="get the price of a certain Creator Coin"
   apiName="Moxie Protocol Subgraph"
 />
 
@@ -24,7 +24,7 @@ import url from "../../../constant/api_url.json";
 ## Step 1: Add The API Query To Your Code
 
 <AddQuery
-  useCase="get the price of a certain fan token"
+  useCase="get the price of a certain Creator Coin"
   subgraphLink={url.protocol_stats_subgraphs}
   query={`query MyQuery($fanTokenAddress: ID) {
   subjectTokens(where: { id: $fanTokenAddress }) {
@@ -57,7 +57,7 @@ import url from "../../../constant/api_url.json";
     ]
   }
 }`}
-  dataFetched="the price of a certain fan token"
+  dataFetched="the price of a certain Creator Coin"
 />
 
 <DeveloperSupport />

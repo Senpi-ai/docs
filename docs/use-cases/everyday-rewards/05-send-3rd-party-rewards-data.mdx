@@ -36,7 +36,7 @@ There are several rules to follow for the input value in the request body to be 
 
 1. The `id` must be unique value for each call. `id` value used in previous API call can't be used in subsequent calls.
 2. `data` field must have **AT LEAST** 1 object and cannot be an empty array as there will be no rewards to be distributed.
-3. For `CHANNEL` and `NETWORK` type, the inputted `entityId` must have their corresponding Fan Tokens deployed. If not, the API call will revert.
+3. For `CHANNEL` and `NETWORK` type, the inputted `entityId` must have their corresponding Creator Coins deployed. If not, the API call will revert.
 
 :::
 
@@ -137,9 +137,9 @@ fetch(`https://rewards.moxie.xyz/partners/${partnerId}/events`, options)
 It is important to keep in mind that the Moxie distribution for each `entityType` will be different:
 
 - For `USER` type,
-  - If the user has no Fan Token, then 100% will go straight to the user and their rewards will be claimable as a regular [Everyday Rewards](https://build.moxie.xyz/the-moxie-protocol/everyday-rewards).
+  - If the user has no Creator Coin, then 100% will go straight to the user and their rewards will be claimable as a regular [Everyday Rewards](https://build.moxie.xyz/the-moxie-protocol/everyday-rewards).
   - Otherwise, their rewards will be split based on the % allocated for their Fans
-    - e.g. if the Fan Token is configured to split 90% with fans, then 90% of the rewards go to the Fans through buy & burn process, while the rest 10% go to the user for claim.
+    - e.g. if the Creator Coin is configured to split 90% with fans, then 90% of the rewards go to the Fans through buy & burn process, while the rest 10% go to the user for claim.
 - For `USER_FANS`, `CHANNEL`, and `NETWORK` type, 100% of the rewards will be distributed through regular buy & burn and holders will benefit from the price increase.
 
 ## Step 2: Execute Your Code

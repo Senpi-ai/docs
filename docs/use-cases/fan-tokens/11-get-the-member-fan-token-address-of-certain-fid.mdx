@@ -1,6 +1,6 @@
 ---
 sidebar_class_name: new_auction
-description: Learn how to use the Moxie Protocol Subgraph API to get the member fan token address of a certain FID.
+description: Learn how to use the Moxie Protocol Subgraph API to get the member Creator Coin address of a certain FID.
 ---
 
 import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
@@ -10,10 +10,10 @@ import AddQuery from "../../../src/components/Tutorials/AddQuery";
 import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
 import url from "../../../constant/api_url.json";
 
-# Get The Member Fan Token Address Of Certain FID
+# Get The Member Creator Coin Address Of Certain FID
 
 <Header
-  useCase="get the member fan token address of a certain FID"
+  useCase="get the member Creator Coin address of a certain FID"
   apiName="Moxie Protocol Subgraph"
 />
 
@@ -24,7 +24,7 @@ import url from "../../../constant/api_url.json";
 ## Step 1: Add The API Query To Your Code
 
 <AddQuery
-  useCase="get the member fan token address by a certain FID"
+  useCase="get the member Creator Coin address by a certain FID"
   subgraphLink={url.protocol_stats_subgraphs}
   query={`query MyQuery($fanTokenSymbol: String) {
   subjectTokens(where: {symbol: $fanTokenSymbol}) {
@@ -32,7 +32,7 @@ import url from "../../../constant/api_url.json";
   }
 }`}
   variable={`{
-  // Format the fan token symbol as "fid:<FID>"
+  // Format the Creator Coin symbol as "fid:<FID>"
   "fanTokenSymbol": "fid:12"
 }`}
   response={`{
@@ -58,7 +58,7 @@ import url from "../../../constant/api_url.json";
     ]
   }
 }`}
-  dataFetched="the member fan token address of a certain FID"
+  dataFetched="the member Creator Coin address of a certain FID"
 />
 
 <DeveloperSupport />

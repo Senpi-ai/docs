@@ -1,7 +1,7 @@
 ---
 sidebar_position: 6
 sidebar_class_name: certain_fan_auction
-description: Learn how to use the Moxie Auction Subgraph API to get details of a certain fan token auction.
+description: Learn how to use the Moxie Auction Subgraph API to get details of a certain Creator Coin auction.
 ---
 
 import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
@@ -11,10 +11,10 @@ import AddQuery from "../../../src/components/Tutorials/AddQuery";
 import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
 import url from "../../../constant/api_url.json";
 
-# Get Details Of Certain Fan Token Auction
+# Get Details Of Certain Creator Coin Auction
 
 <Header
-  useCase="get details of a certain fan token auction"
+  useCase="get details of a certain Creator Coin auction"
   apiName="Moxie Auction Subgraph"
 />
 
@@ -25,7 +25,7 @@ import url from "../../../constant/api_url.json";
 ## Step 1: Add The API Query To Your Code
 
 <AddQuery
-  useCase="get details of a certain fan token auction"
+  useCase="get details of a certain Creator Coin auction"
   subgraphLink={url.auction_stats_subgraphs}
   query={`query MyQuery($auctionId: BigInt!) {
   auctionDetails(where: { auctionId: $auctionId }) {
@@ -115,7 +115,7 @@ import url from "../../../constant/api_url.json";
     ]
   }
 }`}
-  dataFetched="details of a certain fan token auction"
+  dataFetched="details of a certain Creator Coin auction"
 />
 
 <DeveloperSupport />

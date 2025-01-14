@@ -120,13 +120,13 @@ const config: Config = {
             },
             {
               type: "doc",
-              label: "Fan Token Auctions",
+              label: "Creator Coin Auctions",
               docId:
                 "use-cases/fan-token-auctions/get-fan-token-auction-schedule-by-status",
             },
             {
               type: "doc",
-              label: "Fan Tokens",
+              label: "Creator Coins",
               docId: "use-cases/fan-tokens/buy-fan-tokens",
             },
             {
@@ -184,14 +184,14 @@ const config: Config = {
               label: "Protocol Subgraphs",
               docId: "api/protocol/overview",
               description:
-                "Use the protocol subgraph to fetch fan tokens balances, holdings, buy/sell orders on the bonding curves, and more.",
+                "Use the protocol subgraph to fetch Creator Coin balances, holdings, buy/sell orders on the bonding curves, and more.",
             },
             {
               type: "doc",
               label: "Auction Subgraphs",
               docId: "api/auction/overview",
               description:
-                "Use the auction subgraph to fetch fan token auctions data from the Moxie protocol's auction contract.",
+                "Use the auction subgraph to fetch Creator Coin auctions data from the Moxie protocol's auction contract.",
             },
             {
               type: "doc",
@@ -276,11 +276,11 @@ const config: Config = {
               to: "/use-cases/moxie-earn/get-all-active-moxie-earn-promotions-promoted-by-a-user",
             },
             {
-              label: "Fan Token Auctions",
+              label: "Creator Coin Auctions",
               to: "/use-cases/fan-token-auctions/get-fan-token-auction-schedule-by-status",
             },
             {
-              label: "Fan Tokens",
+              label: "Creator Coins",
               to: "/use-cases/fan-tokens/buy-fan-tokens",
             },
             {

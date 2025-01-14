@@ -1,7 +1,7 @@
 ---
 sidebar_position: 4
 sidebar_class_name: new_auction
-description: Learn how to use the Moxie Auction Subgraph API to get all fan token auctions created.
+description: Learn how to use the Moxie Auction Subgraph API to get all Creator Coin auctions created.
 ---
 
 import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
@@ -11,10 +11,10 @@ import AddQuery from "../../../src/components/Tutorials/AddQuery";
 import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
 import url from "../../../constant/api_url.json";
 
-# Get All Fan Token Auctions Created
+# Get All Creator Coin Auctions Created
 
 <Header
-  useCase="get all fan token auctions created"
+  useCase="get all Creator Coin auctions created"
   apiName="Moxie Auction Subgraph"
 />
 
@@ -25,7 +25,7 @@ import url from "../../../constant/api_url.json";
 ## Step 1: Add The API Query To Your Code
 
 <AddQuery
-  useCase="get all fan token auctions created"
+  useCase="get all Creator Coin auctions created"
   subgraphLink={url.auction_stats_subgraphs}
   query={`query MyQuery {
   newAuctions {
@@ -103,7 +103,7 @@ import url from "../../../constant/api_url.json";
     ]
   }
 }`}
-  dataFetched="all fan token auctions on the Moxie protocol"
+  dataFetched="all Creator Coin auctions on the Moxie protocol"
 />
 
 <DeveloperSupport />

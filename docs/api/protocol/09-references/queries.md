@@ -540,7 +540,7 @@ subgraphError<br />
 
 **Type:** [Portfolio](objects#portfolio)
 
-`portfolio` allows you to fetch the user's balance of a certain fan token, by providing the `id` input with `${user-address}-${token-address}` format.
+`portfolio` allows you to fetch the user's balance of a certain Creator Coin, by providing the `id` input with `${user-address}-${token-address}` format.
 
 <p style={{ marginBottom: "0.4em" }}><strong>Arguments</strong></p>
 
@@ -1674,7 +1674,7 @@ subgraphError<br />
 
 **Type:** [User](objects#user)
 
-`user` indexes all users on the Moxie protocol. This API can help you get a certain user's related information, such as [buy](../../../learn/glossary.mdx#buy-orders)/[sell orders](../../../learn/glossary.mdx#sell-orders), fan token [portfolio](../../../learn/glossary.mdx#portfolio), etc.
+`user` indexes all users on the Moxie protocol. This API can help you get a certain user's related information, such as [buy](../../../learn/glossary.mdx#buy-orders)/[sell orders](../../../learn/glossary.mdx#sell-orders), Creator Coin [portfolio](../../../learn/glossary.mdx#portfolio), etc.
 
 <p style={{ marginBottom: "0.4em" }}><strong>Arguments</strong></p>
 
@@ -1719,7 +1719,7 @@ subgraphError<br />
 
 **Type:** [[User!]!](objects#user)
 
-`users` indexes all users on the Moxie protocol. This API can help you get all Moxie users' related information, such as [buy](../../../learn/glossary.mdx#buy-orders)/[sell orders](../../../learn/glossary.mdx#sell-orders), fan token [portfolio](../../../learn/glossary.mdx#portfolio), etc.
+`users` indexes all users on the Moxie protocol. This API can help you get all Moxie users' related information, such as [buy](../../../learn/glossary.mdx#buy-orders)/[sell orders](../../../learn/glossary.mdx#sell-orders), Creator Coin [portfolio](../../../learn/glossary.mdx#portfolio), etc.
 
 <p style={{ marginBottom: "0.4em" }}><strong>Arguments</strong></p>
 

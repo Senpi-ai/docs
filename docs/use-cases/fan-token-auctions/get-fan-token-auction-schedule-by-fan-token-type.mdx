@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 sidebar_class_name: clock
-description: Learn how to use the Airstack GraphQL API to get all the fan token auction schedules by the fan token type.
+description: Learn how to use the Airstack GraphQL API to get all the Creator Coin auction schedules by the Creator Coin type.
 ---
 
 import Prerequisites from "../../../src/components/Tutorials/Prerequisites";
@@ -11,10 +11,10 @@ import AddQuery from "../../../src/components/Tutorials/AddQuery";
 import ExecuteCode from "../../../src/components/Tutorials/ExecuteCode";
 import url from "../../../constant/api_url.json";
 
-# Get Fan Token Auction Schedule By Fan Token Type
+# Get Creator Coin Auction Schedule By Creator Coin Type
 
 <Header
-  useCase="all the fan token auction schedules by the fan token type"
+  useCase="all the Creator Coin auction schedules by the Creator Coin type"
   apiName="Airstack GraphQL"
 />
 
@@ -24,14 +24,14 @@ import url from "../../../constant/api_url.json";
 
 In addition, to access the Airstack API, you should [get your Airstack API key](https://docs.airstack.xyz/airstack-docs-and-faqs/get-started/get-api-key).
 
-For access to the Airstack API key, you'll need to **hold at least 1 /airstack Channel Fan Token** in either your Farcaster custodial wallet or one of your Farcaster verified wallets AND make sure that you have connected one of those wallet or your Farcaster account to your Airstack account.
+For access to the Airstack API key, you'll need to **hold at least 1 /airstack Channel Creator Coin** in either your Farcaster custodial wallet or one of your Farcaster verified wallets AND make sure that you have connected one of those wallet or your Farcaster account to your Airstack account.
 
 If you don't have it yet, you can buy it [here](https://www.airstack.xyz/channels/airstack).
 
 ## Step 1: Add The API Query To Your Code
 
 <AddQuery
-  useCase="all the fan token auction schedules by their status"
+  useCase="all the Creator Coin auction schedules by their status"
   subgraphLink={url.offchain_graphql_api}
   query={`query MyQuery($fanTokenType: FarcasterFanTokenAuctionEntityType) {
   FarcasterFanTokenAuctions(
@@ -56,7 +56,7 @@ If you don't have it yet, you can buy it [here](https://www.airstack.xyz/channel
   }
 }`}
   variable={`{
-  // For example, to fetch all auction schedules for channel-type fan tokens
+  // For example, to fetch all auction schedules for channel-type Creator Coins
   "fanTokenType": "CHANNEL"
 }`}
   headers={`{
@@ -116,7 +116,7 @@ If you don't have it yet, you can buy it [here](https://www.airstack.xyz/channel
     }
   }
 }`}
-  dataFetched="all the fan token auction schedules by the fan token type"
+  dataFetched="all the Creator Coin auction schedules by the Creator Coin type"
 />
 
 <DeveloperSupport />

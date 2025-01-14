@@ -45,11 +45,6 @@ const sidebars: SidebarsConfig = {
           id: "learn/technical-deep-dive/referral-fees",
           label: "Referral Fees",
         },
-        {
-          type: "doc",
-          id: "learn/technical-deep-dive/rewards-split",
-          label: "Rewards Split",
-        },
       ],
     },
     {

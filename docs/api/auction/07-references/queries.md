@@ -34,7 +34,7 @@ block<br />
 
 **Type:** [AuctionCleared](objects#auctioncleared)
 
-`auctionCleared` index all [auctions](../../../learn/glossary.mdx#fan-token-auctions) that has been cleared or finalized. You can use this API to fetch a certain cleared/finalized [auction](../../../learn/glossary.mdx#fan-token-auctions).
+`auctionCleared` index all [auctions](../../../learn/glossary.mdx#creator-coin-auctions) that has been cleared or finalized. You can use this API to fetch a certain cleared/finalized [auction](../../../learn/glossary.mdx#creator-coin-auctions).
 
 <p style={{ marginBottom: "0.4em" }}><strong>Arguments</strong></p>
 
@@ -79,7 +79,7 @@ subgraphError<br />
 
 **Type:** [[AuctionCleared!]!](objects#auctioncleared)
 
-`auctionCleareds` index all [auctions](../../../learn/glossary.mdx#fan-token-auctions) that has been cleared or finalized. You can use this API to fetch all cleared [auctions](../../../learn/glossary.mdx#fan-token-auctions) and filter based on certain requirements.
+`auctionCleareds` index all [auctions](../../../learn/glossary.mdx#creator-coin-auctions) that has been cleared or finalized. You can use this API to fetch all cleared [auctions](../../../learn/glossary.mdx#creator-coin-auctions) and filter based on certain requirements.
 
 <p style={{ marginBottom: "0.4em" }}><strong>Arguments</strong></p>
 
@@ -160,7 +160,7 @@ subgraphError<br />
 
 **Type:** [AuctionDetail](objects#auctiondetail)
 
-`auctionDetail` index all [auction](../../../learn/glossary.mdx#fan-token-auctions) that has been created on the Moxie protocol. You can use this API to fetch a certain [auction](../../../learn/glossary.mdx#fan-token-auctions).
+`auctionDetail` index all [auction](../../../learn/glossary.mdx#creator-coin-auctions) that has been created on the Moxie protocol. You can use this API to fetch a certain [auction](../../../learn/glossary.mdx#creator-coin-auctions).
 
 <p style={{ marginBottom: "0.4em" }}><strong>Arguments</strong></p>
 
@@ -205,7 +205,7 @@ subgraphError<br />
 
 **Type:** [[AuctionDetail!]!](objects#auctiondetail)
 
-`auctionDetails` index all [auctions](../../../learn/glossary.mdx#fan-token-auctions) that has been created in the Moxie protocol. You can use this API to fetch all [auctions](../../../learn/glossary.mdx#fan-token-auctions) and filter based on certain requirements.
+`auctionDetails` index all [auctions](../../../learn/glossary.mdx#creator-coin-auctions) that has been created in the Moxie protocol. You can use this API to fetch all [auctions](../../../learn/glossary.mdx#creator-coin-auctions) and filter based on certain requirements.
 
 <p style={{ marginBottom: "0.4em" }}><strong>Arguments</strong></p>
 

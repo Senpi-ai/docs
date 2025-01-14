@@ -34,7 +34,7 @@ block<br />
 
 **Type:** [Auction](objects#auction)
 
-`auction` enables you to fetch on-chain data about a certain [auction](../../../learn/glossary.mdx#fan-token-auctions) on the Moxie protocol.
+`auction` enables you to fetch on-chain data about a certain [auction](../../../learn/glossary.mdx#creator-coin-auctions) on the Moxie protocol.
 
 <p style={{ marginBottom: "0.4em" }}><strong>Arguments</strong></p>
 
@@ -79,7 +79,7 @@ subgraphError<br />
 
 **Type:** [[Auction!]!](objects#auction)
 
-`auctions` enables you to fetch on-chain data about all [auctions](../../../learn/glossary.mdx#fan-token-auctions) on the Moxie protocol with filters available to fetch auctions that fulfill certain requirements.
+`auctions` enables you to fetch on-chain data about all [auctions](../../../learn/glossary.mdx#creator-coin-auctions) on the Moxie protocol with filters available to fetch auctions that fulfill certain requirements.
 
 <p style={{ marginBottom: "0.4em" }}><strong>Arguments</strong></p>
 
@@ -160,7 +160,7 @@ subgraphError<br />
 
 **Type:** [AuctionUser](objects#auctionuser)
 
-`auctionUser` enables you to fetch a certain user that has registered for [auction](../../../learn/glossary.mdx#fan-token-auctions) on the Moxie protocol.
+`auctionUser` enables you to fetch a certain user that has registered for [auction](../../../learn/glossary.mdx#creator-coin-auctions) on the Moxie protocol.
 
 <p style={{ marginBottom: "0.4em" }}><strong>Arguments</strong></p>
 
@@ -203,7 +203,7 @@ subgraphError<br />
 
 ## auctionUsers
 
-`auctionUsers` enables you to fetch all users that have registered for [auction](../../../learn/glossary.mdx#fan-token-auctions) on the Moxie protocol with filters available to fetch users that fulfill certain requirements.
+`auctionUsers` enables you to fetch all users that have registered for [auction](../../../learn/glossary.mdx#creator-coin-auctions) on the Moxie protocol with filters available to fetch users that fulfill certain requirements.
 
 **Type:** [[AuctionUser!]!](objects#auctionuser)
 

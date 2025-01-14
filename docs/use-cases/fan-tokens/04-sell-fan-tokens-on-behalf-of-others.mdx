@@ -81,7 +81,7 @@ To calculate the sell price, call the Moxie bonding curve smart contract `calcul
 
 ## Step 4: Approve Creator Coins
 
-If the Creator Coin `allowance` is either 0 or less than what is needed to sell the inputted amount of Creator Coins (from [Step 2](./04-sell-fan-tokens-on-behalf-of-others.mdx#step-2-check-fan-token-allowance)), then approval on the Creator Coin will need to be initiated to ensure that the buy transaction is successful.
+If the Creator Coin `allowance` is either 0 or less than what is needed to sell the inputted amount of Creator Coins (from [Step 2](./04-sell-fan-tokens-on-behalf-of-others.mdx#step-2-check-creator-coin-allowance)), then approval on the Creator Coin will need to be initiated to ensure that the buy transaction is successful.
 
 Otherwise, if there is sufficient `allowance` value, skip to [Step 5](./04-sell-fan-tokens-on-behalf-of-others.mdx#step-5-execute-contract-call) to execute the buy Creator Coins transaction.
 

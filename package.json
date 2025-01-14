@@ -19,8 +19,8 @@
     "update-schema": "npm run update-schema:protocol && npm run update-schema:auction && npm run update-schema:vesting"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.6.3",
-    "@docusaurus/plugin-client-redirects": "^3.6.3",
+    "@docusaurus/core": "^3.7.0",
+    "@docusaurus/plugin-client-redirects": "^3.7.0",
     "@docusaurus/preset-classic": "^3.6.3",
     "@docusaurus/theme-mermaid": "^3.6.3",
     "@docusaurus/theme-search-algolia": "^3.5.2",

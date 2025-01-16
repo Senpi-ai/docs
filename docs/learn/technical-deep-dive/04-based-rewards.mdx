@@ -123,30 +123,30 @@ These data is available in Dune publicly where you can fetch the data for your o
 
 Let's consider an example where there are 3 users on Base, and the total amount of Moxie distributed on a given day is 5,000 Moxie. The Moxie Score and gas spent by each user on Base are as follows:
 
-| User | Moxie Score | Gas Used | Total USD transacted |
-| ---- | ----------- | -------- | -------------------- |
-| A    | $2$         | $100$    | $5$                  |
-| B    | $5$         | $200$    | $3$                  |
-| C    | $10$        | $300$    | $2$                  |
+| User | Moxie Score | Gas Used | Total USD transacted | Number of Transactions |
+| ---- | ----------- | -------- | -------------------- | ---------------------- |
+| A    | $2$         | $100$    | $10$                 | $2$                    |
+| B    | $5$         | $200$    | $15$                 | $5$                    |
+| C    | $10$        | $300$    | $100$                | $50$                   |
 
 The total amount contributed to the pool in a given day can be calculated as follows:
 
 $$
-P = 2 \times 100 \times 5 + 5 \times 200 \times 3 + 10 \times 300 \times 2 = 10,000
+P = 2 \times 100 \times \frac{10}{2} + 5 \times 200 \times \frac{15}{5} + 10 \times 300 \times \frac{100}{50} = 10,000
 $$
 
 Thus, the % of contribution of each user to the pool will be:
 
-| User | % Contribution                       |
-| ---- | ------------------------------------ |
-| A    | $10% = \frac{10 \times 100}{10,000}$ |
-| B    | $30% = \frac{15 \times 200}{10,000}$ |
-| C    | $60% = \frac{20 \times 300}{10,000}$ |
+| User | % Contribution                                              |
+| ---- | ----------------------------------------------------------- |
+| A    | $10\% = \frac{2 \times 100 \times \frac{10}{2}}{10,000}$    |
+| B    | $30\% = \frac{5 \times 200 \times \frac{15}{5}}{10,000}$    |
+| C    | $60\% = \frac{10 \times 300 \times \frac{100}{50}}{10,000}$ |
 
 Finally, the total 5,000 Moxie will be distributed to each user as Based Rewards based on their % contribution to the pool:
 
-| User | Based Rewards              |
-| ---- | -------------------------- |
-| A    | $500 = 10% \times 5,000$   |
-| B    | $1,500 = 30% \times 5,000$ |
-| C    | $3,000 = 60% \times 5,000$ |
+| User | Based Rewards               |
+| ---- | --------------------------- |
+| A    | $500 = 10\% \times 5,000$   |
+| B    | $1,500 = 30\% \times 5,000$ |
+| C    | $3,000 = 60\% \times 5,000$ |

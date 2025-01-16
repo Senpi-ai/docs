@@ -8,7 +8,24 @@ In this tutorial, you will explore the key parameters and concepts used to calcu
 
 - Read the [Moxie Scores](./03-moxie-score.mdx) page.
 
-## Total Gas Used And Multipliers
+## Multipliers
+
+A **multiplier value** is applied to each eligible transaction, depending on the amount of protocol fees paid by the user to the allowlisted protocol contract that the user interacts with.
+
+The applicable multipliers are as follows based on the percentage of protocol fees paid per transactions:
+
+| **Transaction Type**                                                     | **Multiplier Value** |
+| ------------------------------------------------------------------------ | -------------------- |
+| Tx on allowlisted contracts with protocol fee $F \le 0.25\%$             | $1\times$            |
+| Tx on allowlisted contracts with protocol fee $0.25\% \lt  F \leq 0.5\%$ | $2\times$            |
+| Tx on allowlisted contracts with protocol fee $0.5\% \lt F \leq 0.75\%$  | $3\times$            |
+| Tx on allowlisted contracts with protocol fee $F \gt 0.75\%$             | $4\times$            |
+| Tx on Moxie Bonding Curve & Staking (Creator Coins Transactions)         | $4\times$            |
+| Tx on Non-Allowlisted Contracts                                          | $0\times$            |
+
+To view the current contracts allowlisted and their associated fees and multipliers assigned, click [here](https://dune.com/queries/4542828).
+
+## Total Gas Used
 
 The **Total Gas Used** by a user $U$ is calculated as the sum of all gas fees (in gwei), multiplied by a multiplier value, for all **eligible transactions** completed by the user within a single day.
 
@@ -27,14 +44,6 @@ To apply to be a **Based Rewards Partner**, click on this link [here](https://ap
 
 :::
 
-Additionally, a **multiplier value** is applied to each eligible transaction, depending on the type of contract the user interacts with. The applicable multipliers are as follows:
-
-| **Contract Type**                                          | **Multiplier Value** |
-| ---------------------------------------------------------- | -------------------- |
-| Moxie Bonding Curve & Staking (Creator Coins Transactions) | $5\times$            |
-| Other Allowlisted Contracts                                | $1\times$            |
-| Non-Allowlisted Contracts                                  | $0\times$            |
-
 Using the criteria and multipliers above, given user $U$ has made transactions $tx_1, tx_2, ..., tx_j$ on the Base chain, then the **Total Gas Used** for user $U$ can be formulated using the following equations:
 
 $$
@@ -45,12 +54,12 @@ $$
 
 where:
 
-| Notation      | Description                                                         |
-| ------------- | ------------------------------------------------------------------- |
-| $G_{used}(U)$ | Total gas used by user $$U$$ on [Base](https://base.org).           |
-| $m(tx_{i})$   | Multiplier on transaction $tx_{i}$                                  |
-| $E(tx_{i})$   | If transaction $tx_{i}$ is eligible, return 1. Otherwise, return 0. |
-| $G(tx_{i})$   | Gas used on transaction $tx\_{i}$                                   |
+| Notation      | Description                                                                                                                         |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| $G_{used}(U)$ | Total gas used by user $$U$$ on [Base](https://base.org).                                                                           |
+| $m(tx_{i})$   | Multiplier on transaction $tx_{i}$, which is based the protocol fee paid. Check details in [Multiplier tables](#multipliers) above. |
+| $E(tx_{i})$   | If transaction $tx_{i}$ is eligible, return 1. Otherwise, return 0.                                                                 |
+| $G(tx_{i})$   | Gas used on transaction $tx_{i}$                                                                                                    |
 
 ## Reward & Percentage Contribution
 
@@ -61,7 +70,13 @@ The **Base Usage** of user $U_i$ is defined as the amount contributed to the poo
 This can be formulated as the sum of the product of the Moxie Score, the total eligible gas spent by each user on Base, and the total USD amount transacted in the day, which can be written as an equation shown below:
 
 $$
-B_{usage}(U) = M_{score}(U) \times G_{used}(U) \times T_{USD}(U)
+B_{usage}(U) = {M_{score}(U) \times G_{used}(U) \times Avg_{USD}(U)}
+$$
+
+where $Avg_{USD}(U)$, that is the average \$USD value spent by user $U$, can be expanded further to:
+
+$$
+Avg_{USD}(U) = \frac{T_{USD}(U)}{{n_{tx}(U)}}
 $$
 
 By summing up all the Base Usages from all users $U_1, U_2, ..., U_k$, the **Total Base Usage** to the reward pool can be defined as follows:
@@ -90,10 +105,12 @@ where:
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | $$k$$              | Total number of users                                                                                                                               |
 | $$P$$              | Total amount contributed to the pool in a given day                                                                                                 |
+| $$n_{tx}(U)$$      | Total amount of transactions made by user $U$                                                                                                       |
 | $$B_{usage}(U)$$   | The Base usage by user $U$                                                                                                                          |
 | $$B_{rewards}(U)$$ | Based Rewards of user $$U$$                                                                                                                         |
 | $$M_{score}(U)$$   | [Moxie Score](./03-moxie-score.mdx) of user $$U$$                                                                                                   |
 | $$G_{used}(U)$$    | Total gas used by user $$U$$ on [Base](https://base.org). For more details, read [Total Gas Used And Multipliers](#total-gas-used-and-multipliers). |
+| $$Avg_{USD}(U)$$   | Average USD amount transacted in the day                                                                                                            |
 | $$T_{USD}(U)$$     | Total USD amount transacted in the day                                                                                                              |
 
 As shown by the equation above, the amount of Based Rewards is directly proportional to the amount of Moxie Score you have. Thus, the more account you connect to your Moxie profile, the higher amount of Based Rewards you will earn for each transaction on Base.

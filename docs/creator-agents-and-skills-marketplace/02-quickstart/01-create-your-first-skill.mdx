@@ -12,10 +12,113 @@ Thus, before getting started with development, ensure that you have fulfilled al
 - A code editor (VS Code or VSCodium recommended)
 - CUDA Toolkit (optional, for GPU acceleration)
 
-## Installation
+Once the environment is setup, make sure that you have completed the [Eliza Quickstart guide](https://elizaos.github.io/eliza/docs/quickstart/) and setup your own AI agent.
 
-## Step 1:
+## Step 1: Define A New Plugin
 
-## Step 2:
+First, create
+
+```ts
+import { Plugin } from "@elizaos/core";
+
+const myFirstMoxieSkill: Plugin = {
+  name: "my-first-moxie-skill",
+  description: "My First Moxie Skill",
+  actions: [],
+};
+```
+
+## Step 2: Create New Action & Providers For The Agent
+
+```ts
+import {
+  Action,
+  IAgentRuntime,
+  Memory,
+  HandlerCallback,
+  State,
+  composeContext,
+  generateObject,
+  ModelClass,
+  elizaLogger,
+} from "@elizaos/core";
+
+const myFirstMoxieAction: Action = {
+  name: "SWAP_TOKEN",
+  similes: ["BUY_TOKEN", "PURCHASE_TOKEN"],
+  description: "Swap one token for another token",
+  validate: async function (
+    runtime: IAgentRuntime,
+    message: Memory,
+    state?: State
+  ): Promise<boolean> {
+    return true;
+  },
+  handler: async (
+    runtime: IAgentRuntime,
+    message: Memory,
+    state?: State,
+    options?: { [key: string]: unknown },
+    callback?: HandlerCallback
+  ) => {
+    try {
+    } catch {}
+  },
+  examples: [
+    [
+      {
+        user: "{{user1}}",
+        content: {
+          text: "Create a new resource with the name 'Resource1' and type 'TypeA'",
+        },
+      },
+      {
+        user: "{{agentName}}",
+        content: {
+          text: `Resource created successfully:
+- Name: Resource1
+- Type: TypeA`,
+        },
+      },
+    ],
+  ],
+};
+
+export default myFirstMoxieAction;
+```
+
+Once the Action is defined, simply integrate it to your plugin by importing and adding it to the `actions` field:
+
+```ts
+import { Action } from "@elizaos/core";
+import myFirstMoxieAction from ".";
+
+const myFirstMoxieSkill: Plugin = {
+  name: "my-first-moxie-skill",
+  description: "My First Moxie Skill",
+  actions: [myFirstMoxieAction],
+};
+```
+
+Other than Eliza Action, you can also customize your Moxie Skill further by adding custom providers, evaluators, or services to build more interesting feature.
+
+## Step 3: Test Your Plugin With The Agent
+
+```ts
+
+```
+
+Then, run a client for testing:
+
+```sh
+npm run start:client
+```
+
+## More Resources
+
+- [Eliza Developer Docs](https://elizaos.github.io/eliza/docs/intro/)
+- [Best Practices For Eliza Plugin Development](https://elizaos.github.io/eliza/docs/packages/plugins/#best-practices)
+- [Autonomous Trading](https://elizaos.github.io/eliza/docs/advanced/autonomous-trading/)
+- [Wallet Secrets Management](https://elizaos.github.io/eliza/docs/guides/secrets-management/)
 
 <DeveloperSupport />

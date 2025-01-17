@@ -69,14 +69,14 @@ const config: Config = {
     ],
   ],
   themeConfig: {
-    // announcementBar: {
-    //   id: "moxie_base",
-    //   content:
-    //     'Moxie is expanding to Base and X. Learn more on how <a href="/learn/technical-deep-dive/moxie-score">Moxie Score</a> and <a href="/learn/technical-deep-dive/based-rewards">Based Rewards</a> work.',
-    //   backgroundColor: "#8e55ff",
-    //   textColor: "#ffffff",
-    //   isCloseable: false,
-    // },
+    announcementBar: {
+      id: "moxie_base",
+      content:
+        'Creator Agents and Skills Marketplace coming early 2025! Learn how to build a <a href="/creator-agents-and-skills-marketplace/quickstart/create-your-first-skill#step-23-integrate-the-action-into-your-plugin">Creator Agent Skills</a> today!',
+      backgroundColor: "#8e55ff",
+      textColor: "#ffffff",
+      isCloseable: false,
+    },
     algolia: {
       appId: "0E7JT4EO4H",
       apiKey: "27c2281916aa623aa3fca88e9d0c6696",
@@ -100,6 +100,12 @@ const config: Config = {
           sidebarId: "learnSidebar",
           position: "left",
           label: "Learn",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "creatorAgentsSidebar",
+          position: "left",
+          label: "Creator Agents & Skills Marketplace",
         },
         {
           type: "dropdown",

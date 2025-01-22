@@ -90,7 +90,7 @@ const moxieSummaryProvider: Provider = {
     // to provide context for creator agent
     const data = await graphQLClient.request(query);
 
-    return data;
+    return JSON.stringify(data);
   },
 };
 

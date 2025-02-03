@@ -70,7 +70,7 @@ The **Base Usage** of user $U_i$ is defined as the amount contributed to the poo
 This can be formulated as the sum of the product of the Moxie Score, the total eligible gas spent by each user on Base, and the total USD amount transacted in the day, which can be written as an equation shown below:
 
 $$
-B_{usage}(U) = \frac{G_{used}(U)^{0.5} \times 1.2 + T_{USD}(U)^{1.2} + Avg_{USD}(U)^{2.2}}{n_{tx}(U)^{0.65} + Avg_{USD}(U)^{0.45}} \times \biggl( \frac{M_{score}(U)}{1500} \biggl)^{1.4}
+B_{usage}(U) = \frac{G_{used}(U)^{0.5} \times 1.2 + T_{USD}(U)^{1.2} + Avg_{USD}(U)^{2.2}}{n_{tx}(U)^{0.65} + Avg_{USD}(U)^{1.4}} \times \biggl( \frac{M_{score}(U)}{1500} \biggl)^{0.45}
 $$
 
 where $Avg_{USD}(U)$, that is the average \$USD value spent by user $U$, can be expanded further to:

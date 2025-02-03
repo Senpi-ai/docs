@@ -70,7 +70,7 @@ The **Base Usage** of user $U_i$ is defined as the amount contributed to the poo
 This can be formulated as the sum of the product of the Moxie Score, the total eligible gas spent by each user on Base, and the total USD amount transacted in the day, which can be written as an equation shown below:
 
 $$
-B_{usage}(U) = \frac{G_{used}(U)^{0.5} \times 1.2 + T_{USD}(U)^{1.2} + Avg_{USD}(U)^{2.2}}{n_{tx}(U)^{0.65} + Avg_{USD}(U)^{1.4}} \times \biggl( \frac{M_{score}(U)}{1500} \biggl)^{1.4}
+B_{usage}(U) = \frac{G_{used}(U)^{0.5} \times 1.2 + T_{USD}(U)^{1.2} + Avg_{USD}(U)^{2.2}}{n_{tx}(U)^{0.65} + Avg_{USD}(U)^{0.45}} \times \biggl( \frac{M_{score}(U)}{1500} \biggl)^{1.4}
 $$
 
 where $Avg_{USD}(U)$, that is the average \$USD value spent by user $U$, can be expanded further to:
@@ -132,21 +132,21 @@ Let's consider an example where there are 3 users on Base, and the total amount 
 The total amount contributed to the pool in a given day can be calculated as follows:
 
 $$
-P = \sum_{i=1}^3 B_{usage}(U_i) = 52.89
+P = \sum_{i=1}^3 B_{usage}(U_i) = 1051.48
 $$
 
 Thus, the % of contribution of each user to the pool will be:
 
 | User  | % Contribution                       |
 | ----- | ------------------------------------ |
-| $U_1$ | $4.87\% = \frac{B_{usage}(U_1)}{P}$  |
-| $U_2$ | $36.66\% = \frac{B_{usage}(U_2)}{P}$ |
-| $U_3$ | $58.47\% = \frac{B_{usage}(U_3)}{P}$ |
+| $U_1$ | $14.81\% = \frac{B_{usage}(U_1)}{P}$ |
+| $U_2$ | $46.66\% = \frac{B_{usage}(U_2)}{P}$ |
+| $U_3$ | $38.53\% = \frac{B_{usage}(U_3)}{P}$ |
 
 Finally, the total 5,000 Moxie will be distributed to each user as Based Rewards based on their % contribution to the pool:
 
 | User  | Based Rewards                     |
 | ----- | --------------------------------- |
-| $U_1$ | $243.62 = 4.87\% \times 5,000$    |
-| $U_2$ | $1,832.78 = 36.66\% \times 5,000$ |
-| $U_3$ | $2,923.60 = 58.47\% \times 5,000$ |
+| $U_1$ | $740.56 = 14.81\% \times 5,000$   |
+| $U_2$ | $2,333.03 = 46.66\% \times 5,000$ |
+| $U_3$ | $1,926.41 = 38.53\% \times 5,000$ |

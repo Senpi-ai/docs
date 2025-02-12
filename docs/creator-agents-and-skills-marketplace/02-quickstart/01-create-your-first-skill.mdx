@@ -17,17 +17,40 @@ Before you begin development, please ensure you have all the prerequisites for t
 - Git for version control
 - A code editor (VS Code or VSCodium recommended)
 - CUDA Toolkit (optional, for GPU acceleration)
+- OpenAI API Key (for OpenAI models)
 
-Once your environment is set up, confirm you have completed the [Eliza Quickstart guide](https://elizaos.github.io/eliza/docs/quickstart/) and have your own AI agent running.
+Once your environment is set up, fork the repository and then clone it locally to your machine.
+
+Once you cloned the repository, you can setup your environment with the following scripts:
+
+```sh
+cd moxie-agent-plugin
+cp .env.example .env
+pnpm i && pnpm build
+```
+
+In the newly created `.env` file, you can add your OpenAI API key to the `OPENAI_API_KEY` environment variable. Feel fee to provide other relevant API keys if you are using other AI models for your agent.
 
 ## Step 1: Define A New Plugin
 
-Create a new file under the `src/plugins` directory with the following content to define your plugin instance:
+First, create a separate branch in your forked repository:
 
-```ts title="agent/src/plugins/myFirstMoxieSkill/index.ts"
-import { Plugin } from "@elizaos/core";
+```sh
+git checkout -b <new-branch>
+```
 
-const myFirstMoxieSkill: Plugin = {
+Then, copy the `packages/_examples/plugin` directory, which contain templates to create a new skills for your Creator Agent, to a new folder under the `packages` directory:
+
+```sh
+cp ./packages/_examples/plugin ./packages/plugin-first-skill
+```
+
+Once you created a new folder that will contain the code for your new Creator Agent skills, go to `packages/plugin-first-skill/src/samplePlugins.ts` to define your plugin instance:
+
+```ts title="packages/plugin-first-skill/src/samplePlugins.ts"
+// all import statements no changes
+
+export const samplePlugin: Plugin = {
   name: "my-first-moxie-skill",
   description:
     "This plugin is invoked when the user is asking for the current state of the Moxie protocol.",
@@ -46,7 +69,7 @@ Eliza providers and actions are core components of the Eliza framework that help
 
 First, create a provider to pull the Moxie protocol information from the subgraph and integrate that data into the agent’s context. Place this new file under the `src/providers` directory:
 
-```ts title="agent/src/plugins/myFirstMoxieSkill/providers/moxieSummaryProvider.ts"
+```ts title="packages/plugin-first-skill/src/providers/moxieSummaryProvider.ts"
 import {
   type Provider,
   type IAgentRuntime,
@@ -121,9 +144,9 @@ interface Action {
 }
 ```
 
-Create a new file in the src/actions directory, and define the new action with your chosen `name`, `similes`, and `description`:
+Create a new file in the `src/actions` directory, and define the new action with your chosen `name`, `similes`, and `description`:
 
-```ts title="agent/src/plugins/myFirstMoxieSkill/actions/moxieSummaryAction.ts"
+```ts title="packages/plugin-first-skill/src/actions/moxieSummaryAction.ts"
 import type {
   Action,
   HandlerCallback,
@@ -154,7 +177,7 @@ These metadata guide the Creator Agent in selecting the appropriate action when 
 
 Next, for the `validate` field, keep it simple by returning `true` to ensure requests are always validated:
 
-```ts title="agent/src/plugins/myFirstMoxieSkill/actions/moxieSummaryAction.ts" {12}
+```ts title="packages/plugin-first-skill/src/actions/moxieSummaryAction.ts" {12}
 import type {
   Action,
   HandlerCallback,
@@ -182,9 +205,9 @@ If you would like to add any gating logic, then you can add additional if-else s
 
 After that, define the `handler` field to retrieve the Moxie protocol data from the Moxie Summary Provider and return this information to the user.
 
-To achieve this, you also need a template that helps the LLM model extract JSON data from the provider:
+To achieve this, you also need a template that helps the LLM model extract JSON data from the provider in `template.ts`. For this, you can delete all the content in `template.ts` and replace it with the following code:
 
-```ts title="agent/src/plugins/myFirstMoxieSkill/template.ts"
+```ts title="packages/plugin-first-skill/src/template.ts"
 const summaryDetailsTemplate = `
 Extract the following JSON fields to get all the summary data and return it in JSON format:
 
@@ -218,7 +241,7 @@ export default summaryDetailsTemplate;
 
 And use a schema (with the `zod` library) to validate the data:
 
-```ts title="agent/src/plugins/myFirstMoxieSkill/types.ts"
+```ts title="packages/plugin-first-skill/src/types.ts"
 import { z } from "zod";
 
 const MoxieSummarySchema = z.object({
@@ -247,7 +270,7 @@ export default MoxieSummarySchema;
 
 and the `handler` field full code should look as following:
 
-```ts title="agent/src/plugins/myFirstMoxieSkill/actions/moxieSummaryAction.ts" {14}
+```ts title="packages/plugin-first-skill/src/actions/moxieSummaryAction.ts" {14}
 import type {
   Action,
   HandlerCallback,
@@ -368,7 +391,7 @@ export default moxieSummaryAction;
 
 Lastly, add an `examples` field to your action. By providing a range of prompts, the agent can learn different question patterns and how to respond appropriately:
 
-```ts title="agent/src/plugins/myFirstMoxieSkill/actions/moxieSummaryAction.ts" {12}
+```ts title="packages/plugin-first-skill/src/actions/moxieSummaryAction.ts" {12}
 import type {
   Action,
   HandlerCallback,
@@ -425,12 +448,12 @@ export default moxieSummaryAction;
 
 Finally, integrate the provider and action above into your plugin by importing it and adding it to the actions array:
 
-```ts title="agent/src/plugins/myFirstMoxieSkill/index.ts" {8,9}
+```ts title="packages/plugin-first-skill/src/plugins/samplePlugins.ts" {8,9}
 import { Action } from "@elizaos/core";
-import moxieSummaryAction from "./actions/moxieSummaryAction";
-import moxieSummaryProvider from "./providers/moxieSummaryProvider";
+import moxieSummaryAction from "../actions/moxieSummaryAction";
+import moxieSummaryProvider from "../providers/moxieSummaryProvider";
 
-const myFirstCreatorAgentSkill: Plugin = {
+const samplePlugin: Plugin = {
   name: "my-first-creator-agent-skill",
   description: "My First Moxie Skill",
   actions: [moxieSummaryAction],
@@ -440,13 +463,14 @@ const myFirstCreatorAgentSkill: Plugin = {
 export default myFirstCreatorAgentSkill;
 ```
 
-and add it to your agent instance:
+and add it to your agent instance on line 489 in `agent/src/index.ts`:
 
 ```ts {5} title="agent/src/index.ts"
 import { Agent } from "@elizaos/core";
-import myFirstCreatorAgentSkill from "./plugins/myFirstMoxieSkill/index";
+import myFirstCreatorAgentSkill from "@elizaos/plugin-first-skill";
 
 const runtime = new AgentRuntime({
+  // other parameters
   plugins: [
     // Other plugins (if any)
     myFirstCreatorAgentSkill,
@@ -464,28 +488,28 @@ To test your plugin, start the Eliza framework locally by running:
     <TabItem value="npm" label="npm">
 
 ```bash
-npm run start --character="characters/<character>.character.json"
+npm run start --character="characters/moxie.character.json"
 ```
 
     </TabItem>
     <TabItem value="yarn" label="yarn">
 
 ```bash
-yarn start --character="characters/<character>.character.json"
+yarn start --character="characters/moxie.character.json"
 ```
 
     </TabItem>
     <TabItem value="pnpm" label="pnpm">
 
 ```bash
-pnpm start --character="characters/<character>.character.json"
+pnpm start --character="characters/moxie.character.json"
 ```
 
     </TabItem>
     <TabItem value="bun" label="bun">
 
 ```bash
-bun start --character="characters/<character>.character.json"
+bun start --character="characters/moxie.character.json"
 ```
 
     </TabItem>

@@ -1,31 +1,64 @@
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
+
 # Moxie Client
 
-The Moxie Client injects several defined states that can be used directly in your skill development.
-
-Those states are:
+The Moxie Client injects several predefined states that can be directly used during skill development. These states include:
 
 ## States
 
 ### `agentName`
 
 ```ts
-state.agentName;
+export default Action {
+    handler: async (
+    runtime: IAgentRuntime,
+    message: Memory,
+    state: State,
+    _options: { [key: string]: unknown },
+    callback?: HandlerCallback
+    ): Promise<boolean> => {
+        const agentName: string = state.agentName;
+    }
+}
 ```
-
-Reference:
 
 ### `moxieUserInfo`
 
 ```ts
-state.moxieUserInfo;
+export default Action {
+    handler: async (
+    runtime: IAgentRuntime,
+    message: Memory,
+    state: State,
+    _options: { [key: string]: unknown },
+    callback?: HandlerCallback
+    ): Promise<boolean> => {
+        const moxieUserInfo: MoxieUser = state.moxieUserInfo;
+    }
+}
 ```
-
-Reference:
 
 ### `agentWallet`
 
 ```ts
-state.agentWallet;
+export default Action {
+    handler: async (
+    runtime: IAgentRuntime,
+    message: Memory,
+    state: State,
+    _options: { [key: string]: unknown },
+    callback?: HandlerCallback
+    ): Promise<boolean> => {
+        const agentWallet: Wallet = state.agentWallet;
+    }
+}
 ```
 
-Reference:
+## More Resources
+
+- [`states` References](../04-references/states/index.mdx)
+  - [`agentName`](../04-references/states/agentName.mdx)
+  - [`agentWallet`](../04-references/states/agentWallet.mdx)
+  - [`moxieUserInfo`](../04-references/states/moxieUserInfo.mdx)
+
+<DeveloperSupport />

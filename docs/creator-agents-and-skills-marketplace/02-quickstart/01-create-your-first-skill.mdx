@@ -19,7 +19,7 @@ Before you begin development, please ensure you have all the prerequisites for t
 - CUDA Toolkit (optional, for GPU acceleration)
 - OpenAI API Key (for OpenAI models)
 
-Once your environment is set up, fork the repository and then clone it locally to your machine.
+Once your environment is set up, fork [**the repository**](https://github.com/moxie-protocol/moxie-agent-plugin?tab=readme-ov-file#register-your-skills-to-moxie) and then clone it locally to your machine.
 
 Once you cloned the repository, you can setup your environment with the following scripts:
 
@@ -31,7 +31,7 @@ pnpm i && pnpm build
 
 In the newly created `.env` file, you can add your OpenAI API key to the `OPENAI_API_KEY` environment variable. Feel fee to provide other relevant API keys if you are using other AI models for your agent.
 
-## Step 1: Define A New Plugin
+## Step 1: Define a New Plugin
 
 First, create a separate branch in your forked repository:
 
@@ -39,24 +39,39 @@ First, create a separate branch in your forked repository:
 git checkout -b <new-branch>
 ```
 
-Then, copy the `packages/_examples/plugin` directory, which contain templates to create a new skills for your Creator Agent, to a new folder under the `packages` directory:
+Then, copy the packages/\_examples/plugin directory—which contains templates for new skills—into a new folder under the packages directory:
 
 ```sh
 cp ./packages/_examples/plugin ./packages/plugin-first-skill
 ```
 
-Once you created a new folder that will contain the code for your new Creator Agent skills, go to `packages/plugin-first-skill/src/samplePlugins.ts` to define your plugin instance:
+Once you created a new folder that will contain the code for your new Creator Agent skills, go to `packages/plugin-first-skill/package.json` to update the `name` and `version` of the Skills:
 
-```ts title="packages/plugin-first-skill/src/samplePlugins.ts"
+```json
+{
+  "name": "@moxie-protocol/plugin-first-skill",
+  "version": "0.0.1"
+  // other fields stay the same
+}
+```
+
+then, open the `packages/plugin-first-skill/src/index.ts` file to define your plugin instance:
+
+```ts title="packages/plugin-first-skill/src/index.ts"
 // all import statements no changes
 
-export const samplePlugin: Plugin = {
+const samplePlugin: Plugin = {
   name: "my-first-moxie-skill",
   description:
     "This plugin is invoked when the user is asking for the current state of the Moxie protocol.",
   actions: [],
   providers: [],
+  evaluators: [],
+  services: [],
+  clients: [],
 };
+
+export default samplePlugin;
 ```
 
 ## Step 2: Create New Provider & Action For The Agent
@@ -76,7 +91,7 @@ import {
   type Memory,
   type State,
   elizaLogger,
-} from "@elizaos/core";
+} from "@moxie-protocol/core";
 import { gql, GraphQLClient } from "graphql-request";
 
 const graphQLClient = new GraphQLClient(
@@ -153,7 +168,7 @@ import type {
   IAgentRuntime,
   Memory,
   State,
-} from "@elizaos/core";
+} from "@moxie-protocol/core";
 
 const moxieSummaryAction: Action = {
   name: "MOXIE_SUMMARY",
@@ -184,7 +199,7 @@ import type {
   IAgentRuntime,
   Memory,
   State,
-} from "@elizaos/core";
+} from "@moxie-protocol/core";
 
 const moxieSummaryAction: Action = {
   // ... same as above
@@ -239,7 +254,7 @@ Here are the providers for context:
 export default summaryDetailsTemplate;
 ```
 
-And use a schema (with the `zod` library) to validate the data:
+And use a schema (with the `zod` library) to validate the data. You can simply delete the code in `packages/plugin-first-skill/src/types.ts` and replace it with the code below:
 
 ```ts title="packages/plugin-first-skill/src/types.ts"
 import { z } from "zod";
@@ -277,7 +292,7 @@ import type {
   IAgentRuntime,
   Memory,
   State,
-} from "@elizaos/core";
+} from "@moxie-protocol/core";
 import summaryDetailsTemplate from "../template";
 import MoxieSummarySchema from "../types";
 
@@ -398,7 +413,7 @@ import type {
   IAgentRuntime,
   Memory,
   State,
-} from "@elizaos/core";
+} from "@moxie-protocol/core";
 
 const moxieSummaryAction: Action = {
   // ... same as above
@@ -448,8 +463,8 @@ export default moxieSummaryAction;
 
 Finally, integrate the provider and action above into your plugin by importing it and adding it to the actions array:
 
-```ts title="packages/plugin-first-skill/src/plugins/samplePlugins.ts" {8,9}
-import { Action } from "@elizaos/core";
+```ts title="packages/plugin-first-skill/src/index.ts" {8,9}
+import { Action } from "@moxie-protocol/core";
 import moxieSummaryAction from "../actions/moxieSummaryAction";
 import moxieSummaryProvider from "../providers/moxieSummaryProvider";
 
@@ -458,16 +473,19 @@ const samplePlugin: Plugin = {
   description: "My First Moxie Skill",
   actions: [moxieSummaryAction],
   providers: [moxieSummaryProvider],
+  evaluators: [],
+  services: [],
+  clients: [],
 };
 
-export default myFirstCreatorAgentSkill;
+export default samplePlugin;
 ```
 
 and add it to your agent instance on line 489 in `agent/src/index.ts`:
 
 ```ts {5} title="agent/src/index.ts"
-import { Agent } from "@elizaos/core";
-import myFirstCreatorAgentSkill from "@elizaos/plugin-first-skill";
+import { Agent } from "@moxie-protocol/core";
+import myFirstCreatorAgentSkill from "@moxie-protocol/plugin-first-skill";
 
 const runtime = new AgentRuntime({
   // other parameters
@@ -558,6 +576,8 @@ Try out various of the following prompts to test your newly created Creator Agen
 - etc.
 
 Congratulations! 🥳🎉 You have successfully created your first Moxie Skill for your Creator Agent.
+
+Next, you can proceed to [connect your skills to Moxie](./02-connect-skills-to-moxie.mdx) and offer your skills in the Moxie Creator Agent ecosystem.
 
 ## More Resources
 

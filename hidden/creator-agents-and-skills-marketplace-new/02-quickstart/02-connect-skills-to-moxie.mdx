@@ -1,0 +1,92 @@
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
+
+# Connect Your Skills to Moxie
+
+Now that you've developed your Skills, it's time to connect your Skills to Moxie and register them to the Skills Marketplace.
+
+This guide will walk you through each step to get your Skills successfully listed.
+
+## Step 1: Add Your Skills to `skills.json`
+
+First, open the `skills.json` file in the `registry/src` folder and add your Skills metadata.
+
+During this step, you can rename your Skill, polish its description, or add a logo. Once you’ve prepared all the metadata, follow the structure below:
+
+```typescript
+interface Skills {
+  /**
+   * Any UUID, must be unique; you can generate one at https://www.uuidgenerator.net/
+   */
+  pluginId: string;
+
+  /**
+   * Name of the Skills, matching package.json
+   */
+  name: string;
+
+  /**
+   * Version of the Skills, matching package.json
+   */
+  version: string;
+
+  /**
+   * Description of what the Skills can do
+   */
+  description: string;
+
+  /**
+   * Author/creator of the Skills (optional)
+   */
+  author?: string | null;
+
+  /**
+   * GitHub URL to your Skills folder under `/packages`
+   */
+  githubUrl: string;
+
+  /**
+   * URL to the logo.png file (400x400 px) in your Skills folder (optional)
+   */
+  imageUrl?: string | null;
+}
+```
+
+A valid skills.json entry will look like this:
+
+```json
+[
+  {
+    "pluginId": "b5622f90-987e-51d1-bea9-5b1471bb9379",
+    "name": "@moxie-protocol/plugin-moxie-balance",
+    "version": "0.1.8+build.1",
+    "author": null,
+    "description": "A Skills for AI Agents that enables portfolio balance checking for Moxie users' connected wallets.",
+    "githubUrl": "https://github.com/moxie-protocol/moxie-agent-plugin/tree/main/packages/plugin-moxie-balance",
+    "imageUrl": "https://github.com/moxie-protocol/moxie-agent-plugin/tree/main/packages/plugin-moxie-balance/images/logo.png"
+  }
+]
+```
+
+## Step 2: Submit Request to Add Environment Variables (Optional)
+
+If your Skills do not require any environment variables, you can skip this step.
+
+If your Skills need environment variables for production, fill out [this form](https://forms.gle/8hzDyCVKKLs4MkTEA) to request them from the Moxie team. The team will reach out via **Email** (support@airstack.xyz) or **Farcaster** (group chat).
+
+## Step 3: Create a PR to `main` Branch
+
+Lastly, create a new PR targeting the main branch. The Moxie team will review your submission and approve it if it meets the guidelines below:
+
+1. You have tested the Skills locally with the agent and confirmed everything works.
+2. Your Skills include a well-written README describing all actions, providers, evaluators, services, and clients.
+3. You have added the new Skills metadata to `registry/src/skill.json`.
+4. You have not made changes to any other parts of the repository beyond the new Skills folder.
+5. (Optional) You have requested environment variables via [this form](https://forms.gle/8hzDyCVKKLs4MkTEA), if needed.
+6. Your code does not transfer Moxie user's holdings to a fixed address.
+7. Your code does not extract Moxie user's private information (e.g., wallet addresses, private keys).
+8. Your code does not interact with unverified or unpublished smart contracts.
+9. Any smart contracts your Skills interact with that also have liqudity or daily volume more than 100k USD must be audited.
+
+Once your PR is approved and merged, congratulation! 🥳🎉 You've successfully added your Skills to the Skills Marketplace where it's accessible for Moxie users to use.
+
+<DeveloperSupport />

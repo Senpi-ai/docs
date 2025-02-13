@@ -72,7 +72,7 @@ const config: Config = {
     announcementBar: {
       id: "moxie_base",
       content:
-        'Creator Agents and Skills Marketplace coming early 2025! Learn how to build a <a href="/creator-agents-and-skills-marketplace/quickstart/create-your-first-skill#step-23-integrate-the-action-into-your-plugin">Creator Agent Skills</a> today!',
+        'AI Agents and Skills Marketplace coming early 2025! Learn how to build a <a href="/creator-agents-and-skills-marketplace/quickstart/create-your-first-skill#step-23-integrate-the-action-into-your-plugin">AI Agent Skills</a> today!',
       backgroundColor: "#8e55ff",
       textColor: "#ffffff",
       isCloseable: false,
@@ -105,7 +105,7 @@ const config: Config = {
           type: "docSidebar",
           sidebarId: "creatorAgentsSidebar",
           position: "left",
-          label: "Creator Agents & Skills Marketplace",
+          label: "AI Agents & Skills Marketplace",
         },
         {
           type: "dropdown",

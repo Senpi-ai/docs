@@ -1,0 +1,33 @@
+# FarcasterMetadata
+
+## Description
+
+FarcasterMetadata is a type that represents the metadata for a Farcaster identity.
+
+## Type Signature
+
+```ts
+export interface FarcasterMetadata {
+  bio: string;
+  fid: number;
+  pfp: string;
+  type: string;
+  username: string;
+  verifiedAt: string;
+  displayName: string;
+  ownerAddress: string;
+  firstVerifiedAt: string;
+  latestVerifiedAt: string;
+}
+```
+
+## Fields
+
+| Name         | Type     | Description                                  |
+| ------------ | -------- | -------------------------------------------- |
+| `bio`        | `string` | The bio of the user                          |
+| `fid`        | `number` | The Farcaster ID of the user                 |
+| `pfp`        | `string` | The profile picture of the user              |
+| `type`       | `string` | The type of the identity (e.g., "farcaster") |
+| `username`   | `string` | The username of the user                     |
+| `verifiedAt` | `string` | The date and time the user was verified      |

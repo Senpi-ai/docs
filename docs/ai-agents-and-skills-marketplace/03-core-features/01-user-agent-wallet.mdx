@@ -1,0 +1,27 @@
+---
+description: An agent wallet is an embedded wallet that is controlled by the AI agent and owned by the user that can be used to execute on-chain transactions for users.
+---
+
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
+
+# User Agent Wallet
+
+An agent wallet is an embedded wallet that is controlled by the AI agent and owned by the user that can be used to execute on-chain transactions for users.
+
+Each user that created a Moxie account on [moxie.xyz](https://moxie.xyz) automatically assigned a unique agent wallet, which on the the platform is labeled as an **Embedded Wallet**.
+
+As a skills developer, you can access the user's agent wallet to execute onchain transactions and sign messages.
+
+## Accessing the Agent Wallet
+
+To access the agent wallet instance, you can simply use the `agentWallet` state in your skill that is injected by the [Moxie Client](./02-moxie-client.mdx) as shown below:
+
+```typescript
+const agentWallet = state.agentWallet;
+```
+
+Keep in mind that in production, the agent wallet will be dynamically injected into the skill's runtime state depending on the user interacting with the skill.
+
+However, for local development purposes, the agent wallet will be based on the private key that you have set in the local `.env` file.
+
+<DeveloperSupport />

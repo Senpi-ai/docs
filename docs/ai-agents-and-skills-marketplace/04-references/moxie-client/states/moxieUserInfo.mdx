@@ -1,0 +1,59 @@
+---
+description: moxieUserInfo state returns all Moxie user's related information, from user ID, username, wallet, etc.
+---
+
+# `moxieUserInfo`
+
+## Description
+
+`moxieUserInfo` state returns all Moxie user's related information, from user ID, username, wallet, etc.
+
+## Example
+
+```ts
+const moxieUserInfo: MoxieUser = state.moxieUserInfo;
+```
+
+## Type Signature
+
+```ts
+export interface MoxieUser {
+  id: string;
+  userName?: string;
+  name?: string;
+  bio?: string;
+  profileImageUrl?: string;
+  referralCode: string;
+  referrerId?: string;
+  moxieScore?: number;
+  moxieRank?: number;
+  totalUsers?: number;
+  primaryWalletId?: string;
+  communicationPreference?: string;
+  createdAt: string;
+  identities: MoxieIdentity[];
+  wallets: MoxieWallet[];
+  vestingContracts?: VestingContract[] | null;
+}
+```
+
+## Fields
+
+| Name                      | Type                                                 | Description                                                     |
+| ------------------------- | ---------------------------------------------------- | --------------------------------------------------------------- |
+| `id`                      | `string`                                             | Unique identifier for the Moxie user                            |
+| `userName`                | `string`                                             | User's chosen username                                          |
+| `name`                    | `string`                                             | User's display name                                             |
+| `bio`                     | `string`                                             | User's biography or description                                 |
+| `profileImageUrl`         | `string`                                             | URL to user's profile image                                     |
+| `referralCode`            | `string`                                             | User's unique referral code                                     |
+| `referrerId`              | `string`                                             | ID of the user who referred this user                           |
+| `moxieScore`              | `number`                                             | User's Moxie Score based on their activity and connections      |
+| `moxieRank`               | `number`                                             | User's rank among all Moxie users                               |
+| `totalUsers`              | `number`                                             | Total number of Moxie users                                     |
+| `primaryWalletId`         | `string`                                             | ID of user's primary wallet                                     |
+| `communicationPreference` | `string`                                             | User's preferred communication method                           |
+| `createdAt`               | `string`                                             | Timestamp of when the user account was created                  |
+| `identities`              | [`MoxieIdentity[]`](../types/moxieidentity.mdx)      | Array of connected social identities (Twitter, Farcaster, etc.) |
+| `wallets`                 | [`MoxieWallet[]`](../types/moxiewallet.mdx)          | Array of connected crypto wallets                               |
+| `vestingContracts`        | [`VestingContract[]`](../types/vestingcontracts.mdx) | Array of vesting contract information                           |

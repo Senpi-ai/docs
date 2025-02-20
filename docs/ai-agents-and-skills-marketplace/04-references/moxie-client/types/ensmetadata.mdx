@@ -1,0 +1,25 @@
+# ENSMetadata
+
+## Description
+
+ENSMetadata is a type that represents the metadata for a ENS identity.
+
+## Type Signature
+
+```ts
+export interface ENSMetadata {
+  username?: string;
+  ens: string;
+  expiryTimestamp: string;
+  resolvedAddress: string;
+}
+```
+
+## Fields
+
+| Name              | Type     | Description                          |
+| ----------------- | -------- | ------------------------------------ |
+| `username`        | `string` | The username of the user             |
+| `ens`             | `string` | The ENS name of the user             |
+| `expiryTimestamp` | `string` | The expiry timestamp of the ENS name |
+| `resolvedAddress` | `string` | The resolved address of the ENS name |

@@ -72,7 +72,7 @@ const config: Config = {
     announcementBar: {
       id: "moxie_base",
       content:
-        'AI Agents and Skills Marketplace coming early 2025! Learn how to build a <a href="/creator-agents-and-skills-marketplace/quickstart/create-your-first-skill#step-23-integrate-the-action-into-your-plugin">AI Agent Skills</a> today!',
+        'AI Agents and Skills Marketplace coming Feb 2025! Learn how to build a <a href="/ai-agents-and-skills-marketplace/quickstart/create-your-first-skill#step-23-integrate-the-action-into-your-plugin">AI Agent Skills</a> today!',
       backgroundColor: "#8e55ff",
       textColor: "#ffffff",
       isCloseable: false,
@@ -640,6 +640,38 @@ const config: Config = {
           {
             to: "/api/vesting/changelog",
             from: ["/api/vesting/index"],
+          },
+          {
+            from: ["/creator-agents-and-skills-marketplace/overview"],
+            to: "/ai-agents-and-skills-marketplace/overview",
+          },
+          {
+            from: ["/creator-agents-and-skills-marketplace/quickstart"],
+            to: "/ai-agents-and-skills-marketplace/quickstart",
+          },
+          {
+            from: [
+              "/creator-agents-and-skills-marketplace/quickstart/create-your-first-skill",
+            ],
+            to: "/ai-agents-and-skills-marketplace/quickstart/create-your-first-skill",
+          },
+          {
+            from: [
+              "/creator-agents-and-skills-marketplace/quickstart/connect-skills-to-moxie",
+            ],
+            to: "/ai-agents-and-skills-marketplace/quickstart/connect-skills-to-moxie",
+          },
+          {
+            from: [
+              "/creator-agents-and-skills-marketplace/quickstart/execute-transactions-in-skill",
+            ],
+            to: "/ai-agents-and-skills-marketplace/quickstart/execute-transactions-in-skill",
+          },
+          {
+            from: [
+              "/creator-agents-and-skills-marketplace/quickstart/tokenize-your-skill",
+            ],
+            to: "/ai-agents-and-skills-marketplace/quickstart/tokenize-your-skill",
           },
         ],
       },

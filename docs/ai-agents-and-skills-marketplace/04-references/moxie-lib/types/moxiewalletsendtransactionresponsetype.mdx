@@ -1,0 +1,21 @@
+# MoxieWalletSendTransactionResponseType
+
+## Description
+
+The response type for the `sendTransaction` method.
+
+## Type Signature
+
+```ts
+type MoxieWalletSendTransactionResponseType = {
+  hash: string;
+  caip2: EvmCaip2ChainId;
+};
+```
+
+## Fields
+
+| Name    | Type                                       | Description                                                         |
+| ------- | ------------------------------------------ | ------------------------------------------------------------------- |
+| `hash`  | `string`                                   | Hash for the broadcasted transaction.                               |
+| `caip2` | [`EvmCaip2ChainId`](./evmcaip2chainId.mdx) | CAIP-2 chain ID for the network the transaction was broadcasted on. |

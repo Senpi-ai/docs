@@ -1,0 +1,41 @@
+---
+description: MoxieWalletClient is a class that provides methods to interact with the Moxie agent's embedded wallet.
+---
+
+# MoxieWalletClient
+
+## Description
+
+`MoxieWalletClient` is a class that provides methods to interact with the Moxie agent's embedded wallet.
+
+## Type Signature
+
+```ts
+class MoxieWalletClient {
+  constructor(address: string, bearerToken?: string);
+
+  async signMessage(
+    message: string
+  ): Promise<MoxieWalletSignMessageResponseType>;
+
+  async signTypedData(
+    domain: Record<string, any>,
+    types: Record<string, any>,
+    message: Record<string, any>,
+    primaryType: string
+  ): Promise<MoxieWalletSignTypedDataResponseType>;
+
+  async sendTransaction(
+    chainId: string,
+    transactionDetails: TransactionDetails
+  ): Promise<MoxieWalletSendTransactionResponseType>;
+}
+```
+
+## Methods
+
+| Name              | Type                                                                                                                                                                                                                        | Description                                |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| `signMessage`     | `async (message: string) =>` [`Promise<MoxieWalletSignMessageResponseType>`](./types/moxiewalletsignmessageresponsetype.mdx)                                                                                                | Sign a message with the agent's wallet     |
+| `signTypedData`   | `async (domain: Record<string, any>, types: Record<string, any>, message: Record<string, any>, primaryType: string) =>` [`Promise<MoxieWalletSignTypedDataResponseType>`](./types/moxiewalletsigntypeddataresponsetype.mdx) | Sign a typed data with the agent's wallet  |
+| `sendTransaction` | `async (chainId: string, transactionDetails: TransactionDetails) =>` [`Promise<MoxieWalletSendTransactionResponseType>`](./types/moxiewalletsendtransactionresponsetype.mdx)                                                | Send a transaction with the agent's wallet |

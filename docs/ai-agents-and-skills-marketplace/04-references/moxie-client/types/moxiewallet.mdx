@@ -1,0 +1,31 @@
+# MoxieWallet
+
+## Description
+
+MoxieWallet is a type that represents a user's agent wallet.
+
+## Type Signature
+
+```ts
+export interface MoxieWallet {
+  id: string;
+  userId: string;
+  walletAddress: string;
+  walletType: string;
+  dataSource?: string;
+  createdAt: string;
+  deletedAt?: string;
+}
+```
+
+## Fields
+
+| Name            | Type     | Description                                                |
+| --------------- | -------- | ---------------------------------------------------------- |
+| `id`            | `string` | Unique identifier for the Moxie wallet                     |
+| `userId`        | `string` | Unique identifier for the user associated with the wallet  |
+| `walletAddress` | `string` | The address of the wallet                                  |
+| `walletType`    | `string` | The type of the wallet (e.g., "metamask", "coinbase")      |
+| `dataSource`    | `string` | The data source for the wallet (e.g., "AIRSTACK", "PRIVY") |
+| `createdAt`     | `string` | The date and time the wallet was created                   |
+| `deletedAt`     | `string` | The date and time the wallet was deleted (optional)        |

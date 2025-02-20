@@ -1,0 +1,33 @@
+# TwitterMetadata
+
+## Description
+
+TwitterMetadata is a type that represents the metadata for a Twitter identity.
+
+## Type Signature
+
+```ts
+export interface TwitterMetadata {
+  username: string;
+  name?: string;
+  type?: string;
+  subject?: string;
+  verifiedAt?: string;
+  firstVerifiedAt?: string;
+  latestVerifiedAt?: string;
+  profilePictureUrl?: string;
+}
+```
+
+## Fields
+
+| Name                | Type     | Description                                   |
+| ------------------- | -------- | --------------------------------------------- |
+| `username`          | `string` | The username of the user                      |
+| `name`              | `string` | The name of the user                          |
+| `type`              | `string` | The type of the identity (e.g., "twitter")    |
+| `subject`           | `string` | The subject of the identity (e.g., "twitter") |
+| `verifiedAt`        | `string` | The date and time the user was verified       |
+| `firstVerifiedAt`   | `string` | The date and time the user was first verified |
+| `latestVerifiedAt`  | `string` | The date and time the user was last verified  |
+| `profilePictureUrl` | `string` | The URL of the user's profile picture         |

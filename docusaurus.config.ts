@@ -673,6 +673,18 @@ const config: Config = {
             ],
             to: "/ai-agents-and-skills-marketplace/quickstart/tokenize-your-skill",
           },
+          {
+            from: ["/contract/references/moxiebondingcurve"],
+            to: "/contract/references/moxiebondingcurvev3",
+          },
+          {
+            from: ["/contract/references/staking"],
+            to: "/contract/references/stakingv2",
+          },
+          {
+            from: ["/contract/references/subjectfactory"],
+            to: "/contract/references/subjectfactoryv2",
+          },
         ],
       },
     ],

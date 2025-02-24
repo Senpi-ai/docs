@@ -4,6 +4,20 @@ sidebar_class_name: changelog
 
 # Changelog
 
+## February 24, 2025
+
+### Pull Requests
+
+- [#64](https://github.com/moxie-protocol/contracts/pull/64) Upgrading contracts to enable Creator Coins Graduations to Uniswap V4.
+
+### Developer Impact
+
+With the implementation of Graduation to Uniswap V4, Creator Coins will be available to trade directly on Uniswap V4 with any supported token trading on Uniswap.
+
+While buy & sell can still be performed on the existing buy & sell functions on the Moxie Bonding Curve contract, the `calculateTokensForBuy` and `calculateTokensForSell` functions will now automatically revert if the creator coin has graduated to Uniswap V4.
+
+Therefore, as an alternative solution, you are recommended to use the [0x API](https://0x.org/docs/0x-swap-api/guides/swap-tokens-with-0x-swap-api#1-get-an-indicative-price) to calculate the creator coin price on the pool.
+
 ## December 4, 2024
 
 ### Pull Requests
@@ -18,9 +32,9 @@ No breaking changes have been made to the contract and you can continue to use t
 
 Contracts upgraded in this PR are:
 
-- [`MoxieBondingCurve.sol`](./03-references/01-moxiebondingcurve.mdx)
-- [`SubjectFactory.sol`](./03-references/07-subjectfactory.mdx)
-- [`Staking.sol`](./03-references/06-staking.mdx)
+- [`MoxieBondingCurve.sol`](./03-references/01-moxiebondingcurvev3.mdx)
+- [`SubjectFactory.sol`](./03-references/07-subjectfactoryv2.mdx)
+- [`Staking.sol`](./03-references/06-stakingv2.mdx)
 
 For these upgraded contracts, you can also find new "V2" functions added with additional referral address inputs to receive the referral fees for each transactions.
 

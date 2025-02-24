@@ -1,8 +1,8 @@
 ---
-description: Learn all the functions, events, errors, and roles of the MoxieBondingCurveV2.sol contract.
+description: Learn all the functions, events, errors, and roles of the MoxieBondingCurveV3.sol contract.
 ---
 
-# MoxieBondingCurveV2.sol
+# MoxieBondingCurveV3.sol
 
 Bonding curve contract which enables subject onboarding, buy & sell of subject shares.
 
@@ -56,9 +56,45 @@ function updateFeeBeneficiary(
 | :---------------- | :------ | :--------------------------------------------------------------- |
 | `_feeBeneficiary` | address | The address of the new beneficiary [to whom fees are to be sent] |
 
+## updateDefaultGraduationMarketCap
+
+Update the default graduation market cap.
+
+```solidity
+function updateDefaultGraduationMarketCap(
+  uint256 _defaultGraduationMarketCap
+) external onlyRole(UPDATE_GRADUATION_MARKET_CAP_ROLE)
+```
+
+#### Parameters
+
+| Name                          | Type    | Description                            |
+| :---------------------------- | :------ | :------------------------------------- |
+| `_defaultGraduationMarketCap` | uint256 | The new default graduation market cap. |
+
+## updateGraduationMarketCap
+
+Update the graduation market cap for a specific reserve ratio.
+
+```solidity
+function updateGraduationMarketCap(
+  uint32 _reserveRatio,
+  uint256 _newGraduationMarketCap
+) external onlyRole(UPDATE_GRADUATION_MARKET_CAP_ROLE)
+```
+
+#### Parameters
+
+| Name            | Type    | Description                                                                   |
+| :-------------- | :------ | :---------------------------------------------------------------------------- |
+| `_subject`      | address | Address of subject.                                                           |
+| `_reserveRatio` | uint32  | Initial supply of subject tokens at the time of bonding curve initialization. |
+
 ### initializeSubjectBondingCurve
 
 Initialize Bonding curve for subject, it's called by subject factory.
+
+If the creator coin have reached a certain market cap to be eligible for graduation, the creator coin will automatically graduate to Uniswap V4.
 
 ```solidity
 function initializeSubjectBondingCurve(
@@ -89,6 +125,8 @@ function initializeSubjectBondingCurve(
 ### buySharesForV2
 
 Buy shares of subject on behalf of a third party addresss `_onBehalfOf` and reward the referral fees to the `_orderReferrer`.
+
+For creator coins that have graduated, this function will buy creator coin directly from the Uniswap V4 pool.
 
 ```solidity
 function buySharesForV2(
@@ -122,6 +160,8 @@ function buySharesForV2(
 
 Buy shares of subject for `msg.sender` and reward the referral fees to the `_orderReferrer`.
 
+For creator coins that have graduated, this function will buy creator coin directly from the Uniswap V4 pool.
+
 ```solidity
 function buySharesV2(
   address _subject,
@@ -151,6 +191,8 @@ function buySharesV2(
 ### sellSharesForV2
 
 Sell shares of a subject on behalf of a third party address `_onBehalfOf` and reward the referral fees to the `_orderReferrer`.
+
+For creator coins that have graduated, this function will sell creator coin directly to the Uniswap V4 pool.
 
 ```solidity
 function sellSharesForV2(
@@ -185,6 +227,8 @@ function sellSharesForV2(
 
 Sell shares of a subject and reward the referral fees to the `_orderReferrer`.
 
+For creator coins that have graduated, this function will sell creator coin directly to the Uniswap V4 pool.
+
 ```solidity
 function sellSharesV2(
   address _subject,
@@ -215,9 +259,11 @@ function sellSharesV2(
 
 Buy shares of a subject on behalf of a beneficiary.
 
+For creator coins that have graduated, this function will buy creator coin directly from the Uniswap V4 pool.
+
 :::info
 
-If you're looking to earn referral rewards from every buy transaction, use the [`buySharesForV2`](./01-moxiebondingcurve.mdx#buysharesforv2) function instead.
+If you're looking to earn referral rewards from every buy transaction, use the [`buySharesForV2`](./01-moxiebondingcurvev3.mdx#buysharesforv2) function instead.
 
 :::
 
@@ -249,9 +295,11 @@ function buySharesFor(
 
 Buy shares of a subject.
 
+For creator coins that have graduated, this function will buy creator coin directly from the Uniswap V4 pool.
+
 :::info
 
-If you're looking to earn referral rewards from every buy transaction, use the [`buySharesV2`](./01-moxiebondingcurve.mdx#buysharesv2) function instead.
+If you're looking to earn referral rewards from every buy transaction, use the [`buySharesV2`](./01-moxiebondingcurvev3.mdx#buysharesv2) function instead.
 
 :::
 
@@ -281,9 +329,11 @@ function buyShares(
 
 Sell shares of a subject on behalf of a beneficiary.
 
+For creator coins that have graduated, this function will sell creator coin directly to the Uniswap V4 pool.
+
 :::info
 
-If you're looking to earn referral rewards from every sell transaction, use the [`sellSharesForV2`](./01-moxiebondingcurve.mdx#buysharesforv2) function instead.
+If you're looking to earn referral rewards from every sell transaction, use the [`sellSharesForV2`](./01-moxiebondingcurvev3.mdx#buysharesforv2) function instead.
 
 :::
 
@@ -315,9 +365,11 @@ function sellSharesFor(
 
 Sell shares of a subject.
 
+For creator coins that have graduated, this function will sell creator coin directly to the Uniswap V4 pool.
+
 :::info
 
-If you're looking to earn referral rewards from every sell transaction, use the [`sellSharesForV2`](./01-moxiebondingcurve.mdx#sellsharesv2) function instead.
+If you're looking to earn referral rewards from every sell transaction, use the [`sellSharesForV2`](./01-moxiebondingcurvev3.mdx#sellsharesv2) function instead.
 
 :::
 
@@ -343,6 +395,62 @@ function sellShares(
 | :-------------- | :------ | :---------------------------------------------------- |
 | `returnAmount_` | uint256 | Amount received in MOXIE from selling subject shares. |
 
+### subjectGraduated
+
+Check if a subject has graduated.
+
+```solidity
+function subjectGraduated(address _subject) public view returns (bool)
+```
+
+#### Parameters
+
+| Name       | Type    | Description         |
+| :--------- | :------ | :------------------ |
+| `_subject` | address | Address of subject. |
+
+#### Return Value
+
+| Name          | Type | Description                                              |
+| :------------ | :--- | :------------------------------------------------------- |
+| `isGraduated` | bool | `true` if the subject has graduated. Otherwise, `false`. |
+
+### graduationMarketCap
+
+Get the graduation market cap for a specific reserve ratio.
+
+```solidity
+function graduationMarketCap(
+  uint32 _reserveRatio
+) public view returns (uint256)
+```
+
+#### Parameters
+
+| Name            | Type   | Description                                                                   |
+| :-------------- | :----- | :---------------------------------------------------------------------------- |
+| `_reserveRatio` | uint32 | Initial supply of subject tokens at the time of bonding curve initialization. |
+
+#### Return Value
+
+| Name                   | Type    | Description                                               |
+| :--------------------- | :------ | :-------------------------------------------------------- |
+| `_graduationMarketCap` | uint256 | The graduation market cap for the specific reserve ratio. |
+
+### distributeSwapFee
+
+Distribute the swap fee to the protocol and subject.
+
+```solidity
+function distributeSwapFee(address _subject) external
+```
+
+#### Parameters
+
+| Name       | Type    | Description         |
+| :--------- | :------ | :------------------ |
+| `_subject` | address | Address of subject. |
+
 ## Events
 
 ### UpdateFees
@@ -352,7 +460,8 @@ event UpdateFees(
   uint256 _protocolBuyFeePct,
   uint256 _protocolSellFeePct,
   uint256 _subjectBuyFeePct,
-  uint256 _subjectSellFeePct
+  uint256 _subjectSellFeePct,
+  uint256 _swapFeeRatioProtocolPct
 );
 ```
 
@@ -433,6 +542,48 @@ event SubjectReserveRatioUpdated(
 event TradingPaused(
   address _subject,
   bool _isPaused
+);
+```
+
+### DefaultGraduationMarketCapUpdated
+
+```solidity
+event DefaultGraduationMarketCapUpdated(
+  uint256 _oldDefaultGraduationMarketCap,
+  uint256 _newDefaultGraduationMarketCap
+);
+```
+
+### GraduationMarketCapUpdated
+
+```solidity
+event GraduationMarketCapUpdated(
+  uint32 indexed _reserveRatio,
+  uint256 _oldGraduationMarketCap,
+  uint256 _newGraduationMarketCap,
+  bool _isDefault
+);
+```
+
+### SubjectGraduated
+
+```solidity
+event SubjectGraduated(
+  address indexed _subject,
+  PoolId _poolId,
+  uint256 _tokenId
+);
+```
+
+### Swap
+
+```solidity
+event Swap(
+  address indexed _sender,
+  address indexed _subject,
+  bool _buySubject,
+  uint256 _amountIn,
+  uint256 _amountOut
 );
 ```
 
@@ -568,4 +719,28 @@ error MoxieBondingCurve_SubjectNotPaused();
 
 ```solidity
 error MoxieBondingCurve_TradingPaused();
+```
+
+### MoxieBondingCurve_SubjectAlreadyGraduated
+
+```solidity
+error MoxieBondingCurve_SubjectAlreadyGraduated();
+```
+
+### MoxieBondingCurve_SubjectReadyForGraduation
+
+```solidity
+error MoxieBondingCurve_SubjectReadyForGraduation();
+```
+
+### MoxieBondingCurve_SubjectNotReadyForGraduation
+
+```solidity
+error MoxieBondingCurve_SubjectNotReadyForGraduation();
+```
+
+### MoxieBondingCurve_SubjectNotGraduated
+
+```solidity
+error MoxieBondingCurve_SubjectNotGraduated();
 ```

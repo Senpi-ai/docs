@@ -26,22 +26,22 @@ Auction & signup referrals, however, can only be made through the referral links
 
 For every buy and sell Creator Coin transactions that occurs on your platform, you can include your address as a referrer to receive the referral fees from each transaction.
 
-This can be done easily by calling "v2" functions added from the [December 4, 2024 contract upgrade](../../contract/04-changelog.mdx#december-4-2024) in both the [`MoxieBondingCurveV2.sol`](../../contract/03-references/01-moxiebondingcurve.mdx) and [`StakingV2.sol`](../../contract/03-references/06-staking.mdx) contracts. Those functions are:
+This can be done easily by calling "v2" functions added from the [December 4, 2024 contract upgrade](../../contract/04-changelog.mdx#december-4-2024) in both the [`MoxieBondingCurveV2.sol`](../../contract/03-references/01-moxiebondingcurvev3.mdx) and [`StakingV2.sol`](../../contract/03-references/06-stakingv2.mdx) contracts. Those functions are:
 
-| Functions                                                                                      | Contract                                                                           |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| [`buySharesV2`](../../contract/03-references/01-moxiebondingcurve.mdx#buysharesv2)             | [`MoxieBondingCurveV2.sol`](../../contract/03-references/01-moxiebondingcurve.mdx) |
-| [`buySharesForV2`](../../contract/03-references/01-moxiebondingcurve.mdx#buysharesforv2)       | [`MoxieBondingCurveV2.sol`](../../contract/03-references/01-moxiebondingcurve.mdx) |
-| [`sellSharesV2`](../../contract/03-references/01-moxiebondingcurve.mdx#sellsharesv2)           | [`MoxieBondingCurveV2.sol`](../../contract/03-references/01-moxiebondingcurve.mdx) |
-| [`sellSharesForV2`](../../contract/03-references/01-moxiebondingcurve.mdx#sellsharesforv2)     | [`MoxieBondingCurveV2.sol`](../../contract/03-references/01-moxiebondingcurve.mdx) |
-| [`buyAndLockV2`](../../contract/03-references/06-staking.mdx#buyandlock)                       | [`StakingV2.sol`](../../contract/03-references/06-staking.mdx)                     |
-| [`buyAndLockForV2`](../../contract/03-references/06-staking.mdx#buyandlockfor)                 | [`StakingV2.sol`](../../contract/03-references/06-staking.mdx)                     |
-| [`buyAndLockMultipleV2`](../../contract/03-references/06-staking.mdx#buyandlockmultiple)       | [`StakingV2.sol`](../../contract/03-references/06-staking.mdx)                     |
-| [`buyAndLockMultipleForV2`](../../contract/03-references/06-staking.mdx#buyandlockmultiplefor) | [`StakingV2.sol`](../../contract/03-references/06-staking.mdx)                     |
+| Functions                                                                                        | Contract                                                                             |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| [`buySharesV2`](../../contract/03-references/01-moxiebondingcurvev3.mdx#buysharesv2)             | [`MoxieBondingCurveV2.sol`](../../contract/03-references/01-moxiebondingcurvev3.mdx) |
+| [`buySharesForV2`](../../contract/03-references/01-moxiebondingcurvev3.mdx#buysharesforv2)       | [`MoxieBondingCurveV2.sol`](../../contract/03-references/01-moxiebondingcurvev3.mdx) |
+| [`sellSharesV2`](../../contract/03-references/01-moxiebondingcurvev3.mdx#sellsharesv2)           | [`MoxieBondingCurveV2.sol`](../../contract/03-references/01-moxiebondingcurvev3.mdx) |
+| [`sellSharesForV2`](../../contract/03-references/01-moxiebondingcurvev3.mdx#sellsharesforv2)     | [`MoxieBondingCurveV2.sol`](../../contract/03-references/01-moxiebondingcurvev3.mdx) |
+| [`buyAndLockV2`](../../contract/03-references/06-stakingv2.mdx#buyandlock)                       | [`StakingV2.sol`](../../contract/03-references/06-stakingv2.mdx)                     |
+| [`buyAndLockForV2`](../../contract/03-references/06-stakingv2.mdx#buyandlockfor)                 | [`StakingV2.sol`](../../contract/03-references/06-stakingv2.mdx)                     |
+| [`buyAndLockMultipleV2`](../../contract/03-references/06-stakingv2.mdx#buyandlockmultiple)       | [`StakingV2.sol`](../../contract/03-references/06-stakingv2.mdx)                     |
+| [`buyAndLockMultipleForV2`](../../contract/03-references/06-stakingv2.mdx#buyandlockmultiplefor) | [`StakingV2.sol`](../../contract/03-references/06-stakingv2.mdx)                     |
 
 When a user is calling one of the above functions on your platform, you can include your address in the `_orderReferrer` parameter to assign yourself as a parameter.
 
-From there, the [`MoxieBondingCurveV2.sol`](../../contract/03-references/01-moxiebondingcurve.mdx) and [`StakingV2.sol`](../../contract/03-references/06-staking.mdx) contracts will automatically calculate and deposit the referral fees into the `ProtocolRewards.sol` contract.
+From there, the [`MoxieBondingCurveV2.sol`](../../contract/03-references/01-moxiebondingcurvev3.mdx) and [`StakingV2.sol`](../../contract/03-references/06-stakingv2.mdx) contracts will automatically calculate and deposit the referral fees into the `ProtocolRewards.sol` contract.
 
 ```mermaid
 flowchart LR

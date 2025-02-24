@@ -32,6 +32,11 @@ const sidebars: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "learn/technical-deep-dive/bonding-curves",
+          label: "Bonding Curves",
+        },
+        {
+          type: "doc",
           id: "learn/technical-deep-dive/moxie-score",
           label: "Moxie Score",
         },

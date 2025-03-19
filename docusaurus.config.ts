@@ -69,14 +69,14 @@ const config: Config = {
     ],
   ],
   themeConfig: {
-    announcementBar: {
-      id: "moxie_base",
-      content:
-        'AI Agents and Skills Marketplace coming Feb 2025! Learn how to build a <a href="/ai-agents-and-skills-marketplace/quickstart/create-your-first-skill#step-23-integrate-the-action-into-your-plugin">AI Agent Skills</a> today!',
-      backgroundColor: "#8e55ff",
-      textColor: "#ffffff",
-      isCloseable: false,
-    },
+    // announcementBar: {
+    //   id: "moxie_base",
+    //   content:
+    //     'AI Agents and Skills Marketplace coming Feb 2025! Learn how to build a <a href="/ai-agents-and-skills-marketplace/quickstart/create-your-first-skill#step-23-integrate-the-action-into-your-plugin">AI Agent Skills</a> today!',
+    //   backgroundColor: "#8e55ff",
+    //   textColor: "#ffffff",
+    //   isCloseable: false,
+    // },
     algolia: {
       appId: "0E7JT4EO4H",
       apiKey: "27c2281916aa623aa3fca88e9d0c6696",
@@ -120,12 +120,6 @@ const config: Config = {
             },
             {
               type: "doc",
-              label: "Moxie Earn",
-              docId:
-                "use-cases/moxie-earn/get-all-active-moxie-earn-promotions-promoted-by-a-user",
-            },
-            {
-              type: "doc",
               label: "Creator Coin Auctions",
               docId:
                 "use-cases/fan-token-auctions/get-fan-token-auction-schedule-by-status",
@@ -134,12 +128,6 @@ const config: Config = {
               type: "doc",
               label: "Creator Coins",
               docId: "use-cases/fan-tokens/buy-fan-tokens",
-            },
-            {
-              type: "doc",
-              label: "Everyday Rewards",
-              docId:
-                "use-cases/everyday-rewards/check-users-everyday-rewards-amount",
             },
             {
               type: "doc",
@@ -166,12 +154,6 @@ const config: Config = {
               type: "doc",
               label: "Vesting",
               docId: "use-cases/vesting/get-all-users-with-moxie-locked",
-            },
-            {
-              type: "doc",
-              label: "Frames & Actions",
-              docId:
-                "use-cases/frames-and-actions/validate-frames-and-actions-message",
             },
           ],
         },
@@ -261,10 +243,6 @@ const config: Config = {
               to: "/learn/technical-deep-dive",
             },
             {
-              label: "Moxie Earn",
-              to: "/learn/moxie-earn",
-            },
-            {
               label: "Glossary",
               to: "/learn/glossary",
             },
@@ -278,20 +256,12 @@ const config: Config = {
               to: "/use-cases/moxie/get-the-circulating-supply-of-moxie-token",
             },
             {
-              label: "Moxie Earn",
-              to: "/use-cases/moxie-earn/get-all-active-moxie-earn-promotions-promoted-by-a-user",
-            },
-            {
               label: "Creator Coin Auctions",
               to: "/use-cases/fan-token-auctions/get-fan-token-auction-schedule-by-status",
             },
             {
               label: "Creator Coins",
               to: "/use-cases/fan-tokens/buy-fan-tokens",
-            },
-            {
-              label: "Everyday Rewards",
-              to: "/use-cases/everyday-rewards/check-users-everyday-rewards-amount",
             },
             {
               label: "Bids",
@@ -312,10 +282,6 @@ const config: Config = {
             {
               label: "Vesting",
               to: "/use-cases/vesting/get-all-users-with-moxie-locked",
-            },
-            {
-              label: "Frames & Actions",
-              to: "/use-cases/frames-and-actions/validate-frames-and-actions-message",
             },
           ],
         },

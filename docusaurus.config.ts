@@ -8,7 +8,7 @@ import rehypeKatex from "rehype-katex";
 const config: Config = {
   themes: ["@docusaurus/theme-mermaid"],
   title: "Moxie Developer Hubs",
-  tagline: "SocialFi on Farcaster & Base",
+  tagline: "Unstoppable AI-Powered Onchain Alpha",
   favicon: "img/favicon.ico",
   markdown: {
     mermaid: true,
@@ -83,7 +83,7 @@ const config: Config = {
       indexName: "developer-moxie",
     },
     // Replace with your project's social card
-    image: "img/social-card.jpg",
+    image: "img/social-card.png",
     navbar: {
       logo: {
         alt: "Moxie Logo",
@@ -650,6 +650,44 @@ const config: Config = {
           {
             from: ["/contract/references/subjectfactory"],
             to: "/contract/references/subjectfactoryv2",
+          },
+          {
+            from: ["/ai-agents-and-skills-marketplace/core-features/moxie-lib"],
+            to: "/ai-agents-and-skills-marketplace/core-features/moxie-agent-lib",
+          },
+          {
+            from: ["/ai-agents-and-skills-marketplace/references/moxie-lib"],
+            to: "/ai-agents-and-skills-marketplace/references/moxie-agent-lib",
+          },
+          {
+            from: [
+              "/ai-agents-and-skills-marketplace/references/moxie-lib/moxiewalletclient",
+            ],
+            to: "/ai-agents-and-skills-marketplace/references/moxie-agent-lib/moxiewalletclient",
+          },
+          {
+            from: [
+              "/ai-agents-and-skills-marketplace/references/moxie-lib/types/evmcaip2chainId",
+            ],
+            to: "/ai-agents-and-skills-marketplace/references/moxie-agent-lib/types/evmcaip2chainId",
+          },
+          {
+            from: [
+              "/ai-agents-and-skills-marketplace/references/moxie-lib/types/moxiewalletsendtransactionresponsetype",
+            ],
+            to: "/ai-agents-and-skills-marketplace/references/moxie-agent-lib/types/moxiewalletsendtransactionresponsetype",
+          },
+          {
+            from: [
+              "/ai-agents-and-skills-marketplace/references/moxie-lib/types/moxiewalletsignmessageresponsetype",
+            ],
+            to: "/ai-agents-and-skills-marketplace/references/moxie-agent-lib/types/moxiewalletsignmessageresponsetype",
+          },
+          {
+            from: [
+              "/ai-agents-and-skills-marketplace/references/moxie-lib/types/moxiewalletsigntypeddataresponsetype",
+            ],
+            to: "/ai-agents-and-skills-marketplace/references/moxie-agent-lib/types/moxiewalletsigntypeddataresponsetype",
           },
         ],
       },

@@ -36,10 +36,11 @@ pnpm i --no-frozen-lockfile && pnpm build
 In the newly created `.env` file, you can add the following environment variables for this tutorial:
 
 ```
-OPENAI_API_KEY=    # OpenAI API key
-PRIVATE_KEY=       # Private key for executing tx with Moxie Lib, simulating agent wallet
-AIRSTACK_API_KEY=  # For fetching user's Moxie portfolio data
-MOXIE_LIB_RPC_URL= # RPC URL for executing tx with Moxie Lib
+OPENAI_API_KEY=      # OpenAI API key
+PRIVATE_KEY=         # Private key for executing tx with Moxie Agent Lib, simulating agent wallet
+AIRSTACK_API_KEY=    # For fetching user's Moxie portfolio data
+RPC_URL=             # RPC URL for executing tx with Moxie Agent Lib
+ZAPPER_API_KEY="abc" # Put anyting for local development. For fetching user's Zapper portfolio data
 ```
 
 Feel fee to provide other relevant API keys if you are using other AI models for your agent.
@@ -151,7 +152,7 @@ import type {
   Memory,
   State,
 } from "@moxie-protocol/core";
-import { MoxieWalletClient } from "@moxie-protocol/moxie-lib/src/wallet";
+import { MoxieWalletClient } from "@moxie-protocol/moxie-agent-lib/src/wallet";
 import { formatEther, http, createPublicClient } from "viem";
 import { base } from "viem/chains";
 

@@ -54,7 +54,7 @@ export default Action {
 
 ### `agentWallet`
 
-The `agentWallet` state is a `MoxieWalletClient` instance that provides methods for interacting with the [user's agent wallet](../03-core-features/01-user-agent-wallet.mdx).
+The `agentWallet` state contains the user's agent wallet details, including the wallet address.
 
 ```ts {9}
 export default Action {
@@ -65,7 +65,43 @@ export default Action {
     _options: { [key: string]: unknown },
     callback?: HandlerCallback
     ): Promise<boolean> => {
-        const agentWallet: MoxieWalletClient = state.agentWallet;
+        const agentWallet: MoxieWallet = state.agentWallet;
+    }
+}
+```
+
+### `moxieWalletClient`
+
+The `moxieWalletClient` state is a `MoxieWalletClient` instance that provides methods for interacting with the [user's agent wallet](../03-core-features/01-user-agent-wallet.mdx).
+
+```ts {9}
+export default Action {
+    handler: async (
+    runtime: IAgentRuntime,
+    message: Memory,
+    state: State,
+    _options: { [key: string]: unknown },
+    callback?: HandlerCallback
+    ): Promise<boolean> => {
+        const moxieWalletClient: MoxieWalletClient = state.moxieWalletClient;
+    }
+}
+```
+
+### `currentWalletBalance`
+
+The `currentWalletBalance` state contains the current ERC20 balance of the user's agent wallet.
+
+```ts {9}
+export default Action {
+    handler: async (
+    runtime: IAgentRuntime,
+    message: Memory,
+    state: State,
+    _options: { [key: string]: unknown },
+    callback?: HandlerCallback
+    ): Promise<boolean> => {
+        const currentWalletBalance: string = state.currentWalletBalance;
     }
 }
 ```

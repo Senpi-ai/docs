@@ -1,0 +1,42 @@
+# Senpi Overview | Senpi Developer Hubs
+
+> Welcome to the Senpi Developer Hub! 👋
+
+## Search
+
+- [Search the documentation | Senpi Developer Hubs](https://moxie-docs.vercel.app//search): undefined
+
+## Docs
+
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//docs/core-features): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//docs/core-features/moxie-agent-lib): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//docs/core-features/moxie-client): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//docs/core-features/responses): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//docs/core-features/user-agent-wallet): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//docs/overview): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//docs/quickstart): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//docs/quickstart/connect-skills-to-moxie): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//docs/quickstart/create-your-first-skill): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//docs/quickstart/execute-transactions-in-skill): undefined
+
+## References
+
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-agent-lib): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-agent-lib/moxiewalletclient): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-agent-lib/types/evmcaip2chainId): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-agent-lib/types/moxiewalletsendtransactionresponsetype): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-agent-lib/types/moxiewalletsignmessageresponsetype): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-agent-lib/types/moxiewalletsigntypeddataresponsetype): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-client): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-client/states): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-client/states/agentName): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-client/states/agentWallet): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-client/states/moxieUserInfo): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-client/types/ensmetadata): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-client/types/farcastermetadata): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-client/types/moxieidentity): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-client/types/moxiewallet): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-client/types/twittermetadata): undefined
+- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-client/types/vestingcontracts): undefined
+
+

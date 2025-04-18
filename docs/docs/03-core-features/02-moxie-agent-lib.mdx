@@ -1,0 +1,173 @@
+---
+description: Senpi Agent Libs provides a suite of functions that enables developers to execute on-chain transactions and retrieve Moxie-related data efficiently.
+---
+
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
+
+# Senpi Agent Lib
+
+Senpi Agent Libs provides a suite of functions that enables developers to execute on-chain transactions and retrieve Moxie-related data efficiently.
+
+With `MoxieWalletClient` class, developers can send transactions, sign messages, and handle EIP-712 structured data.
+
+The library also offers multiple functions to fetch Moxie users information by wallet addresses or Moxie User IDs, retrieve social profiles, and access Moxie creator coin portfolios.
+
+These features make Senpi Agent Libs an essential toolkit for building AI Agent Skills for the Moxie Skills Marketplace.
+
+## Pre-requisites
+
+To enable the full functionality of Senpi Agent Libs, you need to provide several environment variables to your existing `.env` file:
+
+```
+PRIVATE_KEY=       # Private key for executing tx with Senpi Agent Lib, simulating agent wallet
+RPC_URL= # RPC URL for executing tx with Senpi Agent Lib
+```
+
+Keep in mind that:
+
+1. For local development, every onchain transaction executed will be using the wallet that you provide from the `PRIVATE_KEY`, which will simulate the agent wallet on production
+2. Since transactions are executed with the agent wallet, you need to make sure that the agent wallet has enough funds to cover the gas fees for the transaction
+3. The `RPC_URL` is the RPC URL only for local development purpose for executing tx with Senpi Agent Lib that is chain specific. For transaction to be successful, you need to make sure that the chain ID you specify in the transaction is supported by the RPC URL
+
+## Send Transaction
+
+Send or write an onchain transaction with an agent wallet.
+
+For local development, the transaction will be executed from the wallet that you provide from the `PRIVATE_KEY` to simulate the agent wallet on production.
+
+```typescript
+import { MoxieWalletClient } from "@moxie-protocol/moxie-agent-lib";
+
+const wallet: MoxieWalletClient = state.agentWallet;
+const { hash } = await wallet.sendTransaction("8543", {
+  toAddress: "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
+  value: 1e18,
+});
+```
+
+## Sign Message
+
+Sign a message with the agent wallet.
+
+```typescript
+import { MoxieWalletClient } from "@moxie-protocol/moxie-agent-lib";
+
+const wallet: MoxieWalletClient = state.agentWallet;
+const { signature, encoding } = await wallet.signMessage("Hello Moxie!");
+```
+
+## Sign Typed Data
+
+Sign data that is structured in a way that is compatible with [EIP-712](https://eips.ethereum.org/EIPS/eip-712).
+
+```typescript
+import { MoxieWalletClient } from "@moxie-protocol/moxie-agent-lib";
+
+const wallet: MoxieWalletClient = state.agentWallet;
+const { signature, encoding } = await wallet.signTypedData({
+  types: {
+    type: "object",
+    properties: {
+      EIP712Domain: { type: "array" },
+    },
+    additionalProperties: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          name: { type: "string" },
+          type: { type: "string" },
+        },
+        required: ["name", "type"],
+      },
+    },
+    required: ["EIP712Domain"],
+  },
+  primaryType: { type: "string" },
+  domain: { type: "object" },
+  message: { type: "object" },
+});
+```
+
+## Fetch Moxie User Info By Wallet address
+
+Fetch the Moxie User Info by providing the user's wallet address.
+
+```ts
+import { getUserMoxieWalletAddress } from "@moxie-protocol/moxie-agent-lib";
+
+const moxieUserInfo = await getUserMoxieWalletAddress(
+  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"
+);
+```
+
+## Fetch Moxie User Info By Moxie User ID
+
+Fetch the Moxie User Info by providing the user's Moxie User ID.
+
+```ts
+import { getUserByMoxieId } from "@moxie-protocol/moxie-agent-lib";
+
+const moxieUserInfo = await getUserByMoxieId("M1");
+```
+
+## Fetch Moxie User Info By Multiple Moxie User IDs
+
+Fetch the Moxie User Info by providing an array of Moxie User IDs.
+
+```ts
+import { getUserByMoxieIdMultiple } from "@moxie-protocol/moxie-agent-lib";
+
+const moxieUserInfo = await getUserByMoxieIdMultiple(["M1", "M2"]);
+```
+
+## Fetch Moxie User Info By Multiple Wallet Addresses
+
+Fetch the Moxie User Info by providing an array of wallet addresses.
+
+```ts
+import { getUserByWalletAddressMultiple } from "@moxie-protocol/moxie-agent-lib";
+
+const moxieUserInfo = await getUserByWalletAddressMultiple([
+  "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
+  "0xa5cc845ef113c4c0908d4c1f4616a000b9a67b80",
+]);
+```
+
+## Fetch Twitter User Names By Multiple Moxie User IDs
+
+Fetch the Twitter user names by providing the multiple users' Moxie User ID.
+
+```ts
+import { getTwitteruserNameByMoxieIdMultiple } from "@moxie-protocol/moxie-agent-lib";
+
+const twitterUserName = await getTwitteruserNameByMoxieIdMultiple(["M1", "M2"]);
+```
+
+## Fetch Social Profiles By Multiple Moxie User IDs
+
+Fetch the social profiles by providing the multiple users' Moxie User ID.
+
+```ts
+import { getSocialProfilesByMoxieIdMultiple } from "@moxie-protocol/moxie-agent-lib";
+
+const socialProfiles = await getSocialProfilesByMoxieIdMultiple(["M1", "M2"]);
+```
+
+## Fetch Portfolio By Moxie ID Order By TVL
+
+Fetch the Moxie creator coin portfolio of a user by providing the user's Moxie User ID and the maximum number of coins to fetch.
+
+```typescript
+import {
+  fetchPortfolioByMoxieIdOrderByTVL,
+  MoxiePortfolio,
+} from "@moxie-protocol/moxie-agent-lib";
+
+const portfolio: MoxiePortfolio[] = await fetchPortfolioByMoxieIdOrderByTVL(
+  "M1",
+  10
+);
+```
+
+<DeveloperSupport />

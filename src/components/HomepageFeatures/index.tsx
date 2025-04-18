@@ -1,68 +1,80 @@
-import clsx from 'clsx';
-import Heading from '@theme/Heading';
-import styles from './styles.module.css';
+import React from "react";
+import clsx from "clsx";
+import Heading from "@theme/Heading";
+import styles from "./styles.module.css";
 
-type FeatureItem = {
-  title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
-  description: JSX.Element;
-};
-
-const FeatureList: FeatureItem[] = [
+const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    icon: "🤖",
+    title: "Multi-Agent Framework",
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Build and deploy <strong>autonomous AI agents</strong> with consistent
+        personalities across Discord, Twitter, and Telegram. Full support for
+        voice, text, and media interactions.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    icon: "🧠",
+    title: "Advanced Capabilities",
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Built-in RAG memory system, document processing, media analysis, and
+        autonomous trading capabilities. Supports multiple AI models including
+        Llama, GPT-4, and Claude.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    icon: "🔌",
+    title: "Extensible Design",
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Create custom actions, add new platform integrations, and extend
+        functionality through a <b>modular plugin system</b>. Full TypeScript
+        support.
       </>
     ),
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({ icon, title, description }) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+    <div className={clsx("col")}>
+      <div
+        className="margin--md"
+        style={{
+          height: "100%",
+        }}
+      >
+        <div className="card__body text--left padding--md">
+          <icon className={styles.featureIcon}>{icon}</icon>
+          <Heading
+            as="h3"
+            style={{
+              color: "var(--ifm-heading-color)",
+            }}
+          >
+            {title}
+          </Heading>
+          <p>{description}</p>
+        </div>
       </div>
     </div>
   );
 }
 
-export default function HomepageFeatures(): JSX.Element {
+export default function HomepageFeatures() {
   return (
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
+          <div className={styles.featureGrid}>
+            {FeatureList.map((props, idx) => (
+              <Feature key={idx} {...props} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

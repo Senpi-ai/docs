@@ -45,6 +45,8 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
+          editUrl:
+            "https://github.com/moxie-protocol/docs/tree/feat/senpi-docs/",
         },
         blog: {
           showReadingTime: true,
@@ -91,6 +93,7 @@ const config: Config = {
       logo: {
         alt: "Senpi Logo",
         src: "img/logo.avif",
+        // srcDark: "img/logo-dark.avif",
       },
       items: [
         {

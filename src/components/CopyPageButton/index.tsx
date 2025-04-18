@@ -24,13 +24,10 @@ export default function CopyPageButton(): JSX.Element {
   const location = useLocation();
   const { siteConfig } = useDocusaurusContext();
 
-  console.log(location.pathname);
-
   // Check if current path should be excluded
   const isExcludedPath = EXCLUDED_PATHS.some((regex) =>
     regex.test(location.pathname)
   );
-  console.log(isExcludedPath);
 
   // Early return if path is excluded
   if (isExcludedPath) {

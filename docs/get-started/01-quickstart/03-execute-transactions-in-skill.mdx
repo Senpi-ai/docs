@@ -1,8 +1,11 @@
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import DeveloperSupport from "../../../partial/_developer_support.mdx";
+import CopyPageButton from "@site/src/components/CopyPageButton";
 
 # Execute Transactions In Skill
+
+<CopyPageButton />
 
 This guide will walk you through each step to execute transactions in your Skill.
 
@@ -278,7 +281,7 @@ import transferAction from "../actions/transferAction";
 
 const samplePlugin: Plugin = {
   name: "my-first-creator-agent-skill",
-  description: "My First Moxie Skill",
+  description: "My First Senpi Skill",
   actions: [balanceAction, transferAction],
   providers: [balanceProvider],
   evaluators: [],

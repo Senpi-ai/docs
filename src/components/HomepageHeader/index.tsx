@@ -11,26 +11,41 @@ function HomepageHeader() {
         <div className={styles.heroSection}>
           <div>
             <h1 className={styles.heroTitle}>
-              Senpi is a simple, fast, and{" "}
               <span className={styles.headerTextGradient}>
-                lightweight AI agent
-              </span>{" "}
-              framework
+                Senpi Eliza Skills Framework
+              </span>
             </h1>
             <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
             <div className={styles.buttonGroup}>
               <a
                 className="button button--primary button--lg"
-                href="./docs/intro/#"
+                href="./get-started/quickstart/build-your-first-skill"
               >
-                Get Started
+                Build Your First Skill
               </a>
             </div>
           </div>
           <div className={styles.heroRight}>
-            <pre className={styles.codeBlock}>
-              <code className="language-bash">{`pnpm create:skills`}</code>
-            </pre>
+            <div className={styles.heroVisual}>
+              <div className={styles.blurCircle}></div>
+              <div className={styles.codeBlockWrapper}>
+                <div className={styles.codeBlockHeader}>
+                  <div className={styles.codeBlockDot}></div>
+                  <div className={styles.codeBlockDot}></div>
+                  <div className={styles.codeBlockDot}></div>
+                  <div className={styles.codeFileName}>terminal</div>
+                </div>
+                <pre className={styles.codeBlock}>
+                  <code>
+                    <span className={styles.comment}># Uses node 23+</span>
+                    <br />
+                    <span className={styles.prompt}>$</span> pnpm create:skills
+                    plugin-new-skills
+                    <br />
+                  </code>
+                </pre>
+              </div>
+            </div>
           </div>
         </div>
       </div>

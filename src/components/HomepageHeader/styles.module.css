@@ -51,7 +51,11 @@
 }
 
 .headerTextGradient {
-  background: linear-gradient(180deg, #ffa600 0%, #ff6f00 100%);
+  background: linear-gradient(
+    180deg,
+    var(--ifm-color-primary) 0%,
+    var(--ifm-color-primary-darkest) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -128,5 +132,190 @@
 
   .githubButton {
     margin-top: 0.5rem;
+  }
+}
+
+.heroRight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.heroVisual {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blurCircle {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(
+    circle,
+    var(--ifm-color-primary) 0%,
+    var(--ifm-color-primary-darkest) 70%
+  );
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.35;
+  z-index: 0;
+}
+
+[data-theme="dark"] .blurCircle {
+  background: radial-gradient(
+    circle,
+    var(--ifm-color-primary) 0%,
+    var(--ifm-color-primary-darkest) 50%,
+    var(--ifm-color-primary-darkest) 70%
+  );
+  opacity: 0.2;
+}
+
+.codeBlockWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  background: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  z-index: 1;
+  transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+  transition: all 0.3s ease;
+}
+
+.codeBlockWrapper:hover {
+  transform: perspective(1000px) rotateY(-2deg) rotateX(1deg) translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.codeBlockHeader {
+  background: #252525;
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.codeBlockDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.codeBlockDot:nth-child(1) {
+  background: #ff5f57;
+}
+
+.codeBlockDot:nth-child(2) {
+  background: #febc2e;
+}
+
+.codeBlockDot:nth-child(3) {
+  background: #28c840;
+}
+
+.codeFileName {
+  margin-left: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  font-family: monospace;
+}
+
+.codeBlock {
+  background: #0a0a0a;
+  color: #f8f8f8;
+  padding: 1.5rem;
+  font-family: monospace;
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  white-space: pre;
+  margin: 0;
+  border-radius: 0;
+}
+
+.prompt {
+  color: var(--ifm-color-primary);
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.comment {
+  color: #6a737d;
+}
+
+@media (max-width: 996px) {
+  .heroSection {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .heroTitle {
+    font-size: 2.8rem;
+  }
+
+  .buttonGroup {
+    justify-content: center;
+  }
+
+  .heroVisual {
+    min-height: 300px;
+  }
+
+  .floatingFeatures {
+    display: none;
+  }
+
+  .codeBlockWrapper {
+    transform: none;
+    max-width: 600px;
+  }
+
+  .codeBlockWrapper:hover {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 768px) {
+  .heroBanner {
+    padding: 3rem 0 0;
+  }
+
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .heroTitle {
+    font-size: 1.8rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .githubButton {
+    margin: 1rem 0 0;
+    justify-content: center;
   }
 }

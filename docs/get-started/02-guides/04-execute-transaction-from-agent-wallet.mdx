@@ -1,20 +1,23 @@
 ---
-description: An agent wallet is an embedded wallet that is controlled by the AI agent and owned by the user that can be used to execute on-chain transactions for users.
+description: Learn how to execute a transaction from the agent wallet
 ---
 
 import DeveloperSupport from "../../../partial/_developer_support.mdx";
+import CopyPageButton from "@site/src/components/CopyPageButton";
 
-# User Agent Wallet
+# Execute Transaction From Agent Wallet
+
+<CopyPageButton />
 
 An agent wallet is an embedded wallet that is controlled by the AI agent and owned by the user that can be used to execute on-chain transactions for users.
 
-Each user that created a Moxie account on [moxie.xyz](https://moxie.xyz) automatically assigned a unique agent wallet, which on the the platform is labeled as an **Embedded Wallet**.
+Each user that created a Senpi account on [senpi.ai](https://senpi.ai) automatically assigned a unique agent wallet, which on the the platform is labeled as an **Embedded Wallet**.
 
 As a skills developer, you can access the user's agent wallet to execute onchain transactions and sign messages.
 
 ## Accessing the Agent Wallet
 
-To access the agent wallet instance, you can simply use the `agentWallet` state in your skill that is injected by the [Senpi Client](./03-moxie-client.mdx) as shown below:
+To access the agent wallet instance, you can simply use the `agentWallet` state in your skill that is injected by the [Senpi Client](../../references/moxie-client/index.mdx) as shown below:
 
 ```typescript
 const agentWallet = state.agentWallet;

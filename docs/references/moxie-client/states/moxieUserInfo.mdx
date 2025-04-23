@@ -1,12 +1,12 @@
 ---
-description: moxieUserInfo state returns all Moxie user's related information, from user ID, username, wallet, etc.
+description: moxieUserInfo state returns all Senpi user's related information, from user ID, username, wallet, etc.
 ---
 
 # `moxieUserInfo`
 
 ## Description
 
-`moxieUserInfo` state returns all Moxie user's related information, from user ID, username, wallet, etc.
+`moxieUserInfo` state returns all Senpi user's related information, from user ID, username, wallet, etc.
 
 ## Example
 
@@ -41,16 +41,16 @@ export interface MoxieUser {
 
 | Name                      | Type                                                 | Description                                                     |
 | ------------------------- | ---------------------------------------------------- | --------------------------------------------------------------- |
-| `id`                      | `string`                                             | Unique identifier for the Moxie user                            |
+| `id`                      | `string`                                             | Unique identifier for the Senpi user                            |
 | `userName`                | `string`                                             | User's chosen username                                          |
 | `name`                    | `string`                                             | User's display name                                             |
 | `bio`                     | `string`                                             | User's biography or description                                 |
 | `profileImageUrl`         | `string`                                             | URL to user's profile image                                     |
 | `referralCode`            | `string`                                             | User's unique referral code                                     |
 | `referrerId`              | `string`                                             | ID of the user who referred this user                           |
-| `moxieScore`              | `number`                                             | User's Moxie Score based on their activity and connections      |
-| `moxieRank`               | `number`                                             | User's rank among all Moxie users                               |
-| `totalUsers`              | `number`                                             | Total number of Moxie users                                     |
+| `moxieScore`              | `number`                                             | User's Senpi Score based on their activity and connections      |
+| `moxieRank`               | `number`                                             | User's rank among all Senpi users                               |
+| `totalUsers`              | `number`                                             | Total number of Senpi users                                     |
 | `primaryWalletId`         | `string`                                             | ID of user's primary wallet                                     |
 | `communicationPreference` | `string`                                             | User's preferred communication method                           |
 | `createdAt`               | `string`                                             | Timestamp of when the user account was created                  |

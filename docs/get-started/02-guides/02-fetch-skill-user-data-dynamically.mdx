@@ -1,0 +1,40 @@
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
+import CopyPageButton from "@site/src/components/CopyPageButton";
+
+# Fetch Skill User Data Dynamically
+
+<CopyPageButton />
+
+All Senpi user-related data is injected to the runtime's state through the [Senpi Client](../../references/moxie-client/index.mdx) and accessible globally from your Skill.
+
+To fetch the user data, you can simply use the `state` paramater from an action's `handler` function.
+
+For example, if you want to fetch the user's Senpi account information, you can use the `moxieUserInfo` property from the `state` object as shown below:
+
+```typescript
+import {
+  type Action,
+  type IAgentRuntime,
+  type Memory,
+  type HandlerCallback,
+  type State,
+} from "@moxie-protocol/core";
+
+export const exampleAction: Action = {
+  handler: async (
+    runtime: IAgentRuntime,
+    message: Memory,
+    state: State,
+    _options: { [key: string]: unknown },
+    callback: HandlerCallback
+  ) => {
+    const userData = state.moxieUserInfo;
+  },
+};
+```
+
+There are other user-related data available in the `state` object that you can use to fetch user data dynamically.
+
+Learn more [here](../../references/moxie-client/states/index.mdx) to see all the available properties in the `state` object to build your Skill.
+
+<DeveloperSupport />

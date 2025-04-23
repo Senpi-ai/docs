@@ -7,8 +7,9 @@ import rehypeKatex from "rehype-katex";
 
 const config: Config = {
   themes: ["@docusaurus/theme-mermaid"],
-  title: "Senpi Developer Hubs",
-  tagline: "Your AI Edge In The Market.",
+  title: "Senpi for Developers",
+  tagline:
+    "Build custom Skills to enhance Senpi AI Agents and launch them into the Skills Marketplace! 🚀",
   favicon: "img/favicon.ico",
   markdown: {
     mermaid: true,
@@ -98,15 +99,21 @@ const config: Config = {
       items: [
         {
           type: "docSidebar",
-          sidebarId: "docsSidebar",
+          sidebarId: "getStartedSidebar",
           position: "left",
-          label: "Docs",
+          label: "Get Started",
         },
         {
           type: "docSidebar",
           sidebarId: "referenceSidebar",
           position: "left",
           label: "References",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "guidelinesSidebar",
+          position: "left",
+          label: "Guidelines & Policies",
         },
         { to: "/changelog", label: "Changelog", position: "left" },
         {
@@ -123,7 +130,7 @@ const config: Config = {
       //     title: "Learn",
       //     items: [
       //       {
-      //         label: "Moxie Overview",
+      //         label: "Senpi Overview",
       //         to: "/",
       //       },
       //       {

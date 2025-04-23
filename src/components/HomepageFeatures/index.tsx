@@ -6,34 +6,28 @@ import styles from "./styles.module.css";
 const FeatureList = [
   {
     icon: "🤖",
-    title: "Multi-Agent Framework",
-    description: (
-      <>
-        Build and deploy <strong>autonomous AI agents</strong> with consistent
-        personalities across Discord, Twitter, and Telegram. Full support for
-        voice, text, and media interactions.
-      </>
-    ),
+    title: "Quickstart",
+    description: <>Build your first skill end-to-end, from start to finish.</>,
   },
   {
     icon: "🧠",
-    title: "Advanced Capabilities",
+    title: "How-To Guides",
     description: (
       <>
-        Built-in RAG memory system, document processing, media analysis, and
-        autonomous trading capabilities. Supports multiple AI models including
-        Llama, GPT-4, and Claude.
+        Learn different features of the framework to build more complex skills.
       </>
     ),
   },
   {
     icon: "🔌",
-    title: "Extensible Design",
+    title: "Launching Skill Soon?",
     description: (
       <>
-        Create custom actions, add new platform integrations, and extend
-        functionality through a <b>modular plugin system</b>. Full TypeScript
-        support.
+        If you're looking to launch your skill soon, check out the{" "}
+        <a href="./guidelines-and-policies/pre-launch-checklist">
+          Pre-Launch Checklist
+        </a>
+        .
       </>
     ),
   },

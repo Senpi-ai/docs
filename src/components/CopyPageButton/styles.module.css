@@ -43,7 +43,7 @@
 .dropdown {
   position: absolute;
   top: calc(100% + 8px);
-  right: 0;
+  left: 0;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -200,6 +200,6 @@
 
   .dropdown {
     width: 280px;
-    right: -12px;
+    left: 0px;
   }
 }

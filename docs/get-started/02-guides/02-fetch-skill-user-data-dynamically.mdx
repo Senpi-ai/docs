@@ -11,7 +11,7 @@ To fetch the user data, you can simply use the `state` paramater from an action'
 
 For example, if you want to fetch the user's Senpi account information, you can use the `moxieUserInfo` property from the `state` object as shown below:
 
-```typescript
+```typescript {17}
 import {
   type Action,
   type IAgentRuntime,
@@ -29,6 +29,7 @@ export const exampleAction: Action = {
     callback: HandlerCallback
   ) => {
     const userData = state.moxieUserInfo;
+    return true;
   },
 };
 ```

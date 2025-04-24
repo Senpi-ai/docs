@@ -5,22 +5,29 @@ import styles from "./styles.module.css";
 
 const FeatureList = [
   {
-    icon: "🤖",
     title: "Quickstart",
-    description: <>Build your first skill end-to-end, from start to finish.</>,
+    description: (
+      <>
+        Build your first AI Agent Skill end-to-end, from scratch to launch to
+        the Senpi Skills Marketplace.
+      </>
+    ),
+    buttonText: "Start Building!",
+    buttonLink: "./get-started/quickstart/build-your-first-skill",
   },
   {
-    icon: "🧠",
     title: "How-To Guides",
     description: (
       <>
-        Learn different features of the framework to build more complex skills.
+        Learn different features of the Senpi Eliza Skills Framework to build
+        more complex AI Agent Skills.
       </>
     ),
+    buttonText: "Learn More",
+    buttonLink: "./get-started/guides",
   },
   {
-    icon: "🔌",
-    title: "Launching Skill Soon?",
+    title: "Ready To Launch?",
     description: (
       <>
         If you're looking to launch your skill soon, check out the{" "}
@@ -30,10 +37,12 @@ const FeatureList = [
         .
       </>
     ),
+    buttonText: "Go To Checklist",
+    buttonLink: "./guidelines-and-policies/pre-launch-checklist",
   },
 ];
 
-function Feature({ icon, title, description }) {
+function Feature({ title, description, buttonText, buttonLink }) {
   return (
     <div className={clsx("col")}>
       <div
@@ -42,10 +51,9 @@ function Feature({ icon, title, description }) {
           height: "100%",
         }}
       >
-        <div className="card__body text--left padding--md">
-          <icon className={styles.featureIcon}>{icon}</icon>
+        <div className="card__body text--center padding--md border border-solid rounded-lg border-primary/50">
           <Heading
-            as="h3"
+            as="h2"
             style={{
               color: "var(--ifm-heading-color)",
             }}
@@ -53,6 +61,14 @@ function Feature({ icon, title, description }) {
             {title}
           </Heading>
           <p>{description}</p>
+          <div className={styles.buttonGroup}>
+            <a
+              className="button bg-gradient-to-r from-[#879df5] to-[#4c6ef5] button--lg text-white hover:text-white transition duration-300 ease-in-out opacity-90 hover:opacity-100"
+              href={buttonLink}
+            >
+              {buttonText}
+            </a>
+          </div>
         </div>
       </div>
     </div>

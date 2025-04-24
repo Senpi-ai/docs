@@ -3,6 +3,7 @@ sidebar_class_name: "adjustments"
 ---
 
 import CopyPageButton from "@site/src/components/CopyPageButton";
+import DeveloperSupport from "../../partial/_developer_support.mdx";
 
 # Troubleshooting
 
@@ -45,3 +46,5 @@ Usually, this happens randomly and it's hard to reproduce. The solution for this
 This error usually occurs when you have a `dynamic import` in your code, which usually is located within your ESM build.
 
 The solution for this is simple. Just check which dependency does the `dynamic import` is coming from and add it to your `tsup.config.ts` file's `external` array.
+
+<DeveloperSupport />

@@ -1,5 +1,93 @@
 import CopyPageButton from "@site/src/components/CopyPageButton";
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
 
 # Sign Message Using Agent Wallet
 
 <CopyPageButton />
+
+An agent wallet is an embedded wallet that is controlled by the AI agent and owned by the user that can be used to execute on-chain transactions for users.
+
+Each user that created a Senpi account on [senpi.ai](https://senpi.ai) automatically assigned a unique agent wallet, which on the the platform is labeled as an **Embedded Wallet**.
+
+As a skills developer, you can access the user's agent wallet to execute onchain transactions and sign messages.
+
+## Signing Messages Using the Agent Wallet
+
+To sign messages using the agent wallet, you can simply use the `moxieWalletClient` state in your skill that is injected by the [Senpi Client](../../references/moxie-client/index.mdx) as shown below:
+
+:::info
+
+Currently, only signing message on EVM chains are supported within the Senpi Eliza Skills Framework.
+
+:::
+
+```typescript {17-21}
+import {
+  type Action,
+  type IAgentRuntime,
+  type Memory,
+  type HandlerCallback,
+  type State,
+} from "@moxie-protocol/core";
+
+export const exampleAction: Action = {
+  handler: async (
+    runtime: IAgentRuntime,
+    message: Memory,
+    state: State,
+    _options: { [key: string]: unknown },
+    callback: HandlerCallback
+  ) => {
+    const moxieWalletClient = state.moxieWalletClient;
+    // Sign a message using user's agent wallet
+    const { signature, encoding } = await moxieWalletClient.signMessage(
+      "Hello Senpi!"
+    );
+    return true;
+  },
+};
+```
+
+Keep in mind that in production, the agent wallet will be dynamically injected into the skill's runtime state depending on the user interacting with the skill.
+
+However, for local development purposes, the agent wallet will be **based on the private key** that you have set in the local `.env` file.
+
+## Signing EIP-712 Typed Data Messages
+
+To sign EIP-712 typed data messages, you can use the `signTypedData` function in your skill's action code as shown below:
+
+```typescript {17-24}
+import {
+  type Action,
+  type IAgentRuntime,
+  type Memory,
+  type HandlerCallback,
+  type State,
+} from "@moxie-protocol/core";
+
+export const exampleAction: Action = {
+  handler: async (
+    runtime: IAgentRuntime,
+    message: Memory,
+    state: State,
+    _options: { [key: string]: unknown },
+    callback: HandlerCallback
+  ) => {
+    const moxieWalletClient = state.moxieWalletClient;
+    // Sign a EIP-712 typed data message using user's agent wallet
+    const { signature, encoding } = await moxieWalletClient.signTypedData(
+      domain,
+      types,
+      message,
+      primaryType
+    );
+    return true;
+  },
+};
+```
+
+Similar to regular message signing, the agent wallet will be dynamically injected into the skill's runtime state depending on the user interacting with the skill.
+
+For local development purposes, the agent wallet will be **based on the private key** that you have set in the local `.env` file.
+
+<DeveloperSupport />

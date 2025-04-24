@@ -15,16 +15,52 @@ Each user that created a Senpi account on [senpi.ai](https://senpi.ai) automatic
 
 As a skills developer, you can access the user's agent wallet to execute onchain transactions and sign messages.
 
-## Accessing the Agent Wallet
+## Executing Transactions Using the Agent Wallet
 
-To access the agent wallet instance, you can simply use the `agentWallet` state in your skill that is injected by the [Senpi Client](../../references/moxie-client/index.mdx) as shown below:
+To execute transactions using the agent wallet, you can simply use the `moxieWalletClient` state in your skill that is injected by the [Senpi Client](../../references/moxie-client/index.mdx) as shown below:
 
-```typescript
-const agentWallet = state.agentWallet;
+:::info
+
+Currently, only EVM transactions are supported within the Senpi Eliza Skills Framework.
+:::
+
+```typescript {17-29}
+import {
+  type Action,
+  type IAgentRuntime,
+  type Memory,
+  type HandlerCallback,
+  type State,
+} from "@moxie-protocol/core";
+
+export const exampleAction: Action = {
+  handler: async (
+    runtime: IAgentRuntime,
+    message: Memory,
+    state: State,
+    _options: { [key: string]: unknown },
+    callback: HandlerCallback
+  ) => {
+    const moxieWalletClient = state.moxieWalletClient;
+    // Execute a transaction on user's agent wallet
+    const { hash, caip2 } = await moxieWalletClient.sendTransaction(
+      // EVM Chain ID
+      "8453",
+      // Transaction Data
+      {
+        fromAddress: "0x1234567890123456789012345678901234567890",
+        toAddress: "0x1234567890123456789012345678901234567890",
+        data: "0x",
+        value: 1000000000000000000,
+      }
+    );
+    return true;
+  },
+};
 ```
 
 Keep in mind that in production, the agent wallet will be dynamically injected into the skill's runtime state depending on the user interacting with the skill.
 
-However, for local development purposes, the agent wallet will be based on the private key that you have set in the local `.env` file.
+However, for local development purposes, the agent wallet will be **based on the private key** that you have set in the local `.env` file.
 
 <DeveloperSupport />

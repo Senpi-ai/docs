@@ -1,4 +1,5 @@
 import CopyPageButton from "@site/src/components/CopyPageButton";
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
 
 # Registering to the Skills Marketplace
 
@@ -6,7 +7,9 @@ import CopyPageButton from "@site/src/components/CopyPageButton";
 
 Once you completed development on your skills, you can register your skills to the Skills Marketplace by the following steps:
 
-1. Adjust your AI Agent Skills metadata in the Skills Registry in `registry/src/skills.json` with the values and configurations you want to display in the Skills Marketplace.
+## Step 1: Adjust the Skills Metadata
+
+Adjust your AI Agent Skills metadata in the Skills Registry in `registry/src/skills.json` with the values and configurations you want to display in the Skills Marketplace.
 
 ```ts
 interface Skills {
@@ -36,6 +39,12 @@ interface Skills {
 }
 ```
 
-2.  If your AI Agent Skill require environment variable for production purpose, then fill in [this form](https://forms.gle/8hzDyCVKKLs4MkTEA) to request submission. The Senpi team shall directly reach out to you either through **Email** ([support@airstack.xyz](mailto:support@airstack.xyz)) or **Farcaster** (group chat) for submission.
+## Step 2: Request `.env` Variables for Production (Optional)
 
-3.  Lastly, commit all the changes you made on your branches and create a new [PR](https://github.com/moxie-protocol/moxie-agent-skills/pulls) to the repository's `main` branch. <br /><br />Before requesting for review, make sure that you have fulfilled all the requirements in the [pre-launch checklist](../../guidelines-and-policies/pre-launch-checklist.mdx).<br/><br />The Senpi team will review the newly created AI Agent Skills and once merged, your Skills will automatically be registered to the Skills Marketplace where it's accessible for Senpi users to use.
+If your AI Agent Skill require environment variable for production purpose, then fill in [this form](https://forms.gle/8hzDyCVKKLs4MkTEA) to request submission. The Senpi team shall directly reach out to you either through **Email** ([support@airstack.xyz](mailto:support@airstack.xyz)) or **Farcaster** (group chat) for submission.
+
+## Step 3: Create a Pull Request
+
+Lastly, commit all the changes you made on your branches and create a new [PR](https://github.com/moxie-protocol/moxie-agent-skills/pulls) to the repository's `main` branch. <br /><br />Before requesting for review, make sure that you have fulfilled all the requirements in the [pre-launch checklist](../../guidelines-and-policies/pre-launch-checklist.mdx).<br/><br />The Senpi team will review the newly created AI Agent Skills and once merged, your Skills will automatically be registered to the Skills Marketplace where it's accessible for Senpi users to use.
+
+<DeveloperSupport />

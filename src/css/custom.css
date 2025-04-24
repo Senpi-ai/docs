@@ -35,6 +35,16 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+@theme {
+  primary: var(--ifm-color-primary);
+  secondary: var(--ifm-color-primary-darker);
+  gradient: linear-gradient(
+    to right,
+    var(--ifm-color-primary),
+    var(--ifm-color-primary-darker)
+  );
+}
+
 /* header-github-link manage the styling for the GitHub logo on the Navbar */
 .header-github-link::before {
   content: "";

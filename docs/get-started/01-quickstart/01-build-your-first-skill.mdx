@@ -11,7 +11,12 @@ To develop an AI Agent Skill, you will be using the [Senpi Eliza Skills Framewor
 
 In this tutorial, you will learn how to create your first Senpi Skill for your AI Agent using the [Senpi Eliza Skills Framework](https://github.com/moxie-protocol/moxie-agent-skills).
 
-The AI Agent Skill demonstrated here is straightforward and enables your AI Agent to provide the most up-to-date summarized information of your ETH balances on Base.
+The AI Agent Skill demonstrated here will have 2 `actions` defined for individual functionalities:
+
+- `ETH_BALANCE_ON_BASE`: Check the balance of the agent's wallet on Base
+- `TRANSFER_BASE_ETH`: Transfer ETH token on Base from user's agent wallet to another 0x address
+
+These examples are relatively simple, but will give you a good understanding on the ins-and-outs of building an AI Agent Skill using the Senpi Eliza Skills Framework.
 
 ## Pre-requisites
 
@@ -26,7 +31,9 @@ Before you begin development, please ensure you have all the prerequisites for t
 - CUDA Toolkit (optional, for GPU acceleration)
 - OpenAI API Key (for OpenAI models)
 
-Once your environment is set up, fork [**the Senpi Eliza Skills Framework repository**](https://github.com/moxie-protocol/moxie-agent-plugin?tab=readme-ov-file#register-your-skills-to-moxie) and then clone it locally to your machine.
+## Setup Your Environment
+
+Once your have all the prerequisites, fork [**the Senpi Eliza Skills Framework repository**](https://github.com/moxie-protocol/moxie-agent-plugin?tab=readme-ov-file#register-your-skills-to-moxie) and then clone it locally to your machine.
 
 Once you cloned the repository, you can setup your environment with the following scripts:
 

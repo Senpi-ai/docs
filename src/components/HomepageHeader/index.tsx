@@ -18,10 +18,10 @@ function HomepageHeader() {
             <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
             <div className={styles.buttonGroup}>
               <a
-                className="button button--primary button--lg"
+                className="button bg-gradient-to-r from-[#879df5] to-[#4c6ef5] button--lg text-white hover:text-white transition duration-300 ease-in-out opacity-90 hover:opacity-100"
                 href="./get-started/quickstart/build-your-first-skill"
               >
-                Build Your First Skill
+                Build Your First Skill →
               </a>
             </div>
           </div>

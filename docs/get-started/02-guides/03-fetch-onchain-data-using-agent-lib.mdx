@@ -1,5 +1,51 @@
 import CopyPageButton from "@site/src/components/CopyPageButton";
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
 
 # Fetch Onchain Data Using Agent Lib
 
 <CopyPageButton />
+
+The Senpi Agent Lib is a utility library that contains several reusable functions that can be used to fetch onchain data from your AI Agent Skills.
+
+## Importing the Senpi Agent Lib
+
+To import the Senpi Agent Lib, you simply import it in your Skill's action file as shown below:
+
+```typescript
+import * as agentLib from "@moxie-protocol/moxie-agent-lib";
+```
+
+From here, you can use all the functions available in `agentLib` to fetch the onchain data you need.
+
+## Fetching Onchain Data
+
+For example, you want to fetch the token metadata for a given token address. In this case, you can use the `getTokenMetadata` function in your Skill's action `handler` code as shown below:
+
+```typescript {19}
+import {
+  type Action,
+  type IAgentRuntime,
+  type Memory,
+  type HandlerCallback,
+  type State,
+} from "@moxie-protocol/core";
+import { getTokenMetadata } from "@moxie-protocol/moxie-agent-lib";
+
+export const exampleAction: Action = {
+  handler: async (
+    runtime: IAgentRuntime,
+    message: Memory,
+    state: State,
+    _options: { [key: string]: unknown },
+    callback: HandlerCallback
+  ) => {
+    // Get Token Metadata using Senpi Agent Lib
+    const tokenMetadata = await getTokenMetadata(tokenAddress, runtime);
+    return true;
+  },
+};
+```
+
+To learn all the functions available in the Senpi Agent Lib, please refer to the [Senpi Agent Lib References](../../references/moxie-agent-lib/02-moxie-agent-lib.mdx).
+
+<DeveloperSupport />

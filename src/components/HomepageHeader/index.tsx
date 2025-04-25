@@ -15,7 +15,10 @@ function HomepageHeader() {
                 Senpi Eliza Skills Framework
               </span>
             </h1>
-            <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
+            <p className={styles.heroSubtitle}>
+              Build custom Skills to enhance Senpi AI Agents and launch them
+              into the Skills Marketplace! 🚀
+            </p>
             <div className={styles.buttonGroup}>
               <a
                 className="button bg-gradient-to-r from-[#879df5] to-[#4c6ef5] button--lg text-white hover:text-white transition duration-300 ease-in-out opacity-90 hover:opacity-100"

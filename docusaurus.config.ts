@@ -9,7 +9,7 @@ const config: Config = {
   themes: ["@docusaurus/theme-mermaid"],
   title: "Senpi for Developers",
   tagline:
-    "Build custom Skills to enhance Senpi AI Agents and launch them into the Skills Marketplace! 🚀",
+    "Senpi is open, modular, and infinitely extendable. An autonomous onchainGPT that informs, remembers, learns, trades, mints.",
   favicon: "img/favicon.ico",
   markdown: {
     mermaid: true,

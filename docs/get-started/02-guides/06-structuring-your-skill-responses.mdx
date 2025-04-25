@@ -17,9 +17,9 @@ Therefore, any valid **Markdown** syntax will automatically be rendered in the C
 
 ## Tagging In Senpi Interface
 
-On **[senpi.ai](https://senpi.ai)**, users can utilize a tagging system to reference both **Senpi users** and **ERC20tokens** within the chat interface. This feature simplifies interactions by making it easier to mention specific users or tokens in inputs.
+On **[senpi.ai](https://senpi.ai)**, users can utilize a tagging system to reference both **Senpi users** and **ERC20 tokens** within the chat interface. This feature simplifies interactions by making it easier to mention specific users or tokens in inputs.
 
-Similarly, responses from your Skill can also include tagged **Senpi users** and **ERC20tokens** in the output for better user experience.
+Similarly, responses from your Skill can also include tagged **Senpi users** and **ERC20 tokens** in the output for better user experience.
 
 In order to tag a **Senpi user** or **ERC20 token**, you can use the following special syntax when formatting your Skill's response:
 
@@ -49,14 +49,14 @@ give me twitter summary of **@betashop.eth**
 
 ```ts
 callback({
-  text: "buy 10 $[MOXIE|0x8c9037d1ef5c6d1f6816278c7aaf5491d24cd527] using ETH",
+  text: "buy 10 $[WETH|0x4200000000000000000000000000000000000006] using ETH",
 });
 ```
 
 </TabItem>
 <TabItem value="md" label="Rendered Text (senpi.ai)">
 
-buy 10 **$MOXIE** using ETH
+buy 10 **$WETH** using ETH
 
 </TabItem>
 </Tabs>

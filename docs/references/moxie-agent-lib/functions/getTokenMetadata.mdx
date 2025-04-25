@@ -1,0 +1,56 @@
+# getTokenMetadata
+
+## Description
+
+`getTokenMetadata` is a function that returns the metadata of a token.
+
+## Pre-requisites
+
+To use this function for local development, make sure that you have the following environment variables set:
+
+```
+ZAPPER_API_KEY=xxx
+ZAPPER_API_URL=https://public.zapper.xyz/graphql
+```
+
+## Usage
+
+```ts
+import { getTokenMetadata } from "@moxie-protocol/moxie-agent-lib";
+
+const tokenMetadata = await getTokenMetadata(tokenAddress, runtime);
+```
+
+## Response
+
+```json
+{
+  "name": "ETH",
+  "address": "0x0000000000000000000000000000000000000000",
+  "symbol": "ETH"
+}
+```
+
+## Type Signatures
+
+```ts
+export async function getTokenMetadata(
+  tokenAddress: string,
+  runtime: IAgentRuntime
+): Promise<ZapperTokenDetails>;
+```
+
+## Parameters
+
+| Parameter      | Type            | Description              |
+| -------------- | --------------- | ------------------------ |
+| `tokenAddress` | `string`        | The address of the token |
+| `runtime`      | `IAgentRuntime` | The runtime to use       |
+
+## Fields
+
+| Field     | Type     | Description              |
+| --------- | -------- | ------------------------ |
+| `name`    | `string` | The name of the token    |
+| `address` | `string` | The address of the token |
+| `symbol`  | `string` | The symbol of the token  |

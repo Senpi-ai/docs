@@ -4,39 +4,39 @@
 
 ## Search
 
-- [Search the documentation | Senpi Developer Hubs](https://moxie-docs.vercel.app//search): undefined
+- [Search the documentation | Senpi Developer Hubs](https://developer.senpi.ai/search)
 
 ## Docs
 
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//docs/core-features): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//docs/core-features/moxie-agent-lib): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//docs/core-features/moxie-client): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//docs/core-features/responses): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//docs/core-features/user-agent-wallet): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//docs/overview): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//docs/quickstart): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//docs/quickstart/connect-skills-to-moxie): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//docs/quickstart/create-your-first-skill): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//docs/quickstart/execute-transactions-in-skill): undefined
+- [Senpi Developer Hubs](https://developer.senpi.ai/docs/core-features)
+- [Senpi Developer Hubs](https://developer.senpi.ai/docs/core-features/moxie-agent-lib)
+- [Senpi Developer Hubs](https://developer.senpi.ai/docs/core-features/moxie-client)
+- [Senpi Developer Hubs](https://developer.senpi.ai/docs/core-features/responses)
+- [Senpi Developer Hubs](https://developer.senpi.ai/docs/core-features/user-agent-wallet)
+- [Senpi Developer Hubs](https://developer.senpi.ai/docs/overview)
+- [Senpi Developer Hubs](https://developer.senpi.ai/docs/quickstart)
+- [Senpi Developer Hubs](https://developer.senpi.ai/docs/quickstart/connect-skills-to-moxie)
+- [Senpi Developer Hubs](https://developer.senpi.ai/docs/quickstart/create-your-first-skill)
+- [Senpi Developer Hubs](https://developer.senpi.ai/docs/quickstart/execute-transactions-in-skill)
 
 ## References
 
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-agent-lib): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-agent-lib/moxiewalletclient): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-agent-lib/types/evmcaip2chainId): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-agent-lib/types/moxiewalletsendtransactionresponsetype): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-agent-lib/types/moxiewalletsignmessageresponsetype): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-agent-lib/types/moxiewalletsigntypeddataresponsetype): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-client): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-client/states): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-client/states/agentName): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-client/states/agentWallet): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-client/states/moxieUserInfo): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-client/types/ensmetadata): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-client/types/farcastermetadata): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-client/types/moxieidentity): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-client/types/moxiewallet): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-client/types/twittermetadata): undefined
-- [Senpi Developer Hubs](https://moxie-docs.vercel.app//references/moxie-client/types/vestingcontracts): undefined
+- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-agent-lib)
+- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-agent-lib/moxiewalletclient)
+- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-agent-lib/types/evmcaip2chainId)
+- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-agent-lib/types/moxiewalletsendtransactionresponsetype)
+- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-agent-lib/types/moxiewalletsignmessageresponsetype)
+- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-agent-lib/types/moxiewalletsigntypeddataresponsetype)
+- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-client)
+- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-client/states)
+- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-client/states/agentName)
+- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-client/states/agentWallet)
+- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-client/states/moxieUserInfo)
+- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-client/types/ensmetadata)
+- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-client/types/farcastermetadata)
+- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-client/types/moxieidentity)
+- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-client/types/moxiewallet)
+- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-client/types/twittermetadata)
+- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-client/types/vestingcontracts)
 
 

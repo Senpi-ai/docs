@@ -1,0 +1,86 @@
+# getPortfolioV2Data
+
+## Description
+
+`getPortfolioV2Data` is a function that returns the ERC20 portfolio data for a given Senpi user using the Zapper V2 API.
+
+## Pre-requisites
+
+To use this function for local development, make sure that you have the following environment variables set:
+
+```
+ZAPPER_API_KEY=xxx
+ZAPPER_API_URL=https://public.zapper.xyz/graphql
+```
+
+## Usage
+
+```ts
+import { getPortfolioV2Data } from "@moxie-protocol/moxie-agent-lib";
+
+const portfolioData = await getPortfolioV2Data(
+  ["0x0000000000000000000000000000000000000000"], // user's wallet addresses
+  ["BASE_MAINNET"],
+  "M1", // Senpi User ID
+  runtime // IAgentRuntime
+);
+```
+
+## Response
+
+```ts
+{
+    tokenBalances: {
+        totalBalanceUSD: 1000000000000000000,
+        byToken: {
+            edges: [
+                {
+                    cursor: "1",
+                    node: {
+                        id: "1",
+                        tokenAddress:
+                            "0x0000000000000000000000000000000000000000",
+                        name: "ETH",
+                        symbol: "ETH",
+                        price: 1000000000000000000,
+                        balance: 1000000000000000000,
+                        balanceUSD: 1000000000000000000,
+                        holdingPercentage: 100,
+                    },
+                },
+            ],
+        },
+    },
+    metadata: {
+        addresses: ["0x0000000000000000000000000000000000000000"],
+        networks: ["BASE_MAINNET"],
+    },
+}
+```
+
+## Type Signature
+
+```ts
+export async function getPortfolioV2Data(
+  addresses: string[],
+  networks: string[],
+  userId: string,
+  runtime: IAgentRuntime
+): Promise<PortfolioV2Data>;
+```
+
+## Parameters
+
+| Parameter   | Type            | Description                                                |
+| ----------- | --------------- | ---------------------------------------------------------- |
+| `addresses` | `string[]`      | The addresses of the wallets to get the portfolio data for |
+| `networks`  | `string[]`      | The networks to get the portfolio data for                 |
+| `userId`    | `string`        | The Senpi User ID to get the portfolio data for            |
+| `runtime`   | `IAgentRuntime` | The runtime to get the portfolio data for                  |
+
+## Fields
+
+| Field           | Type             | Description                           |
+| --------------- | ---------------- | ------------------------------------- |
+| `tokenBalances` | `TokenBalance[]` | The token balances for the given user |
+| `metadata`      | `Metadata`       | The metadata for the given user       |

@@ -14,7 +14,7 @@ const config: Config = {
   markdown: {
     mermaid: true,
   },
-  url: "https://moxie-docs.vercel.app/",
+  url: "https://developer.senpi.ai/",
   baseUrl: "/",
   organizationName: "senpi",
   projectName: "docs",

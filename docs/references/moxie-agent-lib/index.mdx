@@ -7,7 +7,7 @@ import DocCardList from "@theme/DocCardList";
 
 # Senpi Agent Lib
 
-Senpi Agent Libs provides a suite of functions that enables developers to execute on-chain transactions and retrieve Senpi-related data efficiently.
+Senpi Agent Libs provides a suite of functions that enables developers to execute on-chain transactions and retrieve onchain data efficiently.
 
 With `MoxieWalletClient` class, developers can send transactions, sign messages, and handle EIP-712 structured data.
 
@@ -21,7 +21,10 @@ To enable the full functionality of Senpi Agent Libs, you need to provide severa
 
 ```
 PRIVATE_KEY=       # Private key for executing tx with Senpi Agent Lib, simulating agent wallet
-RPC_URL= # RPC URL for executing tx with Senpi Agent Lib
+RPC_URL=           # RPC URL for executing tx with Senpi Agent Lib
+CODEX_API_KEY=     # Codex API key for fetching token-related data
+ZAPPER_API_KEY=    # Zapper API key for fetching ERC20 portfolio-related data
+ZAPPER_API_URL=    # Zapper API URL for fetching ERC20 portfolio-related data
 ```
 
 Keep in mind that:
@@ -29,5 +32,7 @@ Keep in mind that:
 1. For local development, every onchain transaction executed will be using the wallet that you provide from the `PRIVATE_KEY`, which will simulate the agent wallet on production
 2. Since transactions are executed with the agent wallet, you need to make sure that the agent wallet has enough funds to cover the gas fees for the transaction
 3. The `RPC_URL` is the RPC URL only for local development purpose for executing tx with Senpi Agent Lib that is chain specific. For transaction to be successful, you need to make sure that the chain ID you specify in the transaction is supported by the RPC URL
+
+## References
 
 <DocCardList />

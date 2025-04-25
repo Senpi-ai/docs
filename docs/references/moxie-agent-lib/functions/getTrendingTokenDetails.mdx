@@ -1,0 +1,121 @@
+# getTrendingTokenDetails
+
+## Description
+
+`getTrendingTokenDetails` is a function that returns the multiple token details.
+
+## Pre-requisites
+
+To use this function for local development, make sure that you have the following environment variables set:
+
+```
+CODEX_API_KEY=xxx
+```
+
+## Usage
+
+```ts
+import { getTrendingTokenDetails } from "@moxie-protocol/moxie-agent-lib";
+
+const trendingTokenDetails = await getTrendingTokenDetails();
+```
+
+## Response
+
+```json
+[
+  {
+    "tokenName": "ETH",
+    "tokenSymbol": "ETH",
+    "tokenAddress": "0x0000000000000000000000000000000000000000",
+    "networkId": 8453,
+    "priceUSD": "42000",
+    "liquidityTop3PoolsUSD": "1000000",
+    "fullyDilutedMarketCapUSD": "1000000",
+    "uniqueHolders": 1000000,
+    "uniqueBuysLast1Hour": 1000000,
+    "uniqueBuysLast4Hours": 1000000,
+    "uniqueBuysLast12Hours": 1000000,
+    "uniqueBuysLast24Hours": 1000000,
+    "uniqueSellsLast1Hour": 1000000,
+    "uniqueSellsLast4Hours": 1000000,
+    "uniqueSellsLast12Hours": 1000000,
+    "uniqueSellsLast24Hours": 1000000,
+    "changePercent1Hour": "1000000",
+    "changePercent4Hours": "1000000",
+    "changePercent12Hours": "1000000",
+    "changePercent24Hours": "1000000",
+    "high1Hour": "1000000",
+    "high4Hours": "1000000",
+    "high12Hours": "1000000",
+    "high24Hours": "1000000",
+    "low1Hour": "1000000",
+    "low4Hours": "1000000",
+    "low12Hours": "1000000",
+    "low24Hours": "1000000",
+    "volumeChange1Hour": "1000000",
+    "volumeChange4Hours": "1000000",
+    "volumeChange12Hours": "1000000",
+    "volumeChange24Hours": "1000000",
+    "liquidityPools": [
+      {
+        "poolAddress": "0x0000000000000000000000000000000000000000",
+        "poolName": "ETH/USD",
+        "liquidityUSD": 1000000
+      }
+    ]
+  }
+]
+```
+
+## Type Signatures
+
+```ts
+export async function getTrendingTokenDetails(
+  tokenAddresses: string[]
+): Promise<TokenDetails[]>;
+```
+
+## Parameters
+
+| Parameter        | Type       | Description                                    |
+| ---------------- | ---------- | ---------------------------------------------- |
+| `tokenAddresses` | `string[]` | The addresses of the tokens to get details for |
+
+## Fields
+
+| Field                      | Type              | Description                                      |
+| -------------------------- | ----------------- | ------------------------------------------------ |
+| `tokenName`                | `string`          | The name of the token                            |
+| `tokenSymbol`              | `string`          | The symbol of the token                          |
+| `tokenAddress`             | `string`          | The address of the token                         |
+| `networkId`                | `number`          | The network ID of the token                      |
+| `priceUSD`                 | `string`          | The price of the token in USD                    |
+| `liquidityTop3PoolsUSD`    | `string`          | The liquidity of the token in USD                |
+| `fullyDilutedMarketCapUSD` | `string`          | The fully diluted market cap of the token in USD |
+| `uniqueHolders`            | `number`          | The number of unique holders of the token        |
+| `uniqueBuysLast1Hour`      | `number`          | The number of unique buys in the last 1 hour     |
+| `uniqueBuysLast4Hours`     | `number`          | The number of unique buys in the last 4 hours    |
+| `uniqueBuysLast12Hours`    | `number`          | The number of unique buys in the last 12 hours   |
+| `uniqueBuysLast24Hours`    | `number`          | The number of unique buys in the last 24 hours   |
+| `uniqueSellsLast1Hour`     | `number`          | The number of unique sells in the last 1 hour    |
+| `uniqueSellsLast4Hours`    | `number`          | The number of unique sells in the last 4 hours   |
+| `uniqueSellsLast12Hours`   | `number`          | The number of unique sells in the last 12 hours  |
+| `uniqueSellsLast24Hours`   | `number`          | The number of unique sells in the last 24 hours  |
+| `changePercent1Hour`       | `string`          | The change percent in the last 1 hour            |
+| `changePercent4Hours`      | `string`          | The change percent in the last 4 hours           |
+| `changePercent12Hours`     | `string`          | The change percent in the last 12 hours          |
+| `changePercent24Hours`     | `string`          | The change percent in the last 24 hours          |
+| `high1Hour`                | `string`          | The high price in the last 1 hour                |
+| `high4Hours`               | `string`          | The high price in the last 4 hours               |
+| `high12Hours`              | `string`          | The high price in the last 12 hours              |
+| `high24Hours`              | `string`          | The high price in the last 24 hours              |
+| `low1Hour`                 | `string`          | The low price in the last 1 hour                 |
+| `low4Hours`                | `string`          | The low price in the last 4 hours                |
+| `low12Hours`               | `string`          | The low price in the last 12 hours               |
+| `low24Hours`               | `string`          | The low price in the last 24 hours               |
+| `volumeChange1Hour`        | `string`          | The volume change in the last 1 hour             |
+| `volumeChange4Hours`       | `string`          | The volume change in the last 4 hours            |
+| `volumeChange12Hours`      | `string`          | The volume change in the last 12 hours           |
+| `volumeChange24Hours`      | `string`          | The volume change in the last 24 hours           |
+| `liquidityPools`           | `LiquidityPool[]` | The liquidity pools of the token                 |

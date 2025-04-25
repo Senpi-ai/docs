@@ -1,42 +1,53 @@
-# Senpi Overview | Senpi Developer Hubs
+# Home | Senpi for Developers
 
-> Welcome to the Senpi Developer Hub! 👋
+> Senpi is open, modular, and infinitely extendable. An autonomous onchainGPT that informs, remembers, learns, trades, mints.
 
-## Search
+## Get-started
 
-- [Search the documentation | Senpi Developer Hubs](https://developer.senpi.ai/search)
+- [Guides](https://developer.senpi.ai/get-started/guides): The following are guides to solve specific use cases in the Senpi Skills Development lifecycle. For beginner guides, see our Getting Started tutorials. For in-depth knowledge on the technical details of the Senpi Eliza Skills Framework, see the References guide.
+- [Create A New Skill](https://developer.senpi.ai/get-started/guides/create-a-new-skill): To create a new Skill, you can simply run the following command from the Senpi Eliza Skills Framework:
+- [Execute Transaction From Agent Wallet](https://developer.senpi.ai/get-started/guides/execute-transaction-from-agent-wallet): Learn how to execute a transaction from the agent wallet
+- [Fetch Onchain Data Using Agent Lib](https://developer.senpi.ai/get-started/guides/fetch-onchain-data-using-agent-lib): The Senpi Agent Lib is a utility library that contains several reusable functions that can be used to fetch onchain data from your AI Agent Skills.
+- [Fetch Skill User Data Dynamically](https://developer.senpi.ai/get-started/guides/fetch-skill-user-data-dynamically): All Senpi user-related data is injected to the runtime's state through the Senpi Client and accessible globally from your Skill.
+- [Registering to the Skills Marketplace](https://developer.senpi.ai/get-started/guides/registering-to-the-skills-marketplace): Once you completed development on your skills, you can register your skills to the Skills Marketplace by the following steps:
+- [Sign Message Using Agent Wallet](https://developer.senpi.ai/get-started/guides/sign-message-using-agent-wallet): An agent wallet is an embedded wallet that is controlled by the AI agent and owned by the user that can be used to execute on-chain transactions for users.
+- [Structuring Your Skill Responses](https://developer.senpi.ai/get-started/guides/structuring-your-skill-responses): Responses are rendered in **Markdown** format instead of plain text in [senpi.ai](https://senpi.ai).
+- [Quickstart](https://developer.senpi.ai/get-started/quickstart): In this quickstart guide, you will learn step-by-step how to build and launch your first Senpi Skill.
+- [Build Your First Skill](https://developer.senpi.ai/get-started/quickstart/build-your-first-skill): To develop an AI Agent Skill, you will be using the Senpi Eliza Skills Framework as the base for your development.
+- [Connect Your Skills to Senpi](https://developer.senpi.ai/get-started/quickstart/connect-skills-to-senpi): Now that you've developed your Skills, it's time to inject dynamic user data from the states and connect your Skills to Senpi and register them to the Skills Marketplace.
+- [Execute Transactions In Skill](https://developer.senpi.ai/get-started/quickstart/execute-transactions-in-skill): This guide will walk you through each step to execute transactions in your Skill.
+- [Troubleshooting](https://developer.senpi.ai/get-started/troubleshooting): When building your Senpi Skill, you may encounter some common issues or errors that others have faced.
 
-## Docs
+## Guidelines-and-policies
 
-- [Senpi Developer Hubs](https://developer.senpi.ai/docs/core-features)
-- [Senpi Developer Hubs](https://developer.senpi.ai/docs/core-features/moxie-agent-lib)
-- [Senpi Developer Hubs](https://developer.senpi.ai/docs/core-features/moxie-client)
-- [Senpi Developer Hubs](https://developer.senpi.ai/docs/core-features/responses)
-- [Senpi Developer Hubs](https://developer.senpi.ai/docs/core-features/user-agent-wallet)
-- [Senpi Developer Hubs](https://developer.senpi.ai/docs/overview)
-- [Senpi Developer Hubs](https://developer.senpi.ai/docs/quickstart)
-- [Senpi Developer Hubs](https://developer.senpi.ai/docs/quickstart/connect-skills-to-moxie)
-- [Senpi Developer Hubs](https://developer.senpi.ai/docs/quickstart/create-your-first-skill)
-- [Senpi Developer Hubs](https://developer.senpi.ai/docs/quickstart/execute-transactions-in-skill)
+- [Senpi AI Skill Pre-launch Checklist](https://developer.senpi.ai/guidelines-and-policies/pre-launch-checklist): This page provides guidelines for building a high-quality AI Agent Skill to be registered on the Senpi Skills Marketplace. These recommendations may be updated as the store continues to grow and we learn from developers' experiences. We strongly encourage you to create Skills that meet the standards as described in the following sections to ensure your Skill is approved for launch on the Senpi Skills Marketplace.
 
 ## References
 
-- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-agent-lib)
-- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-agent-lib/moxiewalletclient)
-- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-agent-lib/types/evmcaip2chainId)
-- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-agent-lib/types/moxiewalletsendtransactionresponsetype)
-- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-agent-lib/types/moxiewalletsignmessageresponsetype)
-- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-agent-lib/types/moxiewalletsigntypeddataresponsetype)
-- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-client)
-- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-client/states)
-- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-client/states/agentName)
-- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-client/states/agentWallet)
-- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-client/states/moxieUserInfo)
-- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-client/types/ensmetadata)
-- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-client/types/farcastermetadata)
-- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-client/types/moxieidentity)
-- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-client/types/moxiewallet)
-- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-client/types/twittermetadata)
-- [Senpi Developer Hubs](https://developer.senpi.ai/references/moxie-client/types/vestingcontracts)
-
-
+- [Architecture](https://developer.senpi.ai/references/architecture): Senpi Eliza Skills Framework
+- [Senpi Agent Lib](https://developer.senpi.ai/references/moxie-agent-lib): Senpi Agent Libs provides a suite of functions that enables developers to execute on-chain transactions and retrieve Senpi-related data efficiently.
+- [MoxieWalletClient](https://developer.senpi.ai/references/moxie-agent-lib/class/moxiewalletclient): MoxieWalletClient is a class that provides methods to interact with the Senpi agent's embedded wallet.
+- [getPortfolioData](https://developer.senpi.ai/references/moxie-agent-lib/functions/getPortfolioData): Description
+- [getPortfolioV2Data](https://developer.senpi.ai/references/moxie-agent-lib/functions/getPortfolioV2Data): Description
+- [getSocialProfilesByMoxieIdMultiple](https://developer.senpi.ai/references/moxie-agent-lib/functions/getSocialProfilesByMoxieIdMultiple): Description
+- [getTokenDetails](https://developer.senpi.ai/references/moxie-agent-lib/functions/getTokenDetails): Description
+- [getTokenMetadata](https://developer.senpi.ai/references/moxie-agent-lib/functions/getTokenMetadata): Description
+- [getTrendingTokenDetails](https://developer.senpi.ai/references/moxie-agent-lib/functions/getTrendingTokenDetails): Description
+- [getUserByMoxieId](https://developer.senpi.ai/references/moxie-agent-lib/functions/getUserByMoxieId): Description
+- [getUserByMoxieIdMultiple](https://developer.senpi.ai/references/moxie-agent-lib/functions/getUserByMoxieIdMultiple): Description
+- [ENSMetadata](https://developer.senpi.ai/references/moxie-agent-lib/types/ensmetadata): Description
+- [EvmCaip2ChainId](https://developer.senpi.ai/references/moxie-agent-lib/types/evmcaip2chainId): Description
+- [FarcasterMetadata](https://developer.senpi.ai/references/moxie-agent-lib/types/farcastermetadata): Description
+- [MoxieIdentity](https://developer.senpi.ai/references/moxie-agent-lib/types/moxieidentity): Description
+- [MoxieWallet](https://developer.senpi.ai/references/moxie-agent-lib/types/moxiewallet): Description
+- [MoxieWalletSendTransactionResponseType](https://developer.senpi.ai/references/moxie-agent-lib/types/moxiewalletsendtransactionresponsetype): Description
+- [MoxieWalletSignMessageResponseType](https://developer.senpi.ai/references/moxie-agent-lib/types/moxiewalletsignmessageresponsetype): Description
+- [MoxieWalletSignTypedDataResponseType](https://developer.senpi.ai/references/moxie-agent-lib/types/moxiewalletsigntypeddataresponsetype): Description
+- [TwitterMetadata](https://developer.senpi.ai/references/moxie-agent-lib/types/twittermetadata): Description
+- [VestingContracts](https://developer.senpi.ai/references/moxie-agent-lib/types/vestingcontracts): Description
+- [Senpi Client](https://developer.senpi.ai/references/moxie-client): Use Senpi States to access user-level data for your Skills.
+- [agentName](https://developer.senpi.ai/references/moxie-client/agentName): agentName state returns the agent's name in string type.
+- [agentWallet](https://developer.senpi.ai/references/moxie-client/agentWallet): agentWallet state returns info and metadata of Senpi user's agent wallet that can be used to execute transactions and sign messages.
+- [currentWalletBalance](https://developer.senpi.ai/references/moxie-client/currentWalletBalance): currentWalletBalance state returns an array of token balances for the user's agent wallet.
+- [moxieWalletClient](https://developer.senpi.ai/references/moxie-client/moxeiWalletClient): moxieWalletClient state returns a class instance of Senpi agent's embedded wallet that can be used to execute transactions and sign messages.
+- [moxieUserInfo](https://developer.senpi.ai/references/moxie-client/states/moxieUserInfo): moxieUserInfo state returns all Senpi user's related information, from user ID, username, wallet, etc.

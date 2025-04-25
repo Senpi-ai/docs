@@ -4,7 +4,7 @@ on: workflow_dispatch
 
 env:
   AWS_REGION: us-east-1
-  ECR_REPOSITORY: sepni-docs
+  ECR_REPOSITORY: senpi-docs
 
 permissions:
   id-token: write
@@ -23,7 +23,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::339712928558:role/githubactions
+          role-to-assume: arn:aws:iam::114810186946:role/githubactions
           role-session-name: Github
           aws-region: ${{ env.AWS_REGION }}
 

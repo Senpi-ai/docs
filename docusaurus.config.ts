@@ -46,11 +46,11 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
-          editUrl: "https://github.com/moxie-protocol/docs/tree/feat/main/",
+          editUrl: "https://github.com/Senpi-ai/docs/tree/feat/main/",
         },
         blog: {
           showReadingTime: true,
-          editUrl: "https://github.com/moxie-protocol/docs/edit/main/",
+          editUrl: "https://github.com/Senpi-ai/docs/edit/main/",
           onUntruncatedBlogPosts: "ignore",
           onInlineAuthors: "ignore",
           blogTitle: "Senpi Changelog",

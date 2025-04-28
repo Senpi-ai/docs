@@ -115,7 +115,7 @@ const config: Config = {
           position: "left",
           label: "Guidelines & Policies",
         },
-        { to: "/changelog", label: "Changelog", position: "left" },
+        // { to: "/changelog", label: "Changelog", position: "left" },
         {
           href: "https://github.com/moxie-protocol",
           position: "right",

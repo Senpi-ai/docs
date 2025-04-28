@@ -19,13 +19,23 @@ function HomepageHeader() {
               Build custom Skills to enhance Senpi AI Agents and launch them
               into the Skills Marketplace! 🚀
             </p>
-            <div className={styles.buttonGroup}>
-              <a
-                className="button bg-gradient-to-r from-[#879df5] to-[#4c6ef5] button--lg text-white hover:text-white transition duration-300 ease-in-out opacity-90 hover:opacity-100"
-                href="./get-started/quickstart/build-your-first-skill"
-              >
-                Build Your First Skill →
-              </a>
+            <div className="flex gap-4 md:justify-center md:items-center lg:justify-start lg:items-start">
+              <div className={styles.buttonGroup}>
+                <a
+                  className="button bg-gradient-to-r from-[#879df5] to-[#4c6ef5] button--lg text-white hover:text-white transition duration-300 ease-in-out opacity-90 hover:opacity-100"
+                  href="./get-started/quickstart/build-your-first-skill"
+                >
+                  Build Your First Skill →
+                </a>
+              </div>
+              <div className={styles.buttonGroup}>
+                <a
+                  className="button border border-solid border-primary/50 bg-transparent text-transparent bg-clip-text bg-gradient-to-r from-[#879df5] to-[#4c6ef5] border button--lg hover:text-white transition duration-1000 ease-in-out hover:bg-clip-border hover:from-[#4c6ef5] hover:to-[#879df5]"
+                  href="./get-started/build-with-llms"
+                >
+                  Build With LLMs
+                </a>
+              </div>
             </div>
           </div>
           <div className={styles.heroRight}>

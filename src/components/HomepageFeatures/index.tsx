@@ -1,68 +1,90 @@
-import clsx from 'clsx';
-import Heading from '@theme/Heading';
-import styles from './styles.module.css';
+import React from "react";
+import clsx from "clsx";
+import Heading from "@theme/Heading";
+import styles from "./styles.module.css";
 
-type FeatureItem = {
-  title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
-  description: JSX.Element;
-};
-
-const FeatureList: FeatureItem[] = [
+const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: "Quickstart",
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Build your first AI Agent Skill end-to-end, from scratch to launch to
+        the Senpi Skills Marketplace.
       </>
     ),
+    buttonText: "Start Building!",
+    buttonLink: "./get-started/quickstart/build-your-first-skill",
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: "How-To Guides",
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Learn different features of the Senpi Eliza Skills Framework to build
+        more complex AI Agent Skills.
       </>
     ),
+    buttonText: "Learn More",
+    buttonLink: "./get-started/guides",
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: "Ready To Launch?",
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        If you're looking to launch your skill soon, check out the{" "}
+        <a href="./guidelines-and-policies/pre-launch-checklist">
+          Pre-Launch Checklist
+        </a>
+        .
       </>
     ),
+    buttonText: "Go To Checklist",
+    buttonLink: "./guidelines-and-policies/pre-launch-checklist",
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({ title, description, buttonText, buttonLink }) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+    <div className={clsx("col")}>
+      <div
+        className="margin--md"
+        style={{
+          height: "100%",
+        }}
+      >
+        <div className="card__body text--center padding--md border border-solid rounded-lg border-primary/50">
+          <Heading
+            as="h2"
+            style={{
+              color: "var(--ifm-heading-color)",
+            }}
+          >
+            {title}
+          </Heading>
+          <p>{description}</p>
+          <div className={styles.buttonGroup}>
+            <a
+              className="button bg-gradient-to-r from-[#879df5] to-[#4c6ef5] button--lg text-white hover:text-white transition duration-300 ease-in-out opacity-90 hover:opacity-100"
+              href={buttonLink}
+            >
+              {buttonText}
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
-export default function HomepageFeatures(): JSX.Element {
+export default function HomepageFeatures() {
   return (
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
+          <div className={styles.featureGrid}>
+            {FeatureList.map((props, idx) => (
+              <Feature key={idx} {...props} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

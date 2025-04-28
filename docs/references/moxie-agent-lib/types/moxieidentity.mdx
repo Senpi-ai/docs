@@ -1,0 +1,37 @@
+# MoxieIdentity
+
+## Description
+
+MoxieIdentity is a type that represents a user's connected social profiles.
+
+## Type Signature
+
+```ts
+export interface MoxieIdentity {
+  id: string;
+  userId: string;
+  type: string;
+  dataSource: string;
+  connectedIdentitiesFetchStatus: string;
+  metadata: TwitterMetadata | FarcasterMetadata | ENSMetadata;
+  profileId: string;
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+```
+
+## Fields
+
+| Name                             | Type                                                                                                                               | Description                                                                         |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `id`                             | `string`                                                                                                                           | Unique identifier for the Senpi identity                                            |
+| `userId`                         | `string`                                                                                                                           | Unique identifier for the user                                                      |
+| `type`                           | `string`                                                                                                                           | Type of the social identity (e.g., "twitter", "farcaster")                          |
+| `dataSource`                     | `string`                                                                                                                           | Data source for the social identity (e.g., "AIRSTACK", "PRIVY")                     |
+| `connectedIdentitiesFetchStatus` | `string`                                                                                                                           | Status of the connected identities fetch (e.g., "pending", "success", "error")      |
+| `metadata`                       | [`TwitterMetadata`](./twittermetadata.mdx) \| [`FarcasterMetadata`](./farcastermetadata.mdx) \| [`ENSMetadata`](./ensmetadata.mdx) | Metadata for the social identity (e.g., Twitter handle, Farcaster handle)           |
+| `profileId`                      | `string`                                                                                                                           | Profile ID for the social identity (e.g., Twitter profile ID, Farcaster profile ID) |
+| `isActive`                       | `boolean`                                                                                                                          | Whether the social identity is active (true/false)                                  |
+| `createdAt`                      | `string`                                                                                                                           | Timestamp of when the social identity was created                                   |
+| `updatedAt`                      | `string`                                                                                                                           | Timestamp of when the social identity was last updated                              |

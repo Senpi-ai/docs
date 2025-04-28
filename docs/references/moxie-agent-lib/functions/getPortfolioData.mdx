@@ -1,0 +1,77 @@
+# getPortfolioData
+
+## Description
+
+`getPortfolioData` is a function that returns the ERC20 portfolio data for a given Senpi user using the Zapper V1 API.
+
+You can also get this data directly from [`state.currentWalletBalance`](../../moxie-client/currentWalletBalance.mdx).
+
+## Pre-requisites
+
+To use this function for local development, make sure that you have the following environment variables set:
+
+```
+ZAPPER_API_KEY=xxx
+ZAPPER_API_URL=https://public.zapper.xyz/graphql
+```
+
+## Usage
+
+```ts
+import { getPortfolioData } from "@moxie-protocol/moxie-agent-lib";
+
+const portfolioData = await getPortfolioData(
+  ["0x0000000000000000000000000000000000000000"], // user's wallet addresses
+  ["BASE_MAINNET"],
+  "M1", // Senpi User ID
+  runtime // IAgentRuntime
+);
+```
+
+## Response
+
+```ts
+{
+    tokenBalances: [
+        {
+            address: "0x0000000000000000000000000000000000000000",
+            network: "BASE_MAINNET",
+            token: {
+                balance: 1000000000000000000,
+                balanceUSD: 1000000000000000000,
+                baseToken: {
+                    name: "ETH",
+                    address: "0x0000000000000000000000000000000000000000",
+                    symbol: "ETH",
+                },
+            },
+        },
+    ],
+}
+```
+
+## Type Signature
+
+```ts
+export async function getPortfolioData(
+  addresses: string[],
+  networks: string[],
+  userId: string,
+  runtime: IAgentRuntime
+): Promise<Portfolio>;
+```
+
+## Parameters
+
+| Parameter   | Type            | Description                                                |
+| ----------- | --------------- | ---------------------------------------------------------- |
+| `addresses` | `string[]`      | The addresses of the wallets to get the portfolio data for |
+| `networks`  | `string[]`      | The networks to get the portfolio data for                 |
+| `userId`    | `string`        | The Senpi user ID to get the portfolio data for            |
+| `runtime`   | `IAgentRuntime` | The runtime to get the portfolio data for                  |
+
+## Fields
+
+| Field           | Type             | Description                           |
+| --------------- | ---------------- | ------------------------------------- |
+| `tokenBalances` | `TokenBalance[]` | The token balances for the given user |

@@ -1,0 +1,64 @@
+---
+description: Responses are rendered in **Markdown** format instead of plain text in [senpi.ai](https://senpi.ai).
+---
+
+import DeveloperSupport from "../../../partial/_developer_support.mdx";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CopyPageButton from "@site/src/components/CopyPageButton";
+
+# Structuring Your Skill Responses
+
+<CopyPageButton />
+
+It is important to note that all responses are rendered in **Markdown** format instead of plain text in [senpi.ai](https://senpi.ai).
+
+Therefore, any valid **Markdown** syntax will automatically be rendered in the Chat UI interface.
+
+## Tagging In Senpi Interface
+
+On **[senpi.ai](https://senpi.ai)**, users can utilize a tagging system to reference both **Senpi users** and **ERC20 tokens** within the chat interface. This feature simplifies interactions by making it easier to mention specific users or tokens in inputs.
+
+Similarly, responses from your Skill can also include tagged **Senpi users** and **ERC20 tokens** in the output for better user experience.
+
+In order to tag a **Senpi user** or **ERC20 token**, you can use the following special syntax when formatting your Skill's response:
+
+### For Senpi Users
+
+<Tabs>
+<TabItem value="ts" label="Typescript">
+
+```ts
+callback({
+  text: "give me twitter summary of @[betashop.eth|M4]",
+});
+```
+
+</TabItem>
+<TabItem value="md" label="Rendered Text (senpi.ai)">
+
+give me twitter summary of **@betashop.eth**
+
+</TabItem>
+</Tabs>
+
+### For ERC20 Tokens
+
+<Tabs>
+<TabItem value="ts" label="Typescript">
+
+```ts
+callback({
+  text: "buy 10 $[WETH|0x4200000000000000000000000000000000000006] using ETH",
+});
+```
+
+</TabItem>
+<TabItem value="md" label="Rendered Text (senpi.ai)">
+
+buy 10 **$WETH** using ETH
+
+</TabItem>
+</Tabs>
+
+<DeveloperSupport />

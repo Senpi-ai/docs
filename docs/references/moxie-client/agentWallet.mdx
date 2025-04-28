@@ -1,0 +1,63 @@
+---
+description: agentWallet state returns info and metadata of Senpi user's agent wallet that can be used to execute transactions and sign messages.
+---
+
+# `agentWallet`
+
+## Description
+
+`agentWallet` state returns info and metadata of Senpi user's agent wallet that can be used to execute transactions and sign messages.
+
+This state will simply return JSON object, thus if you're looking to execute transactions or sign messages, you can use the [`moxieWalletClient`](./moxeiWalletClient.mdx) state instead.
+
+## Usage
+
+```ts
+import { MoxieClientWallet } from "@moxie-protocol/moxie-agent-lib";
+
+const agentWallet: MoxieClientWallet = state.agentWallet;
+```
+
+## Response
+
+```json
+{
+  "address": "0xa5cc845ef113c4c0908d4c1f4616a000b9a67b80",
+  "chainType": "ethereum",
+  "chainId": "8453",
+  "walletType": "embedded",
+  "walletClientType": "privy",
+  "connectorType": "embedded",
+  "hdWalletIndex": 0,
+  "delegated": false
+}
+```
+
+## Type Signature
+
+```ts
+interface Wallet {
+  id?: string | null;
+  address: string;
+  chainId?: string;
+  walletType?: string;
+  walletClientType?: string;
+  connectorType?: string;
+  hdWalletIndex?: number;
+  imported?: boolean;
+  delegated?: boolean;
+}
+```
+
+## Fields
+
+| Name               | Type      | Description                     |
+| ------------------ | --------- | ------------------------------- |
+| `address`          | `string`  | The address of the wallet       |
+| `chainType`        | `string`  | The type of the chain           |
+| `chainId`          | `string`  | The ID of the chain             |
+| `walletType`       | `string`  | The type of the wallet          |
+| `walletClientType` | `string`  | The type of the wallet client   |
+| `connectorType`    | `string`  | The type of the connector       |
+| `hdWalletIndex`    | `number`  | The index of the HD wallet      |
+| `delegated`        | `boolean` | Whether the wallet is delegated |

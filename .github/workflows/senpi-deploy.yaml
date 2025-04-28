@@ -4,7 +4,7 @@ on: workflow_dispatch
 
 env:
   AWS_REGION: us-east-1
-  ECR_REPOSITORY: sepni-docs
+  ECR_REPOSITORY: senpi-docs
 
 permissions:
   id-token: write

@@ -1,0 +1,70 @@
+---
+description: currentWalletBalance state returns an array of token balances for the user's agent wallet.
+---
+
+# `currentWalletBalance`
+
+## Description
+
+`currentWalletBalance` state returns an array of token balances for the user's agent wallet.
+
+## Usage
+
+```ts
+import { Portfolio } from "@moxie-protocol/moxie-agent-lib";
+const currentWalletBalance: Portfolio = state.currentWalletBalance;
+```
+
+## Response
+
+```json
+{
+  "tokenBalances": [
+    {
+      "address": "0x0000000000000000000000000000000000000000",
+      "network": "BASE_MAINNET",
+      "token": {
+        "balance": 1000000000000000000,
+        "balanceUSD": 1000000000000000000,
+        "baseToken": {
+          "name": "ETH",
+          "address": "0x0000000000000000000000000000000000000000",
+          "symbol": "ETH"
+        }
+      }
+    }
+  ]
+}
+```
+
+## Type Signature
+
+```ts
+interface Portfolio {
+  tokenBalances: TokenBalance[];
+}
+
+interface TokenBalance {
+  address: string;
+  network: string;
+  token: Token;
+}
+
+interface Token {
+  balance: number;
+  balanceUSD: number;
+  baseToken: BaseToken;
+}
+
+interface BaseToken {
+  name: string;
+  address: string;
+  symbol: string;
+}
+```
+
+## Fields
+
+| Name            | Type             | Description                |
+| --------------- | ---------------- | -------------------------- |
+| `tokenBalances` | `TokenBalance[]` | The list of token balances |

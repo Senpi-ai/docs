@@ -1,0 +1,62 @@
+# getSocialProfilesByMoxieIdMultiple
+
+## Description
+
+`getSocialProfilesByMoxieIdMultiple` is a function that returns the social profiles (e.g. X, Farcaster, etc.) attached to a given Senpi user.
+
+## Usage
+
+```ts
+import { moxieUserService } from "@moxie-protocol/moxie-agent-lib";
+
+const socialProfiles =
+  await moxieUserService.getSocialProfilesByMoxieIdMultiple(
+    ["M1"],
+    state.authorizationHeader as string,
+    stringToUuid("SKILL_NAME")
+  );
+```
+
+## Response
+
+```json
+{
+  "userIdToSocialProfile": {
+    "M1": {
+      "twitterUsername": "VitalikButerin",
+      "farcasterUsername": "vitalik.eth",
+      "farcasterUserId": "5160"
+    }
+  },
+  "errorDetails": null,
+  "freeTrialLimit": 0,
+  "remainingFreeTrialCount": 0
+}
+```
+
+## Type Signature
+
+```ts
+export async function getSocialProfilesByMoxieIdMultiple(
+  userIds: string[],
+  bearerToken: string,
+  pluginId: string
+);
+```
+
+## Parameters
+
+| Parameter     | Type       | Description                                       |
+| ------------- | ---------- | ------------------------------------------------- |
+| `userIds`     | `string[]` | The Senpi User IDs to get the social profiles for |
+| `bearerToken` | `string`   | The bearer token to use for the request           |
+| `pluginId`    | `string`   | The Skill Name to use for the request             |
+
+## Fields
+
+| Field                     | Type                            | Description                                    |
+| ------------------------- | ------------------------------- | ---------------------------------------------- |
+| `userIdToSocialProfile`   | `Record<string, SocialProfile>` | The social profiles for the given user         |
+| `errorDetails`            | `ErrorDetails`                  | The error details for the request              |
+| `freeTrialLimit`          | `number`                        | The free trial limit for the request           |
+| `remainingFreeTrialCount` | `number`                        | The remaining free trial count for the request |

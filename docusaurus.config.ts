@@ -46,7 +46,7 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
-          editUrl: "https://github.com/Senpi-ai/docs/tree/feat/main/",
+          editUrl: "https://github.com/Senpi-ai/docs/tree/main/",
         },
         blog: {
           showReadingTime: true,

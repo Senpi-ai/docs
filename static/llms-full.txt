@@ -55571,7 +55571,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         "version": "0.1.8+build.1",
         "author": null,
         "description": "Enables your agent to fetch token details for any token on Base",
-        "githubUrl": "https://github.com/moxie-protocol/moxie-agent-skills/tree/main/packages/plugin-moxie-token-details",
+        "githubUrl": "https://github.com/Senpi-ai/senpi-agent-skills/tree/main/packages/plugin-moxie-token-details",
         "logoUrl": "https://raw.githubusercontent.com/moxie-protocol/moxie-agent-skills/refs/heads/main/packages/plugin-moxie-token-details/images/logo.svg",
         "settings": {},
         "capabilities": ["Token prices", "Market caps", "Liquidity", "Holders"],
@@ -55628,7 +55628,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         "version": "0.1.8+build.1",
         "author": null,
         "description": "Enables your agent to send tokens from your agent wallet",
-        "githubUrl": "https://github.com/moxie-protocol/moxie-agent-skills/tree/main/packages/plugin-moxie-token-transfer",
+        "githubUrl": "https://github.com/Senpi-ai/senpi-agent-skills/tree/main/packages/plugin-moxie-token-transfer",
         "logoUrl": "https://raw.githubusercontent.com/moxie-protocol/moxie-agent-skills/refs/heads/main/packages/plugin-moxie-token-transfer/images/logo.svg",
         "settings": {},
         "capabilities": [
@@ -55679,7 +55679,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         "version": "0.1.8+build.1",
         "author": null,
         "description": "In-depth analysis on Base users, including trades, portfolios, and posts on Farcaster and X.",
-        "githubUrl": "https://github.com/moxie-protocol/moxie-agent-skills/tree/main/packages/plugin-moxie-social-alpha",
+        "githubUrl": "https://github.com/Senpi-ai/senpi-agent-skills/tree/main/packages/plugin-moxie-social-alpha",
         "logoUrl": "https://raw.githubusercontent.com/moxie-protocol/moxie-agent-skills/refs/heads/main/packages/plugin-moxie-social-alpha/images/logo.svg",
         "settings": {},
         "capabilities": [
@@ -55759,7 +55759,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         "version": "0.1.8+build.1",
         "author": null,
         "description": "Enables your agent to trade and swap for you onchain using your Agent Wallet",
-        "githubUrl": "https://github.com/moxie-protocol/moxie-agent-skills/tree/main/packages/plugin-moxie-swap",
+        "githubUrl": "https://github.com/Senpi-ai/senpi-agent-skills/tree/main/packages/plugin-moxie-swap",
         "logoUrl": "https://raw.githubusercontent.com/moxie-protocol/moxie-agent-skills/refs/heads/main/packages/plugin-moxie-swap/images/logo.svg",
         "settings": {},
         "capabilities": [
@@ -55811,7 +55811,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         "version": "0.1.8+build.1",
         "author": null,
         "description": "Enables your agent to fetch portfolio details for thousands of wallets indexed by Moxie",
-        "githubUrl": "https://github.com/moxie-protocol/moxie-agent-skills/tree/main/packages/plugin-moxie-balance",
+        "githubUrl": "https://github.com/Senpi-ai/senpi-agent-skills/tree/main/packages/plugin-moxie-balance",
         "logoUrl": "https://raw.githubusercontent.com/moxie-protocol/moxie-agent-skills/refs/heads/main/packages/plugin-moxie-balance/images/logo.svg",
         "settings": {},
         "capabilities": [
@@ -55878,7 +55878,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         "version": "0.1.8+build.1",
         "author": null,
         "description": "Discover Base whales with Moxie AI! ",
-        "githubUrl": "https://github.com/moxie-protocol/moxie-agent-skills/tree/main/packages/plugin-moxie-whale-hunter",
+        "githubUrl": "https://github.com/Senpi-ai/senpi-agent-skills/tree/main/packages/plugin-moxie-whale-hunter",
         "logoUrl": "https://raw.githubusercontent.com/moxie-protocol/moxie-agent-skills/refs/heads/main/packages/plugin-moxie-whale-hunter/images/logo.svg",
         "settings": {},
         "capabilities": [
@@ -55936,7 +55936,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         "version": "0.1.8+build.1",
         "author": null,
         "description": "Enables your agent to buy or sell tokens for you based on limit conditions.",
-        "githubUrl": "https://github.com/moxie-protocol/moxie-agent-skills/tree/main/packages/plugin-moxie-limit-order",
+        "githubUrl": "https://github.com/Senpi-ai/senpi-agent-skills/tree/main/packages/plugin-moxie-limit-order",
         "logoUrl": "https://raw.githubusercontent.com/moxie-protocol/moxie-agent-skills/refs/heads/main/packages/plugin-moxie-limit-order/images/logo.svg",
         "settings": {},
         "capabilities": [
@@ -55983,7 +55983,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         "version": "0.1.8+build.1",
         "author": null,
         "description": "Analyze token sentiments on X and Farcaster!",
-        "githubUrl": "https://github.com/moxie-protocol/moxie-agent-skills/tree/main/packages/plugin-token-social-sentiment",
+        "githubUrl": "https://github.com/Senpi-ai/senpi-agent-skills/tree/main/packages/plugin-token-social-sentiment",
         "logoUrl": "https://raw.githubusercontent.com/moxie-protocol/moxie-agent-skills/e9ac0912aba19398350aeaa63006211f0ccca403/packages/plugin-moxie-token-social-sentiment/images/logo.svg",
         "settings": {},
         "capabilities": ["Analyze token sentiments on X and Farcaster"],
@@ -56027,7 +56027,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         "version": "0.0.2",
         "author": "DegenFans",
         "description": "Enables your agent to recommend staking options for AlfaFrens channels",
-        "githubUrl": "https://github.com/moxie-protocol/moxie-agent-skills/tree/main/packages/plugin-degenfans-alfafrens",
+        "githubUrl": "https://github.com/Senpi-ai/senpi-agent-skills/tree/main/packages/plugin-degenfans-alfafrens",
         "logoUrl": "https://raw.githubusercontent.com/moxie-protocol/moxie-agent-skills/refs/heads/main/packages/plugin-degenfans-alfafrens/images/logo.png",
         "settings": {},
         "capabilities": [
@@ -67456,7 +67456,7 @@ module.exports = {
     - [Get Started](#get-started)
     - [Create Your First Skills](#create-your-first-skills)
     - [General Guidelines For Skills Development](#general-guidelines-for-skills-development)
-    - [Register Your Skills to Moxie](#register-your-skills-to-moxie)
+    - [Register Your Skills to Moxie](#register-your-skills-to-senpi)
 - [📋 General Guidelines For Skills Registration](#-general-guidelines-for-skills-registration)
 - [💬 Community \& Contact](#-community--contact)
 - [👥 Contributors](#-contributors)
@@ -67565,7 +67565,7 @@ You should see the skills you added in the Registry client app if the skills met
 
 2. If your Creator Agent Skill require environment variable for production purpose, then fill in [this form](https://forms.gle/8hzDyCVKKLs4MkTEA) to request submission. The Moxie team shall directly reach out to you either through **Email** ([support@airstack.xyz](mailto:support@airstack.xyz)) or **Farcaster** (group chat) for submission.
 
-3. Lastly, commit all the changes you made on your branches and create a new [PR](https://github.com/moxie-protocol/moxie-agent-skills/pulls) to the repository's `main` branch.
+3. Lastly, commit all the changes you made on your branches and create a new [PR](https://github.com/Senpi-ai/senpi-agent-skills/pulls) to the repository's `main` branch.
 
 ## 📋 General Guidelines For Skills Registration
 
@@ -67585,12 +67585,12 @@ The Moxie team will review the newly created Creator Agent Skills and once merge
 
 ## 💬 Community & Contact
 
-- [GitHub Issues](https://github.com/moxie-protocol/moxie-agent-skills/issues). Best for: bugs you encounter when developing new Creator Agent Skills, and feature proposals.
+- [GitHub Issues](https://github.com/Senpi-ai/senpi-agent-skills/issues). Best for: bugs you encounter when developing new Creator Agent Skills, and feature proposals.
 - [Telegram](https://t.me/+QVjX1VPh3SpmNjMx). Best for: sharing your Creator Agent Skills and hanging out with the Moxie Developer Community.
 
 ## 👥 Contributors
 
-<a href="https://github.com/moxie-protocol/moxie-agent-skills/graphs/contributors">
+<a href="https://github.com/Senpi-ai/senpi-agent-skills/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=moxie-protocol/moxie-agent-skills" />
 </a>
 ````
@@ -69461,9 +69461,9 @@ import CopyPageButton from "@site/src/components/CopyPageButton";
 
 <CopyPageButton />
 
-To develop an AI Agent Skill, you will be using the [Senpi Eliza Skills Framework](https://github.com/moxie-protocol/moxie-agent-skills) as the base for your development.
+To develop an AI Agent Skill, you will be using the [Senpi Eliza Skills Framework](https://github.com/Senpi-ai/senpi-agent-skills) as the base for your development.
 
-In this tutorial, you will learn how to create your first Senpi Skill for your AI Agent using the [Senpi Eliza Skills Framework](https://github.com/moxie-protocol/moxie-agent-skills).
+In this tutorial, you will learn how to create your first Senpi Skill for your AI Agent using the [Senpi Eliza Skills Framework](https://github.com/Senpi-ai/senpi-agent-skills).
 
 The AI Agent Skill demonstrated here will have 2 `actions` defined for individual functionalities:
 
@@ -69487,7 +69487,7 @@ Before you begin development, please ensure you have all the prerequisites for t
 
 ## Setup Your Environment
 
-Once your have all the prerequisites, fork [**the Senpi Eliza Skills Framework repository**](https://github.com/moxie-protocol/moxie-agent-plugin?tab=readme-ov-file#register-your-skills-to-moxie) and then clone it locally to your machine.
+Once your have all the prerequisites, fork [**the Senpi Eliza Skills Framework repository**](https://github.com/Senpi-ai/senpi-agent-skills?tab=readme-ov-file#register-your-skills-to-senpi) and then clone it locally to your machine.
 
 Once you cloned the repository, you can setup your environment with the following scripts:
 
@@ -69908,7 +69908,7 @@ A valid skills.json entry will look like this:
     "version": "0.1.8+build.1",
     "author": null,
     "description": "Enables your agent to fetch token details for any token on Base",
-    "githubUrl": "https://github.com/moxie-protocol/moxie-agent-skills/tree/main/packages/plugin-first-skill",
+    "githubUrl": "https://github.com/Senpi-ai/senpi-agent-skills/tree/main/packages/plugin-first-skill",
     "logoUrl": "https://raw.githubusercontent.com/moxie-protocol/moxie-agent-skills/refs/heads/main/packages/plugin-first-skill/images/logo.svg",
     "settings": {},
     "capabilities": ["Read ETH balance on Base"],
@@ -70649,7 +70649,7 @@ If your AI Agent Skill require environment variable for production purpose, then
 
 ## Step 3: Create a Pull Request
 
-Lastly, commit all the changes you made on your branches and create a new [PR](https://github.com/moxie-protocol/moxie-agent-skills/pulls) to the repository's `main` branch. <br /><br />Before requesting for review, make sure that you have fulfilled all the requirements in the [pre-launch checklist](../../guidelines-and-policies/pre-launch-checklist.mdx).<br/><br />The Senpi team will review the newly created AI Agent Skills and once merged, your Skills will automatically be registered to the Skills Marketplace where it's accessible for Senpi users to use.
+Lastly, commit all the changes you made on your branches and create a new [PR](https://github.com/Senpi-ai/senpi-agent-skills/pulls) to the repository's `main` branch. <br /><br />Before requesting for review, make sure that you have fulfilled all the requirements in the [pre-launch checklist](../../guidelines-and-policies/pre-launch-checklist.mdx).<br/><br />The Senpi team will review the newly created AI Agent Skills and once merged, your Skills will automatically be registered to the Skills Marketplace where it's accessible for Senpi users to use.
 
 <DeveloperSupport />
 ````
@@ -70947,7 +70947,7 @@ The Senpi Client is a specialized Eliza client that extends the `DirectClient` c
 
 One of its key features is the ability to inject authenticated users data into predefined states, enabling developers to access relevant information during Skill development.
 
-In the [Senpi Eliza Skills Framework](https://github.com/moxie-protocol/moxie-agent-skills), the Senpi Client does not include an authentication layer for local development purposes. Consequently, the injected states will return mock data instead of real user data.
+In the [Senpi Eliza Skills Framework](https://github.com/Senpi-ai/senpi-agent-skills), the Senpi Client does not include an authentication layer for local development purposes. Consequently, the injected states will return mock data instead of real user data.
 
 These states include:
 
@@ -70979,9 +70979,9 @@ import CopyPageButton from "@site/src/components/CopyPageButton";
 
 ![Senpi Eliza Skills Framework](/img/architecture.png)
 
-On top of the basic features offered by the Eliza Framework, [Senpi Eliza Skills Framework](https://github.com/moxie-protocol/moxie-agent-skills) repository also provides a set of core features that can be used to build more advanced and complex Skills.
+On top of the basic features offered by the Eliza Framework, [Senpi Eliza Skills Framework](https://github.com/Senpi-ai/senpi-agent-skills) repository also provides a set of core features that can be used to build more advanced and complex Skills.
 
-Those core features unique to the [Senpi Eliza Skills Framework](https://github.com/moxie-protocol/moxie-agent-skills) are:
+Those core features unique to the [Senpi Eliza Skills Framework](https://github.com/Senpi-ai/senpi-agent-skills) are:
 
 - **User Agent Wallets**: A user-owned embedded wallet that agents can use to execute onchain actions (e.g., trades, staking).
 - [**Senpi Agent Lib**](./senpi-agent-lib/index.mdx): Utilities for executing transactions via the agent wallet & fetching Senpi-related data.

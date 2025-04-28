@@ -160,7 +160,56 @@ const config: Config = {
     [
       "@docusaurus/plugin-client-redirects",
       {
-        redirects: [],
+        redirects: [
+          {
+            to: "/",
+            from: ["/ai-agents-and-skills-marketplace/overview"],
+          },
+          {
+            to: "/get-started/quickstart",
+            from: ["/ai-agents-and-skills-marketplace/quickstart"],
+          },
+          {
+            to: "/get-started/quickstart/build-your-first-skill",
+            from: [
+              "/ai-agents-and-skills-marketplace/quickstart/create-your-first-skill",
+            ],
+          },
+          {
+            to: "/get-started/quickstart/connect-skills-to-senpi",
+            from: [
+              "/ai-agents-and-skills-marketplace/quickstart/connect-skills-to-moxie",
+            ],
+          },
+          {
+            to: "/get-started/quickstart/execute-transactions-in-skill",
+            from: [
+              "/ai-agents-and-skills-marketplace/quickstart/execute-transactions-in-skill",
+            ],
+          },
+          {
+            to: "/references/architecture",
+            from: ["/ai-agents-and-skills-marketplace/core-features"],
+          },
+          {
+            to: "/references/senpi-client",
+            from: [
+              "/ai-agents-and-skills-marketplace/core-features/moxie-client",
+            ],
+          },
+          {
+            to: "/references/senpi-agent-lib",
+            from: ["/ai-agents-and-skills-marketplace/core-features/moxie-lib"],
+          },
+          {
+            to: "/get-started/guides/structuring-your-skill-responses",
+            from: ["/ai-agents-and-skills-marketplace/core-features/responses"],
+          },
+          {
+            to: "/references/architecture",
+            from: ["/ai-agents-and-skills-marketplace/references"],
+          },
+        ],
       },
     ],
   ],

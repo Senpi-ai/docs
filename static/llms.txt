@@ -25,32 +25,32 @@
 ## References
 
 - [Architecture](https://developer.senpi.ai/references/architecture): Senpi Eliza Skills Framework
-- [Senpi Agent Lib](https://developer.senpi.ai/references/moxie-agent-lib): Senpi Agent Libs provides a suite of functions that enables developers to execute on-chain transactions and retrieve Senpi-related data efficiently.
-- [MoxieWalletClient](https://developer.senpi.ai/references/moxie-agent-lib/class/moxiewalletclient): MoxieWalletClient is a class that provides methods to interact with the Senpi agent's embedded wallet.
-- [getPortfolioData](https://developer.senpi.ai/references/moxie-agent-lib/functions/getPortfolioData): Description
-- [getPortfolioV2Data](https://developer.senpi.ai/references/moxie-agent-lib/functions/getPortfolioV2Data): Description
-- [getSocialProfilesByMoxieIdMultiple](https://developer.senpi.ai/references/moxie-agent-lib/functions/getSocialProfilesByMoxieIdMultiple): Description
-- [getTokenDetails](https://developer.senpi.ai/references/moxie-agent-lib/functions/getTokenDetails): Description
-- [getTokenMetadata](https://developer.senpi.ai/references/moxie-agent-lib/functions/getTokenMetadata): Description
-- [getTrendingTokenDetails](https://developer.senpi.ai/references/moxie-agent-lib/functions/getTrendingTokenDetails): Description
-- [getUserByMoxieId](https://developer.senpi.ai/references/moxie-agent-lib/functions/getUserByMoxieId): Description
-- [getUserByMoxieIdMultiple](https://developer.senpi.ai/references/moxie-agent-lib/functions/getUserByMoxieIdMultiple): Description
-- [ENSMetadata](https://developer.senpi.ai/references/moxie-agent-lib/types/ensmetadata): Description
-- [EvmCaip2ChainId](https://developer.senpi.ai/references/moxie-agent-lib/types/evmcaip2chainId): Description
-- [FarcasterMetadata](https://developer.senpi.ai/references/moxie-agent-lib/types/farcastermetadata): Description
-- [MoxieIdentity](https://developer.senpi.ai/references/moxie-agent-lib/types/moxieidentity): Description
-- [MoxieWallet](https://developer.senpi.ai/references/moxie-agent-lib/types/moxiewallet): Description
-- [MoxieWalletSendTransactionResponseType](https://developer.senpi.ai/references/moxie-agent-lib/types/moxiewalletsendtransactionresponsetype): Description
-- [MoxieWalletSignMessageResponseType](https://developer.senpi.ai/references/moxie-agent-lib/types/moxiewalletsignmessageresponsetype): Description
-- [MoxieWalletSignTypedDataResponseType](https://developer.senpi.ai/references/moxie-agent-lib/types/moxiewalletsigntypeddataresponsetype): Description
-- [TwitterMetadata](https://developer.senpi.ai/references/moxie-agent-lib/types/twittermetadata): Description
-- [VestingContracts](https://developer.senpi.ai/references/moxie-agent-lib/types/vestingcontracts): Description
-- [Senpi Client](https://developer.senpi.ai/references/moxie-client): Use Senpi States to access user-level data for your Skills.
-- [agentName](https://developer.senpi.ai/references/moxie-client/agentName): agentName state returns the agent's name in string type.
-- [agentWallet](https://developer.senpi.ai/references/moxie-client/agentWallet): agentWallet state returns info and metadata of Senpi user's agent wallet that can be used to execute transactions and sign messages.
-- [currentWalletBalance](https://developer.senpi.ai/references/moxie-client/currentWalletBalance): currentWalletBalance state returns an array of token balances for the user's agent wallet.
-- [moxieWalletClient](https://developer.senpi.ai/references/moxie-client/moxeiWalletClient): moxieWalletClient state returns a class instance of Senpi agent's embedded wallet that can be used to execute transactions and sign messages.
-- [moxieUserInfo](https://developer.senpi.ai/references/moxie-client/states/moxieUserInfo): moxieUserInfo state returns all Senpi user's related information, from user ID, username, wallet, etc.
+- [Senpi Agent Lib](https://developer.senpi.ai/references/senpi-agent-lib): Senpi Agent Libs provides a suite of functions that enables developers to execute on-chain transactions and retrieve Senpi-related data efficiently.
+- [MoxieWalletClient](https://developer.senpi.ai/references/senpi-agent-lib/class/moxiewalletclient): MoxieWalletClient is a class that provides methods to interact with the Senpi agent's embedded wallet.
+- [getPortfolioData](https://developer.senpi.ai/references/senpi-agent-lib/functions/getPortfolioData): Description
+- [getPortfolioV2Data](https://developer.senpi.ai/references/senpi-agent-lib/functions/getPortfolioV2Data): Description
+- [getSocialProfilesByMoxieIdMultiple](https://developer.senpi.ai/references/senpi-agent-lib/functions/getSocialProfilesByMoxieIdMultiple): Description
+- [getTokenDetails](https://developer.senpi.ai/references/senpi-agent-lib/functions/getTokenDetails): Description
+- [getTokenMetadata](https://developer.senpi.ai/references/senpi-agent-lib/functions/getTokenMetadata): Description
+- [getTrendingTokenDetails](https://developer.senpi.ai/references/senpi-agent-lib/functions/getTrendingTokenDetails): Description
+- [getUserByMoxieId](https://developer.senpi.ai/references/senpi-agent-lib/functions/getUserByMoxieId): Description
+- [getUserByMoxieIdMultiple](https://developer.senpi.ai/references/senpi-agent-lib/functions/getUserByMoxieIdMultiple): Description
+- [ENSMetadata](https://developer.senpi.ai/references/senpi-agent-lib/types/ensmetadata): Description
+- [EvmCaip2ChainId](https://developer.senpi.ai/references/senpi-agent-lib/types/evmcaip2chainId): Description
+- [FarcasterMetadata](https://developer.senpi.ai/references/senpi-agent-lib/types/farcastermetadata): Description
+- [MoxieIdentity](https://developer.senpi.ai/references/senpi-agent-lib/types/moxieidentity): Description
+- [MoxieWallet](https://developer.senpi.ai/references/senpi-agent-lib/types/moxiewallet): Description
+- [MoxieWalletSendTransactionResponseType](https://developer.senpi.ai/references/senpi-agent-lib/types/moxiewalletsendtransactionresponsetype): Description
+- [MoxieWalletSignMessageResponseType](https://developer.senpi.ai/references/senpi-agent-lib/types/moxiewalletsignmessageresponsetype): Description
+- [MoxieWalletSignTypedDataResponseType](https://developer.senpi.ai/references/senpi-agent-lib/types/moxiewalletsigntypeddataresponsetype): Description
+- [TwitterMetadata](https://developer.senpi.ai/references/senpi-agent-lib/types/twittermetadata): Description
+- [VestingContracts](https://developer.senpi.ai/references/senpi-agent-lib/types/vestingcontracts): Description
+- [Senpi Client](https://developer.senpi.ai/references/senpi-client): Use Senpi States to access user-level data for your Skills.
+- [agentName](https://developer.senpi.ai/references/senpi-client/agentName): agentName state returns the agent's name in string type.
+- [agentWallet](https://developer.senpi.ai/references/senpi-client/agentWallet): agentWallet state returns info and metadata of Senpi user's agent wallet that can be used to execute transactions and sign messages.
+- [currentWalletBalance](https://developer.senpi.ai/references/senpi-client/currentWalletBalance): currentWalletBalance state returns an array of token balances for the user's agent wallet.
+- [moxieWalletClient](https://developer.senpi.ai/references/senpi-client/moxeiWalletClient): moxieWalletClient state returns a class instance of Senpi agent's embedded wallet that can be used to execute transactions and sign messages.
+- [moxieUserInfo](https://developer.senpi.ai/references/senpi-client/states/moxieUserInfo): moxieUserInfo state returns all Senpi user's related information, from user ID, username, wallet, etc.
 
 ## ElizaOS Core Documentation
 

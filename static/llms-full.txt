@@ -7164,7 +7164,7 @@ import {
     generateObject,
     ModelClass,
 } from "@moxie-protocol/core";
-import { MoxieWalletClient } from "@moxie-protocol/moxie-agent-lib/src/wallet";
+import { MoxieWalletClient } from "@moxie-protocol/senpi-agent-lib/src/wallet";
 import { formatEther, http, createPublicClient } from "viem";
 import { base } from "viem/chains";
 import { getTokenBalance } from "../utils/balance";
@@ -7240,7 +7240,7 @@ import {
     generateObject,
     ModelClass,
 } from "@moxie-protocol/core";
-import { MoxieWalletClient } from "@moxie-protocol/moxie-agent-lib/src/wallet";
+import { MoxieWalletClient } from "@moxie-protocol/senpi-agent-lib/src/wallet";
 import { transferEthTemplate } from "../templates";
 import { TransferEthSchema } from "../types";
 
@@ -8368,7 +8368,7 @@ import {
     Portfolio,
 } from "@moxie-protocol/moxie-agent-lib";
 import { walletService, MoxieUser } from "@moxie-protocol/moxie-agent-lib";
-import { MoxieWalletClient } from "@moxie-protocol/moxie-agent-lib/src/wallet";
+import { MoxieWalletClient } from "@moxie-protocol/senpi-agent-lib/src/wallet";
 
 import multer from "multer";
 import * as fs from "node:fs";
@@ -24615,7 +24615,7 @@ export default defineConfig({
 });
 ````
 
-## File: packages/moxie-agent-lib/src/services/balanceValidator.ts
+## File: packages/senpi-agent-lib/src/services/balanceValidator.ts
 ````typescript
 import { elizaLogger } from "@moxie-protocol/core";
 import { MoxieUser } from "./types"
@@ -24736,7 +24736,7 @@ function roundToDecimalPlaces(num: number, decimalPlaces: number): number {
   }
 ````
 
-## File: packages/moxie-agent-lib/src/services/constants.ts
+## File: packages/senpi-agent-lib/src/services/constants.ts
 ````typescript
 import { Fta } from "../services/fta";
 import { MoxieUser } from "../services/types";
@@ -24943,7 +24943,7 @@ export const MOXIE_USER_PORTFOLIOS_QUERY = (filterConditions: string[]) => `
     `;
 ````
 
-## File: packages/moxie-agent-lib/src/services/cowService.ts
+## File: packages/senpi-agent-lib/src/services/cowService.ts
 ````typescript
 interface DeleteLimitOrdersRequest {
     orderUids: string[];
@@ -24994,7 +24994,7 @@ export async function deleteLimitOrders(request: DeleteLimitOrdersRequest): Prom
 }
 ````
 
-## File: packages/moxie-agent-lib/src/services/fta.ts
+## File: packages/senpi-agent-lib/src/services/fta.ts
 ````typescript
 import { elizaLogger } from "@moxie-protocol/core";
 
@@ -25230,7 +25230,7 @@ export async function getFtaUserMapping(
 }
 ````
 
-## File: packages/moxie-agent-lib/src/services/MoxieAgentDBAdapter.ts
+## File: packages/senpi-agent-lib/src/services/MoxieAgentDBAdapter.ts
 ````typescript
 import { PostgresDatabaseAdapter } from "@elizaos/adapter-postgres";
 import { elizaLogger } from "@moxie-protocol/core";
@@ -25852,7 +25852,7 @@ export async function getMoxiePortfolioInfoByCreatorTokenDetails(
 }
 ````
 
-## File: packages/moxie-agent-lib/src/services/moxieUserService.ts
+## File: packages/senpi-agent-lib/src/services/moxieUserService.ts
 ````typescript
 import { elizaLogger } from "@moxie-protocol/core";
 import {
@@ -26729,7 +26729,7 @@ export async function getUserByMoxieIdMultipleMinimal(
 }
 ````
 
-## File: packages/moxie-agent-lib/src/services/portfolio.ts
+## File: packages/senpi-agent-lib/src/services/portfolio.ts
 ````typescript
 import { elizaLogger, IAgentConfig } from "@moxie-protocol/core";
 
@@ -26812,7 +26812,7 @@ export async function fetchPortfolioByMoxieIdOrderByTVL (moxieId: string, limit:
 }
 ````
 
-## File: packages/moxie-agent-lib/src/services/portfolioService.ts
+## File: packages/senpi-agent-lib/src/services/portfolioService.ts
 ````typescript
 import { IAgentRuntime } from "@moxie-protocol/core";
 import { elizaLogger } from "@moxie-protocol/core";
@@ -27109,7 +27109,7 @@ export async function getMoxiePortfolioInfoByCreatorTokenDetails(
 }
 ````
 
-## File: packages/moxie-agent-lib/src/services/RedisClient.ts
+## File: packages/senpi-agent-lib/src/services/RedisClient.ts
 ````typescript
 import Redis from "ioredis";
 import { IDatabaseCacheAdapter, UUID, elizaLogger } from "@moxie-protocol/core";
@@ -27199,7 +27199,7 @@ export class RedisClient implements IDatabaseCacheAdapter {
 export default RedisClient;
 ````
 
-## File: packages/moxie-agent-lib/src/services/tokenDetails.ts
+## File: packages/senpi-agent-lib/src/services/tokenDetails.ts
 ````typescript
 import { Codex } from "@codex-data/sdk";
 import { TokenDetails, LiquidityPool } from "./types";
@@ -27432,7 +27432,7 @@ export async function getTrendingTokenDetails(tokenAddresses: string[]): Promise
 }
 ````
 
-## File: packages/moxie-agent-lib/src/services/tokenSymbol.ts
+## File: packages/senpi-agent-lib/src/services/tokenSymbol.ts
 ````typescript
 import { ethers } from "ethers";
 /**
@@ -27464,7 +27464,7 @@ export async function getERC20TokenSymbol(tokenAddress: string) {
 }
 ````
 
-## File: packages/moxie-agent-lib/src/services/types.ts
+## File: packages/senpi-agent-lib/src/services/types.ts
 ````typescript
 import { State } from "@moxie-protocol/core";
 import { IAgentRuntime } from "@moxie-protocol/core";
@@ -27879,7 +27879,7 @@ export interface CampaignTokenDetails {
 }
 ````
 
-## File: packages/moxie-agent-lib/src/services/zapperService.ts
+## File: packages/senpi-agent-lib/src/services/zapperService.ts
 ````typescript
 import axios from "axios";
 import { elizaLogger, IAgentRuntime } from "@moxie-protocol/core";
@@ -28335,7 +28335,7 @@ export async function getTokenMetadata(
 }
 ````
 
-## File: packages/moxie-agent-lib/src/index.ts
+## File: packages/senpi-agent-lib/src/index.ts
 ````typescript
 import * as moxieUserService from "./services/moxieUserService";
 import * as ftaService from "./services/fta";
@@ -28418,7 +28418,7 @@ export {
 export { deleteLimitOrders } from "./services/cowService";
 ````
 
-## File: packages/moxie-agent-lib/src/wallet.ts
+## File: packages/senpi-agent-lib/src/wallet.ts
 ````typescript
 import {EthereumSignMessageResponseType, EthereumSignTypedDataResponseType, EthereumSendTransactionResponseType, EthereumSendTransactionInputType, Wallet, Hex } from "@privy-io/server-auth";
 import { ethers } from "ethers";
@@ -28565,7 +28565,7 @@ export type MoxieClientWallet = Wallet
 export type MoxieHex = Hex
 ````
 
-## File: packages/moxie-agent-lib/.env.test
+## File: packages/senpi-agent-lib/.env.test
 ````
 MOXIE_API_URL=''
 AIRSTACK_BACKEND_GRAPHQL_ENDPOINT=''
@@ -28573,7 +28573,7 @@ AIRSTACK_API_KEY=''
 CODEX_API_KEY=''
 ````
 
-## File: packages/moxie-agent-lib/.npmignore
+## File: packages/senpi-agent-lib/.npmignore
 ````
 *
 
@@ -28583,7 +28583,7 @@ CODEX_API_KEY=''
 !tsup.config.ts
 ````
 
-## File: packages/moxie-agent-lib/package.json
+## File: packages/senpi-agent-lib/package.json
 ````json
 {
     "name": "@moxie-protocol/moxie-agent-lib",
@@ -28608,14 +28608,14 @@ CODEX_API_KEY=''
 }
 ````
 
-## File: packages/moxie-agent-lib/README.md
+## File: packages/senpi-agent-lib/README.md
 ````markdown
 # Lib for moxie related operations
 
 1. Fetching user details by moxieId
 ````
 
-## File: packages/moxie-agent-lib/tsconfig.json
+## File: packages/senpi-agent-lib/tsconfig.json
 ````json
 {
     "extends": "../core/tsconfig.json",
@@ -28628,7 +28628,7 @@ CODEX_API_KEY=''
 }
 ````
 
-## File: packages/moxie-agent-lib/tsup.config.ts
+## File: packages/senpi-agent-lib/tsup.config.ts
 ````typescript
 import { defineConfig } from "tsup";
 
@@ -28669,7 +28669,7 @@ import {
     generateObject,
     ModelClass,
 } from "@moxie-protocol/core";
-import { MoxieWalletClient } from "@moxie-protocol/moxie-agent-lib/src/wallet";
+import { MoxieWalletClient } from "@moxie-protocol/senpi-agent-lib/src/wallet";
 import {
     CASINO_GAME_TYPE,
     CoinToss,
@@ -29169,7 +29169,7 @@ import {
     generateObject,
     ModelClass,
 } from "@moxie-protocol/core";
-import { MoxieWalletClient } from "@moxie-protocol/moxie-agent-lib/src/wallet";
+import { MoxieWalletClient } from "@moxie-protocol/senpi-agent-lib/src/wallet";
 import {
     CASINO_GAME_TYPE,
     Dice,
@@ -29659,8 +29659,8 @@ import {
     generateObject,
     ModelClass,
 } from "@moxie-protocol/core";
-import { MoxieUser } from "@moxie-protocol/moxie-agent-lib/src";
-import { MoxieWalletClient } from "@moxie-protocol/moxie-agent-lib/src/wallet";
+import { MoxieUser } from "@moxie-protocol/senpi-agent-lib/src";
+import { MoxieWalletClient } from "@moxie-protocol/senpi-agent-lib/src/wallet";
 import {
     CASINO_GAME_TYPE,
     slugById,
@@ -29978,7 +29978,7 @@ import {
     generateObject,
     ModelClass,
 } from "@moxie-protocol/core";
-import { MoxieWalletClient } from "@moxie-protocol/moxie-agent-lib/src/wallet";
+import { MoxieWalletClient } from "@moxie-protocol/senpi-agent-lib/src/wallet";
 import {
     CASINO_GAME_TYPE,
     Roulette,
@@ -30637,7 +30637,7 @@ export async function getCasinoTokens(): Promise<Token[]> {
 ````typescript
 import { type Hex } from "viem";
 import { ethers } from "ethers";
-import { MoxieWalletClient } from "@moxie-protocol/moxie-agent-lib/src/wallet";
+import { MoxieWalletClient } from "@moxie-protocol/senpi-agent-lib/src/wallet";
 import {
     casinoChainIds,
     casinoChainById,
@@ -36861,7 +36861,7 @@ import {
     elizaLogger
 } from "@moxie-protocol/core";
 import { MoxieUser } from "@moxie-protocol/moxie-agent-lib";
-import { ErrorDetails } from "@moxie-protocol/moxie-agent-lib/src/services/types";
+import { ErrorDetails } from "@moxie-protocol/senpi-agent-lib/src/services/types";
 const CACHE_EXPIRATION = 120000; // 2 minutes in milliseconds
 
 import { FREEMIUM_TRENDING_CREATORS } from "./config";
@@ -38644,7 +38644,7 @@ import {
 
 import { elizaLogger} from '@moxie-protocol/core';
 import { MoxieAgentDBAdapter, TransactionDetails } from '@moxie-protocol/moxie-agent-lib';
-import { MoxieClientWallet, MoxieWalletClient, MoxieWalletSignTypedDataResponseType } from '@moxie-protocol/moxie-agent-lib/src/wallet';
+import { MoxieClientWallet, MoxieWalletClient, MoxieWalletSignTypedDataResponseType } from '@moxie-protocol/senpi-agent-lib/src/wallet';
 import { ethers } from 'ethers';
 import axios from 'axios';
 import { Context } from '../types/types';
@@ -66830,7 +66830,7 @@ COPY packages/adapter-redis/ ./packages/adapter-redis/
 COPY packages/adapter-postgres/ ./packages/adapter-postgres/
 COPY packages/core/ ./packages/core/
 COPY packages/client-twitter/ ./packages/client-twitter/
-COPY packages/moxie-agent-lib/ ./packages/moxie-agent-lib/
+COPY packages/senpi-agent-lib/ ./packages/senpi-agent-lib/
 COPY packages/plugin-bootstrap/ ./packages/plugin-bootstrap/
 COPY packages/client-moxie/ ./packages/client-moxie/
 COPY packages/client-auto/ ./packages/client-auto/
@@ -66915,7 +66915,7 @@ COPY packages/adapter-redis/ ./packages/adapter-redis/
 COPY packages/adapter-postgres/ ./packages/adapter-postgres/
 COPY packages/core/ ./packages/core/
 COPY packages/client-twitter/ ./packages/client-twitter/
-COPY packages/moxie-agent-lib/ ./packages/moxie-agent-lib/
+COPY packages/senpi-agent-lib/ ./packages/senpi-agent-lib/
 COPY moxie-broadcasting-agent/ ./moxie-broadcasting-agent/
 
 COPY scripts ./scripts
@@ -68032,7 +68032,7 @@ This page provides guidelines for building a high-quality AI Agent Skill to be r
 <DeveloperSupport />
 ```
 
-## File: docs/references/moxie-agent-lib/class/moxiewalletclient.mdx
+## File: docs/references/senpi-agent-lib/class/moxiewalletclient.mdx
 
 ````
 ---
@@ -68045,7 +68045,7 @@ description: MoxieWalletClient is a class that provides methods to interact with
 
 `MoxieWalletClient` is a class that provides methods to interact with the Senpi agent's embedded wallet.
 
-You can also access the `MoxieWalletClient` instance from the [`state.moxieWalletClient`](../../moxie-client/moxeiWalletClient.mdx) object.
+You can also access the `MoxieWalletClient` instance from the [`state.moxieWalletClient`](../../senpi-client/moxeiWalletClient.mdx) object.
 
 ## Pre-requisites
 
@@ -68095,12 +68095,12 @@ class MoxieWalletClient {
 
 | Name              | Type                                                                                                                                                                                                                                            | Description                                |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| `signMessage`     | `async (message: string) =>` [`Promise<MoxieWalletSignMessageResponseType>`](../../moxie-agent-lib/types/moxiewalletsignmessageresponsetype.mdx)                                                                                                | Sign a message with the agent's wallet     |
-| `signTypedData`   | `async (domain: Record<string, any>, types: Record<string, any>, message: Record<string, any>, primaryType: string) =>` [`Promise<MoxieWalletSignTypedDataResponseType>`](../../moxie-agent-lib/types/moxiewalletsigntypeddataresponsetype.mdx) | Sign a typed data with the agent's wallet  |
-| `sendTransaction` | `async (chainId: string, transactionDetails: TransactionDetails) =>` [`Promise<MoxieWalletSendTransactionResponseType>`](../../moxie-agent-lib/types/moxiewalletsendtransactionresponsetype.mdx)                                                | Send a transaction with the agent's wallet |
+| `signMessage`     | `async (message: string) =>` [`Promise<MoxieWalletSignMessageResponseType>`](../../senpi-agent-lib/types/moxiewalletsignmessageresponsetype.mdx)                                                                                                | Sign a message with the agent's wallet     |
+| `signTypedData`   | `async (domain: Record<string, any>, types: Record<string, any>, message: Record<string, any>, primaryType: string) =>` [`Promise<MoxieWalletSignTypedDataResponseType>`](../../senpi-agent-lib/types/moxiewalletsigntypeddataresponsetype.mdx) | Sign a typed data with the agent's wallet  |
+| `sendTransaction` | `async (chainId: string, transactionDetails: TransactionDetails) =>` [`Promise<MoxieWalletSendTransactionResponseType>`](../../senpi-agent-lib/types/moxiewalletsendtransactionresponsetype.mdx)                                                | Send a transaction with the agent's wallet |
 ````
 
-## File: docs/references/moxie-agent-lib/functions/getPortfolioData.mdx
+## File: docs/references/senpi-agent-lib/functions/getPortfolioData.mdx
 
 ````
 # getPortfolioData
@@ -68109,7 +68109,7 @@ class MoxieWalletClient {
 
 `getPortfolioData` is a function that returns the ERC20 portfolio data for a given Senpi user using the Zapper V1 API.
 
-You can also get this data directly from [`state.currentWalletBalance`](../../moxie-client/currentWalletBalance.mdx).
+You can also get this data directly from [`state.currentWalletBalance`](../../senpi-client/currentWalletBalance.mdx).
 
 ## Pre-requisites
 
@@ -68182,7 +68182,7 @@ export async function getPortfolioData(
 | `tokenBalances` | `TokenBalance[]` | The token balances for the given user |
 ````
 
-## File: docs/references/moxie-agent-lib/functions/getPortfolioV2Data.mdx
+## File: docs/references/senpi-agent-lib/functions/getPortfolioV2Data.mdx
 
 ````
 # getPortfolioV2Data
@@ -68273,7 +68273,7 @@ export async function getPortfolioV2Data(
 | `metadata`      | `Metadata`       | The metadata for the given user       |
 ````
 
-## File: docs/references/moxie-agent-lib/functions/getSocialProfilesByMoxieIdMultiple.mdx
+## File: docs/references/senpi-agent-lib/functions/getSocialProfilesByMoxieIdMultiple.mdx
 
 ````
 # getSocialProfilesByMoxieIdMultiple
@@ -68340,7 +68340,7 @@ export async function getSocialProfilesByMoxieIdMultiple(
 | `remainingFreeTrialCount` | `number`                        | The remaining free trial count for the request |
 ````
 
-## File: docs/references/moxie-agent-lib/functions/getTokenDetails.mdx
+## File: docs/references/senpi-agent-lib/functions/getTokenDetails.mdx
 
 ````
 # getTokenDetails
@@ -68464,7 +68464,7 @@ export async function getTokenDetails(
 | `liquidityPools`           | `LiquidityPool[]` | The liquidity pools of the token                 |
 ````
 
-## File: docs/references/moxie-agent-lib/functions/getTokenMetadata.mdx
+## File: docs/references/senpi-agent-lib/functions/getTokenMetadata.mdx
 
 ````
 # getTokenMetadata
@@ -68525,7 +68525,7 @@ export async function getTokenMetadata(
 | `symbol`  | `string` | The symbol of the token  |
 ````
 
-## File: docs/references/moxie-agent-lib/functions/getTrendingTokenDetails.mdx
+## File: docs/references/senpi-agent-lib/functions/getTrendingTokenDetails.mdx
 
 ````
 # getTrendingTokenDetails
@@ -68651,7 +68651,7 @@ export async function getTrendingTokenDetails(
 | `liquidityPools`           | `LiquidityPool[]` | The liquidity pools of the token                 |
 ````
 
-## File: docs/references/moxie-agent-lib/functions/getUserByMoxieId.mdx
+## File: docs/references/senpi-agent-lib/functions/getUserByMoxieId.mdx
 
 ````
 # getUserByMoxieId
@@ -68790,7 +68790,7 @@ export async function getUserByMoxieId(
 | `vestingContracts`        | [`VestingContract[]`](../types/vestingcontracts.mdx) | Array of vesting contract information                           |
 ````
 
-## File: docs/references/moxie-agent-lib/functions/getUserByMoxieIdMultiple.mdx
+## File: docs/references/senpi-agent-lib/functions/getUserByMoxieIdMultiple.mdx
 
 ````
 # getUserByMoxieIdMultiple
@@ -68931,7 +68931,7 @@ export async function getUserByMoxieIdMultiple(
 | `vestingContracts`        | [`VestingContract[]`](../types/vestingcontracts.mdx) | Array of vesting contract information                           |
 ````
 
-## File: docs/references/moxie-agent-lib/types/ensmetadata.mdx
+## File: docs/references/senpi-agent-lib/types/ensmetadata.mdx
 
 ````
 # ENSMetadata
@@ -68961,7 +68961,7 @@ export interface ENSMetadata {
 | `resolvedAddress` | `string` | The resolved address of the ENS name |
 ````
 
-## File: docs/references/moxie-agent-lib/types/evmcaip2chainId.mdx
+## File: docs/references/senpi-agent-lib/types/evmcaip2chainId.mdx
 
 ````
 # EvmCaip2ChainId
@@ -68977,7 +68977,7 @@ type EvmCaip2ChainId = `eip155:${number}`;
 ```
 ````
 
-## File: docs/references/moxie-agent-lib/types/farcastermetadata.mdx
+## File: docs/references/senpi-agent-lib/types/farcastermetadata.mdx
 
 ````
 # FarcasterMetadata
@@ -69015,7 +69015,7 @@ export interface FarcasterMetadata {
 | `verifiedAt` | `string` | The date and time the user was verified      |
 ````
 
-## File: docs/references/moxie-agent-lib/types/moxieidentity.mdx
+## File: docs/references/senpi-agent-lib/types/moxieidentity.mdx
 
 ````
 # MoxieIdentity
@@ -69057,7 +69057,7 @@ export interface MoxieIdentity {
 | `updatedAt`                      | `string`                                                                                                                           | Timestamp of when the social identity was last updated                              |
 ````
 
-## File: docs/references/moxie-agent-lib/types/moxiewallet.mdx
+## File: docs/references/senpi-agent-lib/types/moxiewallet.mdx
 
 ````
 # MoxieWallet
@@ -69093,7 +69093,7 @@ export interface MoxieWallet {
 | `deletedAt`     | `string` | The date and time the wallet was deleted (optional)        |
 ````
 
-## File: docs/references/moxie-agent-lib/types/moxiewalletsendtransactionresponsetype.mdx
+## File: docs/references/senpi-agent-lib/types/moxiewalletsendtransactionresponsetype.mdx
 
 ````
 # MoxieWalletSendTransactionResponseType
@@ -69119,7 +69119,7 @@ type MoxieWalletSendTransactionResponseType = {
 | `caip2` | [`EvmCaip2ChainId`](./evmcaip2chainId.mdx) | CAIP-2 chain ID for the network the transaction was broadcasted on. |
 ````
 
-## File: docs/references/moxie-agent-lib/types/moxiewalletsignmessageresponsetype.mdx
+## File: docs/references/senpi-agent-lib/types/moxiewalletsignmessageresponsetype.mdx
 
 ````
 # MoxieWalletSignMessageResponseType
@@ -69145,7 +69145,7 @@ type MoxieWalletSignMessageResponseType = {
 | `encoding`  | `string` | Encoding of the signature.        |
 ````
 
-## File: docs/references/moxie-agent-lib/types/moxiewalletsigntypeddataresponsetype.mdx
+## File: docs/references/senpi-agent-lib/types/moxiewalletsigntypeddataresponsetype.mdx
 
 ````
 # MoxieWalletSignTypedDataResponseType
@@ -69171,7 +69171,7 @@ type EthereumSignTypedDataResponseType = {
 | `encoding`  | `string` | Encoding of the signature.        |
 ````
 
-## File: docs/references/moxie-agent-lib/types/twittermetadata.mdx
+## File: docs/references/senpi-agent-lib/types/twittermetadata.mdx
 
 ````
 # TwitterMetadata
@@ -69209,7 +69209,7 @@ export interface TwitterMetadata {
 | `profilePictureUrl` | `string` | The URL of the user's profile picture         |
 ````
 
-## File: docs/references/moxie-agent-lib/types/vestingcontracts.mdx
+## File: docs/references/senpi-agent-lib/types/vestingcontracts.mdx
 
 ````
 # VestingContracts
@@ -69235,7 +69235,7 @@ type VestingContract = {
 | `vestingContractAddress` | `string` | The address of the vesting contract.                    |
 ````
 
-## File: docs/references/moxie-client/agentName.mdx
+## File: docs/references/senpi-client/agentName.mdx
 
 ````
 ---
@@ -69261,7 +69261,7 @@ const agentName: string = state.agentName;
 ```
 ````
 
-## File: docs/references/moxie-client/agentWallet.mdx
+## File: docs/references/senpi-client/agentWallet.mdx
 
 ````
 ---
@@ -69329,7 +69329,7 @@ interface Wallet {
 | `delegated`        | `boolean` | Whether the wallet is delegated |
 ````
 
-## File: docs/references/moxie-client/currentWalletBalance.mdx
+## File: docs/references/senpi-client/currentWalletBalance.mdx
 
 ````
 ---
@@ -69404,7 +69404,7 @@ interface BaseToken {
 | `tokenBalances` | `TokenBalance[]` | The list of token balances |
 ````
 
-## File: docs/references/moxie-client/moxeiWalletClient.mdx
+## File: docs/references/senpi-client/moxeiWalletClient.mdx
 
 ````
 ---
@@ -69614,7 +69614,7 @@ import type {
   Memory,
   State,
 } from "@moxie-protocol/core";
-import { SenpiWalletClient } from "@moxie-protocol/moxie-agent-lib/src/wallet";
+import { SenpiWalletClient } from "@moxie-protocol/senpi-agent-lib/src/wallet";
 import { formatEther, http, createPublicClient } from "viem";
 import { base } from "viem/chains";
 
@@ -70383,7 +70383,7 @@ As a skills developer, you can access the user's agent wallet to execute onchain
 
 ## Executing Transactions Using the Agent Wallet
 
-To execute transactions using the agent wallet, you can simply use the `moxieWalletClient` state in your skill that is injected by the [Senpi Client](../../references/moxie-client/index.mdx) as shown below:
+To execute transactions using the agent wallet, you can simply use the `moxieWalletClient` state in your skill that is injected by the [Senpi Client](../../references/senpi-client/index.mdx) as shown below:
 
 :::info
 
@@ -70450,7 +70450,7 @@ As a skills developer, you can access the user's agent wallet to execute onchain
 
 ## Signing Messages Using the Agent Wallet
 
-To sign messages using the agent wallet, you can simply use the `moxieWalletClient` state in your skill that is injected by the [Senpi Client](../../references/moxie-client/index.mdx) as shown below:
+To sign messages using the agent wallet, you can simply use the `moxieWalletClient` state in your skill that is injected by the [Senpi Client](../../references/senpi-client/index.mdx) as shown below:
 
 :::info
 
@@ -70796,7 +70796,7 @@ import CopyPageButton from "@site/src/components/CopyPageButton";
 
 <CopyPageButton />
 
-All Senpi user-related data is injected to the runtime's state through the [Senpi Client](../../references/moxie-client/index.mdx) and accessible globally from your Skill.
+All Senpi user-related data is injected to the runtime's state through the [Senpi Client](../../references/senpi-client/index.mdx) and accessible globally from your Skill.
 
 To fetch the user data, you can simply use the `state` paramater from an action's `handler` function.
 
@@ -70827,7 +70827,7 @@ export const exampleAction: Action = {
 
 There are other user-related data available in the `state` object that you can use to fetch user data dynamically.
 
-Learn more [here](../../references/moxie-client/index.mdx) to see all the available properties in the `state` object to build your Skill.
+Learn more [here](../../references/senpi-client/index.mdx) to see all the available properties in the `state` object to build your Skill.
 
 <DeveloperSupport />
 ````
@@ -70883,12 +70883,12 @@ export const exampleAction: Action = {
 };
 ```
 
-To learn all the functions available in the Senpi Agent Lib, please refer to the [Senpi Agent Lib References](../../references/moxie-agent-lib/index.mdx).
+To learn all the functions available in the Senpi Agent Lib, please refer to the [Senpi Agent Lib References](../../references/senpi-agent-lib/index.mdx).
 
 <DeveloperSupport />
 ````
 
-## File: docs/references/moxie-agent-lib/index.mdx
+## File: docs/references/senpi-agent-lib/index.mdx
 
 ````
 ---
@@ -70931,7 +70931,7 @@ Keep in mind that:
 <DocCardList />
 ````
 
-## File: docs/references/moxie-client/index.mdx
+## File: docs/references/senpi-client/index.mdx
 
 ```
 ---
@@ -70984,15 +70984,15 @@ On top of the basic features offered by the Eliza Framework, [Senpi Eliza Skills
 Those core features unique to the [Senpi Eliza Skills Framework](https://github.com/moxie-protocol/moxie-agent-skills) are:
 
 - **User Agent Wallets**: A user-owned embedded wallet that agents can use to execute onchain actions (e.g., trades, staking).
-- [**Senpi Agent Lib**](./moxie-agent-lib/index.mdx): Utilities for executing transactions via the agent wallet & fetching Senpi-related data.
-- [**Senpi Client**](./moxie-client/index.mdx): Injects user data into states, available globally.
+- [**Senpi Agent Lib**](./senpi-agent-lib/index.mdx): Utilities for executing transactions via the agent wallet & fetching Senpi-related data.
+- [**Senpi Client**](./senpi-client/index.mdx): Injects user data into states, available globally.
 
-As a Skill developer, you can import both [**Senpi Agent Lib**](./moxie-agent-lib/index.mdx) and [**Senpi Client**](./moxie-client/index.mdx) to your Skill's codebase to create responses based on the user's data and execute transactions for Senpi users via the agent wallet.
+As a Skill developer, you can import both [**Senpi Agent Lib**](./senpi-agent-lib/index.mdx) and [**Senpi Client**](./senpi-client/index.mdx) to your Skill's codebase to create responses based on the user's data and execute transactions for Senpi users via the agent wallet.
 
-For more technicals on the available functions and variables from both libraries, you can respectively refer to the [**Senpi Agent Lib**](./moxie-agent-lib/index.mdx) and [**Senpi Client**](./moxie-client/index.mdx) reference docs.
+For more technicals on the available functions and variables from both libraries, you can respectively refer to the [**Senpi Agent Lib**](./senpi-agent-lib/index.mdx) and [**Senpi Client**](./senpi-client/index.mdx) reference docs.
 ```
 
-## File: docs/references/moxie-client/states/moxieUserInfo.mdx
+## File: docs/references/senpi-client/states/moxieUserInfo.mdx
 
 ````
 ---
@@ -71139,9 +71139,9 @@ export interface MoxieUser {
 | `primaryWalletId`         | `string`                                                                | ID of user's primary wallet                                     |
 | `communicationPreference` | `string`                                                                | User's preferred communication method                           |
 | `createdAt`               | `string`                                                                | Timestamp of when the user account was created                  |
-| `identities`              | [`MoxieIdentity[]`](../../moxie-agent-lib/types/moxieidentity.mdx)      | Array of connected social identities (Twitter, Farcaster, etc.) |
-| `wallets`                 | [`MoxieWallet[]`](../../moxie-agent-lib/types/moxiewallet.mdx)          | Array of connected crypto wallets                               |
-| `vestingContracts`        | [`VestingContract[]`](../../moxie-agent-lib/types/vestingcontracts.mdx) | Array of vesting contract information                           |
+| `identities`              | [`MoxieIdentity[]`](../../senpi-agent-lib/types/moxieidentity.mdx)      | Array of connected social identities (Twitter, Farcaster, etc.) |
+| `wallets`                 | [`MoxieWallet[]`](../../senpi-agent-lib/types/moxiewallet.mdx)          | Array of connected crypto wallets                               |
+| `vestingContracts`        | [`VestingContract[]`](../../senpi-agent-lib/types/vestingcontracts.mdx) | Array of vesting contract information                           |
 ````
 
 ## File: partial/\_developer_support.mdx

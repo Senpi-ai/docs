@@ -8,7 +8,7 @@ description: MoxieWalletClient is a class that provides methods to interact with
 
 `MoxieWalletClient` is a class that provides methods to interact with the Senpi agent's embedded wallet.
 
-You can also access the `MoxieWalletClient` instance from the [`state.moxieWalletClient`](../../moxie-client/moxeiWalletClient.mdx) object.
+You can also access the `MoxieWalletClient` instance from the [`state.moxieWalletClient`](../../senpi-client/moxeiWalletClient.mdx) object.
 
 ## Pre-requisites
 
@@ -58,6 +58,6 @@ class MoxieWalletClient {
 
 | Name              | Type                                                                                                                                                                                                                                            | Description                                |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| `signMessage`     | `async (message: string) =>` [`Promise<MoxieWalletSignMessageResponseType>`](../../moxie-agent-lib/types/moxiewalletsignmessageresponsetype.mdx)                                                                                                | Sign a message with the agent's wallet     |
-| `signTypedData`   | `async (domain: Record<string, any>, types: Record<string, any>, message: Record<string, any>, primaryType: string) =>` [`Promise<MoxieWalletSignTypedDataResponseType>`](../../moxie-agent-lib/types/moxiewalletsigntypeddataresponsetype.mdx) | Sign a typed data with the agent's wallet  |
-| `sendTransaction` | `async (chainId: string, transactionDetails: TransactionDetails) =>` [`Promise<MoxieWalletSendTransactionResponseType>`](../../moxie-agent-lib/types/moxiewalletsendtransactionresponsetype.mdx)                                                | Send a transaction with the agent's wallet |
+| `signMessage`     | `async (message: string) =>` [`Promise<MoxieWalletSignMessageResponseType>`](../../senpi-agent-lib/types/moxiewalletsignmessageresponsetype.mdx)                                                                                                | Sign a message with the agent's wallet     |
+| `signTypedData`   | `async (domain: Record<string, any>, types: Record<string, any>, message: Record<string, any>, primaryType: string) =>` [`Promise<MoxieWalletSignTypedDataResponseType>`](../../senpi-agent-lib/types/moxiewalletsigntypeddataresponsetype.mdx) | Sign a typed data with the agent's wallet  |
+| `sendTransaction` | `async (chainId: string, transactionDetails: TransactionDetails) =>` [`Promise<MoxieWalletSendTransactionResponseType>`](../../senpi-agent-lib/types/moxiewalletsendtransactionresponsetype.mdx)                                                | Send a transaction with the agent's wallet |

@@ -46,8 +46,7 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
-          editUrl:
-            "https://github.com/moxie-protocol/docs/tree/feat/senpi-docs/",
+          editUrl: "https://github.com/moxie-protocol/docs/tree/feat/main/",
         },
         blog: {
           showReadingTime: true,
@@ -117,7 +116,7 @@ const config: Config = {
         },
         // { to: "/changelog", label: "Changelog", position: "left" },
         {
-          href: "https://github.com/moxie-protocol",
+          href: "https://github.com/Senpi-ai",
           position: "right",
           className: "header-github-link",
           "aria-label": "GitHub repository",

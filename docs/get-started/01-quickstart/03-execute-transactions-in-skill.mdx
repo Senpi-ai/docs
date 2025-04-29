@@ -27,8 +27,8 @@ import {
   composeContext,
   generateObject,
   ModelClass,
-} from "@moxie-protocol/core";
-import { MoxieWalletClient } from "@moxie-protocol/moxie-agent-lib";
+} from "@senpi-ai/core";
+import { SenpiWalletClient } from "@senpi-ai/senpi-agent-lib";
 
 export const transferAction: Action = {
   name: "TRANSFER_BASE_ETH",
@@ -239,7 +239,7 @@ export const transferAction: Action = {
         `Transfering ${formattedValue} wei to address ${toAddress}...`
       );
       // Get the agent's wallet instance from state
-      const wallet = state.agentWallet as MoxieWalletClient;
+      const wallet = state.agentWallet as SenpiWalletClient;
 
       // Execute transaction on the agent's wallet
       const { hash } = await wallet.sendTransaction("8543", {
@@ -274,7 +274,7 @@ The execution of the transaction is done by calling the `sendTransaction` method
 Lastly, add the `transferAction` to your skill:
 
 ```ts title="packages/plugin-first-skill/src/index.ts" {9}
-import { Action } from "@moxie-protocol/core";
+import { Action } from "@senpi-ai/core";
 import balanceAction from "../actions/balanceAction";
 import balanceProvider from "../providers/balanceProvider";
 import transferAction from "../actions/transferAction";

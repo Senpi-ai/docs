@@ -12,7 +12,7 @@ The Senpi Agent Lib is a utility library that contains several reusable function
 To import the Senpi Agent Lib, you simply import it in your Skill's action file as shown below:
 
 ```typescript
-import * as agentLib from "@moxie-protocol/moxie-agent-lib";
+import * as agentLib from "@senpi-ai/senpi-agent-lib";
 ```
 
 From here, you can use all the functions available in `agentLib` to fetch the onchain data you need.
@@ -28,8 +28,8 @@ import {
   type Memory,
   type HandlerCallback,
   type State,
-} from "@moxie-protocol/core";
-import { getTokenMetadata } from "@moxie-protocol/moxie-agent-lib";
+} from "@senpi-ai/core";
+import { getTokenMetadata } from "@senpi-ai/senpi-agent-lib";
 
 export const exampleAction: Action = {
   handler: async (

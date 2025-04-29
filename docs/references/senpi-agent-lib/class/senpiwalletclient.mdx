@@ -1,0 +1,63 @@
+---
+description: SenpiWalletClient is a class that provides methods to interact with the Senpi agent's embedded wallet.
+---
+
+# SenpiWalletClient
+
+## Description
+
+`SenpiWalletClient` is a class that provides methods to interact with the Senpi agent's embedded wallet.
+
+You can also access the `SenpiWalletClient` instance from the [`state.senpiWalletClient`](../../senpi-client/moxeiWalletClient.mdx) object.
+
+## Pre-requisites
+
+To use this class, you need to provide the following environment variables:
+
+```
+PRIVATE_KEY=       # Private key for executing tx with Senpi Agent Lib, simulating agent wallet
+RPC_URL=           # RPC URL for executing tx with Senpi Agent Lib
+```
+
+## Usage
+
+```ts
+import { SenpiWalletClient } from "@senpi-ai/senpi-agent-lib";
+
+const senpiWalletClient = new SenpiWalletClient(
+  address,
+  state.authorizationHeader
+);
+```
+
+## Type Signature
+
+```ts
+class SenpiWalletClient {
+  constructor(address: string, bearerToken?: string);
+
+  async signMessage(
+    message: string
+  ): Promise<SenpiWalletSignMessageResponseType>;
+
+  async signTypedData(
+    domain: Record<string, any>,
+    types: Record<string, any>,
+    message: Record<string, any>,
+    primaryType: string
+  ): Promise<SenpiWalletSignTypedDataResponseType>;
+
+  async sendTransaction(
+    chainId: string,
+    transactionDetails: TransactionDetails
+  ): Promise<SenpiWalletSendTransactionResponseType>;
+}
+```
+
+## Methods
+
+| Name              | Type                                                                                                                                                                                                                                            | Description                                |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| `signMessage`     | `async (message: string) =>` [`Promise<SenpiWalletSignMessageResponseType>`](../../senpi-agent-lib/types/senpiwalletsignmessageresponsetype.mdx)                                                                                                | Sign a message with the agent's wallet     |
+| `signTypedData`   | `async (domain: Record<string, any>, types: Record<string, any>, message: Record<string, any>, primaryType: string) =>` [`Promise<SenpiWalletSignTypedDataResponseType>`](../../senpi-agent-lib/types/senpiwalletsigntypeddataresponsetype.mdx) | Sign a typed data with the agent's wallet  |
+| `sendTransaction` | `async (chainId: string, transactionDetails: TransactionDetails) =>` [`Promise<SenpiWalletSendTransactionResponseType>`](../../senpi-agent-lib/types/senpiwalletsendtransactionresponsetype.mdx)                                                | Send a transaction with the agent's wallet |

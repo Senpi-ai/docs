@@ -125,7 +125,7 @@ import type {
   IAgentRuntime,
   Memory,
   State,
-} from "@moxie-protocol/core";
+} from "@senpi-ai/core";
 
 const balanceAction: Action = {
   name: "ETH_BALANCE_ON_BASE",
@@ -159,8 +159,8 @@ import type {
   IAgentRuntime,
   Memory,
   State,
-} from "@moxie-protocol/core";
-import { SenpiWalletClient } from "@moxie-protocol/moxie-agent-lib/src/wallet";
+} from "@senpi-ai/core";
+import { SenpiWalletClient } from "@senpi-ai/senpi-agent-lib/src/wallet";
 import { formatEther, http, createPublicClient } from "viem";
 import { base } from "viem/chains";
 
@@ -211,7 +211,7 @@ import type {
   IAgentRuntime,
   Memory,
   State,
-} from "@moxie-protocol/core";
+} from "@senpi-ai/core";
 
 const balanceAction: Action = {
   // ... same as above
@@ -240,7 +240,7 @@ export default balanceAction;
 Finally, integrate the provider and action above into your plugin by importing it and adding it to the actions array:
 
 ```ts title="packages/plugin-first-skill/src/index.ts" {8,9}
-import { Action } from "@moxie-protocol/core";
+import { Action } from "@senpi-ai/core";
 import balanceAction from "../actions/balanceAction";
 
 const samplePlugin: Plugin = {

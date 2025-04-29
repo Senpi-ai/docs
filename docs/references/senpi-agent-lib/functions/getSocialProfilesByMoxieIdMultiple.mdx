@@ -1,16 +1,16 @@
-# getSocialProfilesByMoxieIdMultiple
+# getSocialProfilesBySenpiIdMultiple
 
 ## Description
 
-`getSocialProfilesByMoxieIdMultiple` is a function that returns the social profiles (e.g. X, Farcaster, etc.) attached to a given Senpi user.
+`getSocialProfilesBySenpiIdMultiple` is a function that returns the social profiles (e.g. X, Farcaster, etc.) attached to a given Senpi user.
 
 ## Usage
 
 ```ts
-import { moxieUserService } from "@moxie-protocol/moxie-agent-lib";
+import { senpiUserService } from "@senpi-ai/senpi-agent-lib";
 
 const socialProfiles =
-  await moxieUserService.getSocialProfilesByMoxieIdMultiple(
+  await senpiUserService.getSocialProfilesBySenpiIdMultiple(
     ["M1"],
     state.authorizationHeader as string,
     stringToUuid("SKILL_NAME")
@@ -37,7 +37,7 @@ const socialProfiles =
 ## Type Signature
 
 ```ts
-export async function getSocialProfilesByMoxieIdMultiple(
+export async function getSocialProfilesBySenpiIdMultiple(
   userIds: string[],
   bearerToken: string,
   pluginId: string

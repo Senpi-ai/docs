@@ -8,14 +8,14 @@ description: agentWallet state returns info and metadata of Senpi user's agent w
 
 `agentWallet` state returns info and metadata of Senpi user's agent wallet that can be used to execute transactions and sign messages.
 
-This state will simply return JSON object, thus if you're looking to execute transactions or sign messages, you can use the [`moxieWalletClient`](./moxeiWalletClient.mdx) state instead.
+This state will simply return JSON object, thus if you're looking to execute transactions or sign messages, you can use the [`senpiWalletClient`](./moxeiWalletClient.mdx) state instead.
 
 ## Usage
 
 ```ts
-import { MoxieClientWallet } from "@moxie-protocol/moxie-agent-lib";
+import { SenpiClientWallet } from "@senpi-ai/senpi-agent-lib";
 
-const agentWallet: MoxieClientWallet = state.agentWallet;
+const agentWallet: SenpiClientWallet = state.agentWallet;
 ```
 
 ## Response

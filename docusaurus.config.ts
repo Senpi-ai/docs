@@ -75,7 +75,7 @@ const config: Config = {
   ],
   themeConfig: {
     // announcementBar: {
-    //   id: "moxie_base",
+    //   id: "senpi_base",
     //   content:
     //     'AI Agents and Skills Marketplace coming Feb 2025! Learn how to build a <a href="/ai-agents-and-skills-marketplace/quickstart/create-your-first-skill#step-23-integrate-the-action-into-your-plugin">AI Agent Skills</a> today!',
     //   backgroundColor: "#8e55ff",
@@ -85,7 +85,7 @@ const config: Config = {
     algolia: {
       appId: "0E7JT4EO4H",
       apiKey: "27c2281916aa623aa3fca88e9d0c6696",
-      indexName: "developer-moxie",
+      indexName: "developer-senpi",
     },
     // Replace with your project's social card
     image: "img/social-card.png",
@@ -134,7 +134,7 @@ const config: Config = {
       //       },
       //       {
       //         label: "Protocol Concepts",
-      //         to: "https://build.moxie.xyz/the-moxie-protocol/moxie-protocol",
+      //         to: "https://build.senpi.xyz/the-senpi-protocol/senpi-protocol",
       //       },
       //       {
       //         label: "Technical Deep Dive",
@@ -178,7 +178,7 @@ const config: Config = {
           {
             to: "/get-started/quickstart/connect-skills-to-senpi",
             from: [
-              "/ai-agents-and-skills-marketplace/quickstart/connect-skills-to-moxie",
+              "/ai-agents-and-skills-marketplace/quickstart/connect-skills-to-senpi",
             ],
           },
           {
@@ -194,12 +194,12 @@ const config: Config = {
           {
             to: "/references/senpi-client",
             from: [
-              "/ai-agents-and-skills-marketplace/core-features/moxie-client",
+              "/ai-agents-and-skills-marketplace/core-features/senpi-client",
             ],
           },
           {
             to: "/references/senpi-agent-lib",
-            from: ["/ai-agents-and-skills-marketplace/core-features/moxie-lib"],
+            from: ["/ai-agents-and-skills-marketplace/core-features/senpi-lib"],
           },
           {
             to: "/get-started/guides/structuring-your-skill-responses",

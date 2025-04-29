@@ -1,19 +1,19 @@
 ---
-description: moxieUserInfo state returns all Senpi user's related information, from user ID, username, wallet, etc.
+description: senpiUserInfo state returns all Senpi user's related information, from user ID, username, wallet, etc.
 ---
 
-# `moxieUserInfo`
+# `senpiUserInfo`
 
 ## Description
 
-`moxieUserInfo` state returns all Senpi user's related information, from user ID, username, wallet, etc.
+`senpiUserInfo` state returns all Senpi user's related information, from user ID, username, wallet, etc.
 
 ## Usage
 
 ```ts
-import { MoxieUser } from "@moxie-protocol/moxie-agent-lib";
+import { SenpiUser } from "@senpi-ai/senpi-agent-lib";
 
-const moxieUserInfo: MoxieUser = state.moxieUserInfo;
+const senpiUserInfo: SenpiUser = state.senpiUserInfo;
 ```
 
 ## Response
@@ -29,8 +29,8 @@ const moxieUserInfo: MoxieUser = state.moxieUserInfo;
   "referrerId": "M12",
   "communicationPreference": "WARPCAST",
   "primaryWalletId": "03463334-3c5c-4d08-9551-188f62b2586a",
-  "moxieScore": 1000,
-  "moxieRank": 0,
+  "senpiScore": 1000,
+  "senpiRank": 0,
   "createdAt": "2024-12-20T14:37:34.348Z",
   "identities": [
     {
@@ -105,7 +105,7 @@ const moxieUserInfo: MoxieUser = state.moxieUserInfo;
 ## Type Signature
 
 ```ts
-export interface MoxieUser {
+export interface SenpiUser {
   id: string;
   userName?: string;
   name?: string;
@@ -113,14 +113,14 @@ export interface MoxieUser {
   profileImageUrl?: string;
   referralCode: string;
   referrerId?: string;
-  moxieScore?: number;
-  moxieRank?: number;
+  senpiScore?: number;
+  senpiRank?: number;
   totalUsers?: number;
   primaryWalletId?: string;
   communicationPreference?: string;
   createdAt: string;
-  identities: MoxieIdentity[];
-  wallets: MoxieWallet[];
+  identities: SenpiIdentity[];
+  wallets: SenpiWallet[];
   vestingContracts?: VestingContract[] | null;
 }
 ```
@@ -136,12 +136,12 @@ export interface MoxieUser {
 | `profileImageUrl`         | `string`                                                                | URL to user's profile image                                     |
 | `referralCode`            | `string`                                                                | User's unique referral code                                     |
 | `referrerId`              | `string`                                                                | ID of the user who referred this user                           |
-| `moxieScore`              | `number`                                                                | User's Senpi Score based on their activity and connections      |
-| `moxieRank`               | `number`                                                                | User's rank among all Senpi users                               |
+| `senpiScore`              | `number`                                                                | User's Senpi Score based on their activity and connections      |
+| `senpiRank`               | `number`                                                                | User's rank among all Senpi users                               |
 | `totalUsers`              | `number`                                                                | Total number of Senpi users                                     |
 | `primaryWalletId`         | `string`                                                                | ID of user's primary wallet                                     |
 | `communicationPreference` | `string`                                                                | User's preferred communication method                           |
 | `createdAt`               | `string`                                                                | Timestamp of when the user account was created                  |
-| `identities`              | [`MoxieIdentity[]`](../../senpi-agent-lib/types/moxieidentity.mdx)      | Array of connected social identities (Twitter, Farcaster, etc.) |
-| `wallets`                 | [`MoxieWallet[]`](../../senpi-agent-lib/types/moxiewallet.mdx)          | Array of connected crypto wallets                               |
+| `identities`              | [`SenpiIdentity[]`](../../senpi-agent-lib/types/senpiidentity.mdx)      | Array of connected social identities (Twitter, Farcaster, etc.) |
+| `wallets`                 | [`SenpiWallet[]`](../../senpi-agent-lib/types/senpiwallet.mdx)          | Array of connected crypto wallets                               |
 | `vestingContracts`        | [`VestingContract[]`](../../senpi-agent-lib/types/vestingcontracts.mdx) | Array of vesting contract information                           |

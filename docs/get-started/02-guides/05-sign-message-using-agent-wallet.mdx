@@ -13,7 +13,7 @@ As a skills developer, you can access the user's agent wallet to execute onchain
 
 ## Signing Messages Using the Agent Wallet
 
-To sign messages using the agent wallet, you can simply use the `moxieWalletClient` state in your skill that is injected by the [Senpi Client](../../references/senpi-client/index.mdx) as shown below:
+To sign messages using the agent wallet, you can simply use the `senpiWalletClient` state in your skill that is injected by the [Senpi Client](../../references/senpi-client/index.mdx) as shown below:
 
 :::info
 
@@ -28,7 +28,7 @@ import {
   type Memory,
   type HandlerCallback,
   type State,
-} from "@moxie-protocol/core";
+} from "@senpi-ai/core";
 
 export const exampleAction: Action = {
   handler: async (
@@ -38,9 +38,9 @@ export const exampleAction: Action = {
     _options: { [key: string]: unknown },
     callback: HandlerCallback
   ) => {
-    const moxieWalletClient = state.moxieWalletClient;
+    const senpiWalletClient = state.senpiWalletClient;
     // Sign a message using user's agent wallet
-    const { signature, encoding } = await moxieWalletClient.signMessage(
+    const { signature, encoding } = await senpiWalletClient.signMessage(
       "Hello Senpi!"
     );
     return true;
@@ -63,7 +63,7 @@ import {
   type Memory,
   type HandlerCallback,
   type State,
-} from "@moxie-protocol/core";
+} from "@senpi-ai/core";
 
 export const exampleAction: Action = {
   handler: async (
@@ -73,9 +73,9 @@ export const exampleAction: Action = {
     _options: { [key: string]: unknown },
     callback: HandlerCallback
   ) => {
-    const moxieWalletClient = state.moxieWalletClient;
+    const senpiWalletClient = state.senpiWalletClient;
     // Sign a EIP-712 typed data message using user's agent wallet
-    const { signature, encoding } = await moxieWalletClient.signTypedData(
+    const { signature, encoding } = await senpiWalletClient.signTypedData(
       domain,
       types,
       message,

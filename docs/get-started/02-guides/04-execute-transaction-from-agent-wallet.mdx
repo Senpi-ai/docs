@@ -17,7 +17,7 @@ As a skills developer, you can access the user's agent wallet to execute onchain
 
 ## Executing Transactions Using the Agent Wallet
 
-To execute transactions using the agent wallet, you can simply use the `moxieWalletClient` state in your skill that is injected by the [Senpi Client](../../references/senpi-client/index.mdx) as shown below:
+To execute transactions using the agent wallet, you can simply use the `senpiWalletClient` state in your skill that is injected by the [Senpi Client](../../references/senpi-client/index.mdx) as shown below:
 
 :::info
 
@@ -31,7 +31,7 @@ import {
   type Memory,
   type HandlerCallback,
   type State,
-} from "@moxie-protocol/core";
+} from "@senpi-ai/core";
 
 export const exampleAction: Action = {
   handler: async (
@@ -41,9 +41,9 @@ export const exampleAction: Action = {
     _options: { [key: string]: unknown },
     callback: HandlerCallback
   ) => {
-    const moxieWalletClient = state.moxieWalletClient;
+    const senpiWalletClient = state.senpiWalletClient;
     // Execute a transaction on user's agent wallet
-    const { hash, caip2 } = await moxieWalletClient.sendTransaction(
+    const { hash, caip2 } = await senpiWalletClient.sendTransaction(
       // EVM Chain ID
       "8453",
       // Transaction Data
